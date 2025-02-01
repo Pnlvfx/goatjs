@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
-import type { Callback } from '../../coraline/src/types.js';
+import type { Callback } from '@goatjs/core/types';
+import { storage } from '@goatjs/storage';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
