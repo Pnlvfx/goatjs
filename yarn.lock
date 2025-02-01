@@ -1549,7 +1549,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.19.0"
     "@types/eslint__js": "npm:^8.42.3"
-    "@types/mime-types": "npm:^2"
+    "@types/mime-types": "npm:^2.1.4"
     "@types/node": "npm:^22.13.0"
     eslint: "npm:^9.19.0"
     eslint-plugin-sonarjs: "npm:^3.0.1"
@@ -2207,7 +2207,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mime-types@npm:^2":
+"@types/mime-types@npm:^2.1.4":
   version: 2.1.4
   resolution: "@types/mime-types@npm:2.1.4"
   checksum: 10c0/a10d57881d14a053556b3d09292de467968d965b0a06d06732c748da39b3aa569270b5b9f32529fd0e9ac1e5f3b91abb894f5b1996373254a65cb87903c86622
