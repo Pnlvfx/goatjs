@@ -17,15 +17,19 @@
   },
   "exports": {
     "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
+      "types": "./dist/esm/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
     }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
+    "generate:package.json": "node ./tools/generate-commonjs-package-json.ts dist/cjs/package.json",
     "test": "rimraf coverage && jest --coverage",
     "lint": "eslint",
-    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "build": "rimraf dist && eslint && yarn build:esm && yarn build:cjs && yarn generate:package.json",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc -p tsconfig.build.json --module CommonJS --moduleResolution Node --outDir dist/cjs",
     "prepare": "npm run build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint"
