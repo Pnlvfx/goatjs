@@ -1,5 +1,5 @@
-import { setTimeout } from 'node:timers/promises';
 import type { Callback } from './types.js';
+import { setTimeout } from 'node:timers/promises';
 
 export const runAtSpecificTime = async (hour: number, minute: number, fn: Callback<void>) => {
   const date = new Date();

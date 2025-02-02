@@ -1,3 +1,5 @@
+import { isProduction } from './config.js';
+
 export const errorToString = (err: unknown, ...args: string[]) => {
   let error = '';
   if (err instanceof Error) {
@@ -13,7 +15,11 @@ export const errorToString = (err: unknown, ...args: string[]) => {
     try {
       error = `UNHANDLED API ERROR: ${JSON.stringify(err)}`;
     } catch {
-      error = 'UNHANDLED API ERROR';
+      error = `UNHANDLED API ERROR`;
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('ErrorToString was unable to parse:', err);
+      }
     }
   }
 

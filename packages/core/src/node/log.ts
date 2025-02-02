@@ -1,7 +1,7 @@
 import { inspect } from 'node:util';
-import { isProduction } from './shared.js';
 import { temporaryFile } from './tempy.js';
 import fs from 'node:fs/promises';
+import { isProduction } from '../config.js';
 
 export const logToFile = async (data: unknown, { extension = 'json' } = {}) => {
   if (isProduction) throw new Error('Do not use coraline.log in production as it is used only for debugging purposes.');

@@ -4,8 +4,8 @@ import { getUserAgent } from './user-agent.js';
 import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
-import { isProduction } from './shared.js';
 import { errorToString } from '../error.js';
+import { isProduction } from '../config.js';
 
 export interface DownloadOptions {
   directory?: string;
