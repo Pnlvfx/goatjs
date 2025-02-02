@@ -3,8 +3,8 @@
 import type { ProcessDescriptor, ProcessDescriptorInternal } from './types.js';
 import process from 'node:process';
 import path from 'node:path';
-import { execFileAsync } from '@goatjs/core/node/exec';
 import { getEntries } from '@goatjs/core/typed-object';
+import { execFileAsync } from '@goatjs/node/exec';
 
 interface Options {
   all?: boolean;
