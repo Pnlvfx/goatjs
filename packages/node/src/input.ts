@@ -1,5 +1,5 @@
 import readline from 'node:readline';
-import { consoleColor, ConsoleColor } from '../console-color.js';
+import { consoleColor, type ConsoleColor } from './console-color.js';
 
 export interface InputOptions {
   title?: string;

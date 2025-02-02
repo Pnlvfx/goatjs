@@ -1,6 +1,5 @@
 import path from 'node:path';
 import { analyzeTsConfig } from 'ts-unused-exports';
-import { getEntries } from '../typed-object.js';
 
 interface UnusedOptions {
   tsConfigPath?: string;
@@ -29,7 +28,7 @@ export const findUnusedExports = ({
   const analyzed = analyzeTsConfig(tsConfigPath);
   const response: Record<string, ExportNameAndLocation[]> = {};
   const unusedFolders = new Set(ignoreFolders);
-  for (const [filePath, value] of getEntries(analyzed.unusedExports)) {
+  for (const [filePath, value] of Object.entries(analyzed.unusedExports)) {
     const filename = path.basename(filePath.toString());
     const folderPath = path.dirname(filePath.toString());
 

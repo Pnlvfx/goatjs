@@ -1,5 +1,4 @@
 import type { Callback } from './types.js';
-import { isProduction } from './config.js';
 import { errorToString } from './error.js';
 import { setTimeout } from 'node:timers/promises';
 
@@ -35,7 +34,7 @@ export const withRetry = <T, Args extends unknown[]>(
             reject(err instanceof Error ? err : new Error(errorToString(err)));
             return;
           }
-          if (!isProduction) {
+          if (process.env['NODE_ENV'] !== 'production') {
             if (failMessage) {
               // eslint-disable-next-line no-console
               console.log(failMessage(errorToString(err), attempt));
