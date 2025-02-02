@@ -1549,33 +1549,22 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.19.0"
     "@types/eslint__js": "npm:^8.42.3"
-    "@types/mime-types": "npm:^2.1.4"
     "@types/node": "npm:^22.13.0"
     eslint: "npm:^9.19.0"
     eslint-plugin-sonarjs: "npm:^3.0.1"
     eslint-plugin-unicorn: "npm:^56.0.1"
     globals: "npm:^15.14.0"
     jest: "npm:^29.7.0"
-    mime-types: "npm:^2.1.35"
     prettier: "npm:^3.4.2"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.5"
     ts-node: "npm:^10.9.2"
-    ts-unused-exports: "npm:^11.0.1"
     typescript: "npm:^5.7.3"
     typescript-eslint: "npm:^8.22.0"
-  peerDependencies:
-    mime-types: "*"
-    ts-unused-exports: "*"
-  peerDependenciesMeta:
-    mime-types:
-      optional: true
-    ts-unused-exports:
-      optional: true
   languageName: unknown
   linkType: soft
 
-"@goatjs/node@workspace:packages/node":
+"@goatjs/node@npm:*, @goatjs/node@workspace:packages/node":
   version: 0.0.0-use.local
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
@@ -1612,7 +1601,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.19.0"
-    "@goatjs/core": "npm:*"
+    "@goatjs/node": "npm:*"
     "@types/eslint__js": "npm:^8.42.3"
     "@types/node": "npm:^22.13.0"
     eslint: "npm:^9.19.0"
@@ -1627,7 +1616,7 @@ __metadata:
     typescript: "npm:^5.7.3"
     typescript-eslint: "npm:^8.22.0"
   peerDependencies:
-    "@goatjs/core": "*"
+    "@goatjs/node": "*"
   languageName: unknown
   linkType: soft
 
