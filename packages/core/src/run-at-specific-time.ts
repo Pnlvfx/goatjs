@@ -1,5 +1,5 @@
 import type { Callback } from './types.js';
-import { setTimeout } from 'node:timers/promises';
+import { wait } from './wait.js';
 
 export const runAtSpecificTime = async (hour: number, minute: number, fn: Callback<void>) => {
   const date = new Date();
@@ -13,6 +13,6 @@ export const runAtSpecificTime = async (hour: number, minute: number, fn: Callba
 
   const timeUntilFunction = date.getTime() - Date.now();
   if (timeUntilFunction < 0) throw new Error('Internal time error.');
-  await setTimeout(timeUntilFunction);
+  await wait(timeUntilFunction);
   await fn();
 };

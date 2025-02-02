@@ -1,6 +1,6 @@
 import type { Callback } from './types.js';
 import { errorToString } from './error.js';
-import { setTimeout } from 'node:timers/promises';
+import { wait } from './wait.js';
 
 export interface RetryOptions {
   maxAttempts?: number;
@@ -46,7 +46,7 @@ export const withRetry = <T, Args extends unknown[]>(
               );
             }
           }
-          await setTimeout(retryIntervalMs);
+          await wait(retryIntervalMs);
           await handle();
           attempt++;
         }

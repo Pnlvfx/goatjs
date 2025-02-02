@@ -1,4 +1,4 @@
-import { setTimeout } from 'node:timers/promises';
+import { wait } from './wait.js';
 
 export const backOff = <T>(fn: () => Promise<T>, maxAttempt = 5, baseDelayMs = 1000) => {
   let attempt = 1;
@@ -13,7 +13,7 @@ export const backOff = <T>(fn: () => Promise<T>, maxAttempt = 5, baseDelayMs = 1
         // eslint-disable-next-line no-console
         console.log(`Retry attempt ${attempt.toString()} after ${delayMs.toString()}ms`);
       }
-      await setTimeout(delayMs);
+      await wait(delayMs);
       attempt++;
       return execute();
     }
