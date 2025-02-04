@@ -1,7 +1,7 @@
 import type { IndexSpecification } from './patched-types.js';
 import { type CollectionOptions, type CreateIndexesOptions, type DbOptions, MongoClient, type MongoClientOptions } from 'mongodb';
 
-type Document = Record<string, unknown>;
+type Document = object;
 
 export const createGoatClient = (url: string, options?: MongoClientOptions) => {
   const client = new MongoClient(url, options);
