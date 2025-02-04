@@ -36,7 +36,7 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
           return collection.find(filter, options);
         },
         // @TODO
-        findOne: (filter: Filter<T>, options: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
+        findOne: (filter: Filter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
           return collection.findOne(filter, options);
         },
         // @TODO
