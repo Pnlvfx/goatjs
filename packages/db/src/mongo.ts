@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-array-method-this-argument */
+/* eslint-disable unicorn/no-array-callback-reference */
 import type { IndexSpecification } from './patched-types.js';
 import {
   type CollectionOptions,
@@ -6,6 +8,12 @@ import {
   type IndexSpecification as MongoIndexSpecification,
   MongoClient,
   type MongoClientOptions,
+  type Filter,
+  type FindOptions,
+  type Abortable,
+  type OptionalUnlessRequiredId,
+  type BulkWriteOptions,
+  InsertOneOptions,
 } from 'mongodb';
 
 type Document = object;
@@ -22,6 +30,22 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
       return {
         createIndex: (indexSpec: IndexSpecification<keyof T & string>, options?: CreateIndexesOptions) => {
           return collection.createIndex(indexSpec as unknown as MongoIndexSpecification, options);
+        },
+        // @TODO
+        find: (filter: Filter<T>, options?: FindOptions & Abortable) => {
+          return collection.find(filter, options);
+        },
+        // @TODO
+        findOne: (filter: Filter<T>, options: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
+          return collection.findOne(filter, options);
+        },
+        // @TODO
+        insertOne: (doc: OptionalUnlessRequiredId<T>, options?: InsertOneOptions) => {
+          return collection.insertOne(doc, options);
+        },
+        // @TODO
+        insertMany: (docs: readonly OptionalUnlessRequiredId<T>[], options?: BulkWriteOptions) => {
+          return collection.insertMany(docs, options);
         },
       };
     };
