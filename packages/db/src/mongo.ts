@@ -32,3 +32,4 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
 };
 
 export type { WithId } from 'mongodb';
+export type * from './patched-types.js';
