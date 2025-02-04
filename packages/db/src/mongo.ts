@@ -59,3 +59,5 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
 
 export { ObjectId } from 'mongodb';
 export type * from './patched-types.js';
+
+// const a = createGoatClient('').db('').collection<{ ciao: 'i'; _id: 'sisisi'; ciaaao: 0 }>('').createIndex({ ciao: 1, ciaaao: 1 });
