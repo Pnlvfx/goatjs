@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-array-method-this-argument */
 /* eslint-disable unicorn/no-array-callback-reference */
-import type { GoatClientOptions, GoatIndexSpecification, GoatDocument } from './patched-types.js';
+import type { GoatClientOptions, GoatIndexSpecification } from './patched-types.js';
 import {
   type CollectionOptions,
   type CreateIndexesOptions,
@@ -21,7 +21,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
   const createDb = (dbName: string, options?: DbOptions) => {
     const db = client.db(dbName, options);
 
-    const createCollection = <K, T extends GoatDocument<K>>(name: string, options?: CollectionOptions) => {
+    const createCollection = <T extends { _id: unknown }>(name: string, options?: CollectionOptions) => {
       const collection = db.collection<T>(name, options);
 
       return {
