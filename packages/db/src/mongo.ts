@@ -42,12 +42,12 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           return collection.insertOne(doc as unknown as OptionalUnlessRequiredId<T>, options);
         },
         // @TODO
-        insertMany: (docs: readonly OptionalUnlessRequiredId<T>[], options?: BulkWriteOptions) => {
-          return collection.insertMany(docs, options);
+        insertMany: (docs: readonly T[], options?: BulkWriteOptions) => {
+          return collection.insertMany(docs as unknown as OptionalUnlessRequiredId<T>[], options);
         },
         // @TODO
-        aggregate: (pipeline: Document[], options?: AggregateOptions & Abortable) => {
-          return collection.aggregate(pipeline, options);
+        aggregate: (pipeline: T[], options?: AggregateOptions & Abortable) => {
+          return collection.aggregate<T>(pipeline, options);
         },
       };
     };
