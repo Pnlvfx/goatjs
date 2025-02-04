@@ -11,7 +11,7 @@ import {
   type Abortable,
   type OptionalUnlessRequiredId,
   type BulkWriteOptions,
-  InsertOneOptions,
+  type InsertOneOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -24,7 +24,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
       const collection = db.collection<T>(name, options);
 
       return {
-        createIndex: (indexSpec: GoatIndexSpecification<keyof T & string>, options?: CreateIndexesOptions) => {
+        createIndex: (indexSpec: GoatIndexSpecification<Exclude<keyof T & string, '_id'>>, options?: CreateIndexesOptions) => {
           return collection.createIndex(indexSpec, options);
         },
         // @TODO
