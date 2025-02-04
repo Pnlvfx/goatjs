@@ -12,6 +12,7 @@ import {
   type OptionalUnlessRequiredId,
   type BulkWriteOptions,
   type InsertOneOptions,
+  AggregateOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -44,6 +45,10 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         insertMany: (docs: readonly OptionalUnlessRequiredId<T>[], options?: BulkWriteOptions) => {
           return collection.insertMany(docs, options);
         },
+        // @TODO
+        aggregate: (pipeline: Document[], options?: AggregateOptions & Abortable) => {
+          return collection.aggregate(pipeline, options);
+        },
       };
     };
 
@@ -60,5 +65,3 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
 
 export { ObjectId } from 'mongodb';
 export type * from './patched-types.js';
-
-// const a = createGoatClient('').db('').collection<{ ciao: 'i'; _id: 'sisisi'; ciaaao: 0 }>('').createIndex({ ciao: 1 });
