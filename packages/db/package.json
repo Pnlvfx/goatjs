@@ -16,10 +16,8 @@
     "node": ">=20.0.0"
   },
   "exports": {
-    "./*": {
-      "types": "./dist/mongo.d.ts",
-      "default": "./dist/mongo.js"
-    }
+    "types": "./dist/mongo.d.ts",
+    "default": "./dist/mongo.js"
   },
   "scripts": {
     "tsc": "tsc --noEmit true",

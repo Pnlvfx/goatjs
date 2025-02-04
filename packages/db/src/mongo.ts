@@ -1,6 +1,6 @@
 import { CollectionOptions, CreateIndexesOptions, type DbOptions, IndexSpecification, MongoClient, type MongoClientOptions } from 'mongodb';
 
-export const createMongoClient = (url: string, options: MongoClientOptions) => {
+export const createGoatClient = (url: string, options: MongoClientOptions) => {
   const client = new MongoClient(url, options);
 
   const createDb = (dbName: string, options: DbOptions) => {
