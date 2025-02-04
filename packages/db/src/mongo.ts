@@ -5,7 +5,6 @@ import {
   type CollectionOptions,
   type CreateIndexesOptions,
   type DbOptions,
-  type IndexSpecification,
   MongoClient,
   type Filter,
   type FindOptions,
@@ -26,7 +25,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
 
       return {
         createIndex: (indexSpec: GoatIndexSpecification<keyof T & string>, options?: CreateIndexesOptions) => {
-          return collection.createIndex(indexSpec as unknown as IndexSpecification, options);
+          return collection.createIndex(indexSpec, options);
         },
         // @TODO
         find: (filter: Filter<T>, options?: FindOptions & Abortable) => {
