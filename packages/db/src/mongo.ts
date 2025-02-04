@@ -1,4 +1,7 @@
-import { type CollectionOptions, type CreateIndexesOptions, type DbOptions, IndexSpecification, MongoClient, type MongoClientOptions } from 'mongodb';
+import type { IndexSpecification } from './patched-types.js';
+import { type CollectionOptions, type CreateIndexesOptions, type DbOptions, MongoClient, type MongoClientOptions } from 'mongodb';
+
+type Document = Record<string, unknown>;
 
 export const createGoatClient = (url: string, options?: MongoClientOptions) => {
   const client = new MongoClient(url, options);
@@ -6,11 +9,14 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
   const createDb = (dbName: string, options?: DbOptions) => {
     const db = client.db(dbName, options);
 
-    const createCollection = (name: string, options?: CollectionOptions) => {
-      const collection = db.collection(name, options);
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
+    const createCollection = <T extends Document>(name: string, options?: CollectionOptions) => {
+      const collection = db.collection<T>(name, options);
 
       return {
-        createIndex: (indexSpec: IndexSpecification, options?: CreateIndexesOptions) => collection.createIndex(indexSpec, options),
+        createIndex: <K extends keyof T & string>(indexSpec: IndexSpecification<K>, options?: CreateIndexesOptions) => {
+          return collection.createIndex(indexSpec, options);
+        },
       };
     };
 
