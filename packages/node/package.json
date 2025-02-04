@@ -17,24 +17,15 @@
   },
   "exports": {
     "./*": {
-      "import": {
-        "types": "./dist/esm/*.d.ts",
-        "default": "./dist/esm/*.js"
-      },
-      "require": {
-        "types": "./dist/cjs/*.d.ts",
-        "default": "./dist/cjs/*.js"
-      }
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
     }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
-    "generate:package.json": "node ./tools/generate-commonjs-package-json.ts dist/cjs/package.json",
     "test": "rimraf coverage && jest --coverage",
     "lint": "eslint",
-    "build": "rimraf dist && eslint && yarn build:esm && yarn build:cjs && yarn generate:package.json",
-    "build:esm": "tsc -p tsconfig.build.json",
-    "build:cjs": "tsc -p tsconfig.build.json --module CommonJS --moduleResolution Node --outDir dist/cjs",
+    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint"
@@ -48,7 +39,7 @@
     "@eslint/js": "^9.19.0",
     "@types/eslint__js": "^8.42.3",
     "@types/mime-types": "^2.1.4",
-    "@types/node": "^22.13.0",
+    "@types/node": "^22.13.1",
     "eslint": "^9.19.0",
     "eslint-plugin-sonarjs": "^3.0.1",
     "eslint-plugin-unicorn": "^56.0.1",
@@ -61,7 +52,7 @@
     "ts-node": "^10.9.2",
     "ts-unused-exports": "^11.0.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0"
+    "typescript-eslint": "^8.23.0"
   },
   "peerDependencies": {
     "mime-types": "*",
