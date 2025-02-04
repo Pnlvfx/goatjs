@@ -1,13 +1,12 @@
 /* eslint-disable unicorn/no-array-method-this-argument */
 /* eslint-disable unicorn/no-array-callback-reference */
-import type { IndexSpecification } from './patched-types.js';
+import type { GoatClientOptions, GoatIndexSpecification, GoatDocument } from './patched-types.js';
 import {
   type CollectionOptions,
   type CreateIndexesOptions,
   type DbOptions,
-  type IndexSpecification as MongoIndexSpecification,
+  type IndexSpecification,
   MongoClient,
-  type MongoClientOptions,
   type Filter,
   type FindOptions,
   type Abortable,
@@ -16,20 +15,18 @@ import {
   InsertOneOptions,
 } from 'mongodb';
 
-type Document = object;
-
-export const createGoatClient = (url: string, options?: MongoClientOptions) => {
-  const client = new MongoClient(url, options);
+export const createGoatClient = (url: string, options?: GoatClientOptions) => {
+  const client = new MongoClient(url, { forceServerObjectId: false, ...options });
 
   const createDb = (dbName: string, options?: DbOptions) => {
     const db = client.db(dbName, options);
 
-    const createCollection = <T extends Document>(name: string, options?: CollectionOptions) => {
+    const createCollection = <K, T extends GoatDocument<K>>(name: string, options?: CollectionOptions) => {
       const collection = db.collection<T>(name, options);
 
       return {
-        createIndex: (indexSpec: IndexSpecification<keyof T & string>, options?: CreateIndexesOptions) => {
-          return collection.createIndex(indexSpec as unknown as MongoIndexSpecification, options);
+        createIndex: (indexSpec: GoatIndexSpecification<keyof T & string>, options?: CreateIndexesOptions) => {
+          return collection.createIndex(indexSpec as unknown as IndexSpecification, options);
         },
         // @TODO
         find: (filter: Filter<T>, options?: FindOptions & Abortable) => {
@@ -40,8 +37,8 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
           return collection.findOne(filter, options);
         },
         // @TODO
-        insertOne: (doc: OptionalUnlessRequiredId<T>, options?: InsertOneOptions) => {
-          return collection.insertOne(doc, options);
+        insertOne: (doc: T, options?: InsertOneOptions) => {
+          return collection.insertOne(doc as unknown as OptionalUnlessRequiredId<T>, options);
         },
         // @TODO
         insertMany: (docs: readonly OptionalUnlessRequiredId<T>[], options?: BulkWriteOptions) => {
@@ -61,5 +58,4 @@ export const createGoatClient = (url: string, options?: MongoClientOptions) => {
   };
 };
 
-export type { WithId } from 'mongodb';
 export type * from './patched-types.js';
