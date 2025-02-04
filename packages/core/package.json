@@ -25,7 +25,7 @@
     "tsc": "tsc --noEmit true",
     "test": "rimraf coverage && jest --coverage",
     "lint": "eslint",
-    "build": "rimraf dist && eslint && yarn tsc -p tsconfig.build.json",
+    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint"
