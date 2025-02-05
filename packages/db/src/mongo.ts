@@ -26,7 +26,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
       /** @ts-expect-error removing the WithId interface from the return. */
       function find(): FindCursor<T>;
       function find(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<T>;
-      function find<U extends T>(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<U>;
+      function find<U extends T>(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<T>;
       function find(filter?: GoatFilter<T>, options?: FindOptions & Abortable) {
         /** @ts-expect-error typescript see that we removed the interface. */
         return collection.find(filter, options);
