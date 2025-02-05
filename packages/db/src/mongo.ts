@@ -15,7 +15,8 @@ import {
   type FindOneAndUpdateOptions,
   type UpdateFilter,
   type ModifyResult,
-  UpdateOptions,
+  type UpdateOptions,
+  type DeleteOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -93,6 +94,10 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         updateOne: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.updateOne(filter, update, options);
+        },
+        deleteMany: (filter?: GoatFilter<T>, options?: DeleteOptions) => {
+          /** @ts-expect-error types are differents. */
+          return collection.deleteMany(filter, options);
         },
         aggregate: (pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
           return collection.aggregate(pipeline, options);
