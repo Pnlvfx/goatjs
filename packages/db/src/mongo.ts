@@ -66,7 +66,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           return collection.createIndex(indexSpec, options);
         },
         find,
-        findOne<T>(filter?: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {
+        findOne<U>(filter?: GoatFilter<U>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {
           /** @ts-expect-error Removing WithId from the return type */
           return collection.findOne(filter, options);
         },
