@@ -1,15 +1,13 @@
 /* eslint-disable unicorn/no-array-method-this-argument */
 /* eslint-disable unicorn/no-array-callback-reference */
-import type { GoatClientOptions, GoatIndexSpecification } from './patched-types.js';
+import type { GoatClientOptions, GoatFilter, GoatIndexSpecification } from './patched-types.js';
 import {
   MongoClient,
   type CollectionOptions,
   type CreateIndexesOptions,
   type DbOptions,
-  type Filter,
   type FindOptions,
   type Abortable,
-  type OptionalUnlessRequiredId,
   type BulkWriteOptions,
   type InsertOneOptions,
   type AggregateOptions,
@@ -25,12 +23,13 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
     const createCollection = <T extends { _id: unknown }>(name: string, options?: CollectionOptions) => {
       const collection = db.collection<T>(name, options);
 
-      /** @ts-expect-error Removing the WithId from the return. */
+      /** @ts-expect-error removing the WithId interface from the return. */
       function find(): FindCursor<T>;
-      function find(filter: Filter<T>, options?: FindOptions & Abortable): FindCursor<T>;
-      function find<U extends Document>(filter: Filter<T>, options?: FindOptions & Abortable): FindCursor<U>;
-      function find(filter?: Filter<T>, options?: FindOptions & Abortable) {
-        return collection.find(filter as unknown as Filter<T>, options);
+      function find(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<T>;
+      function find<U extends Document>(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<U>;
+      function find(filter?: GoatFilter<T>, options?: FindOptions & Abortable) {
+        /** @ts-expect-error typescript see that we removed the interface. */
+        return collection.find(filter, options);
       }
 
       return {
@@ -68,16 +67,19 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         },
         find,
         // @TODO
-        findOne: (filter: Filter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
+        findOne: (filter: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
+          /** @ts-expect-error the types are different but they are working. */
           return collection.findOne(filter, options);
         },
         // @TODO
         insertOne: (doc: T, options?: InsertOneOptions) => {
-          return collection.insertOne(doc as unknown as OptionalUnlessRequiredId<T>, options);
+          /** @ts-expect-error types are differents. */
+          return collection.insertOne(doc, options);
         },
         // @TODO
         insertMany: (docs: readonly T[], options?: BulkWriteOptions) => {
-          return collection.insertMany(docs as unknown as OptionalUnlessRequiredId<T>[], options);
+          /** @ts-expect-error types are differents. */
+          return collection.insertMany(docs, options);
         },
         // @TODO
         aggregate: (pipeline: T[], options?: AggregateOptions & Abortable) => {
