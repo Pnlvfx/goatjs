@@ -1,6 +1,8 @@
-import type { Condition, IndexDirection, MongoClientOptions, RootFilterOperators } from 'mongodb';
+import type { FilterOperators, IndexDirection, MongoClientOptions, RootFilterOperators } from 'mongodb';
 
 export type GoatClientOptions = Omit<MongoClientOptions, 'forceServerObjectId'>;
+
+export type Condition<T> = T | FilterOperators<T>;
 
 /** A MongoDB filter can be some portion of the schema or a set of operators @public */
 export type GoatFilter<T> = {
