@@ -12,6 +12,10 @@ import {
   type InsertOneOptions,
   type AggregateOptions,
   type FindCursor,
+  FindOneAndUpdateOptions,
+  UpdateFilter,
+  Filter,
+  ModifyResult,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -69,6 +73,14 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         findOne<U>(filter?: GoatFilter<U>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {
           /** @ts-expect-error Removing WithId from the return type */
           return collection.findOne(filter, options);
+        },
+        findOneAndUpdate: <B extends boolean>(
+          filter: Filter<T>,
+          update: UpdateFilter<T>,
+          options?: FindOneAndUpdateOptions & { includeResultMetadata: B },
+        ): Promise<B extends true ? ModifyResult<T> : T | null> => {
+          /** @ts-expect-error Removing WithId from the return type */
+          return collection.findOneAndUpdate(filter, update, options);
         },
         insertOne: (doc: T, options?: InsertOneOptions) => {
           /** @ts-expect-error types are differents. */
