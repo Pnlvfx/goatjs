@@ -79,7 +79,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           return collection.insertMany(docs, options);
         },
         aggregate: (pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
-          return collection.aggregate<T>(pipeline, options);
+          return collection.aggregate(pipeline, options);
         },
       };
     };
