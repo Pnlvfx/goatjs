@@ -18,6 +18,6 @@ export const generateHSLColor = ({ h, s, l }: HSLInput = {}) => {
   const hue = h ?? Math.floor(Math.random() * 360);
   const saturation = s ?? Math.floor(Math.random() * 101);
   const luminance = l ?? Math.floor(Math.random() * 101);
-  const color = `hsl(${hue.toString()},${saturation.toString()}%,${luminance.toString()}%)`;
-  return { value: color, h: hue, s: saturation, l: luminance };
+  const hsl = `hsl(${hue.toString()},${saturation.toString()}%,${luminance.toString()}%)` as const;
+  return { hsl, h: hue, s: saturation, l: luminance };
 };
