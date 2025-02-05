@@ -66,22 +66,18 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           return collection.createIndex(indexSpec, options);
         },
         find,
-        // @TODO
-        findOne: (filter: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable) => {
-          /** @ts-expect-error the types are different but they are working. */
+        findOne<T>(filter?: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {
+          /** @ts-expect-error Removing WithId from the return type */
           return collection.findOne(filter, options);
         },
-        // @TODO
         insertOne: (doc: T, options?: InsertOneOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.insertOne(doc, options);
         },
-        // @TODO
         insertMany: (docs: readonly T[], options?: BulkWriteOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.insertMany(docs, options);
         },
-        // @TODO
         aggregate: (pipeline: T[], options?: AggregateOptions & Abortable) => {
           return collection.aggregate<T>(pipeline, options);
         },
