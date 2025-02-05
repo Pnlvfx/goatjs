@@ -12,10 +12,10 @@ import {
   type InsertOneOptions,
   type AggregateOptions,
   type FindCursor,
-  FindOneAndUpdateOptions,
-  UpdateFilter,
-  Filter,
-  ModifyResult,
+  type FindOneAndUpdateOptions,
+  type UpdateFilter,
+  type ModifyResult,
+  UpdateOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -75,7 +75,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           return collection.findOne(filter, options);
         },
         findOneAndUpdate: <B extends boolean>(
-          filter: Filter<T>,
+          filter: GoatFilter<T>,
           update: UpdateFilter<T>,
           options?: FindOneAndUpdateOptions & { includeResultMetadata: B },
         ): Promise<B extends true ? ModifyResult<T> : T | null> => {
@@ -89,6 +89,10 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         insertMany: (docs: readonly T[], options?: BulkWriteOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.insertMany(docs, options);
+        },
+        updateOne: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions) => {
+          /** @ts-expect-error types are differents. */
+          return collection.updateOne(filter, update, options);
         },
         aggregate: (pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
           return collection.aggregate(pipeline, options);
