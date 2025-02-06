@@ -19,8 +19,9 @@ const formatDate = (date: AcceptedDate) => {
   };
 };
 
-export const create = (date: AcceptedDate = new Date()) => {
+export const createDate = (date: AcceptedDate = new Date()) => {
   const time = formatDate(date);
+
   return {
     ...time,
     toYYMM: () => `${time.year.toString()}-${time.month}-${time.day}`,
