@@ -3,7 +3,7 @@ export const arrayMove = <T>(arr: T[], fromIndex: number, toIndex: number) => {
   arr.splice(toIndex, 0, ...el);
 };
 
-export const getUniqueArray = <T extends Record<K, string>, K extends keyof T>(arr: T[], key: K): T[] => {
+export const getUniqueArraybyKey = <T extends Record<K, string>, K extends keyof T>(arr: T[], key: K): T[] => {
   return [...new Map(arr.map((item) => [item[key], item])).values()];
 };
 
@@ -17,4 +17,8 @@ export const shuffleArray = <T>(array: T[]) => {
     array[i] = val;
     array[j] = temp;
   }
+};
+
+export const getDuplicates = <T>(array: T[]) => {
+  return array.filter((e, i, a) => a.indexOf(e) !== i);
 };
