@@ -55,6 +55,6 @@ export const rgbToHsl = (...[r, g, b]: RgbPixel) => {
   return [h * 360, `${(s * 100).toString()}%`, `${(l * 100).toString()}%`] as HslPixel;
 };
 
-export const hslToString = (...[h, s, l]: HslPixel) => {
+export const parseHslPixel = (...[h, s, l]: HslPixel) => {
   return `hsl(${h.toString()},${s},${l})` as const;
 };
