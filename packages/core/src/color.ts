@@ -18,8 +18,7 @@ export const generateHSLColor = ({ h, s, l }: HSLInput = {}) => {
   const hue = h ?? Math.floor(Math.random() * 360);
   const saturation = s ?? Math.floor(Math.random() * 101);
   const luminance = l ?? Math.floor(Math.random() * 101);
-  const hsl = `hsl(${hue.toString()},${saturation.toString()}%,${luminance.toString()}%)` as const;
-  return { hsl, h: hue, s: saturation, l: luminance };
+  return [hue, `${saturation.toString()}%`, `${luminance.toString()}%`] as HslPixel;
 };
 
 export type RgbPixel = [number, number, number];
@@ -54,4 +53,8 @@ export const rgbToHsl = (...[r, g, b]: RgbPixel) => {
     h /= 6;
   }
   return [h * 360, `${(s * 100).toString()}%`, `${(l * 100).toString()}%`] as HslPixel;
+};
+
+export const hslToString = (...[h, s, l]: HslPixel) => {
+  return `hsl(${h.toString()},${s},${l})` as const;
 };
