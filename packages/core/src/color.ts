@@ -23,6 +23,7 @@ export const generateHSLColor = ({ h, s, l }: HSLInput = {}) => {
 };
 
 export type RgbPixel = [number, number, number];
+export type HslPixel = [number, string, string];
 
 export const rgbToHsl = (...[r, g, b]: RgbPixel) => {
   let d,
@@ -52,5 +53,5 @@ export const rgbToHsl = (...[r, g, b]: RgbPixel) => {
     }
     h /= 6;
   }
-  return [h * 360, `${(s * 100).toString()}%`, `${(l * 100).toString()}%`];
+  return [h * 360, `${(s * 100).toString()}%`, `${(l * 100).toString()}%`] as HslPixel;
 };
