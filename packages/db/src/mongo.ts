@@ -17,6 +17,7 @@ import {
   type ModifyResult,
   type UpdateOptions,
   type DeleteOptions,
+  Document,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -99,21 +100,16 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.deleteMany(filter, options);
         },
-        aggregate: (pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
-          return collection.aggregate(pipeline, options);
+        aggregate: <Agg extends Document>(pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
+          return collection.aggregate<Agg>(pipeline, options);
         },
       };
     };
 
-    return {
-      collection: createCollection,
-    };
+    return { collection: createCollection };
   };
 
-  return {
-    connect: () => client.connect(),
-    db: createDb,
-  };
+  return { connect: () => client.connect(), db: createDb };
 };
 
 export { ObjectId } from 'mongodb';
