@@ -1595,7 +1595,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/node@npm:*, @goatjs/node@workspace:packages/node":
+"@goatjs/node@workspace:packages/node":
   version: 0.0.0-use.local
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
@@ -1632,8 +1632,6 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.20.0"
-    "@goatjs/core": "npm:*"
-    "@goatjs/node": "npm:*"
     "@types/eslint__js": "npm:^8.42.3"
     "@types/node": "npm:^22.13.1"
     eslint: "npm:^9.20.0"
@@ -1647,9 +1645,6 @@ __metadata:
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.7.3"
     typescript-eslint: "npm:^8.23.0"
-  peerDependencies:
-    "@goatjs/core": "*"
-    "@goatjs/node": "*"
   languageName: unknown
   linkType: soft
 

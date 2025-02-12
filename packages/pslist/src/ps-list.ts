@@ -3,8 +3,10 @@
 import type { ProcessDescriptor, ProcessDescriptorInternal } from './types.js';
 import process from 'node:process';
 import path from 'node:path';
-import { getEntries } from '@goatjs/core/typed-object';
-import { execFileAsync } from '@goatjs/node/exec';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+
+export const execFileAsync = promisify(execFile);
 
 interface Options {
   all?: boolean;
@@ -86,7 +88,7 @@ const nonWindowsMultipleCalls = async (options: Options = {}): Promise<ProcessDe
     }),
   );
 
-  return getEntries(returnValue)
+  return Object.entries(returnValue)
     .filter(([, value]) => value.comm && value.args && value.ppid && value.uid && value['%cpu'] && value['%mem'])
     .map(([key, value]) => ({
       pid: Number.parseInt(key, 10),
