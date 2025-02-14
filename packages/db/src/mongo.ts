@@ -18,6 +18,7 @@ import {
   type UpdateOptions,
   type DeleteOptions,
   Document,
+  DropIndexesOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -103,6 +104,7 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         aggregate: <Agg extends Document>(pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
           return collection.aggregate<Agg>(pipeline, options);
         },
+        dropIndexes: (options: DropIndexesOptions = {}) => collection.dropIndexes(options),
       };
     };
 
