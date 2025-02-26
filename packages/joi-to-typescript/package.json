@@ -1,0 +1,58 @@
+{
+  "name": "@goatjs/joi-to-typescript",
+  "description": "Joi to typescript.",
+  "version": "2025.2.26",
+  "author": {
+    "email": "simonegauli@gmail.com",
+    "name": "Simone Gauli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pnlvfx/goatjs.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "exports": {
+    "types": "./dist/joi-to-typescript.d.ts",
+    "default": "./dist/joi-to-typescript.js"
+  },
+  "scripts": {
+    "tsc": "tsc --noEmit true",
+    "test": "rimraf coverage && jest --coverage",
+    "lint": "eslint",
+    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "prepack": "yarn build",
+    "prepublishOnly": "yarn test && eslint"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "joi-to-typescript": "^4.15.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.5",
+    "eslint": "^9.21.0",
+    "eslint-plugin-sonarjs": "^3.0.2",
+    "eslint-plugin-unicorn": "^57.0.0",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.2",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0"
+  },
+  "peerDependencies": {
+    "joi": "*",
+    "prettier": "*"
+  }
+}
