@@ -17,8 +17,8 @@ import {
   type ModifyResult,
   type UpdateOptions,
   type DeleteOptions,
-  Document,
-  DropIndexesOptions,
+  type Document,
+  type DropIndexesOptions,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
