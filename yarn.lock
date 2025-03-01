@@ -500,7 +500,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   peerDependencies:
     "@goatjs/core": "*"
@@ -523,7 +523,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   languageName: unknown
   linkType: soft
@@ -539,12 +539,12 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    mongodb: "npm:^6.13.1"
+    mongodb: "npm:^6.14.0"
     prettier: "npm:^3.5.2"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   languageName: unknown
   linkType: soft
@@ -560,12 +560,13 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
+    joi: "npm:^17.13.3"
     joi-to-typescript: "npm:^4.15.0"
     prettier: "npm:^3.5.2"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   peerDependencies:
     joi: "*"
@@ -591,7 +592,7 @@ __metadata:
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
     ts-unused-exports: "npm:^11.0.1"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   peerDependencies:
     mime-types: "*"
@@ -619,7 +620,7 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   languageName: unknown
   linkType: soft
@@ -639,10 +640,26 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.25.0"
   languageName: unknown
   linkType: soft
+
+"@hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "@hapi/hoek@npm:9.3.0"
+  checksum: 10c0/a096063805051fb8bba4c947e293c664b05a32b47e13bc654c0dd43813a1cec993bdd8f29ceb838020299e1d0f89f68dc0d62a603c13c9cc8541963f0beca055
+  languageName: node
+  linkType: hard
+
+"@hapi/topo@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@hapi/topo@npm:5.1.0"
+  dependencies:
+    "@hapi/hoek": "npm:^9.0.0"
+  checksum: 10c0/b16b06d9357947149e032bdf10151eb71aea8057c79c4046bf32393cb89d0d0f7ca501c40c0f7534a5ceca078de0700d2257ac855c15e59fe4e00bba2f25c86f
+  languageName: node
+  linkType: hard
 
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
@@ -1060,6 +1077,29 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10c0/5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
+  languageName: node
+  linkType: hard
+
+"@sideway/address@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "@sideway/address@npm:4.1.5"
+  dependencies:
+    "@hapi/hoek": "npm:^9.0.0"
+  checksum: 10c0/638eb6f7e7dba209053dd6c8da74d7cc995e2b791b97644d0303a7dd3119263bcb7225a4f6804d4db2bc4f96e5a9d262975a014f58eae4d1753c27cbc96ef959
+  languageName: node
+  linkType: hard
+
+"@sideway/formula@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@sideway/formula@npm:3.0.1"
+  checksum: 10c0/3fe81fa9662efc076bf41612b060eb9b02e846ea4bea5bd114f1662b7f1541e9dedcf98aff0d24400bcb92f113964a50e0290b86e284edbdf6346fa9b7e2bf2c
+  languageName: node
+  linkType: hard
+
+"@sideway/pinpoint@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@sideway/pinpoint@npm:2.0.0"
+  checksum: 10c0/d2ca75dacaf69b8fc0bb8916a204e01def3105ee44d8be16c355e5f58189eb94039e15ce831f3d544f229889ccfa35562a0ce2516179f3a7ee1bbe0b71e55b36
   languageName: node
   linkType: hard
 
@@ -3978,6 +4018,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"joi@npm:^17.13.3":
+  version: 17.13.3
+  resolution: "joi@npm:17.13.3"
+  dependencies:
+    "@hapi/hoek": "npm:^9.3.0"
+    "@hapi/topo": "npm:^5.1.0"
+    "@sideway/address": "npm:^4.1.5"
+    "@sideway/formula": "npm:^3.0.1"
+    "@sideway/pinpoint": "npm:^2.0.0"
+  checksum: 10c0/9262aef1da3f1bec5b03caf50c46368899fe03b8ff26cbe3d53af4584dd1049079fc97230bbf1500b6149db7cc765b9ee45f0deb24bb6fc3fa06229d7148c17f
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -4440,15 +4493,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^6.13.1":
-  version: 6.13.1
-  resolution: "mongodb@npm:6.13.1"
+"mongodb@npm:^6.14.0":
+  version: 6.14.0
+  resolution: "mongodb@npm:6.14.0"
   dependencies:
     "@mongodb-js/saslprep": "npm:^1.1.9"
     bson: "npm:^6.10.3"
     mongodb-connection-string-url: "npm:^3.0.0"
   peerDependencies:
-    "@aws-sdk/credential-providers": ^3.632.0
+    "@aws-sdk/credential-providers": ^3.188.0
     "@mongodb-js/zstd": ^1.1.0 || ^2.0.0
     gcp-metadata: ^5.2.0
     kerberos: ^2.0.1
@@ -4470,7 +4523,7 @@ __metadata:
       optional: true
     socks:
       optional: true
-  checksum: 10c0/319a8f76ebee3f79d8af0218dca46e79ad7fbd2e6e11d80b902f3efd8d2bf9ee1c85f445bad45d7a2b40aff98ac7e2f3f899b9408c773579b6e91df6e283783f
+  checksum: 10c0/92e43fa625f3f83a2352b273e8a84ba1648499a87bab6cc83d483031c076aee1ecdfc0cfdc8b6f83fba4616f24d3e718c1f35a076700bd2a05bcdace408cf89a
   languageName: node
   linkType: hard
 
@@ -5837,13 +5890,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.3":
-  version: 5.7.3
-  resolution: "typescript@npm:5.7.3"
+"typescript@npm:^5.8.2":
+  version: 5.8.2
+  resolution: "typescript@npm:5.8.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/b7580d716cf1824736cc6e628ab4cd8b51877408ba2be0869d2866da35ef8366dd6ae9eb9d0851470a39be17cbd61df1126f9e211d8799d764ea7431d5435afa
+  checksum: 10c0/5c4f6fbf1c6389b6928fe7b8fcd5dc73bb2d58cd4e3883f1d774ed5bd83b151cbac6b7ecf11723de56d4676daeba8713894b1e9af56174f2f9780ae7848ec3c6
   languageName: node
   linkType: hard
 
@@ -5857,13 +5910,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
-  version: 5.7.3
-  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
+"typescript@patch:typescript@npm%3A^5.8.2#optional!builtin<compat/typescript>":
+  version: 5.8.2
+  resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
+  checksum: 10c0/5448a08e595cc558ab321e49d4cac64fb43d1fa106584f6ff9a8d8e592111b373a995a1d5c7f3046211c8a37201eb6d0f1566f15cdb7a62a5e3be01d087848e2
   languageName: node
   linkType: hard
 
