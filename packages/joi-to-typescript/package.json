@@ -34,7 +34,7 @@
     "README.md"
   ],
   "dependencies": {
-    "joi-to-typescript": "^4.15.0"
+    "joi-to-typescript": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -45,6 +45,7 @@
     "globals": "^16.0.0",
     "jest": "^29.7.0",
     "joi": "^17.13.3",
+    "joi-to-typescript": "^4.15.0",
     "prettier": "^3.5.2",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.6",
