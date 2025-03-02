@@ -18,8 +18,7 @@ const defaultHeaders = {
 export const download = async (url: string, { headers = defaultHeaders, directory = path.join(os.homedir(), 'Downloads') }: DownloadOptions = {}) => {
   const res = await fetch(url, { headers });
   if (!res.ok || !res.body) throw new Error(`${res.status.toString()}: ${res.statusText}`);
-  const filename = getFilename(url, res.headers);
-  const output = path.join(directory, filename);
+  const output = path.join(directory, getFilename(url, res.headers));
   const fileStream = fs.createWriteStream(output);
   await pipeline(res.body, fileStream);
   return output;
@@ -28,8 +27,9 @@ export const download = async (url: string, { headers = defaultHeaders, director
 const getFilename = (url: string, headers: Headers) => {
   const filenameFromContentDisposition = getFileNameFromContentDisposition(headers.get('content-disposition'));
   if (filenameFromContentDisposition) return filenameFromContentDisposition;
-  if (path.extname(url)) return path.basename(url);
-  const filenameFromContentType = getFileNameFromContentType(url, headers.get('content-type'));
+  const urlPath = new URL(url).pathname;
+  if (path.extname(url)) return path.basename(urlPath);
+  const filenameFromContentType = getFileNameFromContentType(urlPath, headers.get('content-type'));
   if (filenameFromContentType) return filenameFromContentType;
   throw new Error(
     "Unable to provide a filename for this url. Please provide a filename yourself or feel free to report an issue, and we'll try to address it.",
