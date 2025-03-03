@@ -496,7 +496,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -519,7 +519,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -540,7 +540,7 @@ __metadata:
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
     mongodb: "npm:^6.14.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -562,7 +562,7 @@ __metadata:
     jest: "npm:^29.7.0"
     joi: "npm:^17.13.3"
     joi-to-typescript: "npm:^4.15.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -571,6 +571,27 @@ __metadata:
   peerDependencies:
     joi: "*"
     prettier: "*"
+  languageName: unknown
+  linkType: soft
+
+"@goatjs/link-preview@workspace:packages/link-preview":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/link-preview@workspace:packages/link-preview"
+  dependencies:
+    "@eslint/js": "npm:^9.21.0"
+    "@types/node": "npm:^22.13.8"
+    eslint: "npm:^9.21.0"
+    eslint-plugin-sonarjs: "npm:^3.0.2"
+    eslint-plugin-unicorn: "npm:^57.0.0"
+    globals: "npm:^16.0.0"
+    html-metadata-parser: "npm:^2.0.4"
+    jest: "npm:^29.7.0"
+    prettier: "npm:^3.5.3"
+    rimraf: "npm:^6.0.1"
+    ts-jest: "npm:^29.2.6"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.8.2"
+    typescript-eslint: "npm:^8.25.0"
   languageName: unknown
   linkType: soft
 
@@ -587,7 +608,7 @@ __metadata:
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
     mime-types: "npm:^2.1.35"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -616,7 +637,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -636,7 +657,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^57.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
@@ -1647,6 +1668,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "axios@npm:0.24.0"
+  dependencies:
+    follow-redirects: "npm:^1.14.4"
+  checksum: 10c0/d106561e761bf48633633073626eafb80289eb7c7c27f9fae4fb796939b6ecd2c9f63b596e3b3d872f7c0bec6b2fb117c58456d387e4ca2da7fc07c795a979c3
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
@@ -1730,6 +1760,13 @@ __metadata:
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
   checksum: 10c0/9308baf0a7e4838a82bbfd11e01b1cb0f0cf2893bc1676c27c2a8c0e70cbae1c59120c3268517a8ae7fb6376b4639ef81ca22582611dbee4ed28df945134aaee
+  languageName: node
+  linkType: hard
+
+"boolbase@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "boolbase@npm:1.0.0"
+  checksum: 10c0/e4b53deb4f2b85c52be0e21a273f2045c7b6a6ea002b0e139c744cb6f95e9ec044439a52883b0d74dedd1ff3da55ed140cfdddfed7fb0cccbed373de5dce1bcf
   languageName: node
   linkType: hard
 
@@ -2081,6 +2118,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-select@npm:^4.2.1":
+  version: 4.3.0
+  resolution: "css-select@npm:4.3.0"
+  dependencies:
+    boolbase: "npm:^1.0.0"
+    css-what: "npm:^6.0.1"
+    domhandler: "npm:^4.3.1"
+    domutils: "npm:^2.8.0"
+    nth-check: "npm:^2.0.1"
+  checksum: 10c0/a489d8e5628e61063d5a8fe0fa1cc7ae2478cb334a388a354e91cf2908154be97eac9fa7ed4dffe87a3e06cf6fcaa6016553115335c4fd3377e13dac7bd5a8e1
+  languageName: node
+  linkType: hard
+
+"css-what@npm:^6.0.1":
+  version: 6.1.0
+  resolution: "css-what@npm:6.1.0"
+  checksum: 10c0/a09f5a6b14ba8dcf57ae9a59474722e80f20406c53a61e9aedb0eedc693b135113ffe2983f4efc4b5065ae639442e9ae88df24941ef159c218b231011d733746
+  languageName: node
+  linkType: hard
+
 "data-view-buffer@npm:^1.0.1":
   version: 1.0.1
   resolution: "data-view-buffer@npm:1.0.1"
@@ -2195,6 +2252,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-serializer@npm:^1.0.1":
+  version: 1.4.1
+  resolution: "dom-serializer@npm:1.4.1"
+  dependencies:
+    domelementtype: "npm:^2.0.1"
+    domhandler: "npm:^4.2.0"
+    entities: "npm:^2.0.0"
+  checksum: 10c0/67d775fa1ea3de52035c98168ddcd59418356943b5eccb80e3c8b3da53adb8e37edb2cc2f885802b7b1765bf5022aec21dfc32910d7f9e6de4c3148f095ab5e0
+  languageName: node
+  linkType: hard
+
+"domelementtype@npm:^2.0.1, domelementtype@npm:^2.2.0":
+  version: 2.3.0
+  resolution: "domelementtype@npm:2.3.0"
+  checksum: 10c0/686f5a9ef0fff078c1412c05db73a0dce096190036f33e400a07e2a4518e9f56b1e324f5c576a0a747ef0e75b5d985c040b0d51945ce780c0dd3c625a18cd8c9
+  languageName: node
+  linkType: hard
+
+"domhandler@npm:^4.2.0, domhandler@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "domhandler@npm:4.3.1"
+  dependencies:
+    domelementtype: "npm:^2.2.0"
+  checksum: 10c0/5c199c7468cb052a8b5ab80b13528f0db3d794c64fc050ba793b574e158e67c93f8336e87fd81e9d5ee43b0e04aea4d8b93ed7be4899cb726a1601b3ba18538b
+  languageName: node
+  linkType: hard
+
+"domutils@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "domutils@npm:2.8.0"
+  dependencies:
+    dom-serializer: "npm:^1.0.1"
+    domelementtype: "npm:^2.2.0"
+    domhandler: "npm:^4.2.0"
+  checksum: 10c0/d58e2ae01922f0dd55894e61d18119924d88091837887bf1438f2327f32c65eb76426bd9384f81e7d6dcfb048e0f83c19b222ad7101176ad68cdc9c695b563db
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -2254,6 +2349,13 @@ __metadata:
   dependencies:
     iconv-lite: "npm:^0.6.2"
   checksum: 10c0/36d938712ff00fe1f4bac88b43bcffb5930c1efa57bbcdca9d67e1d9d6c57cfb1200fb01efe0f3109b2ce99b231f90779532814a81370a1bd3274a0f58585039
+  languageName: node
+  linkType: hard
+
+"entities@npm:^2.0.0":
+  version: 2.2.0
+  resolution: "entities@npm:2.2.0"
+  checksum: 10c0/7fba6af1f116300d2ba1c5673fc218af1961b20908638391b4e1e6d5850314ee2ac3ec22d741b3a8060479911c99305164aed19b6254bde75e7e6b1b2c3f3aa3
   languageName: node
   linkType: hard
 
@@ -2756,6 +2858,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.14.4":
+  version: 1.15.9
+  resolution: "follow-redirects@npm:1.15.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/5829165bd112c3c0e82be6c15b1a58fa9dcfaede3b3c54697a82fe4a62dd5ae5e8222956b448d2f98e331525f05d00404aba7d696de9e761ef6e42fdc780244f
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3":
   version: 0.3.3
   resolution: "for-each@npm:0.3.3"
@@ -3010,7 +3122,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "goatjs@workspace:."
   dependencies:
-    prettier: "npm:^3.5.2"
+    prettier: "npm:^3.5.3"
     turbo: "npm:^2.4.4"
   languageName: unknown
   linkType: soft
@@ -3093,6 +3205,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"he@npm:1.2.0":
+  version: 1.2.0
+  resolution: "he@npm:1.2.0"
+  bin:
+    he: bin/he
+  checksum: 10c0/a27d478befe3c8192f006cdd0639a66798979dfa6e2125c6ac582a19a5ebfec62ad83e8382e6036170d873f46e4536a7e795bf8b95bf7c247f4cc0825ccc8c17
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^7.0.0":
   version: 7.0.2
   resolution: "hosted-git-info@npm:7.0.2"
@@ -3106,6 +3227,16 @@ __metadata:
   version: 2.0.2
   resolution: "html-escaper@npm:2.0.2"
   checksum: 10c0/208e8a12de1a6569edbb14544f4567e6ce8ecc30b9394fcaa4e7bb1e60c12a7c9a1ed27e31290817157e8626f3a4f29e76c8747030822eb84a6abb15c255f0a0
+  languageName: node
+  linkType: hard
+
+"html-metadata-parser@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "html-metadata-parser@npm:2.0.4"
+  dependencies:
+    axios: "npm:^0.24.0"
+    node-html-parser: "npm:^5.2.0"
+  checksum: 10c0/226a499a3c461f94b3f92a283b66fb13e4d5c39c5d40741011c3da45c7b7971de9697d741b0a12c2b128366b21bf3d097ca1863b0098959b5a7fd522e9c59c31
   languageName: node
   linkType: hard
 
@@ -4568,6 +4699,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-html-parser@npm:^5.2.0":
+  version: 5.4.2
+  resolution: "node-html-parser@npm:5.4.2"
+  dependencies:
+    css-select: "npm:^4.2.1"
+    he: "npm:1.2.0"
+  checksum: 10c0/5a46ce4dc29dcb656067a977ef977d09328b21d1e26e6105176230bb151970cf7deb2db0dd084abeb98106ac79a83102232ad0d9a45d0a686f3eb6931a048663
+  languageName: node
+  linkType: hard
+
 "node-int64@npm:^0.4.0":
   version: 0.4.0
   resolution: "node-int64@npm:0.4.0"
@@ -4624,6 +4765,15 @@ __metadata:
   dependencies:
     path-key: "npm:^3.0.0"
   checksum: 10c0/6f9353a95288f8455cf64cbeb707b28826a7f29690244c1e4bb61ec573256e021b6ad6651b394eb1ccfd00d6ec50147253aba2c5fe58a57ceb111fad62c519ac
+  languageName: node
+  linkType: hard
+
+"nth-check@npm:^2.0.1":
+  version: 2.1.1
+  resolution: "nth-check@npm:2.1.1"
+  dependencies:
+    boolbase: "npm:^1.0.0"
+  checksum: 10c0/5fee7ff309727763689cfad844d979aedd2204a817fbaaf0e1603794a7c20db28548d7b024692f953557df6ce4a0ee4ae46cd8ebd9b36cfb300b9226b567c479
   languageName: node
   linkType: hard
 
@@ -4886,12 +5036,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "prettier@npm:3.5.2"
+"prettier@npm:^3.5.3":
+  version: 3.5.3
+  resolution: "prettier@npm:3.5.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/d7b597ed33f39c32ace675896ad187f06a3e48dc8a1e80051b5c5f0dae3586d53981704b8fda5ac3b080e6c2e0e197d239131b953702674f044351621ca5e1ac
+  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
   languageName: node
   linkType: hard
 
