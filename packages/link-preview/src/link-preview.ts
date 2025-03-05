@@ -1,9 +1,6 @@
 import metadata from 'html-metadata-parser';
 
-const urlRegex = /[\w#%()+./:=?@\\~]{2,256}\.[a-z]{2,6}\b([\w#%&+./:=?@~-]*)/gi;
-
 export const getLinkPreview = async (url: string) => {
-  if (!url || !urlRegex.test(url)) throw new Error('Invalid URL');
   const { hostname } = new URL(url);
   const { images, og, meta } = await metadata.parser(url);
   const image = og.image ?? images?.at(0);
