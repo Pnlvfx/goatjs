@@ -65,6 +65,7 @@ export const installMouseHelper = async (page: Page) => {
           'mousedown',
           (event) => {
             updateButtons(event.buttons);
+            // eslint-disable-next-line sonarjs/deprecation
             box.classList.add('button-' + event.which.toString());
           },
           true,
@@ -73,6 +74,7 @@ export const installMouseHelper = async (page: Page) => {
           'mouseup',
           (event) => {
             updateButtons(event.buttons);
+            // eslint-disable-next-line sonarjs/deprecation
             box.classList.remove('button-' + event.which.toString());
           },
           true,
