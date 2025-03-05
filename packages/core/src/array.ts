@@ -1,4 +1,4 @@
-export const arrayMove = <T>(arr: T[], fromIndex: number, toIndex: number) => {
+export const arrayMove = (arr: unknown[], fromIndex: number, toIndex: number) => {
   const el = arr.splice(fromIndex, 1);
   arr.splice(toIndex, 0, ...el);
 };
@@ -7,7 +7,7 @@ export const getUniqueArraybyKey = <T extends Record<K, string>, K extends keyof
   return [...new Map(arr.map((item) => [item[key], item])).values()];
 };
 
-export const shuffleArray = <T>(array: T[]) => {
+export const shuffleArray = (array: unknown[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     // eslint-disable-next-line sonarjs/pseudo-random
     const j = Math.floor(Math.random() * (i + 1));
