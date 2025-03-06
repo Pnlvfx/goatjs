@@ -612,16 +612,12 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
-    ts-unused-exports: "npm:^11.0.1"
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.26.0"
   peerDependencies:
     mime-types: "*"
-    ts-unused-exports: "*"
   peerDependenciesMeta:
     mime-types:
-      optional: true
-    ts-unused-exports:
       optional: true
   languageName: unknown
   linkType: soft
@@ -684,6 +680,27 @@ __metadata:
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.2.6"
     ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.8.2"
+    typescript-eslint: "npm:^8.26.0"
+  languageName: unknown
+  linkType: soft
+
+"@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
+  dependencies:
+    "@eslint/js": "npm:^9.21.0"
+    "@types/node": "npm:^22.13.9"
+    eslint: "npm:^9.21.0"
+    eslint-plugin-sonarjs: "npm:^3.0.2"
+    eslint-plugin-unicorn: "npm:^57.0.0"
+    globals: "npm:^16.0.0"
+    jest: "npm:^29.7.0"
+    prettier: "npm:^3.5.3"
+    rimraf: "npm:^6.0.1"
+    ts-jest: "npm:^29.2.6"
+    ts-node: "npm:^10.9.2"
+    ts-unused-exports: "npm:^11.0.1"
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.26.0"
   languageName: unknown
