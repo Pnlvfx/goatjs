@@ -6,4 +6,4 @@ export const isUrl = (str: string) => {
   }
 };
 
-export const isJson = (res: Response) => res.headers.get('content-type')?.includes('application/json');
+export const isJsonResponse = (res: Response) => res.headers.get('content-type')?.includes('application/json');

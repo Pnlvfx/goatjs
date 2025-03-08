@@ -36,11 +36,11 @@
     "README.md"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
+    "@eslint/js": "^9.22.0",
     "@goatjs/core": "*",
     "@goatjs/storage": "*",
-    "@types/node": "^22.13.9",
-    "eslint": "^9.21.0",
+    "@types/node": "^22.13.10",
+    "eslint": "^9.22.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unicorn": "^57.0.0",
     "globals": "^16.0.0",
