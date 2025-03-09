@@ -12,6 +12,8 @@ export const errorToString = (err: unknown, ...args: string[]) => {
   } else {
     try {
       error = `UNHANDLED API ERROR: ${JSON.stringify(err)}`;
+      // eslint-disable-next-line no-console
+      console.warn('ErrorToString was unable to parse:', err);
     } catch {
       error = `UNHANDLED API ERROR`;
       if (process.env['NODE_ENV'] !== 'production') {
