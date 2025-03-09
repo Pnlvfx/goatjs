@@ -11,7 +11,7 @@ export interface DownloadOptions {
   directory?: string;
   /** Add a custom headers for the request. */
   headers?: HeadersInit;
-  /** Allow the downloader to override an existing file on your computer.
+  /** Allow the downloader to override an existing file.
    * @default true
    */
   override?: boolean;
