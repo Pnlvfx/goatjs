@@ -1,27 +1,51 @@
 import os from 'node:os';
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 import { getUserAgent } from './user-agent.js';
 import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
+import { createWriteStream } from 'node:fs';
 
 export interface DownloadOptions {
+  /** The directory in which the file will be stored. */
   directory?: string;
+  /** Add a custom headers for the request. */
   headers?: HeadersInit;
+  /** Allow the downloader to override an existing file on your computer.
+   * @default true
+   */
+  override?: boolean;
 }
 
-const defaultHeaders = {
+const defaultHeaders = new Headers({
   'user-agent': getUserAgent(),
-};
+});
+
+const systemDownloadDirectory = path.join(os.homedir(), 'Downloads');
 
 /** Download a file from a given url. */
-export const download = async (url: string, { headers = defaultHeaders, directory = path.join(os.homedir(), 'Downloads') }: DownloadOptions = {}) => {
+export const download = async (
+  url: string,
+  { headers = defaultHeaders, directory = systemDownloadDirectory, override = true }: DownloadOptions = {},
+) => {
   const res = await fetch(url, { headers });
-  if (!res.ok || !res.body) throw new Error(`${res.status.toString()}: ${res.statusText}`);
-  const output = path.join(directory, getFilename(url, res.headers));
-  const fileStream = fs.createWriteStream(output);
+  if (!res.ok) throw new Error(`${res.status.toString()}: ${res.statusText}`);
+  if (!res.body) throw new Error('It looks like there is nothing to download at this url.');
+  const filename = getFilename(url, res.headers);
+  if (!override && (await fileExist(filename))) throw new Error('File already exist!');
+  const output = path.join(directory, filename);
+  const fileStream = createWriteStream(output);
   await pipeline(res.body, fileStream);
   return output;
+};
+
+const fileExist = async (file: string) => {
+  try {
+    await fs.access(file);
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 const getFilename = (url: string, headers: Headers) => {
