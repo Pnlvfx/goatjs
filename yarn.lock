@@ -710,6 +710,8 @@ __metadata:
     ts-unused-exports: "npm:^11.0.1"
     typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.26.0"
+  peerDependencies:
+    typescript: "*"
   languageName: unknown
   linkType: soft
 
