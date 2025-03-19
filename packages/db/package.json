@@ -49,6 +49,6 @@
     "typescript-eslint": "^8.26.1"
   },
   "dependencies": {
-    "mongodb": "^6.14.2"
+    "mongodb": "^6.15.0"
   }
 }
