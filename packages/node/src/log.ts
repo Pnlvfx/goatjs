@@ -2,9 +2,9 @@ import { inspect } from 'node:util';
 import { temporaryFile } from './tempy.js';
 import fs from 'node:fs/promises';
 
-export const logToFile = async (data: unknown, { extension = 'json' } = {}) => {
+export const logToFile = async (data: string, { extension = 'json' } = {}) => {
   const file = await temporaryFile({ extension });
-  await fs.writeFile(file, JSON.stringify(data));
+  await fs.writeFile(file, data);
   // eslint-disable-next-line no-console
   console.log('Log stored at:', file);
 };
