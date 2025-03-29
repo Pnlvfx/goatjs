@@ -78,9 +78,7 @@ const nonWindowsMultipleCalls = async (options: Options = {}): Promise<ProcessDe
         if (pid) {
           const value = line.slice(pid.length + 1).trim();
 
-          if (returnValue[pid] === undefined) {
-            returnValue[pid] = {};
-          }
+          returnValue[pid] ??= {};
 
           returnValue[pid][cmd] = value;
         }
