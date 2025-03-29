@@ -508,7 +508,7 @@ __metadata:
     "@eslint/js": "npm:^9.23.0"
     "@goatjs/core": "npm:*"
     "@goatjs/storage": "npm:*"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -531,7 +531,7 @@ __metadata:
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -551,7 +551,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -572,7 +572,7 @@ __metadata:
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -597,7 +597,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -619,13 +619,13 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.23.0"
     "@types/mime-types": "npm:^2.1.4"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
-    mime-types: "npm:^2.1.35"
+    mime-types: "npm:^3.0.1"
     prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.3.0"
@@ -645,7 +645,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -665,7 +665,7 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -688,7 +688,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -708,7 +708,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.23.0"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     eslint: "npm:^9.23.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -1373,12 +1373,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.13.13":
-  version: 22.13.13
-  resolution: "@types/node@npm:22.13.13"
+"@types/node@npm:^22.13.14":
+  version: 22.13.14
+  resolution: "@types/node@npm:22.13.14"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10c0/daf792ba5dcff1316abf4b33680f94b792f8d54d6ae495efc8929531e0ba1284a248d29aab117d2259f9280284d986ad5799b193b0516e2b926d713aab835f7d
+  checksum: 10c0/fa2ab5b8277bfbcc86c42e46a3ea9871b0d559894cc9d955685d17178c9499f0b1bf03d1d1ea8d92ef2dda818988f4035acb8abf9dc15423a998fa56173ab804
   languageName: node
   linkType: hard
 
@@ -4770,19 +4770,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime-db@npm:1.52.0":
-  version: 1.52.0
-  resolution: "mime-db@npm:1.52.0"
-  checksum: 10c0/0557a01deebf45ac5f5777fe7740b2a5c309c6d62d40ceab4e23da9f821899ce7a900b7ac8157d4548ddbb7beffe9abc621250e6d182b0397ec7f10c7b91a5aa
+"mime-db@npm:^1.54.0":
+  version: 1.54.0
+  resolution: "mime-db@npm:1.54.0"
+  checksum: 10c0/8d907917bc2a90fa2df842cdf5dfeaf509adc15fe0531e07bb2f6ab15992416479015828d6a74200041c492e42cce3ebf78e5ce714388a0a538ea9c53eece284
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.35":
-  version: 2.1.35
-  resolution: "mime-types@npm:2.1.35"
+"mime-types@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mime-types@npm:3.0.1"
   dependencies:
-    mime-db: "npm:1.52.0"
-  checksum: 10c0/82fb07ec56d8ff1fc999a84f2f217aa46cb6ed1033fefaabd5785b9a974ed225c90dc72fff460259e66b95b73648596dbcc50d51ed69cdf464af2d237d3149b2
+    mime-db: "npm:^1.54.0"
+  checksum: 10c0/bd8c20d3694548089cf229016124f8f40e6a60bbb600161ae13e45f793a2d5bb40f96bbc61f275836696179c77c1d6bf4967b2a75e0a8ad40fe31f4ed5be4da5
   languageName: node
   linkType: hard
 

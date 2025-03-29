@@ -39,7 +39,7 @@
     "@eslint/js": "^9.23.0",
     "@goatjs/core": "*",
     "@goatjs/storage": "*",
-    "@types/node": "^22.13.13",
+    "@types/node": "^22.13.14",
     "eslint": "^9.23.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unicorn": "^58.0.0",

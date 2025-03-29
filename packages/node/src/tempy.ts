@@ -19,10 +19,7 @@ interface TempDirExtParams {
 export type TempDirParams = TempDirNameParams | TempDirExtParams;
 
 const getTempDir = async () => {
-  if (!tempDir) {
-    tempDir = await fs.realpath(os.tmpdir());
-  }
-  return tempDir;
+  return tempDir ?? fs.realpath(os.tmpdir());
 };
 
 const getPath = async (prefix = '') => path.join(await getTempDir(), prefix + crypto.randomBytes(5).toString('hex'));
