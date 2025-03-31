@@ -1,6 +1,7 @@
 import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
 
 /** @TODO use a config to check what path exist and what should be created,
  * allow auto update if user delete folder from outside the node env and update the value to allow easy resolution.
@@ -30,15 +31,19 @@ const getProjectName = async () => {
   return name.replace('api-', '');
 };
 
-/** @TODO Remove the try catch when the configs will be implemented, no need to skip eexist as config should know. */
-const mkDir = async (folder: string, recursive?: boolean) => {
-  checkPath(folder);
+const exist = async (file: string) => {
   try {
-    await fs.mkdir(folder, { recursive });
-  } catch (err) {
-    if (err && typeof err === 'object' && 'code' in err && err.code == 'EEXIST') return;
-    throw err;
+    await fs.access(file);
+    return true;
+  } catch {
+    return false;
   }
+};
+
+const mkDir = async (folder: string, recursive?: boolean) => {
+  if (await exist(folder)) return;
+  checkPath(folder);
+  await fs.mkdir(folder, { recursive });
 };
 
 const checkPath = (pth: string) => {
@@ -61,6 +66,9 @@ const clearFolder = async (folder: string) => {
 const cwd = path.join(os.homedir(), '.coraline', await getProjectName());
 // const configs = await getConfigs(cwd);
 await mkDir(cwd, true);
+
+const logPath = path.join(cwd, 'log');
+await mkDir(logPath);
 
 export const storage = {
   cwd,
@@ -92,13 +100,12 @@ export const storage = {
     const { pathname } = new URL(url);
     return path.join(cwd, pathname);
   },
-  exist: async (file: string) => {
-    try {
-      await fs.access(file);
-      return true;
-    } catch {
-      return false;
-    }
-  },
+  exist,
   clearFolder,
+  logToFile: async (data: string, { extension = 'json', title = 'Log stored at:' } = {}) => {
+    const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
+    await fs.writeFile(file, data);
+    // eslint-disable-next-line no-console
+    console.log(title, file);
+  },
 };
