@@ -567,6 +567,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@goatjs/deep-diff@workspace:packages/deep-diff":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
+  dependencies:
+    "@eslint/js": "npm:^9.24.0"
+    "@types/node": "npm:^22.14.0"
+    eslint: "npm:^9.24.0"
+    eslint-plugin-sonarjs: "npm:^3.0.2"
+    eslint-plugin-unicorn: "npm:^58.0.0"
+    globals: "npm:^16.0.0"
+    jest: "npm:^29.7.0"
+    prettier: "npm:^3.5.3"
+    rimraf: "npm:^6.0.1"
+    ts-jest: "npm:^29.3.1"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.8.3"
+    typescript-eslint: "npm:^8.29.0"
+  languageName: unknown
+  linkType: soft
+
 "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript":
   version: 0.0.0-use.local
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
