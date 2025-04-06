@@ -1,4 +1,4 @@
-type SnakeToCamelCase<S extends string> = S extends `${infer T}_${infer U}`
+export type SnakeToCamelCase<S extends string> = S extends `${infer T}_${infer U}`
   ? `${T}${Capitalize<SnakeToCamelCase<U>>}`
   : S extends `${infer T}-${infer U}`
     ? `${T}${Capitalize<SnakeToCamelCase<U>>}`
@@ -17,11 +17,14 @@ export const snakeToCamel = <T extends string>(str: T) => {
   return str.toLowerCase().replaceAll(/([_-][a-z])/g, (group) => group.toUpperCase()) as SnakeToCamelCase<T>;
 };
 
-/** Does not support nested objects */
 export const camelizeObject = <T extends object>(obj: T) => {
   const response: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(obj)) {
-    response[snakeToCamel(key)] = value;
+    if (typeof value === 'object') {
+      response[key] = camelizeObject(value);
+    } else {
+      response[snakeToCamel(key)] = value;
+    }
   }
 
   return response as Camelize<T>;
