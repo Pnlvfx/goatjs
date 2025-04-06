@@ -42,7 +42,7 @@ const compareValues = (value1: unknown, value2: unknown) => {
 
 // @TODO IMPROVE TYPES HERE
 
-const createComparison = (obj1: unknown, obj2: unknown) => {
+export const createComparison = (obj1: unknown, obj2: unknown) => {
   if (isFunction(obj1) || isFunction(obj2)) {
     throw new TypeError('Invalid argument. Function given, object expected.');
   }
