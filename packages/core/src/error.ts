@@ -29,3 +29,7 @@ export const errorToString = (err: unknown, ...args: string[]) => {
 
   return error;
 };
+
+export const parseCatchError = (err: unknown) => {
+  return err instanceof Error ? err : new Error(errorToString(err));
+};
