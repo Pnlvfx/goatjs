@@ -14,7 +14,7 @@ export type Camelize<T> = T extends (infer U)[]
 
 export const snakeToCamel = <T extends string>(str: T) => {
   if (!/[_-]/.test(str)) return str as SnakeToCamelCase<T>;
-  return str.toLowerCase().replaceAll(/([_-][a-z])/g, (group) => group.toUpperCase()) as SnakeToCamelCase<T>;
+  return str.replaceAll(/[_-](\w)/g, (_, letter: string) => letter.toUpperCase()) as SnakeToCamelCase<T>;
 };
 
 export const camelizeObject = <T extends object>(obj: T) => {
