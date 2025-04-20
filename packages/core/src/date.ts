@@ -1,6 +1,19 @@
 type AcceptedDate = string | number | Date;
 
-export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const MONTHS = Object.freeze([
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+] as const);
 
 const formatDate = (date: AcceptedDate) => {
   if (typeof date === 'string' || typeof date === 'number') {
@@ -11,6 +24,7 @@ const formatDate = (date: AcceptedDate) => {
   const day = date.getDate().toString().padStart(2, '0');
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
+
   return {
     date,
     year,
@@ -21,6 +35,7 @@ const formatDate = (date: AcceptedDate) => {
   };
 };
 
+/** @deprecated Plase use new Intl.DateTimeFormat as it's integrated on both browser and node. */
 export const createDate = (date: AcceptedDate = new Date()) => {
   const time = formatDate(date);
 
