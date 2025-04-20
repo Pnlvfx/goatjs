@@ -1,3 +1,6 @@
+/** @deprecated This function will soon become internal only so
+ * proceed to migrate to the new "parseCatchError" alternative.
+  */
 export const errorToString = (err: unknown, ...args: string[]) => {
   let error = '';
   if (err instanceof Error) {
