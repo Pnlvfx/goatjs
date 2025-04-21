@@ -768,8 +768,8 @@ __metadata:
 
 "@goatjs/typescript-config@github:Pnlvfx/typescript-config":
   version: 2025.4.21
-  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=33802df2758c74ca08442386994c50c2dc96cd46"
-  checksum: 10c0/613f76f666fa668af401176437aa9d157350f79abe8fb3deace342a0d916a883e842df5507c0ea664a1c25db27f3ef9411c31c2a216e7982d74ee8b404ff30a8
+  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=5496a1960f9170305f053415670e5ba9ff686a9b"
+  checksum: 10c0/d5f9777ff0f1bb22d34607243015912fd4650a665061afb59b1b846f91ab20ccd079932aa55285affe4604afd062c15779704202a39e28d5c61344526959d428
   languageName: node
   linkType: hard
 
