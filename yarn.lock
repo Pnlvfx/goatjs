@@ -550,6 +550,7 @@ __metadata:
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
     "@eslint/js": "npm:^9.25.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.14.1"
     eslint: "npm:^9.25.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -764,6 +765,13 @@ __metadata:
     typescript: "*"
   languageName: unknown
   linkType: soft
+
+"@goatjs/typescript-config@github:Pnlvfx/typescript-config":
+  version: 2025.4.21
+  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=33802df2758c74ca08442386994c50c2dc96cd46"
+  checksum: 10c0/613f76f666fa668af401176437aa9d157350f79abe8fb3deace342a0d916a883e842df5507c0ea664a1c25db27f3ef9411c31c2a216e7982d74ee8b404ff30a8
+  languageName: node
+  linkType: hard
 
 "@hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.3.0":
   version: 9.3.0
