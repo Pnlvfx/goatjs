@@ -2,6 +2,7 @@ import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
+import { cpdir } from './cpdir.js';
 
 /** @TODO use a config to check what path exist and what should be created,
  * allow auto update if user delete folder from outside the node env and update the value to allow easy resolution.
@@ -108,4 +109,5 @@ export const storage = {
     // eslint-disable-next-line no-console
     console.log(title, file);
   },
+  cpdir,
 };

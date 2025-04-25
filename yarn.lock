@@ -527,7 +527,7 @@ __metadata:
     "@eslint/js": "npm:^9.25.1"
     "@goatjs/core": "npm:*"
     "@goatjs/storage": "npm:*"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -551,7 +551,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.25.1"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -571,7 +571,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -592,7 +592,7 @@ __metadata:
   resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -612,7 +612,7 @@ __metadata:
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -637,7 +637,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -659,7 +659,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.25.1"
     "@types/mime-types": "npm:^2.1.4"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -685,7 +685,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -705,14 +705,14 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
     prettier: "npm:^3.5.3"
-    puppeteer-core: "npm:^24.7.1"
+    puppeteer-core: "npm:^24.7.2"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.3.2"
     ts-node: "npm:^10.9.2"
@@ -728,7 +728,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -748,7 +748,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.25.1"
-    "@types/node": "npm:^22.14.1"
+    "@types/node": "npm:^22.15.2"
     eslint: "npm:^9.25.1"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^58.0.0"
@@ -1420,12 +1420,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.14.1":
-  version: 22.14.1
-  resolution: "@types/node@npm:22.14.1"
+"@types/node@npm:^22.15.2":
+  version: 22.15.2
+  resolution: "@types/node@npm:22.15.2"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/d49c4d00403b1c2348cf0701b505fd636d80aabe18102105998dc62fdd36dcaf911e73c7a868c48c21c1022b825c67b475b65b1222d84b704d8244d152bb7f86
+  checksum: 10c0/39da31d5fc63b14fabd217bb8a921c4a7fc3d99f233440209f9fc2d5d736e8773f7efc65223e2fd0e8db8390b0baab9c0cd2e951c2ece8b237f07313ab3cf295
   languageName: node
   linkType: hard
 
@@ -2199,15 +2199,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromium-bidi@npm:4.0.1":
-  version: 4.0.1
-  resolution: "chromium-bidi@npm:4.0.1"
+"chromium-bidi@npm:4.1.1":
+  version: 4.1.1
+  resolution: "chromium-bidi@npm:4.1.1"
   dependencies:
     mitt: "npm:^3.0.1"
     zod: "npm:^3.24.1"
   peerDependencies:
     devtools-protocol: "*"
-  checksum: 10c0/dd3af53713c2692b079a2d0e6787538a6537a542658f1f1eebf6eaeace5ca9777111a66a53f67be14fd1f12cf7d72d38d2ea7cb50056854490c629b519323075
+  checksum: 10c0/2250efff48bd66ad5fbf31da23392550ff3be541f24533afee8d1785c1f7532e969cbe2d9cebc986e7dd101520a14d59b317b748426fca73827f43ae4b63893a
   languageName: node
   linkType: hard
 
@@ -5546,17 +5546,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^24.7.1":
-  version: 24.7.1
-  resolution: "puppeteer-core@npm:24.7.1"
+"puppeteer-core@npm:^24.7.2":
+  version: 24.7.2
+  resolution: "puppeteer-core@npm:24.7.2"
   dependencies:
     "@puppeteer/browsers": "npm:2.10.2"
-    chromium-bidi: "npm:4.0.1"
+    chromium-bidi: "npm:4.1.1"
     debug: "npm:^4.4.0"
     devtools-protocol: "npm:0.0.1425554"
     typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.1"
-  checksum: 10c0/ae8e09a7f722fe661789487aed75d529aff6299fd973b2b100838b42bc640a16249947597bdcc728557fd8cc363e1e7d742c74722025f48d5befb74e6505b4e5
+  checksum: 10c0/1888faee798f46aae2476398be1e448f6ed9241eb108cfe1d0c996b9f91f453e11c806e56bb89265d49d7952c658119339b6c5123f2f30a956ea6c184d991247
   languageName: node
   linkType: hard
 
