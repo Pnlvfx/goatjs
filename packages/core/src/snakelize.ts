@@ -14,3 +14,16 @@ export const camelToSnake = <T extends string>(str: T) => {
   if (!/[A-Z]/.test(str)) return str as CamelToSnakeCase<T>;
   return str.replaceAll(/([A-Z])/g, (letter: string) => `_${letter.toLowerCase()}`) as CamelToSnakeCase<T>;
 };
+
+export const snakelizeObject = <T extends object>(obj: T) => {
+  const response: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === 'object') {
+      response[key] = snakelizeObject(value);
+    } else {
+      response[camelToSnake(key)] = value;
+    }
+  }
+
+  return response as Snakeize<T>;
+};
