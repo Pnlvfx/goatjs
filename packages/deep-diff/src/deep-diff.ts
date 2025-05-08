@@ -3,6 +3,8 @@ const VALUE_UPDATED = 'updated';
 const VALUE_DELETED = 'deleted';
 const VALUE_UNCHANGED = 'unchanged';
 
+type ValueChangeType = typeof VALUE_CREATED | typeof VALUE_UPDATED | typeof VALUE_DELETED | typeof VALUE_UNCHANGED;
+
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const isFunction = (x: unknown): x is Function => {
   return Object.prototype.toString.call(x) === '[object Function]';
@@ -40,9 +42,17 @@ const compareValues = (value1: unknown, value2: unknown) => {
   return VALUE_UPDATED;
 };
 
-// @TODO IMPROVE TYPES HERE
+type ComparisonResult<T> = T extends string | number | boolean | null | undefined
+  ? { type: ValueChangeType; data: T }
+  : T extends unknown[]
+    ? Record<string, ComparisonResult<T[number]>>
+    : T extends object
+      ? { [K in keyof T]: ComparisonResult<T[K]> }
+      : never;
 
-export const createComparison = (obj1: unknown, obj2: unknown) => {
+// @TODO add getEntries (we have to move this library outof this repo)
+
+export const createComparison = <T>(obj1: T, obj2: T) => {
   if (isFunction(obj1) || isFunction(obj2)) {
     throw new TypeError('Invalid argument. Function given, object expected.');
   }
@@ -50,10 +60,10 @@ export const createComparison = (obj1: unknown, obj2: unknown) => {
     return {
       type: compareValues(obj1, obj2),
       data: obj1 ?? obj2,
-    };
+    } as ComparisonResult<T>;
   }
 
-  const diff: Record<string, unknown> = {};
+  const diff: Partial<ComparisonResult<T>> = {};
 
   for (const [key, value] of Object.entries(obj1)) {
     if (isFunction(value)) continue;
@@ -72,5 +82,5 @@ export const createComparison = (obj1: unknown, obj2: unknown) => {
     diff[key] = createComparison(undefined, value);
   }
 
-  return diff;
+  return diff as ComparisonResult<T>;
 };
