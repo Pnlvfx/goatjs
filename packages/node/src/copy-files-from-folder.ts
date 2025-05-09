@@ -16,7 +16,7 @@ export const copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: 
   try {
     await fs.access(outputFolder);
   } catch {
-    await fs.mkdir(outputFolder);
+    await fs.mkdir(outputFolder, { recursive: true });
   }
 
   for (const file of files) {
