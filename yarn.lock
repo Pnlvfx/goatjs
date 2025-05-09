@@ -527,7 +527,7 @@ __metadata:
     "@eslint/js": "npm:^9.26.0"
     "@goatjs/core": "npm:*"
     "@goatjs/storage": "npm:*"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -551,7 +551,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.26.0"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -571,7 +571,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -587,32 +587,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/deep-diff@workspace:packages/deep-diff":
-  version: 0.0.0-use.local
-  resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
-  dependencies:
-    "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
-    eslint: "npm:^9.26.0"
-    eslint-plugin-sonarjs: "npm:^3.0.2"
-    eslint-plugin-unicorn: "npm:^59.0.1"
-    globals: "npm:^16.1.0"
-    jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.3"
-    rimraf: "npm:^6.0.1"
-    ts-jest: "npm:^29.3.2"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.8.3"
-    typescript-eslint: "npm:^8.32.0"
-  languageName: unknown
-  linkType: soft
-
 "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript":
   version: 0.0.0-use.local
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -637,7 +617,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -659,7 +639,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.26.0"
     "@types/mime-types": "npm:^2.1.4"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -685,7 +665,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -705,7 +685,7 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -728,7 +708,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -748,7 +728,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.26.0"
-    "@types/node": "npm:^22.15.16"
+    "@types/node": "npm:^22.15.17"
     eslint: "npm:^9.26.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
     eslint-plugin-unicorn: "npm:^59.0.1"
@@ -1438,12 +1418,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.16":
-  version: 22.15.16
-  resolution: "@types/node@npm:22.15.16"
+"@types/node@npm:^22.15.17":
+  version: 22.15.17
+  resolution: "@types/node@npm:22.15.17"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/2bdcca01306fcf991d9255e329425747bdd3b62c7ba9e7d4021969d46f3c9984a4ad2c27ababb4f3b05d49a9e05fc0a8bfce8b452c9b43995e10aca6f66b33bc
+  checksum: 10c0/fb92aa10b628683c5b965749f955bc2322485ecb0ea6c2f4cae5f2c7537a16834607e67083a9e9281faaae8d7dee9ada8d6a5c0de9a52c17d82912ef00c0fdd4
   languageName: node
   linkType: hard
 
