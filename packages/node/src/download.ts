@@ -5,6 +5,7 @@ import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
+import { sanitize } from './sanitize.js';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
@@ -17,9 +18,7 @@ export interface DownloadOptions {
   override?: boolean;
 }
 
-const defaultHeaders = new Headers({
-  'user-agent': getUserAgent(),
-});
+const defaultHeaders = new Headers({ 'user-agent': getUserAgent() });
 
 const systemDownloadDirectory = path.join(os.homedir(), 'Downloads');
 
@@ -31,7 +30,7 @@ export const download = async (
   const res = await fetch(url, { headers });
   if (!res.ok) throw new Error(`${res.status.toString()}: ${res.statusText}`);
   if (!res.body) throw new Error('It looks like there is nothing to download at this url.');
-  const filename = getFilename(url, res.headers);
+  const filename = sanitize(getFilename(url, res.headers));
   if (!override && (await fileExist(filename))) throw new Error('File already exist!');
   const output = path.join(directory, filename);
   const fileStream = createWriteStream(output);
