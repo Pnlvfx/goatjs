@@ -5,6 +5,7 @@ import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
+// TODO we should use our internal sanitizer
 import sanitize from 'sanitize-filename';
 
 export interface DownloadOptions {
