@@ -5,7 +5,7 @@ import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
-import { sanitize } from './sanitize.js';
+import sanitize from 'sanitize-filename';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */

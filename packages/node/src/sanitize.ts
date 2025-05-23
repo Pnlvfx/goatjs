@@ -22,8 +22,5 @@ const sanitizeString = (input: string, replacement: string) => {
 
 export const sanitize = (input: string, { replacement = '' }: { replacement?: string } = {}) => {
   const output = sanitizeString(input, replacement);
-  if (replacement === '') {
-    return output;
-  }
-  return sanitizeString(output, '');
+  return replacement === '' ? output : sanitizeString(output, '');
 };
