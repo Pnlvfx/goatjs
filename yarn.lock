@@ -527,6 +527,7 @@ __metadata:
     "@eslint/js": "npm:^9.27.0"
     "@goatjs/core": "npm:*"
     "@goatjs/storage": "npm:*"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -571,6 +572,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -592,6 +594,7 @@ __metadata:
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -617,6 +620,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -638,6 +642,7 @@ __metadata:
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/mime-types": "npm:^3.0.0"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
@@ -669,6 +674,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -689,6 +695,7 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -712,6 +719,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -732,6 +740,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.27"
     eslint: "npm:^9.27.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
