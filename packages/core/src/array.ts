@@ -3,7 +3,7 @@ export const arrayMove = (arr: unknown[], fromIndex: number, toIndex: number) =>
   arr.splice(toIndex, 0, ...el);
 };
 
-export const getUniqueArraybyKey = <T extends Record<K, string>, K extends keyof T>(arr: T[], key: K): T[] => {
+export const getUniqueArrayByKey = <T extends Record<K, string>, K extends keyof T>(arr: T[], key: K): T[] => {
   return [...new Map(arr.map((item) => [item[key], item])).values()];
 };
 
