@@ -1,6 +1,4 @@
-/** willbedeprecated This function will soon become internal only so
- * proceed to migrate to the new "parseCatchError" alternative.
-  */
+/** @deprecated use "parseCatchError" instead */
 export const errorToString = (err: unknown, ...args: string[]) => {
   let error = '';
   if (err instanceof Error) {
@@ -34,5 +32,6 @@ export const errorToString = (err: unknown, ...args: string[]) => {
 };
 
 export const parseCatchError = (err: unknown) => {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   return err instanceof Error ? err : new Error(errorToString(err));
 };

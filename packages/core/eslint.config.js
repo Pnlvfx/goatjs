@@ -56,6 +56,7 @@ export default tseslint.config(
       // duplicates of tseslint
       'sonarjs/no-misused-promises': 'off',
       'sonarjs/sonar-prefer-optional-chain': 'off',
+      'sonarjs/deprecation': 'off',
     },
   },
   {
