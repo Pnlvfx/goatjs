@@ -97,6 +97,10 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.updateOne(filter, update, options);
         },
+        deleteOne: (filter?: GoatFilter<T>, options?: DeleteOptions) => {
+          /** @ts-expect-error types are differents. */
+          return collection.deleteOne(filter, options);
+        },
         deleteMany: (filter?: GoatFilter<T>, options?: DeleteOptions) => {
           /** @ts-expect-error types are differents. */
           return collection.deleteMany(filter, options);

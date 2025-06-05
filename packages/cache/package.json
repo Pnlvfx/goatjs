@@ -40,7 +40,7 @@
     "@goatjs/core": "*",
     "@goatjs/storage": "*",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
-    "@types/node": "^22.15.29",
+    "@types/node": "^22.15.30",
     "eslint": "^9.28.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unicorn": "^59.0.1",
