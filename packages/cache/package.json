@@ -36,7 +36,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
+    "@eslint/js": "^9.28.0",
     "@goatjs/core": "*",
     "@goatjs/storage": "*",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
@@ -51,7 +51,7 @@
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.0"
+    "typescript-eslint": "^8.33.1"
   },
   "peerDependencies": {
     "@goatjs/core": "*",
