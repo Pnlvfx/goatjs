@@ -594,8 +594,8 @@ __metadata:
 
 "@goatjs/eslint@github:Pnlvfx/eslint":
   version: 2025.1.30
-  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=0629e78eb6f6495a98ccca218a6fd51964e53b57"
-  checksum: 10c0/26868fdb9b4a859045de8e9cb536312152710f8acf74641897939d694f05b20e2410d0ed0aa81d55858df9d87ccca2821cde08d41c2eefdeeb41bf909dc43dd3
+  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=36f1cb125639a19ea3b67b0d68b8fbe85d89a732"
+  checksum: 10c0/41ec869e874e32b2bdc867c723c9ac1ca9e1b1b45bcc83885d0672dd2ff0bfd016688450224f01708e8ff20e073de10795cf990a9e536ffca2080f7e2798907d
   languageName: node
   linkType: hard
 

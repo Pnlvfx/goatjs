@@ -3,7 +3,7 @@ import globals from 'globals';
 import sonarjs from 'eslint-plugin-sonarjs';
 import tseslint from 'typescript-eslint';
 import unicorn from 'eslint-plugin-unicorn';
-import rules from '@goatjs/eslint/node-library/rules';
+import rules from '@goatjs/eslint/node/rules';
 
 export default tseslint.config(
   { ignores: ['dist', 'coverage'] },
