@@ -526,6 +526,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.28.0"
     "@goatjs/core": "npm:*"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/storage": "npm:*"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
@@ -551,6 +552,7 @@ __metadata:
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -572,6 +574,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -589,11 +592,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@goatjs/eslint@github:Pnlvfx/eslint":
+  version: 2025.1.30
+  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=0629e78eb6f6495a98ccca218a6fd51964e53b57"
+  checksum: 10c0/26868fdb9b4a859045de8e9cb536312152710f8acf74641897939d694f05b20e2410d0ed0aa81d55858df9d87ccca2821cde08d41c2eefdeeb41bf909dc43dd3
+  languageName: node
+  linkType: hard
+
 "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript":
   version: 0.0.0-use.local
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -620,6 +631,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -642,6 +654,7 @@ __metadata:
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/mime-types": "npm:^3.0.0"
     "@types/node": "npm:^22.15.30"
@@ -674,6 +687,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -695,6 +709,7 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -719,6 +734,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -740,6 +756,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
@@ -761,8 +778,8 @@ __metadata:
 
 "@goatjs/typescript-config@github:Pnlvfx/typescript-config":
   version: 2025.4.21
-  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=5496a1960f9170305f053415670e5ba9ff686a9b"
-  checksum: 10c0/d5f9777ff0f1bb22d34607243015912fd4650a665061afb59b1b846f91ab20ccd079932aa55285affe4604afd062c15779704202a39e28d5c61344526959d428
+  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=7220bf40ec0e7ba5d405ade0f401768c9f5f942e"
+  checksum: 10c0/e9c5b94007651b5f75d5017cc4d0800d4f3b7321962c7e2e07f00d3c509814b6ba1713e176d5d633ddf358715a51a367ed275ac51670351da7513caadaa80dc1
   languageName: node
   linkType: hard
 
