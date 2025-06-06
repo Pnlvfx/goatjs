@@ -16,10 +16,7 @@ export const input = {
     isRunning = true;
 
     return new Promise<string>((resolve, reject) => {
-      rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-      });
+      rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
       const handleLine = (input: string) => {
         if (!rl) throw new Error('Mismatch on coraline.input');
