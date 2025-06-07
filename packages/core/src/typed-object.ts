@@ -8,7 +8,7 @@ export const getKeys = <T extends object>(obj: T) => {
   return Object.keys(obj) as (keyof T)[];
 };
 
-/** Use this instead of Object.keys to get readonly keys.
+/** Experimental: Use this instead of Object.keys to get readonly keys.
  * Please notice that this will give "fake" readonly keys
  * We are not really freezing the keys
  * If you want to do that use Object.freeze on your own before passing the object here.
