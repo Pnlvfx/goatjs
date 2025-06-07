@@ -1,11 +1,11 @@
-import { parseCatchError } from './error.js';
 import type { Callback } from './types.js';
+import { parseCatchError } from './error.js';
 import { wait } from './wait.js';
 
 export interface RetryOptions {
   maxAttempts?: number;
   retryIntervalMs?: number;
-  signal?: AbortController['signal'];
+  signal?: AbortSignal;
   ignoreWarnings?: boolean;
   failMessage?: (err: string, attempt: number) => string;
   shouldRetry?: (err: unknown, attempt: number) => boolean;
@@ -46,6 +46,7 @@ export const withRetry = <T, Args extends unknown[]>(
               );
             }
           }
+
           await wait(retryIntervalMs);
           await handle();
           attempt++;
