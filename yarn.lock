@@ -656,7 +656,7 @@ __metadata:
     "@eslint/js": "npm:^9.28.0"
     "@goatjs/eslint": "github:Pnlvfx/eslint"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
-    "@types/mime-types": "npm:^3.0.0"
+    "@types/mime-types": "npm:^3.0.1"
     "@types/node": "npm:^22.15.30"
     eslint: "npm:^9.28.0"
     eslint-plugin-sonarjs: "npm:^3.0.2"
@@ -775,8 +775,8 @@ __metadata:
 
 "@goatjs/typescript-config@github:Pnlvfx/typescript-config":
   version: 2025.4.21
-  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=7220bf40ec0e7ba5d405ade0f401768c9f5f942e"
-  checksum: 10c0/e9c5b94007651b5f75d5017cc4d0800d4f3b7321962c7e2e07f00d3c509814b6ba1713e176d5d633ddf358715a51a367ed275ac51670351da7513caadaa80dc1
+  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=efe5ad8024011265484d51a11f28c40683cb7491"
+  checksum: 10c0/38791b568afe407cf615578e0f2ed93d14e9dff9851d9c693043f24397a4ff3a11d0ad2520090f90c556213154d5f95d746068bfea064f5e6679df4b5b32dcab
   languageName: node
   linkType: hard
 
@@ -1411,10 +1411,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mime-types@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@types/mime-types@npm:3.0.0"
-  checksum: 10c0/be809e6a030c838d19df782657d9ceaf4a89d0cb80eb08dc94d9ea9203dcce58d55b0c6a4d0363d77c750710a515a57d21ceb7aea33f122c76300cb4d610e66a
+"@types/mime-types@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/mime-types@npm:3.0.1"
+  checksum: 10c0/61c2056529dc5bc73c25b2a053e21f063fd547c21e12a2be94ca78b89b0f83c9a75afed9a8bda3c78592ee880acc82778302651527f7882cf5ba8e58ab320e29
   languageName: node
   linkType: hard
 
