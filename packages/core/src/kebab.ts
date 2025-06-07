@@ -1,10 +1,13 @@
+type IsNumericString<S extends string> = S extends `${number}` ? true : false;
+
 type CamelToKebabCaseInner<S extends string> = S extends `${infer First}${infer Rest}`
   ? First extends Uppercase<First>
     ? `-${Lowercase<First>}${CamelToKebabCaseInner<Rest>}`
     : `${First}${CamelToKebabCaseInner<Rest>}`
   : S;
 
-export type CamelToKebabCase<S extends string> = S extends `${infer First}${infer Rest}` ? `${Lowercase<First>}${CamelToKebabCaseInner<Rest>}` : S;
+export type CamelToKebabCase<S extends string> =
+  IsNumericString<S> extends true ? S : S extends `${infer First}${infer Rest}` ? `${Lowercase<First>}${CamelToKebabCaseInner<Rest>}` : S;
 
 export type Kebabize<T> = T extends (infer U)[]
   ? Kebabize<U>[]
