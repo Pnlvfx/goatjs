@@ -4,6 +4,8 @@
 /* eslint-disable sonarjs/slow-regex */
 import { truncate } from './truncate-utf8-bytes.js';
 
+// TODO use this and remove sanitize-filename (note that actually it doesn't work!)
+
 const illegalRe = /["*/:<>?\\|]/g;
 const controlRe = /[\u0000-\u001F\u0080-\u009F]/g;
 const reservedRe = /^\.+$/;

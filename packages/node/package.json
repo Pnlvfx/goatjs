@@ -49,22 +49,20 @@
     "mime-types": "^3.0.1",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
-    "sanitize-filename": "1.6.3",
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1"
   },
   "peerDependencies": {
-    "mime-types": "*",
-    "sanitize-filename": "*"
+    "mime-types": "*"
   },
   "peerDependenciesMeta": {
     "mime-types": {
       "optional": true
-    },
-    "sanitize-filename": {
-      "optional": true
     }
+  },
+  "dependencies": {
+    "sanitize-filename": "1.6.3"
   }
 }

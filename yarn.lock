@@ -673,11 +673,8 @@ __metadata:
     typescript-eslint: "npm:^8.33.1"
   peerDependencies:
     mime-types: "*"
-    sanitize-filename: "*"
   peerDependenciesMeta:
     mime-types:
-      optional: true
-    sanitize-filename:
       optional: true
   languageName: unknown
   linkType: soft
