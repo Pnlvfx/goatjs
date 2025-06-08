@@ -1,5 +1,4 @@
 import os from 'node:os';
-import fs from 'node:fs/promises';
 import { getUserAgent } from './user-agent.js';
 import path from 'node:path';
 import mime from 'mime-types';
@@ -7,6 +6,7 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 // TODO we should use our internal sanitizer
 import sanitize from 'sanitize-filename';
+import { pathExist } from './fs.js';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
@@ -32,20 +32,11 @@ export const download = async (
   if (!res.ok) throw new Error(`${res.status.toString()}: ${res.statusText}`);
   if (!res.body) throw new Error('It looks like there is nothing to download at this url.');
   const filename = sanitize(getFilename(url, res.headers));
-  if (!override && (await fileExist(filename))) throw new Error('File already exist!');
+  if (!override && (await pathExist(filename))) throw new Error('File already exist!');
   const output = path.join(directory, filename);
   const fileStream = createWriteStream(output);
   await pipeline(res.body, fileStream);
   return output;
-};
-
-const fileExist = async (file: string) => {
-  try {
-    await fs.access(file);
-    return true;
-  } catch {
-    return false;
-  }
 };
 
 const getFilename = (url: string, headers: Headers) => {
