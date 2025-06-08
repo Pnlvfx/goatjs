@@ -13,6 +13,8 @@ interface Params {
   files: string[];
 }
 
+const withComment = new Set(['js', 'ts', 'tsx', 'jsx', 'cjs', 'mjs', 'cts']);
+
 export const copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: Params) => {
   if (!(await pathExist(outputFolder))) {
     await fs.mkdir(outputFolder, { recursive: true });
@@ -20,7 +22,9 @@ export const copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: 
 
   for (const file of files) {
     const buf = await fs.readFile(path.join(inputFolder, file));
-    const content = `${generatedFileComment}\n\n${buf.toString()}`;
+    const extname = path.extname(file).slice(1);
+    const isJs = withComment.has(extname);
+    const content = isJs ? `${generatedFileComment}\n\n${buf.toString()}` : buf.toString();
     await fs.writeFile(path.join(outputFolder, file), content);
   }
 };
