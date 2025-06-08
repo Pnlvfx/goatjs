@@ -17,7 +17,8 @@
   },
   "exports": {
     "types": "./dist/storage.d.ts",
-    "import": "./dist/storage.js"
+    "import": "./dist/storage.js",
+    "require": "./dist/storage.js"
   },
   "scripts": {
     "tsc": "tsc --noEmit true",

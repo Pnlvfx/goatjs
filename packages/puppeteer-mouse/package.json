@@ -15,9 +15,6 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "main": "./dist/mouse.js",
-  "module": "./dist/mouse.js",
-  "types": "./dist/mouse.d.ts",
   "exports": {
     "types": "./dist/mouse.d.ts",
     "import": "./dist/mouse.js"

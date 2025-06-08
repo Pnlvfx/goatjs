@@ -15,12 +15,10 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "main": "./dist/link-preview.js",
-  "module": "./dist/link-preview.js",
-  "types": "./dist/link-preview.d.ts",
   "exports": {
     "types": "./dist/link-preview.d.ts",
-    "import": "./dist/link-preview.js"
+    "import": "./dist/link-preview.js",
+    "require": "./dist/link-preview.js"
   },
   "scripts": {
     "tsc": "tsc --noEmit true",

@@ -15,12 +15,10 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "main": "./dist/ts-unused-exports.js",
-  "module": "./dist/ts-unused-exports.js",
-  "types": "./dist/ts-unused-exports.d.ts",
   "exports": {
     "types": "./dist/ts-unused-exports.d.ts",
-    "import": "./dist/ts-unused-exports.js"
+    "import": "./dist/ts-unused-exports.js",
+    "require": "./dist/ts-unused-exports.js"
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
