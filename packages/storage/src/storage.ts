@@ -12,6 +12,8 @@ const getProjectName = async () => {
   return name.replace('api-', '');
 };
 
+// TODO We have to use the goatjs/node/fs import instead of this, but it will break the build I think
+/** @deprecated use import {fs} from "@goatjs/core/fs" */
 const exist = async (file: string) => {
   try {
     await fs.access(file);
@@ -22,6 +24,7 @@ const exist = async (file: string) => {
 };
 
 const mkDir = async (folder: string, recursive?: boolean) => {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   if (await exist(folder)) return;
   checkPath(folder);
   await fs.mkdir(folder, { recursive });
@@ -45,6 +48,7 @@ await mkDir(logPath);
 
 export const storage = {
   cwd,
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   exist,
   use: async (internalPath: string) => {
     const directory = path.join(cwd, internalPath);
