@@ -3,6 +3,7 @@ import os from 'node:os';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 
+// TODO check the result of this in a monorepo setup
 const getProjectName = async () => {
   const packageJsonPath = path.join(process.cwd(), 'package.json');
   const buf = await fs.readFile(packageJsonPath);
@@ -36,15 +37,7 @@ const checkPath = (pth: string) => {
   }
 };
 
-const clearFolder = async (folder: string) => {
-  const contents = await fs.readdir(folder);
-  for (const content of contents) {
-    await fs.rm(path.join(folder, content));
-  }
-};
-
 const cwd = path.join(os.homedir(), '.coraline', await getProjectName());
-// const configs = await getConfigs(cwd);
 await mkDir(cwd, true);
 
 const logPath = path.join(cwd, 'log');
@@ -52,6 +45,7 @@ await mkDir(logPath);
 
 export const storage = {
   cwd,
+  exist,
   use: async (internalPath: string) => {
     const directory = path.join(cwd, internalPath);
     await mkDir(directory);
@@ -66,9 +60,13 @@ export const storage = {
     await mkDir(videoPath);
     return { staticPath: folder, imagePath, videoPath };
   },
-  clearAll: () => clearFolder(cwd),
-  reset: () => fs.rm(cwd),
-  // FS HELPERS
+  clearAll: () => fs.rm(cwd, { recursive: true, force: true }),
+  logToFile: async (data: string, { extension = 'json', name = 'Log' } = {}) => {
+    const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
+    await fs.writeFile(file, data);
+    // eslint-disable-next-line no-console
+    console.log(name, 'stored at:', file);
+  },
   getUrlFromStaticPath: (coraPath: string, query?: Record<string, string>) => {
     if (!process.env['SERVER_URL']) throw new Error('Please add SERVER_URL to your env file to use this function');
     const extra_path = coraPath.split('/static/').at(1);
@@ -79,13 +77,5 @@ export const storage = {
   getPathFromUrl: (url: string) => {
     const { pathname } = new URL(url);
     return path.join(cwd, pathname);
-  },
-  exist,
-  clearFolder,
-  logToFile: async (data: string, { extension = 'json', title = 'Log stored at:' } = {}) => {
-    const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
-    await fs.writeFile(file, data);
-    // eslint-disable-next-line no-console
-    console.log(title, file);
   },
 };
