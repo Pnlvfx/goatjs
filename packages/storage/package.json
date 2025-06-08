@@ -15,8 +15,6 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "types": "./dist/storage.d.ts",
-  "module": "./dist/storage.js",
   "exports": {
     "types": "./dist/storage.d.ts",
     "import": "./dist/storage.js"
