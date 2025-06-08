@@ -1,6 +1,6 @@
-export const toNumber = (str: string) => {
-  const num = Number(str);
-  if (Number.isNaN(num)) throw new Error(`"${str}" is not a valid number.`);
+export const toNumber = (string: string) => {
+  const num = Number(string);
+  if (Number.isNaN(num)) throw new Error(`"${string}" is not a valid number.`);
   return num;
 };
 

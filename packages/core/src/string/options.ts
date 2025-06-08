@@ -16,3 +16,10 @@ export interface CaseOptions {
   prefixCharacters?: string;
   suffixCharacters?: string;
 }
+
+/**
+ * Options used for converting strings to pascal/camel case.
+ */
+export interface PascalCaseOptions extends CaseOptions {
+  mergeAmbiguousCharacters?: boolean;
+}
