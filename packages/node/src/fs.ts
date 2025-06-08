@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 
 export const pathExist = async (file: string) => {
   try {
+    // eslint-disable-next-line no-restricted-properties
     await fs.access(file);
     return true;
   } catch {
