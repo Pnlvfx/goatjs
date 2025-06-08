@@ -3,26 +3,6 @@ import os from 'node:os';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 
-/** @TODO use a config to check what path exist and what should be created,
- * allow auto update if user delete folder from outside the node env and update the value to allow easy resolution.
- */
-
-// interface StorageConfig {
-//   cwd: string;
-// }
-
-// const getConfigs = async (cwd: string): Promise<StorageConfig> => {
-//   const configFile = path.join(cwd, '.config');
-//   try {
-//     const buf = await fs.readFile(configFile);
-//     return JSON.parse(buf.toString()) as StorageConfig;
-//   } catch {
-//     const configs = { cwd }; // add more initial configs here.
-//     await fs.writeFile(configFile, JSON.stringify(configs));
-//     return configs;
-//   }
-// };
-
 const getProjectName = async () => {
   const packageJsonPath = path.join(process.cwd(), 'package.json');
   const buf = await fs.readFile(packageJsonPath);
