@@ -15,6 +15,6 @@ export type KebabCase<S extends string> =
 /**
  * Convert a string to kebab case (`foo-bar`).
  */
-export function kebabCase(input: string, options?: CaseOptions) {
-  return noCase(input, { delimiter: '-', ...options });
-}
+export const kebabCase = <T extends string>(input: T, options?: CaseOptions) => {
+  return noCase(input, { delimiter: '-', ...options }) as KebabCase<T>;
+};

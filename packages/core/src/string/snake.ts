@@ -8,6 +8,6 @@ export type SnakeCase<S extends string> = S extends `${infer T}${infer U}`
 /**
  * Convert a string to snake case (`foo_bar`).
  */
-export function snakeCase(input: string, options?: CaseOptions) {
-  return noCase(input, { delimiter: '_', ...options });
-}
+export const snakeCase = <T extends string>(input: T, options?: CaseOptions) => {
+  return noCase(input, { delimiter: '_', ...options }) as SnakeCase<T>;
+};
