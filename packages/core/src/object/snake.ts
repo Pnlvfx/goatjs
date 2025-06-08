@@ -1,3 +1,4 @@
+import type { CaseOptions } from '../string/options.js';
 import { snakeCase, type SnakeCase } from '../string/snake.js';
 
 export type Snakeize<T> = T extends (infer U)[]
@@ -8,13 +9,13 @@ export type Snakeize<T> = T extends (infer U)[]
       }
     : T;
 
-export const snakelizeObject = <T extends object>(obj: T) => {
+export const snakelizeObject = <T extends object>(obj: T, options?: CaseOptions) => {
   const response: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(obj)) {
     if (typeof value === 'object') {
-      response[key] = snakelizeObject(value);
+      response[key] = snakelizeObject(value, options);
     } else {
-      response[snakeCase(key)] = value;
+      response[snakeCase(key, options)] = value;
     }
   }
 

@@ -1,4 +1,5 @@
 import { kebabCase, type KebabCase } from '../string/kebab.js';
+import type { CaseOptions } from '../string/options.js';
 
 export type Kebabize<T> = T extends (infer U)[]
   ? Kebabize<U>[]
@@ -8,11 +9,11 @@ export type Kebabize<T> = T extends (infer U)[]
       }
     : T;
 
-export const kebabizeObject = <T extends object>(obj: T) => {
+export const kebabizeObject = <T extends object>(obj: T, options?: CaseOptions) => {
   const response: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(obj)) {
-    const kebabKey = kebabCase(key);
-    response[kebabKey] = typeof value === 'object' && value !== null ? kebabizeObject(value) : value;
+    const kebabKey = kebabCase(key, options);
+    response[kebabKey] = typeof value === 'object' && value !== null ? kebabizeObject(value, options) : value;
   }
   return response as Kebabize<T>;
 };
