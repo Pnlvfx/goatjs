@@ -1,15 +1,15 @@
-import { spawn } from 'node:child_process';
+import { spawn, type SpawnOptions } from 'node:child_process';
 import os from 'node:os';
 
-export const bash = (scriptFile: string) => {
+export const bash = (scriptFile: string, options: SpawnOptions = {}) => {
   return new Promise<void>((resolve, reject) => {
     const { args, command } = getSystemConfigs(scriptFile);
-    const process = spawn(command, args);
+    const process = spawn(command, args, options);
     process.on('error', reject);
 
     let error = '';
 
-    process.stderr.on('data', (chunk: Buffer) => {
+    process.stderr?.on('data', (chunk: Buffer) => {
       error += chunk.toString();
     });
 
