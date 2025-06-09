@@ -25,6 +25,7 @@ export const findUnusedExports = ({
   tsConfigPath = path.resolve('.', 'tsconfig.json'),
   // eslint-disable-next-line sonarjs/cognitive-complexity
 }: UnusedOptions = {}) => {
+  console.log({ tsConfigPath });
   const analyzed = analyzeTsConfig(tsConfigPath);
   const response: Record<string, ExportNameAndLocation[]> = {};
   const unusedFolders = new Set(ignoreFolders);
