@@ -77,7 +77,7 @@ export const findUnusedExports = async ({
   }
 
   if (unusedFolders.size > 0) {
-    throw new Error(`The following ignore entries are no longer needed: Variables: ${[...unusedFolders].join(', ')}`);
+    throw new Error(`The following ignore entries are no longer needed: Folders: ${[...unusedFolders].join(', ')}`);
   }
 
   const patchedResponse = patchSkipVanillaCssFiles(response);
