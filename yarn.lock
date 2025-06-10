@@ -879,8 +879,6 @@ __metadata:
   peerDependenciesMeta:
     mime-types:
       optional: true
-  bin:
-    rimraf: dist/cli/rimraf.js
   languageName: unknown
   linkType: soft
 
@@ -928,6 +926,30 @@ __metadata:
     typescript-eslint: "npm:^8.34.0"
   peerDependencies:
     puppeteer-core: "*"
+  languageName: unknown
+  linkType: soft
+
+"@goatjs/rimraf@workspace:packages/rimraf":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/rimraf@workspace:packages/rimraf"
+  dependencies:
+    "@eslint/js": "npm:^9.28.0"
+    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
+    "@types/node": "npm:^24.0.0"
+    eslint: "npm:^9.28.0"
+    eslint-plugin-sonarjs: "npm:^3.0.2"
+    eslint-plugin-unicorn: "npm:^59.0.1"
+    globals: "npm:^16.2.0"
+    jest: "npm:^30.0.0"
+    prettier: "npm:^3.5.3"
+    rimraf: "npm:^6.0.1"
+    ts-jest: "npm:^29.3.4"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.8.3"
+    typescript-eslint: "npm:^8.34.0"
+  bin:
+    rimraf: dist/cli/rimraf.js
   languageName: unknown
   linkType: soft
 
