@@ -1002,8 +1002,8 @@ __metadata:
 
 "@goatjs/typescript-config@github:Pnlvfx/typescript-config":
   version: 2025.4.21
-  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=efe5ad8024011265484d51a11f28c40683cb7491"
-  checksum: 10c0/38791b568afe407cf615578e0f2ed93d14e9dff9851d9c693043f24397a4ff3a11d0ad2520090f90c556213154d5f95d746068bfea064f5e6679df4b5b32dcab
+  resolution: "@goatjs/typescript-config@https://github.com/Pnlvfx/typescript-config.git#commit=716eb6ce1344d9d58c1f335d7e57ebad06906710"
+  checksum: 10c0/4b7e7c737988f8897850c94a7a79318e70de7746ad5ac2ed78cd73a6cbd2155fb911c1d906041f339659a32c757a70536ae79034be05272e7f7c8657afd7065e
   languageName: node
   linkType: hard
 
