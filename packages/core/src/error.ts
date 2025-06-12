@@ -16,7 +16,7 @@ export const errorToString = (err: unknown, ...args: string[]) => {
       // eslint-disable-next-line no-console
       console.warn('Unable to parse:', err);
     } catch {
-      error = `UNHANDLED ERROR`;
+      error = 'UNHANDLED ERROR';
       if (process.env['NODE_ENV'] !== 'production') {
         // eslint-disable-next-line no-console
         console.warn('Unable to parse:', err);
