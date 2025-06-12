@@ -13,17 +13,21 @@ export const updateLocalDeps = (packages: string[]) => {
 
     child.on('error', reject);
 
+    let error = '';
+
     child.stderr.on('data', (chunk: Buffer) => {
-      console.log(chunk);
+      const err = chunk.toString();
+      console.log(err);
+      error += err;
     });
 
     child.stdout.on('data', (chunk: Buffer) => {
-      console.log(chunk);
+      console.log(chunk.toString());
     });
 
     child.on('close', (code) => {
       if (code === 0) resolve();
-      else reject(new Error('Update failed'));
+      else reject(new Error(`Update failed because of: ${error}`));
     });
   });
 };
