@@ -39,7 +39,7 @@
     "@goatjs/eslint": "github:Pnlvfx/eslint",
     "@goatjs/storage": "*",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24.0.1",
     "eslint": "^9.28.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unicorn": "^59.0.1",
@@ -47,7 +47,7 @@
     "jest": "^30.0.0",
     "prettier": "^3.5.3",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.3.4",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0"

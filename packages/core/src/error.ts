@@ -1,3 +1,8 @@
+export const parseCatchError = (err: unknown) => {
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
+  return err instanceof Error ? err : new Error(errorToString(err));
+};
+
 /** @deprecated use "parseCatchError" instead */
 export const errorToString = (err: unknown, ...args: string[]) => {
   let error = '';
@@ -29,9 +34,4 @@ export const errorToString = (err: unknown, ...args: string[]) => {
   }
 
   return error;
-};
-
-export const parseCatchError = (err: unknown) => {
-  // eslint-disable-next-line @typescript-eslint/no-deprecated
-  return err instanceof Error ? err : new Error(errorToString(err));
 };
