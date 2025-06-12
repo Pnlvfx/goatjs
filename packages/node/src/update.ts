@@ -6,10 +6,14 @@ import { platform } from 'node:os';
 
 const isWindows = platform() === 'win32';
 
-export const updateLocalDeps = (packages: string[]) => {
+export const updateLocalDeps = (packages: Record<string, string>) => {
   return new Promise<void>((resolve, reject) => {
+    const deps = [];
+    for (const [key, value] of Object.entries(packages)) {
+      deps.push(`${key}@${value}`);
+    }
     // eslint-disable-next-line sonarjs/no-os-command-from-path
-    const child = spawn('yarn', ['up', packages.join(' ')], { shell: isWindows });
+    const child = spawn('yarn', ['up', deps.join(' ')], { shell: isWindows });
 
     child.on('error', reject);
 
