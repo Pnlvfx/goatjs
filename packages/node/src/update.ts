@@ -27,7 +27,7 @@ export const updateLocalDeps = (packages: string[]) => {
 
     child.on('close', (code) => {
       if (code === 0) resolve();
-      else reject(new Error(`Update failed because of: ${error}`));
+      else reject(new Error(`Update failed with code: ${code?.toString() ?? ''} because of: ${error}`));
     });
   });
 };
