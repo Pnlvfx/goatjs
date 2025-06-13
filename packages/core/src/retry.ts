@@ -34,6 +34,9 @@ export const withRetry = <T, Args extends unknown[]>(
             reject(parsedError);
             return;
           }
+
+          attempt++;
+
           if (process.env['NODE_ENV'] !== 'production') {
             if (failMessage) {
               // eslint-disable-next-line no-console
@@ -49,7 +52,6 @@ export const withRetry = <T, Args extends unknown[]>(
 
           await wait(retryIntervalMs);
           await handle();
-          attempt++;
         }
       };
 
