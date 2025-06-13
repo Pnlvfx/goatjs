@@ -8,8 +8,8 @@ const execAsync = promisify(exec);
 
 export const updateLocalDeps = async (packages: Record<string, string>) => {
   const deps = Object.entries(packages).map(([name, version]) => `${name}@${version}`);
-  const command = `yarn up ${deps.join(' ')}`
-  console.log(`running ${command}`)
+  const command = `yarn up ${deps.join(' ')}`;
+  console.log(`running ${command}`);
   const { stderr, stdout } = await execAsync(command);
   console.log(stderr);
   console.log(stdout);
