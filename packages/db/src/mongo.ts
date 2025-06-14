@@ -115,7 +115,9 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
     return { collection: createCollection };
   };
 
-  return { db: createDb };
+  const close = () => client.close();
+
+  return { db: createDb, close };
 };
 
 export { ObjectId } from 'mongodb';
