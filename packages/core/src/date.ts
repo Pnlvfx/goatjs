@@ -35,7 +35,6 @@ const formatDate = (date: AcceptedDate) => {
   };
 };
 
-/** @deprecated Plase use new Intl.DateTimeFormat as it's integrated on both browser and node. */
 export const createDate = (date: AcceptedDate = new Date()) => {
   const time = formatDate(date);
 
