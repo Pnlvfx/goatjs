@@ -19,6 +19,7 @@ import {
   type DeleteOptions,
   type Document,
   type DropIndexesOptions,
+  type AnyBulkWriteOperation,
 } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
@@ -111,6 +112,9 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         },
         aggregate: <Agg extends Document>(pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
           return collection.aggregate<Agg>(pipeline, options);
+        },
+        bulkWrite: (operations: readonly AnyBulkWriteOperation<T>[], options?: BulkWriteOptions) => {
+          return collection.bulkWrite(operations, options);
         },
         dropIndexes: (options: DropIndexesOptions = {}) => collection.dropIndexes(options),
       };
