@@ -22,8 +22,10 @@ import {
   type AnyBulkWriteOperation,
 } from 'mongodb';
 
+// TODO we might consider add an eslint rule to disallow native mongo in all projects and use this
+
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
-  const client = new MongoClient(url, { forceServerObjectId: false, ...options });
+  const client = new MongoClient(url, { forceServerObjectId: false, ignoreUndefined: true, ...options });
 
   const createDb = (dbName: string, options?: DbOptions) => {
     const db = client.db(dbName, options);
