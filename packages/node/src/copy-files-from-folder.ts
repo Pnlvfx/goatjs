@@ -10,7 +10,7 @@ const generatedFileComment = `/**
 interface Params {
   inputFolder: string;
   outputFolder: string;
-  files: string[];
+  files: string[] | '*';
 }
 
 const withComment = new Set(['js', 'ts', 'tsx', 'jsx', 'cjs', 'mjs', 'cts']);
@@ -20,7 +20,9 @@ export const copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: 
     await fs.mkdir(outputFolder, { recursive: true });
   }
 
-  for (const file of files) {
+  const array = files === '*' ? await fs.readdir(inputFolder) : files;
+
+  for (const file of array) {
     const buf = await fs.readFile(path.join(inputFolder, file));
     const extname = path.extname(file).slice(1);
     const isJs = withComment.has(extname);
