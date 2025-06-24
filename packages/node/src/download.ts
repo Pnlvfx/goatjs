@@ -4,9 +4,8 @@ import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
-// TODO we should use our internal sanitizer
-import sanitize from 'sanitize-filename';
 import { pathExist } from './fs.js';
+import { sanitize } from './sanitize.js';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
