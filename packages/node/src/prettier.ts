@@ -2,7 +2,7 @@ import prettierConfigs from './compiled/prettier-configs.json' with { type: 'jso
 import nativePrettier from 'prettier';
 
 interface Options {
-  readonly parser: 'json' | 'typescript';
+  readonly parser: 'json' | 'typescript' | 'babel';
 }
 
 export const prettier = {
