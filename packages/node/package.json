@@ -28,7 +28,8 @@
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",
-    "prepublishOnly": "yarn test && eslint"
+    "prepublishOnly": "yarn test && eslint",
+    "prettier-gen": "tsx tools/prettier-gen.ts"
   },
   "files": [
     "dist",
@@ -47,18 +48,22 @@
     "globals": "^16.2.0",
     "jest": "^30.0.3",
     "mime-types": "^3.0.1",
-    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.0"
   },
   "peerDependencies": {
-    "mime-types": "*"
+    "mime-types": "*",
+    "prettier": "*"
   },
   "peerDependenciesMeta": {
     "mime-types": {
+      "optional": true
+    },
+    "prettier": {
       "optional": true
     }
   },

@@ -14,7 +14,9 @@
     "tsc": "turbo tsc",
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "initialize": "yarn workspace @goatjs/node prettier-gen",
+    "postinstall": "yarn initialize"
   },
   "workspaces": [
     "packages/*"
