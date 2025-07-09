@@ -18,3 +18,4 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
 export { ObjectId } from 'mongodb';
 export type * from './patched-types.js';
 export type { Db } from './db.js';
+export * from './projection.js';
