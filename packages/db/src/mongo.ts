@@ -1,8 +1,7 @@
+/* eslint-disable no-restricted-imports */
 import type { GoatClientOptions } from './patched-types.js';
 import { createGoatDb } from './db.js';
 import { MongoClient, type DbOptions } from 'mongodb';
-
-// TODO we might consider add an eslint rule to disallow native mongo in all projects and use this
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
   const client = new MongoClient(url, { forceServerObjectId: false, ignoreUndefined: true, ...options });

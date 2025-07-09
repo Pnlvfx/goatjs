@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import type { FilterOperators, IndexDirection, MongoClientOptions, RootFilterOperators } from 'mongodb';
 
 export type GoatClientOptions = Omit<MongoClientOptions, 'forceServerObjectId' | 'ignoreUndefined'>;

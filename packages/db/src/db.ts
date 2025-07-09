@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 /* eslint-disable unicorn/no-array-method-this-argument */
 /* eslint-disable unicorn/no-array-callback-reference */
 import type {
@@ -17,6 +18,7 @@ import type {
   ModifyResult,
   UpdateFilter,
   UpdateOptions,
+  Sort,
 } from 'mongodb';
 import type { GoatFilter, GoatIndexSpecification } from './patched-types.js';
 import type { AggregateOptions } from 'node:sqlite';
@@ -76,7 +78,7 @@ export const createGoatDb = (db: MongoDb) => {
         /** @ts-expect-error Removing WithId from the return type */
         return collection.findOne(filter, options);
       },
-      findOneAndUpdate: <B extends boolean>(
+      findOneAndUpdate: <B extends boolean = false>(
         filter: GoatFilter<T>,
         update: UpdateFilter<T>,
         options?: FindOneAndUpdateOptions & { includeResultMetadata: B },
@@ -92,7 +94,7 @@ export const createGoatDb = (db: MongoDb) => {
         /** @ts-expect-error types are differents. */
         return collection.insertMany(docs, options);
       },
-      updateOne: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions) => {
+      updateOne: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions & { sort?: Sort }) => {
         /** @ts-expect-error types are differents. */
         return collection.updateOne(filter, update, options);
       },
