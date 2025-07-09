@@ -20,6 +20,7 @@ import {
   type Document,
   type DropIndexesOptions,
   type AnyBulkWriteOperation,
+  type CountDocumentsOptions,
 } from 'mongodb';
 
 // TODO we might consider add an eslint rule to disallow native mongo in all projects and use this
@@ -74,6 +75,10 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
         createIndex: (indexSpec: GoatIndexSpecification<Exclude<keyof T & string, '_id'>>, options?: CreateIndexesOptions) => {
           /** @ts-expect-error the types are different but they are working. */
           return collection.createIndex(indexSpec, options);
+        },
+        countDocuments: (filter?: GoatFilter<T>, options?: CountDocumentsOptions & Abortable) => {
+          /** @ts-expect-error Filter diff */
+          return collection.countDocuments(filter, options);
         },
         find,
         findOne(filter?: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {

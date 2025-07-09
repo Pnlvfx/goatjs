@@ -1091,7 +1091,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:^59.0.1"
     globals: "npm:^16.3.0"
     jest: "npm:^30.0.4"
-    puppeteer-core: "npm:^24.12.0"
+    puppeteer-core: "npm:^24.12.1"
     rimraf: "npm:^6.0.1"
     ts-jest: "npm:^29.4.0"
     ts-node: "npm:^10.9.2"
@@ -6207,9 +6207,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^24.12.0":
-  version: 24.12.0
-  resolution: "puppeteer-core@npm:24.12.0"
+"puppeteer-core@npm:^24.12.1":
+  version: 24.12.1
+  resolution: "puppeteer-core@npm:24.12.1"
   dependencies:
     "@puppeteer/browsers": "npm:2.10.5"
     chromium-bidi: "npm:5.1.0"
@@ -6217,7 +6217,7 @@ __metadata:
     devtools-protocol: "npm:0.0.1464554"
     typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.3"
-  checksum: 10c0/5c60e83ef3b649c235f4b68b8d224d1f2e07b1d6f4464cd6c585fb2877cf0d4930951ffb30dc7a3dd150e63627573ab2dd64ff1fd0e61931cfdaccc35a5b78a2
+  checksum: 10c0/83ca09eca919c825dc26075bc4fdeae7ffed60df7a6b40c1b43966d1e4dd0a51108d553cc9c58be5f4df4f333d9a4470e75e62cf258a0fe6a00ee357aa72294b
   languageName: node
   linkType: hard
 
