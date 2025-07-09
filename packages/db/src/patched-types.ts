@@ -1,6 +1,6 @@
 import type { FilterOperators, IndexDirection, MongoClientOptions, RootFilterOperators } from 'mongodb';
 
-export type GoatClientOptions = Omit<MongoClientOptions, 'forceServerObjectId'>;
+export type GoatClientOptions = Omit<MongoClientOptions, 'forceServerObjectId' | 'ignoreUndefined'>;
 
 export type Condition<T> = T | FilterOperators<T>;
 
