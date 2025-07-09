@@ -969,10 +969,10 @@ __metadata:
 
 "@goatjs/eslint@github:Pnlvfx/eslint":
   version: 2025.1.30
-  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=9da621b4c0578995b2aa2b9d5416aba0d5ce2d17"
+  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=84130dc7cf478bf8ff9f1a12e368fc5e57b25ba9"
   peerDependencies:
     eslint: ^9
-  checksum: 10c0/0567bbd57d058b3afc39d58ea6c556decbf931394871cbd727a4f8c6259af3610726a3290fb40571e264c24d7b435cbb171bc71ee259590b5d5d50ef912e0f1d
+  checksum: 10c0/fb3390988e8f397f2b40458c6874abaced679c37c7a9d7f8ac86a292daf71d05b5f0aa9bda79523b02f0849478753991e6d4b3c80edcd163323d22c4d9b1cb92
   languageName: node
   linkType: hard
 
