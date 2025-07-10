@@ -19,6 +19,7 @@ import type {
   UpdateFilter,
   UpdateOptions,
   Sort,
+  Document,
 } from 'mongodb';
 import type { GoatFilter, GoatIndexSpecification } from './patched-types.js';
 import type { AggregateOptions } from 'node:sqlite';
