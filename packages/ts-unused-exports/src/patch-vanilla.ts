@@ -5,7 +5,7 @@ export const patchSkipVanillaCssFiles = (unused: UnusedResponse) => {
   const tempSkip: UnusedResponse = {};
   for (const [key, value] of Object.entries(unused)) {
     if (key.includes('.css')) {
-      console.warn(`vanilla extract css "${key}" has been skipped duo to a bug`);
+      console.warn(`Css "${key}" has been skipped duo to a bug.`);
     } else {
       tempSkip[key] = value;
     }
