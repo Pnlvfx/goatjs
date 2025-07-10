@@ -1,4 +1,12 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
+
+export const clearFolder = async (folder: string) => {
+  const contents = await fs.readdir(folder);
+  for (const content of contents) {
+    await fs.rm(path.join(folder, content));
+  }
+};
 
 export const pathExist = async (file: string) => {
   try {
