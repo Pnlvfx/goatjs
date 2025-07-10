@@ -15,5 +15,5 @@ export const log = {
     console.log(name, 'stored at:', file);
   },
   delete: (name: string) => fs.rm(path.join(logPath, name)),
-  deleteAll: () => fs.rm(logPath),
+  deleteAll: () => fs.rm(logPath, { recursive: true, force: true }),
 };
