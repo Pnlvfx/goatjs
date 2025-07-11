@@ -51,7 +51,7 @@ export const withRetry = <T, Args extends unknown[]>(
           }
 
           await wait(retryIntervalMs);
-          await handle();
+          void handle();
         }
       };
 
