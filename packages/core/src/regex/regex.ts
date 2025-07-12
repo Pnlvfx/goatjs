@@ -1,4 +1,5 @@
-/* eslint-disable unicorn/prefer-spread */
+// TODO split by files
+
 export const regex = {
   /** Detect if a given string has emoji. */
   detectEmoji: /<a?:.+?:\d{18}>|\p{Extended_Pictographic}/gu,
@@ -20,6 +21,7 @@ export const regex = {
   /** Match a string even with some differences, but note that it might be incorrect. */
   simpleMatch: (name: string) => {
     const regexString = name
+      // eslint-disable-next-line unicorn/prefer-spread
       .split('')
       .map((char) => `${char}.*?`)
       .join('.*?');
