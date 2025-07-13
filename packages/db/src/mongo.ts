@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-imports */
-import type { GoatClientOptions } from './patched-types.js';
+import type { DbOptions, GoatClientOptions } from './patched-types.js';
 import { createGoatDb } from './db.js';
-import { MongoClient, type DbOptions } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 export const createGoatClient = (url: string, options?: GoatClientOptions) => {
   const client = new MongoClient(url, { forceServerObjectId: false, ignoreUndefined: true, ...options });

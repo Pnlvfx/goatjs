@@ -20,9 +20,10 @@ import type {
   UpdateOptions,
   Sort,
   Document,
+  AggregateOptions,
 } from 'mongodb';
-import type { GoatFilter, GoatIndexSpecification } from './patched-types.js';
-import type { AggregateOptions } from 'node:sqlite';
+import type { Filter, FindOneOptions, IndexSpecification } from './patched-types.js';
+import type { ProjectedType, ProjectionKeys } from './projection.js';
 
 export const createGoatDb = (db: MongoDb) => {
   const createCollection = <T extends { _id: unknown }>(name: string, options?: CollectionOptions) => {
@@ -30,11 +31,24 @@ export const createGoatDb = (db: MongoDb) => {
 
     /** @ts-expect-error removing the WithId interface from the return. */
     function find(): FindCursor<T>;
-    function find(filter: GoatFilter<T>, options?: FindOptions & Abortable): FindCursor<T>;
-    function find<U extends T>(filter: GoatFilter<U>, options?: FindOptions & Abortable): FindCursor<T>;
-    function find(filter?: GoatFilter<T>, options?: FindOptions & Abortable) {
+    function find(filter: Filter<T>, options?: FindOptions & Abortable): FindCursor<T>;
+    function find<U extends T>(filter: Filter<U>, options?: FindOptions & Abortable): FindCursor<T>;
+    function find(filter?: Filter<T>, options?: FindOptions & Abortable) {
       /** @ts-expect-error typescript see that we removed the interface. */
       return collection.find(filter, options);
+    }
+
+    function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | null>;
+    function findOne<P extends ProjectionKeys<T>>(
+      filter?: Filter<T>,
+      options?: Omit<FindOneOptions, 'projection'> & { projection: P },
+    ): Promise<ProjectedType<T, P> | null>;
+    function findOne<P extends ProjectionKeys<T>>(
+      filter?: Filter<T>,
+      options?: FindOneOptions | (Omit<FindOneOptions, 'projection'> & { projection: P }),
+    ): Promise<T | ProjectedType<T, P> | null> {
+      /** @ts-expect-error Removing WithId from the return type */
+      return collection.findOne(filter, options);
     }
 
     return {
@@ -66,21 +80,18 @@ export const createGoatDb = (db: MongoDb) => {
        * await collection.createIndex(['j', ['k', -1], { l: '2d' }])
        * ```
        */
-      createIndex: (indexSpec: GoatIndexSpecification<Exclude<keyof T & string, '_id'>>, options?: CreateIndexesOptions) => {
+      createIndex: (indexSpec: IndexSpecification<Exclude<keyof T & string, '_id'>>, options?: CreateIndexesOptions) => {
         /** @ts-expect-error the types are different but they are working. */
         return collection.createIndex(indexSpec, options);
       },
-      countDocuments: (filter?: GoatFilter<T>, options?: CountDocumentsOptions & Abortable) => {
+      countDocuments: (filter?: Filter<T>, options?: CountDocumentsOptions & Abortable) => {
         /** @ts-expect-error Filter diff */
         return collection.countDocuments(filter, options);
       },
       find,
-      findOne(filter?: GoatFilter<T>, options?: Omit<FindOptions, 'timeoutMode'> & Abortable): Promise<T | null> {
-        /** @ts-expect-error Removing WithId from the return type */
-        return collection.findOne(filter, options);
-      },
+      findOne,
       findOneAndUpdate: <B extends boolean = false>(
-        filter: GoatFilter<T>,
+        filter: Filter<T>,
         update: UpdateFilter<T>,
         options?: FindOneAndUpdateOptions & { includeResultMetadata: B },
       ): Promise<B extends true ? ModifyResult<T> : T | null> => {
@@ -95,23 +106,23 @@ export const createGoatDb = (db: MongoDb) => {
         /** @ts-expect-error types are differents. */
         return collection.insertMany(docs, options);
       },
-      updateOne: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions & { sort?: Sort }) => {
+      updateOne: (filter: Filter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions & { sort?: Sort }) => {
         /** @ts-expect-error types are differents. */
         return collection.updateOne(filter, update, options);
       },
-      updateMany: (filter: GoatFilter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions) => {
+      updateMany: (filter: Filter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions) => {
         /** @ts-expect-error types are differents. */
         return collection.updateMany(filter, update, options);
       },
-      deleteOne: (filter?: GoatFilter<T>, options?: DeleteOptions) => {
+      deleteOne: (filter?: Filter<T>, options?: DeleteOptions) => {
         /** @ts-expect-error types are differents. */
         return collection.deleteOne(filter, options);
       },
-      deleteMany: (filter?: GoatFilter<T>, options?: DeleteOptions) => {
+      deleteMany: (filter?: Filter<T>, options?: DeleteOptions) => {
         /** @ts-expect-error types are differents. */
         return collection.deleteMany(filter, options);
       },
-      aggregate: <Agg extends Document>(pipeline: GoatFilter<T>[], options?: AggregateOptions & Abortable) => {
+      aggregate: <Agg extends Document>(pipeline: Filter<T>[], options?: AggregateOptions & Abortable) => {
         return collection.aggregate<Agg>(pipeline, options);
       },
       bulkWrite: (operations: readonly AnyBulkWriteOperation<T>[], options?: BulkWriteOptions) => {

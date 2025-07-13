@@ -978,10 +978,10 @@ __metadata:
 
 "@goatjs/eslint@github:Pnlvfx/eslint":
   version: 2025.1.30
-  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=ce6ad6a7c120528d0f2a0c6adf27d75fc171584c"
+  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=11a2a7aba42f0bba4b976fa2482ef1a5e97d30e3"
   peerDependencies:
     eslint: "*"
-  checksum: 10c0/b2cde42811ba055ebe457d5d84981d2947709013f7bf7d6535ba2b687958a24753228ed0e6d7ffcb50af1b37feda879dfbb79ec7705cd86c51ee3f464e993df2
+  checksum: 10c0/54c62d8c52346c35b01adc713a35ed228e6839c8c603a01d2056d5dcc89c5c6e054b3db9a5f5a0e2eea7122bbf35dfdb8a5ad73c21ee2be1de11dd4d07059708
   languageName: node
   linkType: hard
 
