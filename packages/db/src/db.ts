@@ -39,10 +39,10 @@ export const createGoatDb = (db: MongoDb) => {
     }
 
     function findOne<P extends ProjectionKeys<T>>(
-      filter?: Filter<T>,
-      options?: Omit<FindOneOptions, 'projection'> & { projection: P },
+      filter: Filter<T>,
+      options: Omit<FindOneOptions, 'projection'> & { projection: P },
     ): Promise<ProjectedType<T, P> | null>;
-    function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | null>;
+    function findOne(filter?: Filter<T>, options?: Omit<FindOneOptions, 'projection'>): Promise<T | null>;
     function findOne<P extends ProjectionKeys<T>>(
       filter?: Filter<T>,
       options?: FindOneOptions | (Omit<FindOneOptions, 'projection'> & { projection: P }),
