@@ -43,7 +43,7 @@ export const createGoatDb = (db: MongoDb) => {
       options: Omit<FindOneOptions, 'projection'> & { projection: P },
     ): Promise<ProjectedType<T, P> | null>;
     // eslint-disable-next-line sonarjs/no-redundant-optional
-    function findOne(filter?: Filter<T>, options?: Omit<FindOneOptions, 'projection'> & { projection?: undefined }): Promise<T | null>;
+    function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | null>;
     function findOne<P extends ProjectionKeys<T>>(
       filter?: Filter<T>,
       options?: FindOneOptions | (Omit<FindOneOptions, 'projection'> & { projection: P }),
