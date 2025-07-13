@@ -4,12 +4,10 @@ import type {
   IndexDirection,
   MongoClientOptions,
   RootFilterOperators,
-  FindOptions as MongoFindOptions,
   DbOptions as MongoDbOptions,
   FindOptions,
   Abortable,
 } from 'mongodb';
-import type { ProjectedType, ProjectionKeys } from './projection.js';
 
 type Omitted = 'forceServerObjectId' | 'ignoreUndefined';
 export type GoatClientOptions = Omit<MongoClientOptions, Omitted>;
