@@ -28,7 +28,7 @@ export type IndexSpecification<T extends string> = T | [T, IndexDirection] | { [
 export type FindOptions = Omit<MongoFindOptions, 'projection'>;
 export type FindOneOptions = Omit<MongoFindOptions, 'timeoutMode'> & Abortable;
 
-export type FindCursor<T> = MongoFindCursor<T> & {
+export type FindCursor<T> = Omit<MongoFindCursor<T>, 'project'> & {
   project<P extends ProjectionKeys<T>>(projection: P): MongoFindCursor<ProjectedType<T, P>>;
 };
 
