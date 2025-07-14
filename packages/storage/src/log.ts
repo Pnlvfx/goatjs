@@ -7,7 +7,7 @@ import { cwd } from './config.js';
 const logPath = path.join(cwd, 'log');
 await mkDir(logPath);
 
-export const log = {
+export const logger = {
   toFile: async (data: string, { extension = 'json', name = 'Log' } = {}) => {
     const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
     await fs.writeFile(file, data);

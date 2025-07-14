@@ -2,13 +2,14 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import { mkDir, validatePath } from './helpers.js';
 import { cwd } from './config.js';
-import { log } from './log.js';
 
 await mkDir(cwd, true);
+const { logger } = await import('./log.js');
 
 export const storage = {
   cwd,
-  log,
+  /** @deprecated import {logger} from @goatjs/storage/log */
+  log: logger,
   validatePath,
   use: async (internalPath: string) => {
     const directory = path.join(cwd, internalPath);
