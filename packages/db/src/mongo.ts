@@ -16,5 +16,5 @@ export const createGoatClient = (url: string, options?: GoatClientOptions) => {
 
 export type { Db } from './db.js';
 export type * from './override/types.js';
-export type * from './override/proto.js';
+export * from './override/proto.js';
 export * from './projection.js';
