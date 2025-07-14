@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 /* eslint-disable unicorn/no-array-method-this-argument */
 /* eslint-disable unicorn/no-array-callback-reference */
 import type {
@@ -8,7 +7,7 @@ import type {
   CollectionOptions,
   CountDocumentsOptions,
   CreateIndexesOptions,
-  Db as MongoDb,
+  MongoDb,
   DeleteOptions,
   DropIndexesOptions,
   FindCursor,
@@ -19,9 +18,9 @@ import type {
   UpdateFilter,
   UpdateOptions,
   Sort,
-  Document,
   AggregateOptions,
-} from 'mongodb';
+  Document,
+} from './patched-types.js';
 import type { Filter, FindOneOptions, IndexSpecification } from './patched-types.js';
 import type { ProjectedType, ProjectionKeys } from './projection.js';
 
@@ -29,20 +28,21 @@ export const createGoatDb = (db: MongoDb) => {
   const createCollection = <T extends { _id: unknown }>(name: string, options?: CollectionOptions) => {
     const collection = db.collection<T>(name, options);
 
-    /** @ts-expect-error removing the WithId interface from the return. */
     function find(): FindCursor<T>;
     function find(filter: Filter<T>, options?: FindOptions & Abortable): FindCursor<T>;
     function find<U extends T>(filter: Filter<U>, options?: FindOptions & Abortable): FindCursor<T>;
     function find(filter?: Filter<T>, options?: FindOptions & Abortable) {
       /** @ts-expect-error typescript see that we removed the interface. */
-      return collection.find(filter, options);
+      const result = collection.find(filter, options);
+      return result as FindCursor<T> & {
+        project<P extends ProjectionKeys<T>>(projection: P): FindCursor<ProjectedType<T, P>>;
+      };
     }
 
     function findOne<P extends ProjectionKeys<T>>(
       filter: Filter<T>,
       options: Omit<FindOneOptions, 'projection'> & { projection: P },
     ): Promise<ProjectedType<T, P> | null>;
-    // eslint-disable-next-line sonarjs/no-redundant-optional
     function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | null>;
     function findOne<P extends ProjectionKeys<T>>(
       filter?: Filter<T>,

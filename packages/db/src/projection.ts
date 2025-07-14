@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-imports */
-import type { ObjectId } from 'mongodb';
+import { ObjectId } from './patched-types.js';
 
 export type ProjectionKeys<T> = {
   [K in keyof T as K extends '_id' ? never : K]?: 1;
