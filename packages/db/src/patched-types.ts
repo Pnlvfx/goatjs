@@ -7,9 +7,7 @@ import type {
   DbOptions as MongoDbOptions,
   FindOptions as MongoFindOptions,
   Abortable,
-  FindCursor as MongoFindCursor,
 } from 'mongodb';
-import type { ProjectedType, ProjectionKeys } from './projection.js';
 
 type Omitted = 'forceServerObjectId' | 'ignoreUndefined';
 export type GoatClientOptions = Omit<MongoClientOptions, Omitted>;
