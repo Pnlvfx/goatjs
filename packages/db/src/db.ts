@@ -20,8 +20,8 @@ import type {
   Sort,
   AggregateOptions,
   Document,
-} from './patched-types.js';
-import type { Filter, FindOneOptions, IndexSpecification } from './patched-types.js';
+} from './override/types.js';
+import type { Filter, FindOneOptions, IndexSpecification } from './override/types.js';
 import type { ProjectedType, ProjectionKeys } from './projection.js';
 
 export const createGoatDb = (db: MongoDb) => {

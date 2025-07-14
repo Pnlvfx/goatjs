@@ -9,7 +9,7 @@ import type {
   Abortable,
   FindCursor as MongoFindCursor,
 } from 'mongodb';
-import type { ProjectedType, ProjectionKeys } from './projection.js';
+import type { ProjectedType, ProjectionKeys } from '../projection.js';
 
 type Omitted = 'forceServerObjectId' | 'ignoreUndefined';
 export type GoatClientOptions = Omit<MongoClientOptions, Omitted>;
@@ -33,9 +33,8 @@ export type FindCursor<T> = Omit<MongoFindCursor<T>, 'project'> & {
 };
 
 // re exporting the mongo types as we should not directly use them through the project.
-// this file is the only one allowed to import from mongodb lib.
+// this file and proto.ts are the only allowed to import from mongodb lib.
 
-export { ObjectId, MongoClient } from 'mongodb';
 export type {
   Abortable,
   AnyBulkWriteOperation,

@@ -1,4 +1,4 @@
-import { ObjectId } from './patched-types.js';
+import type { ObjectId } from './override/proto.js';
 
 export type ProjectionKeys<T> = {
   [K in keyof T as K extends '_id' ? never : K]?: 1;
