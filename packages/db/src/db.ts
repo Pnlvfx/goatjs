@@ -34,9 +34,7 @@ export const createGoatDb = (db: MongoDb) => {
     function find(filter?: Filter<T>, options?: FindOptions & Abortable) {
       /** @ts-expect-error typescript see that we removed the interface. */
       const result = collection.find(filter, options);
-      return result as FindCursor<T> & {
-        project<P extends ProjectionKeys<T>>(projection: P): FindCursor<ProjectedType<T, P>>;
-      };
+      return result as FindCursor<T>;
     }
 
     function findOne<P extends ProjectionKeys<T>>(
