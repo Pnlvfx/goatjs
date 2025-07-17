@@ -36,7 +36,7 @@
   ],
   "devDependencies": {
     "@eslint/js": "^9.31.0",
-    "@goatjs/eslint": "github:Pnlvfx/eslint",
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
     "@types/node": "^24.0.13",
     "eslint": "^9.31.0",

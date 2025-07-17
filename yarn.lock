@@ -913,7 +913,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.31.0"
     "@goatjs/core": "npm:*"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/storage": "npm:*"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
@@ -938,7 +938,7 @@ __metadata:
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -959,7 +959,7 @@ __metadata:
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -976,12 +976,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/eslint@github:Pnlvfx/eslint":
+"@goatjs/eslint@github:Pnlvfx/eslint-legacy":
   version: 2025.1.30
-  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint.git#commit=11a2a7aba42f0bba4b976fa2482ef1a5e97d30e3"
+  resolution: "@goatjs/eslint@https://github.com/Pnlvfx/eslint-legacy.git#commit=82045455822925f19397f8a37229f3ebebb3f20b"
   peerDependencies:
     eslint: "*"
-  checksum: 10c0/54c62d8c52346c35b01adc713a35ed228e6839c8c603a01d2056d5dcc89c5c6e054b3db9a5f5a0e2eea7122bbf35dfdb8a5ad73c21ee2be1de11dd4d07059708
+  checksum: 10c0/42c30f9811138e870e01c7bc7f90d2249d52efb35f8d03acedb6f8fc3536a1f2dbec44291986e99c35334f8c52c5477563b23dba6b022b49d03b421366b51f40
   languageName: node
   linkType: hard
 
@@ -990,7 +990,7 @@ __metadata:
   resolution: "@goatjs/joi-to-typescript@workspace:packages/joi-to-typescript"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1016,7 +1016,7 @@ __metadata:
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1038,7 +1038,7 @@ __metadata:
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/mime-types": "npm:^3.0.1"
     "@types/node": "npm:^24.0.13"
@@ -1071,7 +1071,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1092,7 +1092,7 @@ __metadata:
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1116,7 +1116,7 @@ __metadata:
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1139,7 +1139,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1160,7 +1160,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
+    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy"
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
     "@types/node": "npm:^24.0.13"
     eslint: "npm:^9.31.0"
@@ -1185,27 +1185,6 @@ __metadata:
   checksum: 10c0/8f67df3ffa4d98d5905d50ccef9408a7025423c76c4c5a78d7629e64a6477e541231c43d026dc02f3fccdc8f7ac6b7850fd29f60e54af11fba983cb6b0e6046f
   languageName: node
   linkType: hard
-
-"@goatjs/updater@workspace:packages/updater":
-  version: 0.0.0-use.local
-  resolution: "@goatjs/updater@workspace:packages/updater"
-  dependencies:
-    "@eslint/js": "npm:^9.31.0"
-    "@goatjs/eslint": "github:Pnlvfx/eslint"
-    "@goatjs/typescript-config": "github:Pnlvfx/typescript-config"
-    "@types/node": "npm:^24.0.13"
-    eslint: "npm:^9.31.0"
-    eslint-plugin-sonarjs: "npm:^3.0.4"
-    eslint-plugin-unicorn: "npm:^59.0.1"
-    globals: "npm:^16.3.0"
-    jest: "npm:^30.0.4"
-    rimraf: "npm:^6.0.1"
-    ts-jest: "npm:^29.4.0"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.8.3"
-    typescript-eslint: "npm:^8.36.0"
-  languageName: unknown
-  linkType: soft
 
 "@hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.3.0":
   version: 9.3.0
