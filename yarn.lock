@@ -2357,6 +2357,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"git@github:Pnlvfx/git":
+  version: 2024.7.15
+  resolution: "git@https://github.com/Pnlvfx/git.git#commit=d3bb0513645c295406addf310327adc8346fd714"
+  peerDependencies:
+    "@goatjs/node": "*"
+  checksum: 10c0/e8d5fc52692667b8592eaf8e1ef3478fbaf24a03a3cdbd80f67e10f38fb8b6dbed9045f4eacc950e1ad08b19462b2e39f970668ee356a1a7a6aa2593c4a5f367
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -2427,6 +2436,7 @@ __metadata:
   resolution: "goatjs@workspace:."
   dependencies:
     "@goatjs/updater": "github:Pnlvfx/updater"
+    git: "github:Pnlvfx/git"
     prettier: "npm:^3.6.2"
     turbo: "npm:^2.5.5"
     typescript: "npm:^5.8.3"

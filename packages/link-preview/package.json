@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/link-preview",
   "description": "Preview url.",
-  "version": "2025.3.3",
+  "version": "1.0.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -12,9 +12,6 @@
   },
   "license": "MIT",
   "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "exports": {
     "types": "./dist/link-preview.d.ts",
     "import": "./dist/link-preview.js",
