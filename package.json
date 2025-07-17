@@ -1,7 +1,7 @@
 {
   "name": "goatjs",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [],
   "author": "Simone Gauli - simonegauli@gmail.com",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pnlvfx/goat"
+    "url": "https://github.com/Pnlvfx/goatjs"
   },
   "scripts": {
     "tsc": "turbo tsc",
@@ -18,15 +18,13 @@
     "lint": "turbo lint",
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
-    "update": "node tools/update.ts && yarn upgrade-interactive",
+    "update": "yarn upgrade-interactive",
     "publish": "node tools/publish.ts"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@goatjs/updater": "github:Pnlvfx/updater",
-    "git": "github:Pnlvfx/git",
     "prettier": "^3.6.2",
     "turbo": "^2.5.5",
     "typescript": "^5.8.3"

@@ -1,0 +1,24 @@
+{
+  "name": "@goatjs/typescript-config",
+  "description": "Strict typescript config.",
+  "version": "1.0.1",
+  "author": {
+    "name": "Simone Gauli",
+    "email": "simonegauli@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pnlvfx/goatjs.git",
+    "directory": "packages/typescript-config"
+  },
+  "license": "MIT",
+  "files": [
+    "node-server",
+    "node-library",
+    "react-library"
+  ],
+  "main": "",
+  "peerDependencies": {
+    "typescript": "*"
+  }
+}

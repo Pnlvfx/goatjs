@@ -1,6 +1,6 @@
 {
-  "name": "@goatjs/cache",
-  "description": "Help menaging data, reducing the amount of third party requests, when data can be cached.",
+  "name": "@goatjs/dev",
+  "description": "Node dev helpers",
   "version": "1.0.1",
   "author": {
     "email": "simonegauli@gmail.com",
@@ -9,16 +9,22 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/goatjs.git",
-    "directory": "packages/cache"
+    "directory": "packages/dev"
   },
   "license": "MIT",
   "type": "module",
+  "main": "./dist/git.js",
+  "module": "./dist/git.js",
+  "types": "./dist/git.d.ts",
   "exports": {
-    "types": "./dist/cache.d.ts",
-    "import": "./dist/cache.js"
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.js"
+    }
   },
   "scripts": {
-    "tsc": "tsc --noEmit true",
+    "tsc": "tsc --noEmit",
     "test": "",
     "lint": "eslint",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
@@ -32,10 +38,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/core": "workspace:*",
+    "@goatjs/git": "workspace:*",
+    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^1.0.6",
     "@goatjs/rimraf": "workspace:*",
-    "@goatjs/storage": "workspace:*",
     "@goatjs/typescript-config": "^1.0.1",
     "@types/node": "^24.0.14",
     "eslint": "^9.31.0",
@@ -43,7 +49,7 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@goatjs/core": "*",
-    "@goatjs/storage": "*"
+    "@goatjs/git": "*",
+    "@goatjs/node": "*"
   }
 }
