@@ -2,6 +2,6 @@ import { updateLocalDeps } from '@goatjs/updater';
 
 // yarn dlx @turbo/codemod@latest update
 await updateLocalDeps({
-  '@goatjs/eslint': 'github:Pnlvfx/eslint-legacy',
+  '@goatjs/node-monorepo-eslint': '^1.0.4',
   '@goatjs/typescript-config': 'github:Pnlvfx/typescript-config',
 });

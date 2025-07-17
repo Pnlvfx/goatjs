@@ -12,9 +12,6 @@
   },
   "license": "MIT",
   "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "types": "./dist/ps-list.d.ts",
   "module": "./dist/ps-list.js",
   "exports": {
@@ -23,10 +20,10 @@
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
-    "test": "rimraf coverage && jest --coverage",
+    "test": "",
     "lint": "eslint",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
-    "prepare": "npm run build",
+    "prepare": "yarn build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint"
   },
@@ -36,19 +33,12 @@
     "README.md"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy",
+    "@goatjs/node-monorepo-eslint": "^1.0.5",
+    "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
     "@types/node": "^24.0.14",
     "eslint": "^9.31.0",
-    "eslint-plugin-sonarjs": "^3.0.4",
-    "eslint-plugin-unicorn": "^59.0.1",
     "globals": "^16.3.0",
-    "jest": "^30.0.4",
-    "rimraf": "^6.0.1",
-    "ts-jest": "^29.4.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.37.0"
+    "typescript": "^5.8.3"
   }
 }

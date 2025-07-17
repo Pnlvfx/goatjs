@@ -6,6 +6,7 @@
   "author": "Simone Gauli - simonegauli@gmail.com",
   "license": "MIT",
   "description": "My UI's.",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/goat"

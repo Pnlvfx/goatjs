@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/rimraf",
-  "description": "",
-  "version": "2025.1.30",
+  "description": "Node rimraf equivalent.",
+  "version": "1.0.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -12,21 +12,19 @@
   },
   "license": "MIT",
   "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
   "exports": {
     "types": "./dist/rimraf.d.ts",
     "default": "./dist/rimraf.js"
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
-    "test": "rimraf coverage && jest --coverage",
+    "test": "",
     "lint": "eslint",
-    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "build": "yarn rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",
-    "prepublishOnly": "yarn test && eslint"
+    "prepublishOnly": "yarn test && eslint",
+    "rimraf": "tsx src/cli/rimraf.ts"
   },
   "files": [
     "dist",
@@ -34,20 +32,13 @@
     "README.md"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "@goatjs/eslint": "github:Pnlvfx/eslint-legacy",
+    "@goatjs/node-monorepo-eslint": "^1.0.5",
     "@goatjs/typescript-config": "github:Pnlvfx/typescript-config",
     "@types/node": "^24.0.14",
     "eslint": "^9.31.0",
-    "eslint-plugin-sonarjs": "^3.0.4",
-    "eslint-plugin-unicorn": "^59.0.1",
     "globals": "^16.3.0",
-    "jest": "^30.0.4",
-    "rimraf": "^6.0.1",
-    "ts-jest": "^29.4.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.37.0"
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
   },
   "bin": "dist/cli/rimraf.js"
 }
