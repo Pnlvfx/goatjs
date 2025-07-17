@@ -1,7 +1,7 @@
 import { updateLocalDeps } from '@goatjs/updater';
-import { promisify } from 'node:util';
-import { exec } from 'node:child_process';
 
-const execAsync = promisify(exec);
-await execAsync('yarn dlx @turbo/codemod@latest update');
-await updateLocalDeps({});
+// yarn dlx @turbo/codemod@latest update
+await updateLocalDeps({
+  '@goatjs/eslint': 'github:Pnlvfx/eslint-legacy',
+  '@goatjs/typescript-config': 'github:Pnlvfx/typescript-config',
+});
