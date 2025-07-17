@@ -1186,6 +1186,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@goatjs/updater@github:Pnlvfx/updater":
+  version: 2025.1.30
+  resolution: "@goatjs/updater@https://github.com/Pnlvfx/updater.git#commit=04e8b8e3df306dd917b6607dbfaf4b52b69bd1c1"
+  checksum: 10c0/6d5c90154850321216161d05d5995f5e64f14ba945a5f9026e7df29ca019e1300647b82f5e80d26f094af304c1867d99d504df75d4ef77a0d34a9337abf42bd4
+  languageName: node
+  linkType: hard
+
 "@hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.3.0":
   version: 9.3.0
   resolution: "@hapi/hoek@npm:9.3.0"
@@ -4185,8 +4192,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "goatjs@workspace:."
   dependencies:
+    "@goatjs/updater": "github:Pnlvfx/updater"
     prettier: "npm:^3.6.2"
     turbo: "npm:2.5.4"
+    typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft
 
