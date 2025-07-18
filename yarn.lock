@@ -331,7 +331,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -364,7 +364,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -378,7 +378,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -395,7 +395,7 @@ __metadata:
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -413,7 +413,7 @@ __metadata:
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -429,7 +429,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -464,7 +464,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/mime-types": "npm:^3.0.1"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
@@ -490,7 +490,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -504,7 +504,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -520,7 +520,7 @@ __metadata:
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -538,7 +538,7 @@ __metadata:
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -554,7 +554,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.6"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "npm:^1.0.1"
+    "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.14"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
@@ -565,14 +565,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/typescript-config@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@goatjs/typescript-config@npm:1.0.1"
+"@goatjs/typescript-config@workspace:*, @goatjs/typescript-config@workspace:packages/typescript-config":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/typescript-config@workspace:packages/typescript-config"
   peerDependencies:
     typescript: "*"
-  checksum: 10c0/d93a17175181d9f0229f4716fe64fbd245edfa92706bb9367dc0d3ceefc9104c1078c0a2cefd6bee2568e57260ab5f01613dc771bfe0f53206bfa8f14425b1ff
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
