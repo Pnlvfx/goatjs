@@ -1,11 +1,6 @@
 {
   "name": "goatjs",
   "private": true,
-  "version": "1.0.2",
-  "keywords": [],
-  "author": "Simone Gauli - simonegauli@gmail.com",
-  "license": "MIT",
-  "description": "My UI's.",
   "type": "module",
   "repository": {
     "type": "git",

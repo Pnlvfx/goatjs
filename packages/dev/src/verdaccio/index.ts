@@ -13,7 +13,7 @@ export const verdaccio = {
   },
   publishAll: async () => {
     await checkGitStatus();
-    await execAsync('yarn workspaces foreach --all version patch');
+    await execAsync('yarn workspaces foreach --all --no-private version patch');
     await git.add();
     await git.commit('RELEASE');
     await git.push();
