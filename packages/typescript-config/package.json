@@ -15,7 +15,8 @@
   "files": [
     "node-server",
     "node-library",
-    "react-library"
+    "react-library",
+    "nextjs"
   ],
   "main": "",
   "peerDependencies": {
