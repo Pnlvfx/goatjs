@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/git",
   "description": "Node git helpers",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
