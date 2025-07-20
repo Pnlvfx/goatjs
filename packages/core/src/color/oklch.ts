@@ -17,3 +17,7 @@ export const generateOKLCHColor = ({ c, h, l }: OKLCHInput) => {
   const hue = h ?? Math.floor(Math.random() * 360); // 0-360
   return [lightness, chroma, hue] as OklchPixel;
 };
+
+export const parseOklchPixel = (...[l, c, h]: OklchPixel) => {
+  return `oklch(${l.toString()} ${c.toString()} ${h.toString()})` as const;
+};
