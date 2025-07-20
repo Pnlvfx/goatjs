@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/pseudo-random */
 export interface OKLCHInput {
   /** Lightness: 0-1 */
   l?: number;
