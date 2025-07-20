@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const configureGlobalErrorMap = () => {
+export const configureGlobalZodError = () => {
   z.config({
     customError: (iss) => {
       switch (iss.code) {
