@@ -585,6 +585,8 @@ __metadata:
     globals: "npm:^16.3.0"
     typescript: "npm:^5.8.3"
     zod: "npm:^4.0.5"
+  peerDependencies:
+    zod: "*"
   languageName: unknown
   linkType: soft
 
