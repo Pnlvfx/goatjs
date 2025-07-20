@@ -11,13 +11,13 @@ export interface OKLCHInput {
 export type OklchPixel = [number, number, number];
 
 /** Generate a random OKLCH color */
-export const generateOKLCHColor = ({ c, h, l }: OKLCHInput) => {
+export const generateOKLCHColor = ({ c, h, l }: OKLCHInput = {}) => {
   const lightness = l ?? Math.random(); // 0-1
   const chroma = c ?? Math.random() * 0.4; // 0-0.4 for reasonable colors
   const hue = h ?? Math.floor(Math.random() * 360); // 0-360
   return [lightness, chroma, hue] as OklchPixel;
 };
 
-export const parseOklchPixel = (...[l, c, h]: OklchPixel) => {
+export const parseOKLCHPixel = (...[l, c, h]: OklchPixel) => {
   return `oklch(${l.toString()} ${c.toString()} ${h.toString()})` as const;
 };
