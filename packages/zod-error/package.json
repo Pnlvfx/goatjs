@@ -1,0 +1,49 @@
+{
+  "name": "@goatjs/zod-error",
+  "description": "Node zod error helpers",
+  "version": "1.0.5",
+  "author": {
+    "email": "simonegauli@gmail.com",
+    "name": "Simone Gauli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pnlvfx/goatjs.git",
+    "directory": "packages/zod-error"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "test": "",
+    "lint": "eslint",
+    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "prepare": "yarn build",
+    "prepack": "yarn build",
+    "prepublishOnly": "yarn test && eslint"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@goatjs/node-monorepo-eslint": "^1.0.7",
+    "@goatjs/rimraf": "workspace:*",
+    "@goatjs/typescript-config": "workspace:*",
+    "@types/node": "^24.0.15",
+    "eslint": "^9.31.0",
+    "globals": "^16.3.0",
+    "typescript": "^5.8.3",
+    "zod": "^4.0.5"
+  },
+  "peerDependencies": {
+    "zod": "*"
+  }
+}

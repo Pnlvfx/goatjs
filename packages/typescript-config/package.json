@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "files": [
+    "base",
     "node-server",
     "node-library",
     "react-library",

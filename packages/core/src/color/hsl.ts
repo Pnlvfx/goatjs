@@ -1,3 +1,5 @@
+import type { RgbPixel } from './rgb.js';
+
 /* eslint-disable sonarjs/pseudo-random */
 export interface HSLInput {
   h?: number;
@@ -21,7 +23,6 @@ export const generateHSLColor = ({ h, s, l }: HSLInput = {}) => {
   return [hue, `${saturation.toString()}%`, `${luminance.toString()}%`] as HslPixel;
 };
 
-export type RgbPixel = [number, number, number];
 export type HslPixel = [number, string, string];
 
 export const rgbToHsl = (...[r, g, b]: RgbPixel) => {
