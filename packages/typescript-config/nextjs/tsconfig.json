@@ -4,9 +4,9 @@
   "display": "NextJS",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],
-    "target": "ES2022",
+    "target": "es2022",
     "lib": ["es2022", "DOM", "DOM.Iterable"],
-    "module": "NodeNext",
+    "module": "esnext",
     "noEmit": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
