@@ -46,10 +46,12 @@
     "@types/node": "^24.0.15",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "zod": "^4.0.5"
   },
   "peerDependencies": {
     "@goatjs/git": "*",
-    "@goatjs/node": "*"
+    "@goatjs/node": "*",
+    "zod": "*"
   }
 }
