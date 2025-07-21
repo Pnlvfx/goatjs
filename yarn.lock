@@ -409,6 +409,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@goatjs/deep-diff@workspace:packages/deep-diff":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
+  dependencies:
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^24.0.15"
+    eslint: "npm:^9.31.0"
+    globals: "npm:^16.3.0"
+    typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@goatjs/link-preview@workspace:packages/link-preview":
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
