@@ -1,42 +1,43 @@
 import type { GitStatusParams } from './types.js';
+import type { ExecOptions } from 'node:child_process';
 import { execAsync } from '@goatjs/node/exec';
 import { parseBashOptions } from './params.js';
 
 export const git = {
-  clone: async (url: string) => {
-    await execAsync(`git clone ${url}`);
+  clone: (url: string, options?: ExecOptions) => {
+    return execAsync(`git clone ${url}`, options);
   },
-  getBranchList: async () => {
-    await execAsync('git branch --list');
+  getBranchList: (options?: ExecOptions) => {
+    return execAsync('git branch --list', options);
   },
-  branch: async (name: string) => {
+  branch: async (name: string, options?: ExecOptions) => {
     try {
-      await execAsync(`git branch ${name}`);
+      await execAsync(`git branch ${name}`, options);
     } catch {}
   },
-  deleteBranch: async (name: string) => {
+  deleteBranch: async (name: string, options?: ExecOptions) => {
     try {
-      await execAsync(`git branch -D ${name}`);
-      await execAsync(`git push origin --delete ${name}`);
+      await execAsync(`git branch -D ${name}`, options);
+      await execAsync(`git push origin --delete ${name}`, options);
     } catch {}
   },
-  checkout: async (name: string) => {
-    await execAsync(`git checkout ${name}`);
+  checkout: async (name: string, options?: ExecOptions) => {
+    await execAsync(`git checkout ${name}`, options);
   },
-  add: async (fromPath = '.') => {
-    await execAsync(`git add ${fromPath}`);
+  add: async (fromPath = '.', options?: ExecOptions) => {
+    await execAsync(`git add ${fromPath}`, options);
   },
-  commit: async (message: string) => {
-    await execAsync(`git commit -m "${message}"`);
+  commit: async (message: string, options?: ExecOptions) => {
+    await execAsync(`git commit -m "${message}"`, options);
   },
-  push: async () => {
-    await execAsync('git push');
+  push: async (options?: ExecOptions) => {
+    await execAsync('git push', options);
   },
-  pull: async () => {
-    await execAsync('git pull');
+  pull: async (options?: ExecOptions) => {
+    await execAsync('git pull', options);
   },
-  status: async ({ porcelain }: GitStatusParams) => {
-    const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`);
+  status: async ({ porcelain, ...options }: GitStatusParams = {}) => {
+    const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`, options);
     return stdout.trim();
   },
 };
