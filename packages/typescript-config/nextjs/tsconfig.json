@@ -3,6 +3,7 @@
   "extends": "../base/tsconfig.json",
   "display": "NextJS",
   "compilerOptions": {
+    "incremental": true,
     "plugins": [{ "name": "next" }],
     "target": "es2022",
     "lib": ["es2022", "DOM", "DOM.Iterable"],

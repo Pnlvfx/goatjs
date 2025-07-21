@@ -7,7 +7,7 @@
     "target": "ES2022",
     "lib": ["es2022", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "declarationMap": true,
