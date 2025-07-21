@@ -323,6 +323,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@goatjs/boarding@workspace:packages/boarding":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/boarding@workspace:packages/boarding"
+  dependencies:
+    "@goatjs/node": "workspace:*"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^24.0.15"
+    eslint: "npm:^9.31.0"
+    globals: "npm:^16.3.0"
+    typescript: "npm:^5.8.3"
+    zod: "npm:^4.0.5"
+  peerDependencies:
+    "@goatjs/node": "*"
+    zod: "*"
+  peerDependenciesMeta:
+    zod:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@goatjs/cache@workspace:packages/cache":
   version: 0.0.0-use.local
   resolution: "@goatjs/cache@workspace:packages/cache"
@@ -384,28 +406,6 @@ __metadata:
     globals: "npm:^16.3.0"
     mongodb: "npm:^6.17.0"
     typescript: "npm:^5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@goatjs/dev@workspace:packages/dev":
-  version: 0.0.0-use.local
-  resolution: "@goatjs/dev@workspace:packages/dev"
-  dependencies:
-    "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
-    "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.0.15"
-    eslint: "npm:^9.31.0"
-    globals: "npm:^16.3.0"
-    typescript: "npm:^5.8.3"
-    zod: "npm:^4.0.5"
-  peerDependencies:
-    "@goatjs/node": "*"
-    zod: "*"
-  peerDependenciesMeta:
-    zod:
-      optional: true
   languageName: unknown
   linkType: soft
 

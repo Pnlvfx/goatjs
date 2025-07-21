@@ -1,6 +1,6 @@
 {
-  "name": "@goatjs/dev",
-  "description": "Node dev helpers",
+  "name": "@goatjs/boarding",
+  "description": "Node boarding helpers",
   "version": "1.0.14",
   "author": {
     "email": "simonegauli@gmail.com",
@@ -9,13 +9,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/goatjs.git",
-    "directory": "packages/dev"
+    "directory": "packages/boarding"
   },
   "license": "MIT",
   "type": "module",
-  "main": "./dist/git.js",
-  "module": "./dist/git.js",
-  "types": "./dist/git.d.ts",
   "exports": {
     "./*": {
       "types": "./dist/*/index.d.ts",
