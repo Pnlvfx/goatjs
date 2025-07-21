@@ -51,5 +51,10 @@
   "peerDependencies": {
     "@goatjs/node": "*",
     "zod": "*"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
   }
 }

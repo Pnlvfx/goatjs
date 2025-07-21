@@ -403,6 +403,9 @@ __metadata:
   peerDependencies:
     "@goatjs/node": "*"
     zod: "*"
+  peerDependenciesMeta:
+    zod:
+      optional: true
   languageName: unknown
   linkType: soft
 
