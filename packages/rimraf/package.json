@@ -33,7 +33,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.0.7",
+    "@goatjs/node-monorepo-eslint": "^1.0.8",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.0.15",
     "eslint": "^9.31.0",

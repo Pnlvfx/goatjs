@@ -328,7 +328,7 @@ __metadata:
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -342,9 +342,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/core-eslint@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@goatjs/core-eslint@npm:1.0.7"
+"@goatjs/core-eslint@npm:1.0.8":
+  version: 1.0.8
+  resolution: "@goatjs/core-eslint@npm:1.0.8"
   dependencies:
     "@eslint/js": "npm:^9.31.0"
     eslint-plugin-sonarjs: "npm:^3.0.4"
@@ -354,7 +354,7 @@ __metadata:
     eslint: "*"
     globals: "*"
     typescript-eslint: "*"
-  checksum: 10c0/58d3582e690ea6a2d485eec6d3caecf129c8916fbcfaf604e5e04e4f431cd005ba7cf8cdc9d60b602b79b641aa4fcf9d8c2d3203148bc0076edc33675be877c6
+  checksum: 10c0/1b751c405e1ddb440bd5ba7177f03f5e9f3d7944a0f3450f250c3e200b745d1046b7e890a2920b343772e19071fa120ea1b451c275f8a0a0de96e7de28df15de
   languageName: node
   linkType: hard
 
@@ -362,7 +362,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -376,7 +376,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/db@workspace:packages/db"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -393,7 +393,7 @@ __metadata:
   dependencies:
     "@goatjs/git": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -411,7 +411,7 @@ __metadata:
   resolution: "@goatjs/git@workspace:packages/git"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -427,7 +427,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -438,23 +438,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/node-eslint@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@goatjs/node-eslint@npm:1.0.7"
+"@goatjs/node-eslint@npm:1.0.8":
+  version: 1.0.8
+  resolution: "@goatjs/node-eslint@npm:1.0.8"
   dependencies:
-    "@goatjs/core-eslint": "npm:1.0.7"
+    "@goatjs/core-eslint": "npm:1.0.8"
     typescript-eslint: "npm:^8.37.0"
-  checksum: 10c0/52e423f0ef178a5b437593441cf471cce20e3501fd8d31c14ec3422d22f56e92595a9cf3c2bbbdd65df9c1f928ee26113cf53c3275eff8e7fa9a48032f7e2d33
+  checksum: 10c0/60dbe510d5803d61afe28a4ff58e4effbc9cf1aa3203ad32e63c91b5db5b56bc881aa9f5d6ac06ebc657ede5b3fc1c8c4b8a2d388f5b2ca94f3fec7450e92570
   languageName: node
   linkType: hard
 
-"@goatjs/node-monorepo-eslint@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@goatjs/node-monorepo-eslint@npm:1.0.7"
+"@goatjs/node-monorepo-eslint@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@goatjs/node-monorepo-eslint@npm:1.0.8"
   dependencies:
-    "@goatjs/node-eslint": "npm:1.0.7"
+    "@goatjs/node-eslint": "npm:1.0.8"
     typescript-eslint: "npm:^8.37.0"
-  checksum: 10c0/afe7ac471889a8a77422548ee6ba4057e195b2811f1da9a169f8ca0fc9d313e9ba0a3c6cc48fd36d10bdd98a29063a5367eb55c160ae834a2afecce699a0254b
+  checksum: 10c0/890f419726575715008179bb2289174cdfd2f970c3389dfb72275401ae621537fa26acc67a8e1e8ecad72cc9d75042c768ab72e76a4de7a1e166638fa54607ae
   languageName: node
   linkType: hard
 
@@ -462,7 +462,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/mime-types": "npm:^3.0.1"
@@ -488,7 +488,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -502,7 +502,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -519,7 +519,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
@@ -536,7 +536,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -552,7 +552,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
@@ -577,7 +577,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/zod-error@workspace:packages/zod-error"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.7"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.0.15"
