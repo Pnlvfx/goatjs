@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { checkGitStatus } from '../verdaccio/helpers.js';
 import { execAsync } from '@goatjs/node/exec';
-import { git } from '../git/git.js';
+import { git } from '../git/index.js';
 
 export interface PrivateGitParams {
   /** Where to store the generated tarball. */

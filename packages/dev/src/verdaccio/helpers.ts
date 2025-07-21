@@ -1,4 +1,4 @@
-import { git } from '../git/git.js';
+import { git } from '../git/index.js';
 
 export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {
   const changes = await git.status({ porcelain: true, cwd });

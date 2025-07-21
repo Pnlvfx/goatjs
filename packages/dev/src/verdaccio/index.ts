@@ -1,6 +1,6 @@
 import { execAsync } from '@goatjs/node/exec';
 import { checkGitStatus } from './helpers.js';
-import { git } from '../git/git.js';
+import { git } from '../git/index.js';
 
 export const verdaccio = {
   publish: async () => {
