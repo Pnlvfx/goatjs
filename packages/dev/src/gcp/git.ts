@@ -3,8 +3,8 @@ import { pathExist } from '@goatjs/node/fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { checkGitStatus } from '../verdaccio/helpers.js';
-import { git } from '@goatjs/git';
 import { execAsync } from '@goatjs/node/exec';
+import { git } from '../git/git.js';
 
 export interface PrivateGitParams {
   /** Where to store the generated tarball. */

@@ -391,7 +391,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/dev@workspace:packages/dev"
   dependencies:
-    "@goatjs/git": "workspace:*"
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
     "@goatjs/rimraf": "workspace:*"
@@ -402,26 +401,8 @@ __metadata:
     typescript: "npm:^5.8.3"
     zod: "npm:^4.0.5"
   peerDependencies:
-    "@goatjs/git": "*"
     "@goatjs/node": "*"
     zod: "*"
-  languageName: unknown
-  linkType: soft
-
-"@goatjs/git@workspace:*, @goatjs/git@workspace:packages/git":
-  version: 0.0.0-use.local
-  resolution: "@goatjs/git@workspace:packages/git"
-  dependencies:
-    "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.8"
-    "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.0.15"
-    eslint: "npm:^9.31.0"
-    globals: "npm:^16.3.0"
-    typescript: "npm:^5.8.3"
-  peerDependencies:
-    "@goatjs/node": "*"
   languageName: unknown
   linkType: soft
 
