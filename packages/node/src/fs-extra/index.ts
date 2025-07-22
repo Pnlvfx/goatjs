@@ -1,21 +1,16 @@
-import type { ObjectEncodingOptions, PathLike } from 'node:fs';
+import type { PathLike } from 'node:fs';
 import { readdir, access, rm } from 'node:fs/promises';
 import { isJunk } from './junk.js';
 import path from 'node:path';
 
-interface Implemented {
+interface ReaddirOptions {
   /** @default true */
   junk?: boolean;
 }
 
-type ReaddirOptions = (ObjectEncodingOptions & { withFileTypes?: false; recursive?: boolean } & Implemented) | BufferEncoding | null;
-
-// FS USE FUNCTION OVERLOAD AND IT'S NOT EASY TO WRAP.
-
 export const fsExtra = {
-  readdir: async (path: PathLike, options: ReaddirOptions = {}) => {
-    const junk = !!(typeof options !== 'string' && options?.junk);
-    const files = await readdir(path, options);
+  readdir: async (path: PathLike, { junk = true }: ReaddirOptions = {}) => {
+    const files = await readdir(path);
     return junk ? files.filter((f) => !isJunk(f)) : files;
   },
   exist: async (path: PathLike, mode?: number) => {
