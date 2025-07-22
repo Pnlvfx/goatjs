@@ -34,6 +34,9 @@
     "LICENSE",
     "README.md"
   ],
+  "dependencies": {
+    "sanitize-filename": "1.6.3"
+  },
   "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.0.11",
     "@goatjs/rimraf": "workspace:*",
@@ -47,7 +50,9 @@
   "peerDependencies": {
     "prettier": "*"
   },
-  "dependencies": {
-    "sanitize-filename": "1.6.3"
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
   }
 }

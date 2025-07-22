@@ -315,7 +315,6 @@ __metadata:
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
-    prettier: "npm:^3.6.2"
     typescript: "npm:^5.8.3"
     zod: "npm:^4.0.5"
   peerDependencies:
@@ -424,7 +423,6 @@ __metadata:
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
     mime-types: "npm:^3.0.1"
-    prettier: "npm:^3.6.2"
     typescript: "npm:^5.8.3"
   peerDependencies:
     "@goatjs/node": "*"
@@ -482,6 +480,9 @@ __metadata:
     typescript: "npm:^5.8.3"
   peerDependencies:
     prettier: "*"
+  peerDependenciesMeta:
+    prettier:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -543,7 +544,6 @@ __metadata:
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
-    prettier: "npm:^3.6.2"
     typescript: "npm:5.8.3"
   peerDependencies:
     "@goatjs/node": "*"
