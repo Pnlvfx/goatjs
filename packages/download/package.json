@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/download",
   "description": "Download any file through nodejs",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"

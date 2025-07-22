@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/link-preview",
   "description": "Preview url.",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
