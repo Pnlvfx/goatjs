@@ -3,8 +3,6 @@ import fs from 'node:fs/promises';
 import { mkDir, validatePath } from './helpers.js';
 import { cwd } from './config.js';
 
-await mkDir(cwd, true);
-
 export const storage = {
   cwd,
   validatePath,
