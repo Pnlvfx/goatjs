@@ -35,6 +35,7 @@
     "README.md"
   ],
   "devDependencies": {
+    "@goatjs/download": "workspace:*",
     "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^1.0.11",
     "@goatjs/rimraf": "workspace:*",
@@ -47,11 +48,15 @@
     "zod": "^4.0.5"
   },
   "peerDependencies": {
+    "@goatjs/download": "workspace:*",
     "@goatjs/node": "*",
     "@goatjs/rimraf": "*",
     "zod": "*"
   },
   "peerDependenciesMeta": {
+    "@goatjs/download": {
+      "optional": true
+    },
     "@goatjs/rimraf": {
       "optional": true
     },

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import fs from 'node:fs/promises';
 import { packageSchema } from './parser.js';
-import { download } from '@goatjs/node/download';
+import { download } from '@goatjs/download';
 import { execAsync } from '@goatjs/node/exec';
 
 // eslint-disable-next-line sonarjs/no-clear-text-protocols

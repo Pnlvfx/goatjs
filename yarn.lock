@@ -307,6 +307,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/boarding@workspace:packages/boarding"
   dependencies:
+    "@goatjs/download": "workspace:*"
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.0.11"
     "@goatjs/rimraf": "workspace:*"
@@ -318,10 +319,13 @@ __metadata:
     typescript: "npm:^5.8.3"
     zod: "npm:^4.0.5"
   peerDependencies:
+    "@goatjs/download": "workspace:*"
     "@goatjs/node": "*"
     "@goatjs/rimraf": "*"
     zod: "*"
   peerDependenciesMeta:
+    "@goatjs/download":
+      optional: true
     "@goatjs/rimraf":
       optional: true
     zod:
@@ -407,7 +411,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/download@workspace:packages/download":
+"@goatjs/download@workspace:*, @goatjs/download@workspace:packages/download":
   version: 0.0.0-use.local
   resolution: "@goatjs/download@workspace:packages/download"
   dependencies:
