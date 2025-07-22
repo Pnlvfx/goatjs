@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import { pathExist } from '@goatjs/node/fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { checkGitStatus } from '../verdaccio/helpers.js';
@@ -26,7 +25,7 @@ export const resolvePrivateGitDependencies = async ({ packages, outputDir, packa
   for (const pkg of packages) {
     console.log(`\n--- Processing ${pkg} ---`);
     const packageDir = path.join(packagesDir, pkg);
-    if (!(await pathExist(packageDir))) throw new Error(`✗ Package not found on your system: ${packageDir}`);
+    await fs.access(packageDir);
     await checkGitStatus({ cwd: packageDir });
     await git.pull({ cwd: packageDir });
     await execAsync('yarn', { cwd: packageDir });

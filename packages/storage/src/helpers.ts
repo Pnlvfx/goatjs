@@ -1,6 +1,4 @@
-import { pathExist } from '@goatjs/node/fs';
 import fs from 'node:fs/promises';
-import path from 'node:path';
 import z from 'zod';
 
 // eslint-disable-next-line no-restricted-properties
@@ -19,19 +17,7 @@ export const getProjectName = async () => {
 };
 
 export const mkDir = async (folder: string, recursive?: boolean) => {
-  if (!(await pathExist(folder))) {
-    validatePath(folder);
+  try {
     await fs.mkdir(folder, { recursive });
-  }
-};
-
-/** Check if the given path has invalid windows characters. */
-export const validatePath = (pth: string) => {
-  if (process.platform === 'win32') {
-    const pathHasInvalidWinCharacters = /["*:<>?|]/.test(pth.replace(path.parse(pth).root, ''));
-
-    if (pathHasInvalidWinCharacters) {
-      throw new Error(`Path contains invalid characters: ${pth}`);
-    }
-  }
+  } catch {}
 };

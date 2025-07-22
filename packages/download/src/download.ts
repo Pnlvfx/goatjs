@@ -5,7 +5,7 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 import { getUserAgent } from '@goatjs/node/user-agent';
 import { sanitize } from '@goatjs/node/sanitize';
-import { pathExist } from '@goatjs/node/fs';
+import fs from 'node:fs/promises';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
@@ -31,7 +31,9 @@ export const download = async (
   if (!res.ok) throw new Error(`${res.status.toString()}: ${res.statusText}`);
   if (!res.body) throw new Error('It looks like there is nothing to download at this url.');
   const filename = sanitize(getFilename(url, res.headers));
-  if (!override && (await pathExist(filename))) throw new Error('File already exist!');
+  if (!override) {
+    await fs.access(filename);
+  }
   const output = path.join(directory, filename);
   const fileStream = createWriteStream(output);
   await pipeline(res.body, fileStream);

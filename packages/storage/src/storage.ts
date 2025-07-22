@@ -1,11 +1,10 @@
 import path from 'node:path';
-import fs from 'node:fs/promises';
-import { mkDir, validatePath } from './helpers.js';
+import { rm } from 'node:fs/promises';
 import { cwd } from './config.js';
+import { mkDir } from './helpers.js';
 
 export const storage = {
   cwd,
-  validatePath,
   use: async (internalPath: string) => {
     const directory = path.join(cwd, internalPath);
     await mkDir(directory);
@@ -20,7 +19,7 @@ export const storage = {
     await mkDir(videoPath);
     return { staticPath: folder, imagePath, videoPath };
   },
-  clearAll: () => fs.rm(cwd, { recursive: true, force: true }),
+  clearAll: () => rm(cwd, { recursive: true, force: true }),
   getUrlFromStaticPath: (coraPath: string, query?: Record<string, string>) => {
     if (!process.env['SERVER_URL']) throw new Error('Please add SERVER_URL to your env file to use this function');
     const extra_path = coraPath.split('/static/').at(1);

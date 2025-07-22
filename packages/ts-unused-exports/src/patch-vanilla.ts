@@ -1,4 +1,4 @@
-import type { UnusedResponse } from './ts-unused-exports.js';
+import type { UnusedResponse } from './types.js';
 
 // this is just skipping the files and it's not a real solution.
 export const patchSkipVanillaCssFiles = (unused: UnusedResponse) => {

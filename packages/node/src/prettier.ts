@@ -7,7 +7,7 @@ interface Options {
 
 export const prettier = {
   format: (source: string, options: Options) => {
-    /** @ts-expect-error it's good but we of course json import doesn't keep literals. */
+    /** @ts-expect-error it's good but json import doesn't keep literals. */
     return nativePrettier.format(source, { ...prettierConfigs, ...options });
   },
 };
