@@ -2,4 +2,5 @@ import path from 'node:path';
 import os from 'node:os';
 import { getProjectName } from './helpers.js';
 
-export const cwd = path.join(os.homedir(), '.coraline', await getProjectName());
+const { scope, name } = await getProjectName();
+export const cwd = path.join(os.homedir(), '.coraline', scope ?? name, ...(scope ? [name] : []));
