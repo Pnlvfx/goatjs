@@ -1,5 +1,5 @@
-import { clearMonorepoCache } from "./clear";
+import { clearMonorepoCache } from './clear.js';
 
 export const monorepo = {
-    clearMonorepoCache,
-}
+  clearMonorepoCache,
+};
