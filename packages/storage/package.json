@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/storage",
   "description": "Help to organiza data stored from your app.",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
