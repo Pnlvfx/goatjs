@@ -1,10 +1,16 @@
 import { pathExist } from '@goatjs/node/fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import z from 'zod';
+
+// eslint-disable-next-line no-restricted-properties
+const partialPkgSchema = z.object({
+  name: z.string(),
+});
 
 export const getProjectName = async () => {
   const buf = await fs.readFile('package.json');
-  const { name } = JSON.parse(buf.toString()) as { name?: string };
+  const { name } = await partialPkgSchema.parseAsync(JSON.parse(buf.toString()));
   if (!name) throw new Error('Unable to find package.json name.');
   const [scope, subname] = name.split('/');
   const nameOnly = scope ? subname : name.replace('api-', '');
