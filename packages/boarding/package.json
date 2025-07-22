@@ -47,10 +47,14 @@
   },
   "peerDependencies": {
     "@goatjs/node": "*",
-    "zod": "*"
+    "zod": "*",
+    "@goatjs/rimraf": "*"
   },
   "peerDependenciesMeta": {
     "zod": {
+      "optional": true
+    },
+    "@goatjs/rimraf": {
       "optional": true
     }
   }
