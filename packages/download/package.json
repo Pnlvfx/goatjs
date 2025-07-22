@@ -1,6 +1,6 @@
 {
-  "name": "@goatjs/storage",
-  "description": "Help to organiza data stored from your app.",
+  "name": "@goatjs/download",
+  "description": "Download any file through nodejs",
   "version": "1.0.18",
   "author": {
     "email": "simonegauli@gmail.com",
@@ -9,22 +9,16 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/goatjs.git",
-    "directory": "packages/storage"
+    "directory": "packages/download"
   },
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/storage.d.ts",
-      "import": "./dist/storage.js"
-    },
-    "./log": {
-      "types": "./dist/log.d.ts",
-      "import": "./dist/log.js"
-    }
+    "types": "./dist/download.d.ts",
+    "import": "./dist/download.js"
   },
   "scripts": {
-    "tsc": "tsc --noEmit true",
+    "tsc": "tsc --noEmit",
     "test": "",
     "lint": "eslint",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
@@ -42,13 +36,16 @@
     "@goatjs/node-monorepo-eslint": "^1.0.11",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^24.0.15",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
+    "mime-types": "^3.0.1",
     "prettier": "^3.6.2",
-    "typescript": "5.8.3"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@goatjs/node": "*"
+    "@goatjs/node": "*",
+    "mime-types": "*"
   }
 }

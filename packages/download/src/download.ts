@@ -1,11 +1,11 @@
 import os from 'node:os';
-import { getUserAgent } from './user-agent.js';
 import path from 'node:path';
 import mime from 'mime-types';
 import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
-import { pathExist } from './fs.js';
-import { sanitize } from './sanitize.js';
+import { getUserAgent } from '@goatjs/node/user-agent';
+import { sanitize } from '@goatjs/node/sanitize';
+import { pathExist } from '@goatjs/node/fs';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */

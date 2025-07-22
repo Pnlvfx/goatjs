@@ -314,6 +314,7 @@ __metadata:
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
+    prettier: "npm:^3.6.2"
     typescript: "npm:^5.8.3"
     zod: "npm:^4.0.5"
   peerDependencies:
@@ -406,6 +407,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@goatjs/download@workspace:packages/download":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/download@workspace:packages/download"
+  dependencies:
+    "@goatjs/node": "workspace:*"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.11"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/mime-types": "npm:^3.0.1"
+    "@types/node": "npm:^24.0.15"
+    eslint: "npm:^9.31.0"
+    globals: "npm:^16.3.0"
+    mime-types: "npm:^3.0.1"
+    prettier: "npm:^3.6.2"
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@goatjs/node": "*"
+    mime-types: "*"
+  languageName: unknown
+  linkType: soft
+
 "@goatjs/link-preview@workspace:packages/link-preview":
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
@@ -448,22 +470,14 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.0.11"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/mime-types": "npm:^3.0.1"
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
-    mime-types: "npm:^3.0.1"
     sanitize-filename: "npm:1.6.3"
     tsx: "npm:^4.20.3"
     typescript: "npm:^5.8.3"
   peerDependencies:
-    mime-types: "*"
     prettier: "*"
-  peerDependenciesMeta:
-    mime-types:
-      optional: true
-    prettier:
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -525,6 +539,7 @@ __metadata:
     "@types/node": "npm:^24.0.15"
     eslint: "npm:^9.31.0"
     globals: "npm:^16.3.0"
+    prettier: "npm:^3.6.2"
     typescript: "npm:5.8.3"
   peerDependencies:
     "@goatjs/node": "*"
