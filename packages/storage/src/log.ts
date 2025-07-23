@@ -3,14 +3,21 @@ import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import { mkDir } from './helpers.js';
 import { cwd } from './config.js';
+import { prettier, type PrettierParsingOption } from '@goatjs/node/prettier';
 
 const logPath = path.join(cwd, 'log');
 await mkDir(logPath);
 
+interface FileOptions {
+  extension?: PrettierParsingOption | 'txt';
+  name?: string;
+}
+
 export const logger = {
-  toFile: async (data: string, { extension = 'json', name = 'Log' } = {}) => {
+  toFile: async (data: string, { extension = 'json', name = 'log' }: FileOptions = {}) => {
     const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
-    await fs.writeFile(file, data);
+    const parsedData = extension === 'txt' ? data : await prettier.format(data, { parser: extension });
+    await fs.writeFile(file, parsedData);
     // eslint-disable-next-line no-console
     console.log(name, 'stored at:', file);
   },

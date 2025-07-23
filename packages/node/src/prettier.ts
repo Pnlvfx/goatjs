@@ -1,8 +1,10 @@
 import prettierConfigs from './compiled/prettier-configs.json' with { type: 'json' };
 import nativePrettier from 'prettier';
 
+export type PrettierParsingOption = 'json' | 'typescript' | 'babel';
+
 interface Options {
-  readonly parser: 'json' | 'typescript' | 'babel';
+  readonly parser: PrettierParsingOption;
 }
 
 export const prettier = {
