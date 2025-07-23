@@ -24,6 +24,7 @@
     "tsc": "tsc --noEmit",
     "test": "",
     "lint": "eslint",
+    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

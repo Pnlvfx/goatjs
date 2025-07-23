@@ -21,6 +21,7 @@
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
+    "dev": "tsc -p tsconfig.build.json -w",
     "build": "yarn rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",

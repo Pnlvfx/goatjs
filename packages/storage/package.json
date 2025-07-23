@@ -27,6 +27,7 @@
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
+    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",
@@ -45,11 +46,9 @@
     "@types/node": "^24.1.0",
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
-    "typescript": "5.8.3",
-    "zod": "4.0.5"
+    "typescript": "5.8.3"
   },
   "peerDependencies": {
-    "@goatjs/node": "*",
-    "zod": "*"
+    "@goatjs/node": "*"
   }
 }

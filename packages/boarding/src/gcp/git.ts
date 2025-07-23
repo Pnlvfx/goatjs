@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { checkGitStatus } from '../verdaccio/helpers.js';
+import { checkGitStatus } from '../verdy/helpers.js';
 import { execAsync } from '@goatjs/node/exec';
 import { git } from '../git/index.js';
 
