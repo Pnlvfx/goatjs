@@ -7,23 +7,29 @@ import { rimraf } from '@goatjs/rimraf';
 // pass a scope like @goatjs. and do yarn verdaccio publish pslist boarding core node ecc or yarn verdaccio publish all to publish all.
 // the version patch still need to be performed on all, but publish run only on the required packages
 
+interface PublishOptions {
+  version?: 'major' | 'minor' | 'patch';
+}
+
 export const verdy = {
-  publish: async () => {
+  publish: async ({ version = 'patch' }: PublishOptions = {}) => {
     await checkGitStatus();
-    await execAsync('yarn version patch');
+    await execAsync('yarn build'); // test before increasing version.
+    await execAsync(`yarn version ${version}`);
+    await execAsync('yarn npm publish');
     await git.add();
     await git.commit('RELEASE');
     await git.push();
-    await execAsync('yarn npm publish');
   },
   monorepo: {
-    publish: async (_packages?: string[]) => {
+    publish: async (_packages?: string[], { version = 'patch' }: PublishOptions = {}) => {
       await checkGitStatus();
-      await execAsync('yarn workspaces foreach --all --no-private version patch');
+      await execAsync('yarn build'); // test before increasing version.
+      await execAsync(`yarn workspaces foreach --all --no-private version ${version}`);
+      await execAsync('yarn workspaces foreach --all --no-private npm publish');
       await git.add();
       await git.commit('RELEASE');
       await git.push();
-      await execAsync('yarn workspaces foreach --all --no-private npm publish');
     },
     clear: async () => {
       await rimraf('.turbo');
