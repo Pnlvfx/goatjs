@@ -10,10 +10,8 @@ export const getProjectName = async () => {
   const buf = await fs.readFile('package.json');
   const { name } = await partialPkgSchema.parseAsync(JSON.parse(buf.toString()));
   if (!name) throw new Error('Unable to find package.json name.');
-  const [scope, subname] = name.split('/');
-  const nameOnly = scope ? subname : name.replace('api-', '');
-  if (!nameOnly) throw new Error('Unable to parse package.json name.');
-  return { scope: scope?.slice(1), name: nameOnly };
+  const [scope, scopeName] = name.split('/');
+  return { scope: scope?.slice(1), name: scopeName ?? name.replace('api-', '') };
 };
 
 export const mkDir = async (folder: string, recursive?: boolean) => {
