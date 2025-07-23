@@ -3,18 +3,15 @@ import { rm } from 'node:fs/promises';
 import { coralineRoot, cwd } from './config.js';
 import { mkDir } from './helpers.js';
 
+interface UseOptions {
+  root?: boolean;
+}
+
 export const storage = {
   cwd,
-  /** Allow to use a single root folder for all projects. Used for file which are meant to be the same through different projects.
-   * Eg: an app (tor for example)
-   */
-  useRoot: async (internalPath: string) => {
-    const directory = path.join(coralineRoot, internalPath);
-    await mkDir(directory);
-    return directory;
-  },
-  use: async (internalPath: string) => {
-    const directory = path.join(cwd, internalPath);
+  use: async (internalPath: string, { root }: UseOptions = {}) => {
+    const rootDirectory = root ? coralineRoot : cwd;
+    const directory = path.join(rootDirectory, internalPath);
     await mkDir(directory);
     return directory;
   },
