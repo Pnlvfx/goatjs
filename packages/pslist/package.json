@@ -29,6 +29,7 @@
     "prepublishOnly": "yarn test && eslint"
   },
   "files": [
+    "vendor",
     "dist",
     "LICENSE",
     "README.md"
