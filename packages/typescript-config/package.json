@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/typescript-config",
   "description": "Strict typescript config.",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "author": {
     "name": "Simone Gauli",
     "email": "simonegauli@gmail.com"
