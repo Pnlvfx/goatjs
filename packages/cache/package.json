@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/cache",
   "description": "Help menaging data, reducing the amount of third party requests, when data can be cached.",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
