@@ -1,3 +1,3 @@
-import { verdaccio } from '@goatjs/boarding/verdaccio';
+import { verdy } from '@goatjs/boarding/verdy';
 
-await verdaccio.publishAll();
+await verdy.monorepo.publish();
