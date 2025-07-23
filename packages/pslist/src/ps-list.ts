@@ -30,7 +30,7 @@ const windows = async (): Promise<ProcessDescriptor[]> => {
     }
   }
 
-  const binaryPath = path.join(import.meta.dirname, 'vendor', binary);
+  const binaryPath = path.join(import.meta.dirname, '..', 'vendor', binary);
   const { stdout } = await execFileAsync(binaryPath, {
     maxBuffer: TEN_MEGABYTES,
     windowsHide: true,
