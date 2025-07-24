@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-properties */
 export const parseCatchError = (err: unknown) => {
   return err instanceof Error ? err : new Error(errorToString(err));
 };
@@ -16,14 +17,12 @@ const errorToString = (err: unknown, ...args: string[]) => {
   } else {
     try {
       error = `UNHANDLED ERROR: ${JSON.stringify(err)}`;
-      // eslint-disable-next-line no-console
-      console.warn('Unable to parse:', err);
     } catch {
       error = 'UNHANDLED ERROR';
-      if (process.env['NODE_ENV'] !== 'production') {
-        // eslint-disable-next-line no-console
-        console.warn('Unable to parse:', err);
-      }
+    }
+    if (process.env['NODE_ENV'] !== 'production') {
+      // eslint-disable-next-line no-console
+      console.warn('Unable to parse', err);
     }
   }
 

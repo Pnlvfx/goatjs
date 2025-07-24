@@ -37,6 +37,7 @@ export const withRetry = <T, Args extends unknown[]>(
 
           attempt++;
 
+          // eslint-disable-next-line no-restricted-properties
           if (process.env['NODE_ENV'] !== 'production') {
             if (failMessage) {
               // eslint-disable-next-line no-console
