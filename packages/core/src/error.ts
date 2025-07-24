@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-properties */
 export const parseCatchError = (err: unknown) => {
   return err instanceof Error ? err : new Error(errorToString(err));
 };
@@ -20,6 +19,7 @@ const errorToString = (err: unknown, ...args: string[]) => {
     } catch {
       error = 'UNHANDLED ERROR';
     }
+    // eslint-disable-next-line no-restricted-properties
     if (process.env['NODE_ENV'] !== 'production') {
       // eslint-disable-next-line no-console
       console.warn('Unable to parse', err);
