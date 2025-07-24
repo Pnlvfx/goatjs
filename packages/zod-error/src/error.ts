@@ -1,9 +1,9 @@
-import type { ZodError } from 'zod';
+import type { z } from 'zod';
 
 class ValidationError extends Error {
   data: unknown;
-  zodError: ZodError;
-  constructor(message: string, data: unknown, zodError: ZodError) {
+  zodError: z.ZodError;
+  constructor(message: string, data: unknown, zodError: z.ZodError) {
     super(message);
     this.name = 'ValidationError';
     this.data = data;
@@ -12,7 +12,7 @@ class ValidationError extends Error {
   }
 }
 
-export const validationError = (message: string, { data, zodError }: { data: unknown; zodError: ZodError }) => {
+export const validationError = (message: string, { data, zodError }: { data: unknown; zodError: z.ZodError }) => {
   return new ValidationError(message, data, zodError);
 };
 

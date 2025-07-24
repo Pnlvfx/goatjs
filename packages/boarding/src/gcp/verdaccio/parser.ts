@@ -1,4 +1,4 @@
-import z from 'zod';
+import { z } from 'zod';
 
 const distSchema = z.strictObject({
   shasum: z.string(),
