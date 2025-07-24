@@ -20,7 +20,7 @@ const getHash = () => {
 
 export const logger = {
   toFile: async (data: string, { extension = 'json', name = 'log', unique }: FileOptions = {}) => {
-    const fileNameNoExt = unique ? `${name}${getHash()}` : name;
+    const fileNameNoExt = unique ? `${name}-${getHash()}` : name;
     const file = path.join(logPath, `${fileNameNoExt}.${extension}`);
     const parsedData = extension === 'txt' ? data : await prettier.format(data, { parser: extension });
     await fs.writeFile(file, parsedData);
