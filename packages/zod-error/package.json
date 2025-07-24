@@ -42,7 +42,7 @@
     "eslint": "^9.31.0",
     "globals": "^16.3.0",
     "typescript": "^5.8.3",
-    "zod": "^4.0.8"
+    "zod": "^4.0.9"
   },
   "peerDependencies": {
     "zod": "*"

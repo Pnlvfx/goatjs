@@ -11,11 +11,17 @@ await mkDir(logPath);
 interface FileOptions {
   extension?: PrettierParsingOption | 'txt';
   name?: string;
+  unique?: boolean;
 }
 
+const getHash = () => {
+  return crypto.randomBytes(5).toString('hex');
+};
+
 export const logger = {
-  toFile: async (data: string, { extension = 'json', name = 'log' }: FileOptions = {}) => {
-    const file = path.join(logPath, `${crypto.randomBytes(5).toString('hex')}.${extension}`);
+  toFile: async (data: string, { extension = 'json', name = 'log', unique }: FileOptions = {}) => {
+    const fileNameNoExt = unique ? `${name}${getHash()}` : name;
+    const file = path.join(logPath, `${fileNameNoExt}.${extension}`);
     const parsedData = extension === 'txt' ? data : await prettier.format(data, { parser: extension });
     await fs.writeFile(file, parsedData);
     // eslint-disable-next-line no-console
