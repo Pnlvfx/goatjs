@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/boarding",
   "description": "Node boarding helpers",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
