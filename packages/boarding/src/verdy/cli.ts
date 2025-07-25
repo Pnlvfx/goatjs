@@ -14,7 +14,7 @@ switch (command) {
     const version = args.at(0) ?? 'patch';
     if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
     await verdy.publish({ version });
-    console.time('publish');
+    console.timeEnd('publish');
     break;
   }
   case 'unpublish': {
