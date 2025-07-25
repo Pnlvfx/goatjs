@@ -40,4 +40,12 @@ export const git = {
     const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`, options);
     return stdout.trim();
   },
+  reset: ({ hard, amount = 1 }: { hard?: boolean; amount?: number } = {}) => {
+    let command = 'git reset';
+    if (hard) {
+      command += ' --hard';
+    }
+    command += ` HEAD~${amount.toString()}`;
+    return execAsync(command);
+  },
 };

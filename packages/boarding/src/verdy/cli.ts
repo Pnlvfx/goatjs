@@ -1,20 +1,17 @@
 import { execAsync } from '@goatjs/node/exec';
 import { getNextArg } from './cli-helpers.js';
-import { getPublishRegistryUrl, isMonorepo } from './helpers.js';
+import { getPublishRegistryUrl } from './helpers.js';
 import { verdy } from './index.js';
 import { consoleColor } from '@goatjs/node/console-color';
+import { isValidYarnVersion, supportedVersions } from './publish.js';
 
 const [command, ...args] = process.argv.slice(2);
 
 switch (command) {
   case 'publish': {
-    if (args.length > 0) throw new Error("Publish doesn't accept args for now");
-    if (await isMonorepo()) {
-      consoleColor('yellow', "Verdy detect that you're running in a monorepo. Please ensure to run this scripts from the root only.");
-      await verdy.monorepo.publish();
-    } else {
-      await verdy.publish();
-    }
+    const version = args.at(0) ?? 'patch';
+    if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
+    await verdy.publish({ version });
     break;
   }
   case 'unpublish': {
