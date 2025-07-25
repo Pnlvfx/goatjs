@@ -19,7 +19,8 @@ switch (command) {
   }
   case 'unpublish': {
     const pkgName = getNextArg(args, false);
-    await execAsync(`npm unpublish ${pkgName} --force --registry ${await getPublishRegistryUrl()}`);
+    const { stdout } = await execAsync(`npm unpublish ${pkgName} --force --registry ${await getPublishRegistryUrl()}`);
+    console.log(stdout);
     break;
   }
   default: {
