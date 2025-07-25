@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import { packageSchema } from './parser.js';
 import { download } from '@goatjs/download';
 import { execAsync } from '@goatjs/node/exec';
+import path from 'node:path';
 
 // eslint-disable-next-line sonarjs/no-clear-text-protocols
 const VERDACCIO_URL = 'http://192.168.1.100:4873';
@@ -23,7 +24,8 @@ export const resolveVerdaccioDependencies = async ({ packages, outputDir }: Verd
     console.log(`\n--- Processing ${pkg} ---`);
     const tarball = await getPkgTarball(`${VERDACCIO_URL}/${pkg}`);
     const output = await download(tarball, { directory: outputDir });
-    installCommand += ` ${pkg}@file:${output}`;
+    const definitelyPosix = output.replaceAll(path.sep, path.posix.sep);
+    installCommand += ` ${pkg}@file:${definitelyPosix}`;
   }
 
   await execAsync(installCommand);
