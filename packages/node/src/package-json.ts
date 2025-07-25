@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 
 interface PkgJSON {
   name?: string;
+  workspaces?: string[];
 }
 
 export const getRootPkgJSON = async () => {
