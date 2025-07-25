@@ -329,6 +329,8 @@ __metadata:
       optional: true
     zod:
       optional: true
+  bin:
+    verdy: dist/verdy/cli.js
   languageName: unknown
   linkType: soft
 
