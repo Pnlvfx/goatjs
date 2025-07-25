@@ -30,7 +30,7 @@ const publishCommand = {
 };
 
 const versionCommand = {
-  standalone: 'yarn npm publish',
+  standalone: 'yarn version',
   monorepo: 'yarn workspaces foreach --all --no-private version',
 };
 
