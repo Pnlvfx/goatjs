@@ -4,6 +4,7 @@ import { consoleColor, type ConsoleColor } from './console-color.js';
 export interface InputOptions {
   title?: string;
   color?: ConsoleColor;
+  history?: boolean;
 }
 
 let isRunning = false;
@@ -11,12 +12,12 @@ let rl: readline.Interface | undefined;
 let isAborted = false;
 
 export const input = {
-  create: ({ title = 'Welcome! Press Enter to run your function.', color = 'blue' }: InputOptions = {}) => {
+  create: ({ title = 'Welcome! Press Enter to run your function.', color = 'blue', history }: InputOptions = {}) => {
     if (isRunning) throw new Error('A script is already running. Please run one script at a time.');
     isRunning = true;
 
     return new Promise<string>((resolve, reject) => {
-      rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+      rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: history });
 
       const handleLine = (input: string) => {
         if (!rl) throw new Error('Mismatch on coraline.input');
