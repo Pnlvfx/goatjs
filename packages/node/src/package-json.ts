@@ -7,7 +7,7 @@ interface PkgJSON {
 
 export const getRootPkgJSON = async () => {
   const buf = await fs.readFile('package.json');
-  const { name } = JSON.parse(buf.toString()) as PkgJSON;
+  const { name, workspaces } = JSON.parse(buf.toString()) as PkgJSON;
   if (!name) throw new Error('Please add a valid name on your package.json.');
-  return { name };
+  return { name, workspaces };
 };
