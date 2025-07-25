@@ -18,7 +18,7 @@ const safePublish = async ({ isMonorepo }: { isMonorepo: boolean }) => {
   try {
     await execAsync(isMonorepo ? publishCommand.monorepo : publishCommand.standalone);
   } catch (err) {
-    const command = isMonorepo ? 'git checkout -- package.json' : 'git checkout -- "**/package.json"';
+    const command = isMonorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
     await execAsync(command);
     throw err;
   }
