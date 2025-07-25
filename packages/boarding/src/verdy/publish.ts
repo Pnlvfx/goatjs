@@ -5,20 +5,20 @@ export interface PublishOptions {
 }
 
 interface InternalPublishOptions extends PublishOptions {
-  isMonorepo: boolean;
+  monorepo: boolean;
 }
 
-export const publish = async ({ version = 'patch', isMonorepo }: InternalPublishOptions) => {
-  await increaseVersion({ isMonorepo, version });
-  await safePublish({ isMonorepo });
+export const publish = async ({ version = 'patch', monorepo }: InternalPublishOptions) => {
+  await increaseVersion({ monorepo, version });
+  await safePublish({ monorepo });
 };
 
 // KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
-const safePublish = async ({ isMonorepo }: { isMonorepo: boolean }) => {
+const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    await execAsync(isMonorepo ? publishCommand.monorepo : publishCommand.standalone);
+    await execAsync(monorepo ? publishCommand.monorepo : publishCommand.standalone);
   } catch (err) {
-    const command = isMonorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
+    const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
     await execAsync(command);
     throw err;
   }
@@ -41,7 +41,7 @@ export const isValidYarnVersion = (version: string): version is YarnVersion => {
   return supportedVersions.includes(version as YarnVersion);
 };
 
-const increaseVersion = ({ isMonorepo, version }: { isMonorepo: boolean; version: YarnVersion }) => {
-  const command = isMonorepo ? versionCommand.monorepo : versionCommand.standalone;
+const increaseVersion = ({ monorepo, version }: { monorepo: boolean; version: YarnVersion }) => {
+  const command = monorepo ? versionCommand.monorepo : versionCommand.standalone;
   return execAsync(`${command} ${version}`);
 };

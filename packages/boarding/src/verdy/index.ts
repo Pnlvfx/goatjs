@@ -13,9 +13,12 @@ import { consoleColor } from '@goatjs/node/console-color';
 
 export const verdy = {
   publish: async ({ version }: PublishOptions = {}) => {
-    consoleColor('yellow', "Verdy detect that you're running in a monorepo. Please ensure to run this scripts from the root only.");
+    const monorepo = await isMonorepo();
+    if (monorepo) {
+      consoleColor('yellow', "Verdy detect that you're running in a monorepo. Please ensure to run this scripts from the root only.");
+    }
     await checkGitStatus();
-    await publish({ version, isMonorepo: await isMonorepo() });
+    await publish({ version, monorepo });
     await git.add();
     await git.commit('RELEASE');
     await git.push();
