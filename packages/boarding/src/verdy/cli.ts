@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { execAsync } from '@goatjs/node/exec';
 import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './helpers.js';
@@ -9,9 +10,11 @@ const [command, ...args] = process.argv.slice(2);
 
 switch (command) {
   case 'publish': {
+    console.time('publish');
     const version = args.at(0) ?? 'patch';
     if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
     await verdy.publish({ version });
+    console.time('publish');
     break;
   }
   case 'unpublish': {
