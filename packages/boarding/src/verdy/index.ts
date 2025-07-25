@@ -3,9 +3,11 @@ import { checkGitStatus } from './helpers.js';
 import { git } from '../git/index.js';
 import { rimraf } from '@goatjs/rimraf';
 
-// TODO [2025-08-30] IMPORTANT breaking change,for monorepo use monorepo.publish and create a cli where you can do:
+// TODO [2025-07-30] IMPORTANT breaking change,for monorepo use monorepo.publish and create a cli where you can do:
 // pass a scope like @goatjs. and do yarn verdaccio publish pslist boarding core node ecc or yarn verdaccio publish all to publish all.
 // the version patch still need to be performed on all, but publish run only on the required packages
+
+// TODO [2025-07-30] use spawn to run publish and add more consoleColors
 
 interface PublishOptions {
   version?: 'major' | 'minor' | 'patch';
