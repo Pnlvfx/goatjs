@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { execAsync } from '@goatjs/node/exec';
 import { getNextArg } from './cli-helpers.js';
-import { getPublishRegistryUrl } from './helpers.js';
-import { verdy } from './index.js';
+import { getPublishRegistryUrl } from './dbz/helpers.js';
 import { consoleColor } from '@goatjs/node/console-color';
-import { isValidYarnVersion, supportedVersions } from './publish.js';
+import { isValidYarnVersion, supportedVersions } from './dbz/publish.js';
+import { dbz } from './dbz/index.js';
 
 const [command, ...args] = process.argv.slice(2);
 
@@ -13,7 +13,7 @@ switch (command) {
     console.time('publish');
     const version = args.at(0) ?? 'patch';
     if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
-    await verdy.publish({ version });
+    await dbz.publish({ version });
     console.timeEnd('publish');
     break;
   }

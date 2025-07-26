@@ -6,7 +6,7 @@ interface Options {
   readonly debug?: boolean;
 }
 
-export const updateGitDeps = async (packages: Record<string, string>, { debug }: Options = {}) => {
+export const updateUnversionedDeps = async (packages: Record<string, string>, { debug }: Options = {}) => {
   const deps = Object.entries(packages).map(([name, version]) => `${name}@${version}`);
   const command = `yarn up ${deps.join(' ')}`;
   if (debug) {

@@ -1,3 +1,3 @@
-import { verdy } from '@goatjs/boarding/verdy';
+import { dbz } from '@goatjs/dbz/dbz';
 
-await verdy.publish();
+await dbz.publish();

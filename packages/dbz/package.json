@@ -1,7 +1,6 @@
 {
-  "name": "@goatjs/boarding",
-  "private": true,
-  "description": "Node boarding helpers",
+  "name": "@goatjs/dbz",
+  "description": "Npm publish helper",
   "version": "1.0.37",
   "author": {
     "email": "simonegauli@gmail.com",
@@ -10,15 +9,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Pnlvfx/goatjs.git",
-    "directory": "packages/boarding"
+    "directory": "packages/dbz"
   },
   "license": "MIT",
   "type": "module",
   "exports": {
     "./*": {
       "types": "./dist/*/index.d.ts",
-      "import": "./dist/*/index.js",
-      "require": "./dist/*/index.js"
+      "import": "./dist/*/index.js"
     }
   },
   "scripts": {
@@ -37,7 +35,6 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/download": "workspace:*",
     "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^1.0.18",
     "@goatjs/rimraf": "workspace:*",
@@ -45,24 +42,11 @@
     "@types/node": "^24.1.0",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
-    "typescript": "^5.8.3",
-    "zod": "^4.0.10"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@goatjs/download": "workspace:*",
     "@goatjs/node": "*",
-    "@goatjs/rimraf": "*",
-    "zod": "*"
+    "@goatjs/rimraf": "*"
   },
-  "peerDependenciesMeta": {
-    "@goatjs/download": {
-      "optional": true
-    },
-    "@goatjs/rimraf": {
-      "optional": true
-    },
-    "zod": {
-      "optional": true
-    }
-  }
+  "bin": "dist/cli.js"
 }

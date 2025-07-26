@@ -1,5 +1,5 @@
 import { getRootPkgJSON } from '@goatjs/node/package-json';
-import { git } from '../git/index.js';
+import { git } from '@goatjs/node/git/git';
 import { execAsync } from '@goatjs/node/exec';
 
 export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {

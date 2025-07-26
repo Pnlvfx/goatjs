@@ -1,7 +1,7 @@
 import type { GitStatusParams } from './types.js';
 import type { ExecOptions } from 'node:child_process';
-import { execAsync } from '@goatjs/node/exec';
 import { parseBashOptions } from './params.js';
+import { execAsync } from '../exec.js';
 
 export const git = {
   clone: (url: string, options?: ExecOptions) => {

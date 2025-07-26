@@ -317,8 +317,6 @@ __metadata:
       optional: true
     zod:
       optional: true
-  bin:
-    verdy: dist/verdy/cli.js
   languageName: unknown
   linkType: soft
 
@@ -383,6 +381,26 @@ __metadata:
     globals: "npm:^16.3.0"
     mongodb: "npm:^6.18.0"
     typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@goatjs/dbz@workspace:packages/dbz":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/dbz@workspace:packages/dbz"
+  dependencies:
+    "@goatjs/node": "workspace:*"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.18"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^24.1.0"
+    eslint: "npm:^9.32.0"
+    globals: "npm:^16.3.0"
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    "@goatjs/node": "*"
+    "@goatjs/rimraf": "*"
+  bin:
+    dbz: dist/cli.js
   languageName: unknown
   linkType: soft
 
