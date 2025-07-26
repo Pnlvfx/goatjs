@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/zod-error",
   "description": "Node zod error helpers",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
