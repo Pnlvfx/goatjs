@@ -31,9 +31,6 @@ export const dbz = {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
     }
     await checkGitStatus();
-    // if (provider === 'gcp') {
-    //   await addAccessToken();
-    // }
     await publish({ version, monorepo });
     await git.add();
     await git.commit('RELEASE');
