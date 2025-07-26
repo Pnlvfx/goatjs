@@ -1,10 +1,9 @@
 import { consoleColor } from '@goatjs/node/console-color';
 import { git } from '@goatjs/node/git/git';
-import { checkGitStatus, isMonorepo } from './helpers.js';
+import { checkGitStatus, getAccessToken, isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
 import { rimraf } from '@goatjs/rimraf';
 import { execAsync } from '@goatjs/node/exec';
-import { getAccessToken } from './auth.js';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
 
@@ -19,12 +18,7 @@ export const dbz = {
     },
   },
   createYarnEnv: async () => {
-    const file = '.env.yarn';
-    try {
-      await fs.access(file);
-    } catch {
-      await fs.writeFile(file, `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
-    }
+    await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
   },
   /** @deprecated use the new createYarnEnv */
   auth: async (): Promise<void> => {
