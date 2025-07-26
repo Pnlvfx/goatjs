@@ -9,6 +9,14 @@ import { dbz } from './dbz/index.js';
 const [command, ...args] = process.argv.slice(2);
 
 switch (command) {
+  case 'add': {
+    await dbz.add(args);
+    break;
+  }
+  case 'update': {
+    await dbz.update();
+    break;
+  }
   case 'publish': {
     console.time('publish');
     const version = args.at(0) ?? 'patch';
