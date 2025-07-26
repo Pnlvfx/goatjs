@@ -13,7 +13,7 @@ export const dbz = {
   publish: async ({ version, provider = 'gcp' }: DbzPublishOptions = {}) => {
     const monorepo = await isMonorepo();
     if (monorepo) {
-      consoleColor('yellow', "Verdy detect that you're running in a monorepo. Please ensure to run this scripts from the root only.");
+      consoleColor('yellow', "Dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root only.");
     }
     await checkGitStatus();
     if (provider === 'gcp') {
