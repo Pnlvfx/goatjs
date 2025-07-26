@@ -17,7 +17,7 @@ export const publish = async ({ version = 'patch', monorepo }: InternalPublishOp
 // KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    await spawnInteractive(monorepo ? publishCommand.monorepo : publishCommand.standalone);
+    await execAsync(monorepo ? publishCommand.monorepo : publishCommand.standalone);
   } catch (err) {
     const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
     await execAsync(command);
