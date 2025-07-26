@@ -1,5 +1,4 @@
 import { execAsync } from '@goatjs/node/exec';
-import { spawnInteractive } from './helpers.js';
 
 export interface PublishOptions {
   version?: YarnVersion;
