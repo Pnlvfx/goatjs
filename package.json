@@ -4,7 +4,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pnlvfx/goatjs"
+    "url": "https://github.com/Pnlvfx/goatjs.git"
   },
   "scripts": {
     "tsc": "turbo tsc",
@@ -13,16 +13,15 @@
     "lint": "turbo lint",
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
-    "update": "yarn upgrade-interactive",
-    "publish": "yarn build && node tools/publish.ts"
+    "update": "yarn upgrade-interactive"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "@goatjs/dbz": "workspace:*",
     "prettier": "^3.6.2",
-    "turbo": "^2.5.5",
-    "typescript": "^5.8.3"
+    "turbo": "^2.5.5"
   },
   "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c"
 }

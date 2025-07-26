@@ -9,6 +9,13 @@ import { dbz } from './dbz/index.js';
 const [command, ...args] = process.argv.slice(2);
 
 switch (command) {
+  case 'auth': {
+    console.log('🔐 Setting YARN_NPM_AUTH_TOKEN...');
+    await dbz.auth();
+    console.log('✅ Authentication token set successfully!');
+    console.log('You can now run yarn commands that require authentication.');
+    break;
+  }
   case 'add': {
     await dbz.add(args);
     break;

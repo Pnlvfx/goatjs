@@ -1,7 +1,0 @@
-{
-  "extends": "@goatjs/typescript-config/node-library/tsconfig.json",
-  "include": ["tools"],
-  "compilerOptions": {
-    "outDir": "dist"
-  }
-}
