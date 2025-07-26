@@ -11,17 +11,9 @@ const [command, ...args] = process.argv.slice(2);
 switch (command) {
   case 'auth': {
     console.log('🔐 Setting YARN_NPM_AUTH_TOKEN...');
-    await dbz.auth();
+    await dbz.createYarnEnv();
     console.log('✅ Authentication token set successfully!');
     console.log('You can now run yarn commands that require authentication.');
-    break;
-  }
-  case 'add': {
-    await dbz.add(args);
-    break;
-  }
-  case 'update': {
-    await dbz.update();
     break;
   }
   case 'publish': {
