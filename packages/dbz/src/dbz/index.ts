@@ -25,7 +25,7 @@ export const dbz = {
     const token = await getAccessToken();
     await (platform() === 'win32' ? execAsync(`set YARN_NPM_AUTH_TOKEN=${token}`) : execAsync(`export YARN_NPM_AUTH_TOKEN="${token}"`));
   },
-  publish: async ({ version, provider: _provider = 'gcp' }: DbzPublishOptions = {}) => {
+  publish: async ({ version }: DbzPublishOptions = {}) => {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
