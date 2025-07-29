@@ -13,7 +13,6 @@ switch (command) {
     console.log('🔐 Setting YARN_NPM_AUTH_TOKEN...');
     await dbz.createYarnEnv();
     console.log('✅ Authentication token set successfully!');
-    console.log('You can now run yarn commands that require authentication.');
     break;
   }
   case 'publish': {
