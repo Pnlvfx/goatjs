@@ -14,16 +14,20 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+    "./*": "./src/*.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "./*": {
+        "types": "./dist/*.d.ts",
+        "import": "./dist/*.js"
+      }
     }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

@@ -13,15 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/download.d.ts",
-    "import": "./dist/download.js"
+  "exports": "./src/download.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/download.d.ts",
+      "import": "./dist/download.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

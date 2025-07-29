@@ -13,7 +13,9 @@
     "lint": "turbo lint",
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
-    "update": "yarn upgrade-interactive"
+    "update": "yarn upgrade-interactive",
+    "rimraf": "yarn workspace @goatjs/rimraf repo:rimraf",
+    "dbz": "yarn workspace @goatjs/dbz repo:dbz"
   },
   "workspaces": [
     "packages/*"

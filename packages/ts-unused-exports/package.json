@@ -13,16 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/ts-unused-exports.d.ts",
-    "import": "./dist/ts-unused-exports.js",
-    "require": "./dist/ts-unused-exports.js"
+  "exports": "./src/ts-unused-exports.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/ts-unused-exports.d.ts",
+      "import": "./dist/ts-unused-exports.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

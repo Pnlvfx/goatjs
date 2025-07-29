@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import { execAsync } from '@goatjs/node/exec';
+import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './dbz/helpers.js';
-import { consoleColor } from '@goatjs/node/console-color';
 import { isValidYarnVersion, supportedVersions } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
 
@@ -27,6 +27,11 @@ switch (command) {
     const pkgName = getNextArg(args, false);
     const { stdout } = await execAsync(`npm unpublish ${pkgName} --force --registry ${await getPublishRegistryUrl()}`);
     consoleColor('blue', stdout);
+    break;
+  }
+  case 'clear': {
+    await dbz.clear();
+    consoleColor('blue', 'Project cleaned.');
     break;
   }
   default: {

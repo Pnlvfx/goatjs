@@ -1,9 +1,9 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import { mkDir } from './helpers.js';
-import { cwd } from './config.js';
 import { prettier, type PrettierParsingOption } from '@goatjs/node/prettier';
+import { cwd } from '../config.js';
+import { mkDir } from '../helpers.js';
 
 const logPath = path.join(cwd, 'log');
 await mkDir(logPath);

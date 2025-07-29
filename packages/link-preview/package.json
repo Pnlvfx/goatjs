@@ -13,16 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/link-preview.d.ts",
-    "import": "./dist/link-preview.js",
-    "require": "./dist/link-preview.js"
+  "exports": "./src/link-preview.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/link-preview.d.ts",
+      "import": "./dist/link-preview.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

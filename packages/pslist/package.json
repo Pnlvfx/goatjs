@@ -15,15 +15,17 @@
   "type": "module",
   "types": "./dist/ps-list.d.ts",
   "module": "./dist/ps-list.js",
-  "exports": {
-    "types": "./dist/ps-list.d.ts",
-    "import": "./dist/ps-list.js"
+  "exports": "./src/ps-list.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/ps-list.d.ts",
+      "import": "./dist/ps-list.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

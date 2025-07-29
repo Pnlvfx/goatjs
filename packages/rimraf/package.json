@@ -13,20 +13,22 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/rimraf.d.ts",
-    "default": "./dist/rimraf.js"
+  "exports": "./src/rimraf.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/rimraf.d.ts",
+      "import": "./dist/rimraf.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "yarn rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint",
-    "rimraf": "tsx src/cli/rimraf.ts"
+    "rimraf": "tsx --no-cache src/cli/rimraf.ts"
   },
   "files": [
     "dist",

@@ -13,15 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/cache.d.ts",
-    "import": "./dist/cache.js"
+  "exports": "./src/cache.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/cache.d.ts",
+      "import": "./dist/cache.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",

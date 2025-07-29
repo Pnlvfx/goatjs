@@ -13,15 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/mongo.d.ts",
-    "default": "./dist/mongo.js"
+  "exports": "./src/mongo.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/mongo.d.ts",
+      "import": "./dist/mongo.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",
@@ -32,6 +34,9 @@
     "LICENSE",
     "README.md"
   ],
+  "dependencies": {
+    "mongodb": "^6.18.0"
+  },
   "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.0.18",
     "@goatjs/rimraf": "workspace:*",
@@ -40,8 +45,5 @@
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "mongodb": "^6.18.0"
   }
 }

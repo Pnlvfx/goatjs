@@ -13,15 +13,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "exports": {
-    "types": "./dist/deep-diff.d.ts",
-    "import": "./dist/deep-diff.js"
+  "exports": "./src/deep-diff.ts",
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/deep-diff.d.ts",
+      "import": "./dist/deep-diff.js"
+    }
   },
   "scripts": {
     "tsc": "tsc --noEmit",
     "test": "",
     "lint": "eslint",
-    "dev": "tsc -p tsconfig.build.json -w",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "prepare": "yarn build",
     "prepack": "yarn build",
