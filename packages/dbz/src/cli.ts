@@ -16,11 +16,9 @@ switch (command) {
     break;
   }
   case 'publish': {
-    console.time('publish');
     const version = args.at(0) ?? 'patch';
     if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
     await dbz.publish({ version });
-    console.timeEnd('publish');
     break;
   }
   case 'unpublish': {
