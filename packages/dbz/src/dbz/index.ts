@@ -6,6 +6,7 @@ import { rimraf } from '@goatjs/rimraf';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
+import { spawnStdio } from '@goatjs/node/terminal/stdio';
 
 interface DbzPublishOptions extends PublishOptions {
   provider?: 'gcp' | 'verdaccio';
@@ -13,14 +14,11 @@ interface DbzPublishOptions extends PublishOptions {
 
 export const dbz = {
   config: {
-    set: async (name: string, value: string) => {
-      return execAsync(`yarn config set ${name} ${value}`);
-    },
+    set: async (name: string, value: string) => spawnStdio('yarn', ['config', 'set', name, value]),
   },
   createYarnEnv: async () => {
     await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
   },
-  /** @deprecated use the new createYarnEnv */
   auth: async (): Promise<void> => {
     const token = await getAccessToken();
     await (platform() === 'win32' ? execAsync(`set YARN_NPM_AUTH_TOKEN=${token}`) : execAsync(`export YARN_NPM_AUTH_TOKEN="${token}"`));

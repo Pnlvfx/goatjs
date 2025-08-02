@@ -1,4 +1,5 @@
 import { execAsync } from '@goatjs/node/exec';
+import { spawnStdio } from '@goatjs/node/terminal/stdio';
 
 export interface PublishOptions {
   version?: YarnVersion;
@@ -16,7 +17,7 @@ export const publish = async ({ version = 'patch', monorepo }: InternalPublishOp
 // KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    await execAsync(monorepo ? publishCommand.monorepo : publishCommand.standalone);
+    await spawnStdio('yarn', monorepo ? publishArgs.monorepo : publishArgs.standalone);
   } catch (err) {
     const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
     await execAsync(command);
@@ -24,14 +25,14 @@ const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   }
 };
 
-const publishCommand = {
-  standalone: 'yarn npm publish',
-  monorepo: 'yarn workspaces foreach --all --no-private npm publish',
+const publishArgs = {
+  standalone: ['npm', 'publish'],
+  monorepo: ['workspaces', 'foreach', '--all', '--no-private', 'npm', 'publish'],
 };
 
-const versionCommand = {
-  standalone: 'yarn version',
-  monorepo: 'yarn workspaces foreach --all --no-private version',
+const versionArgs = {
+  standalone: ['version'],
+  monorepo: ['workspaces', 'foreach', '--all', '--no-private', 'version'],
 };
 
 export const supportedVersions = ['major', 'minor', 'patch'] as const;
@@ -42,6 +43,6 @@ export const isValidYarnVersion = (version: string): version is YarnVersion => {
 };
 
 const increaseVersion = ({ monorepo, version }: { monorepo: boolean; version: YarnVersion }) => {
-  const command = monorepo ? versionCommand.monorepo : versionCommand.standalone;
-  return execAsync(`${command} ${version}`);
+  const args = monorepo ? versionArgs.monorepo : versionArgs.standalone;
+  return spawnStdio('yarn', [...args, version]);
 };

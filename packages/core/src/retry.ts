@@ -1,5 +1,5 @@
 import type { Callback } from './types.js';
-import { parseCatchError } from './error.js';
+import { parseError } from './error.js';
 import { wait } from './wait.js';
 
 export interface RetryOptions {
@@ -25,7 +25,7 @@ export const withRetry = <T, Args extends unknown[]>(
           const maybe = await callback(...args);
           resolve(maybe);
         } catch (err) {
-          const parsedError = parseCatchError(err);
+          const parsedError = parseError(err);
           if (signal?.aborted) {
             reject(new Error('Aborted'));
             return;

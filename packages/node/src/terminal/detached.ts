@@ -1,8 +1,14 @@
+import { spawn, type SpawnOptions } from 'node:child_process';
 import os from 'node:os';
+
+export const terminal = (scriptFile: string, options: SpawnOptions = {}) => {
+  const { args, command } = getSystemConfigs(scriptFile);
+  return spawn(command, args, options);
+};
 
 const platform = os.platform();
 
-export const getSystemConfigs = (scriptFile: string) => {
+const getSystemConfigs = (scriptFile: string) => {
   switch (platform) {
     case 'darwin': {
       return { command: 'open', args: ['-a', 'Terminal', scriptFile] };

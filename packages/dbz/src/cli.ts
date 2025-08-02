@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import { execAsync } from '@goatjs/node/exec';
 import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './dbz/helpers.js';
 import { isValidYarnVersion, supportedVersions } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
+import { spawnStdio } from '@goatjs/node/terminal/stdio';
 
 const [command, ...args] = process.argv.slice(2);
 
@@ -25,8 +25,7 @@ switch (command) {
   }
   case 'unpublish': {
     const pkgName = getNextArg(args, false);
-    const { stdout } = await execAsync(`npm unpublish ${pkgName} --force --registry ${await getPublishRegistryUrl()}`);
-    consoleColor('blue', stdout);
+    await spawnStdio('npm', ['unpublish', pkgName, '--force', '--registry', await getPublishRegistryUrl()]);
     break;
   }
   case 'clear': {
