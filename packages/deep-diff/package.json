@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/deep-diff",
   "description": "Find difference between two objects.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
