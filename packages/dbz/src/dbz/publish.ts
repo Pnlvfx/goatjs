@@ -32,7 +32,7 @@ const publishArgs = {
 
 const versionArgs = {
   standalone: ['version'],
-  monorepo: ['workspaces', 'foreach', '--all', '--no-private', 'version'],
+  monorepo: ['workspaces', 'foreach', '--all', 'version'],
 };
 
 export const supportedVersions = ['major', 'minor', 'patch'] as const;
