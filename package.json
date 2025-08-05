@@ -14,7 +14,7 @@
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
     "update": "yarn upgrade-interactive",
-    "publish": "tsx tools/publish.ts"
+    "publish": "tsx --no-cache tools/publish.ts"
   },
   "workspaces": [
     "packages/*"
