@@ -2,7 +2,7 @@
 import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './dbz/helpers.js';
-import { isValidYarnVersion, supportedVersions } from './dbz/publish.js';
+import { isValidYarnVersion } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
 import { spawnStdio } from '@goatjs/node/terminal/stdio';
 

@@ -35,7 +35,7 @@ const versionArgs = {
   monorepo: ['workspaces', 'foreach', '--all', '--no-private', 'version'],
 };
 
-export const supportedVersions = ['major', 'minor', 'patch'] as const;
+const supportedVersions = ['major', 'minor', 'patch'] as const;
 type YarnVersion = (typeof supportedVersions)[number];
 
 export const isValidYarnVersion = (version: string): version is YarnVersion => {
