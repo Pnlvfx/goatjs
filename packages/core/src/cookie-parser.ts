@@ -15,6 +15,7 @@ export interface Cookie {
   path?: string;
   sameSite?: CookieSameSite;
   httpOnly?: boolean;
+  domain?: string;
 }
 
 export const parseSetCookieHeader = (res: Response, { decodeValues = true } = {}): Cookie[] => {
@@ -68,6 +69,10 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
         }
         case 'path': {
           cookie.path = value;
+          break;
+        }
+        case 'domain': {
+          cookie.domain = value;
           break;
         }
         default: {
