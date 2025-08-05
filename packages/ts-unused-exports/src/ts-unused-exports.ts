@@ -17,8 +17,8 @@ export const findUnusedExports = async ({
   const response: UnusedResponse = {};
   const unusedFolders = new Set(ignoreFolders);
   for (const [filePath, value] of Object.entries(analyzed.unusedExports)) {
-    const filename = path.basename(filePath.toString());
-    const folderPath = path.dirname(filePath.toString());
+    const filename = path.basename(filePath);
+    const folderPath = path.dirname(filePath);
 
     // Skip files in ignored folders
     const isIgnoredFolder = ignoreFolders?.some((ignoredFolder) => {
