@@ -1,8 +1,7 @@
 {
   "name": "@goatjs/gcp",
-  "private": true,
-  "description": "Node boarding helpers",
-  "version": "1.0.37",
+  "description": "Node gcp helpers",
+  "version": "1.5.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
