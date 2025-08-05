@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/core",
   "description": "Your favourite package helper.",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
