@@ -9,7 +9,7 @@ export interface Cookie {
   httpOnly?: boolean;
 }
 
-export const parseSetCookieHeader = (res: Response, { decodeValues = true } = {}): Cookie[] => {
+export const parseSetCookie = (res: Response, { decodeValues = true } = {}): Cookie[] => {
   return res.headers
     .getSetCookie()
     .filter((str) => !!str.trim())
