@@ -284,35 +284,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@goatjs/boarding@workspace:packages/boarding":
-  version: 0.0.0-use.local
-  resolution: "@goatjs/boarding@workspace:packages/boarding"
-  dependencies:
-    "@goatjs/download": "workspace:*"
-    "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.0.22"
-    "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.2.0"
-    eslint: "npm:^9.32.0"
-    globals: "npm:^16.3.0"
-    typescript: "npm:^5.9.2"
-    zod: "npm:^4.0.14"
-  peerDependencies:
-    "@goatjs/download": "workspace:*"
-    "@goatjs/node": "*"
-    "@goatjs/rimraf": "*"
-    zod: "*"
-  peerDependenciesMeta:
-    "@goatjs/download":
-      optional: true
-    "@goatjs/rimraf":
-      optional: true
-    zod:
-      optional: true
-  languageName: unknown
-  linkType: soft
-
 "@goatjs/cache@workspace:packages/cache":
   version: 0.0.0-use.local
   resolution: "@goatjs/cache@workspace:packages/cache"
@@ -429,6 +400,35 @@ __metadata:
   peerDependencies:
     "@goatjs/node": "*"
     mime-types: "*"
+  languageName: unknown
+  linkType: soft
+
+"@goatjs/gcp@workspace:packages/gcp":
+  version: 0.0.0-use.local
+  resolution: "@goatjs/gcp@workspace:packages/gcp"
+  dependencies:
+    "@goatjs/download": "workspace:*"
+    "@goatjs/node": "workspace:*"
+    "@goatjs/node-monorepo-eslint": "npm:^1.0.22"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^24.2.0"
+    eslint: "npm:^9.32.0"
+    globals: "npm:^16.3.0"
+    typescript: "npm:^5.9.2"
+    zod: "npm:^4.0.14"
+  peerDependencies:
+    "@goatjs/download": "workspace:*"
+    "@goatjs/node": "*"
+    "@goatjs/rimraf": "*"
+    zod: "*"
+  peerDependenciesMeta:
+    "@goatjs/download":
+      optional: true
+    "@goatjs/rimraf":
+      optional: true
+    zod:
+      optional: true
   languageName: unknown
   linkType: soft
 
