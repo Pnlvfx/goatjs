@@ -349,7 +349,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/dbz@workspace:packages/dbz":
+"@goatjs/dbz@workspace:*, @goatjs/dbz@workspace:packages/dbz":
   version: 0.0.0-use.local
   resolution: "@goatjs/dbz@workspace:packages/dbz"
   dependencies:
@@ -2488,8 +2488,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "goatjs@workspace:."
   dependencies:
+    "@goatjs/dbz": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
     prettier: "npm:^3.6.2"
+    tsx: "npm:^4.20.3"
     turbo: "npm:^2.5.5"
+    typescript: "npm:^5.9.2"
   languageName: unknown
   linkType: soft
 
