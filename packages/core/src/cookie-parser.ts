@@ -1,3 +1,11 @@
+const sameSiteValues = [true, false, 'lax', 'strict', 'none'] as const;
+
+type CookieSameSite = (typeof sameSiteValues)[number];
+
+const isValidSameSite = (value: boolean | string): value is CookieSameSite => {
+  return sameSiteValues.includes(value as CookieSameSite);
+};
+
 export interface Cookie {
   name: string;
   value: string;
@@ -5,17 +13,18 @@ export interface Cookie {
   maxAge?: number;
   secure?: boolean;
   path?: string;
-  sameSite?: string;
+  sameSite?: CookieSameSite;
   httpOnly?: boolean;
 }
 
-export const parseSetCookie = (res: Response, { decodeValues = true } = {}): Cookie[] => {
+export const parseSetCookieHeader = (res: Response, { decodeValues = true } = {}): Cookie[] => {
   return res.headers
     .getSetCookie()
     .filter((str) => !!str.trim())
     .map((str) => parseString(str, decodeValues));
 };
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
   const parts = cookieString.split(';').filter((str) => !!str.trim());
   const nameValuePairStr = parts.shift();
@@ -50,7 +59,11 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
           break;
         }
         case 'samesite': {
-          cookie.sameSite = value;
+          // eslint-disable-next-line unicorn/no-nested-ternary, sonarjs/no-nested-conditional
+          const parsedValue = value === 'true' ? true : value === 'false' ? false : value;
+          if (isValidSameSite(parsedValue)) {
+            cookie.sameSite = parsedValue;
+          }
           break;
         }
         case 'path': {
