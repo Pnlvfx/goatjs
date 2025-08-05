@@ -16,7 +16,7 @@ switch (command) {
     break;
   }
   case 'publish': {
-    const version = args.at(0) ?? 'patch';
+    const version = args.at(0) ?? 'minor';
     if (!isValidYarnVersion(version)) throw new Error(`Unsupported version. Valid versions ${supportedVersions.join(', ')}`);
     await dbz.publish({ version });
     break;

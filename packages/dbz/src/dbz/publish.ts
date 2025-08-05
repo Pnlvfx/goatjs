@@ -9,7 +9,7 @@ interface InternalPublishOptions extends PublishOptions {
   monorepo: boolean;
 }
 
-export const publish = async ({ version = 'patch', monorepo }: InternalPublishOptions) => {
+export const publish = async ({ version = 'minor', monorepo }: InternalPublishOptions) => {
   await increaseVersion({ monorepo, version });
   await safePublish({ monorepo });
 };
