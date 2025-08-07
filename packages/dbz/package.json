@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^1.0.22",
+    "@goatjs/node-monorepo-eslint": "^1.1.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.2.0",

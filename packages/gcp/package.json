@@ -41,14 +41,14 @@
   "devDependencies": {
     "@goatjs/download": "workspace:*",
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^1.0.22",
+    "@goatjs/node-monorepo-eslint": "^1.1.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.2.0",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "typescript": "^5.9.2",
-    "zod": "^4.0.14"
+    "zod": "^4.0.15"
   },
   "peerDependencies": {
     "@goatjs/download": "workspace:*",
