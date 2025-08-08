@@ -36,17 +36,17 @@ export const createGoatDb = (db: MongoDb) => {
       return collection.find(filter, options) as FindCursor<T>;
     }
 
-    function findOne<P extends ProjectionKeys<T>>(
+    async function findOne<P extends ProjectionKeys<T>>(
       filter: Filter<T>,
       options: Omit<FindOneOptions, 'projection'> & { projection: P },
-    ): Promise<ProjectedType<T, P> | null>;
-    function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | null>;
-    function findOne<P extends ProjectionKeys<T>>(
+    ): Promise<ProjectedType<T, P> | undefined>;
+    async function findOne(filter?: Filter<T>, options?: FindOneOptions): Promise<T | undefined>;
+    async function findOne<P extends ProjectionKeys<T>>(
       filter?: Filter<T>,
       options?: FindOneOptions | (Omit<FindOneOptions, 'projection'> & { projection: P }),
-    ): Promise<T | ProjectedType<T, P> | null> {
+    ): Promise<T | ProjectedType<T, P> | undefined> {
       /** @ts-expect-error Removing WithId from the return type */
-      return collection.findOne(filter, options);
+      return (await collection.findOne(filter, options)) ?? undefined;
     }
 
     return {
@@ -102,7 +102,7 @@ export const createGoatDb = (db: MongoDb) => {
       },
       insertMany: async (docs: readonly T[], options?: BulkWriteOptions) => {
         /** @ts-expect-error types are differents. */
-        await collection.insertMany(docs, options);
+        return collection.insertMany(docs, options);
       },
       updateOne: (filter: Filter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions & { sort?: Sort }) => {
         /** @ts-expect-error types are differents. */
