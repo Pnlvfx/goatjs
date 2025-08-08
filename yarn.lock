@@ -362,9 +362,6 @@ __metadata:
     eslint: "npm:^9.32.0"
     globals: "npm:^16.3.0"
     typescript: "npm:^5.9.2"
-  peerDependencies:
-    "@goatjs/node": "*"
-    "@goatjs/rimraf": "*"
   bin:
     dbz: dist/cli.js
   languageName: unknown

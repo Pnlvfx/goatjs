@@ -13,6 +13,9 @@ export const configureGlobalZodError = () => {
         case 'invalid_format': {
           return `Invalid format: expected ${iss.format}, received ${iss.input ?? '"Empty"'}`;
         }
+        case 'unrecognized_keys': {
+          return `Unrecognized keys: received ${JSON.stringify(iss.input)}`;
+        }
         default: {
           return iss.message;
         }
