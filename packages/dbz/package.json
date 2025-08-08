@@ -38,19 +38,17 @@
     "LICENSE",
     "README.md"
   ],
-  "devDependencies": {
+  "dependencies": {
     "@goatjs/node": "workspace:*",
+    "@goatjs/rimraf": "workspace:*"
+  },
+  "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.1.0",
-    "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.2.0",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "typescript": "^5.9.2"
-  },
-  "peerDependencies": {
-    "@goatjs/node": "*",
-    "@goatjs/rimraf": "*"
   },
   "bin": "dist/cli.js"
 }
