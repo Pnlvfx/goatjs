@@ -346,6 +346,7 @@ __metadata:
     globals: "npm:^16.3.0"
     mongodb: "npm:^6.18.0"
     typescript: "npm:^5.9.2"
+    zod: "npm:^4.0.15"
   languageName: unknown
   linkType: soft
 

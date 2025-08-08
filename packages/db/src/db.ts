@@ -96,13 +96,13 @@ export const createGoatDb = (db: MongoDb) => {
         /** @ts-expect-error Removing WithId from the return type */
         return collection.findOneAndUpdate(filter, update, options);
       },
-      insertOne: (doc: T, options?: InsertOneOptions) => {
+      insertOne: async (doc: T, options?: InsertOneOptions) => {
         /** @ts-expect-error types are differents. */
-        return collection.insertOne(doc, options);
+        await collection.insertOne(doc, options);
       },
-      insertMany: (docs: readonly T[], options?: BulkWriteOptions) => {
+      insertMany: async (docs: readonly T[], options?: BulkWriteOptions) => {
         /** @ts-expect-error types are differents. */
-        return collection.insertMany(docs, options);
+        await collection.insertMany(docs, options);
       },
       updateOne: (filter: Filter<T>, update: UpdateFilter<T> | Document[], options?: UpdateOptions & { sort?: Sort }) => {
         /** @ts-expect-error types are differents. */
