@@ -16,8 +16,14 @@
   "exports": "./src/mongo.ts",
   "publishConfig": {
     "exports": {
-      "types": "./dist/mongo.d.ts",
-      "import": "./dist/mongo.js"
+      ".": {
+        "types": "./dist/mongo.d.ts",
+        "import": "./dist/mongo.js"
+      },
+      "./experimental": {
+         "types": "./dist/experimental/mongo.d.ts",
+        "import": "./dist/experimental/mongo.js"
+      }
     }
   },
   "scripts": {
