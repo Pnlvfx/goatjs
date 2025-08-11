@@ -1552,8 +1552,8 @@ __metadata:
     globals: "npm:^16.3.0"
     typescript: "npm:^5.9.2"
   peerDependencies:
-    "@goatjs/core": 1.9.2
-    "@goatjs/storage": 1.9.2
+    "@goatjs/core": 1.10.0
+    "@goatjs/storage": 1.10.0
   languageName: unknown
   linkType: soft
 
@@ -1650,7 +1650,7 @@ __metadata:
     mime-types: "npm:^3.0.1"
     typescript: "npm:^5.9.2"
   peerDependencies:
-    "@goatjs/node": 1.9.2
+    "@goatjs/node": 1.10.0
     mime-types: "*"
   languageName: unknown
   linkType: soft
@@ -1671,8 +1671,8 @@ __metadata:
     zod: "npm:^4.0.17"
   peerDependencies:
     "@goatjs/download": "workspace:*"
-    "@goatjs/node": 1.9.2
-    "@goatjs/rimraf": 1.9.2
+    "@goatjs/node": 1.10.0
+    "@goatjs/rimraf": 1.10.0
     zod: "*"
   peerDependenciesMeta:
     "@goatjs/download":
@@ -1800,7 +1800,7 @@ __metadata:
     globals: "npm:^16.3.0"
     typescript: "npm:^5.9.2"
   peerDependencies:
-    "@goatjs/node": 1.9.2
+    "@goatjs/node": 1.10.0
   languageName: unknown
   linkType: soft
 
