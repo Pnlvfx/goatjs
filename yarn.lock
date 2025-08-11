@@ -4533,6 +4533,7 @@ __metadata:
     "@nx/js": "npm:^21.3.11"
     nx: "npm:21.3.11"
     prettier: "npm:^3.6.2"
+    tsx: "npm:^4.20.3"
     typescript: "npm:^5.9.2"
   languageName: unknown
   linkType: soft
