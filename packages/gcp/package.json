@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/gcp",
   "description": "Node gcp helpers",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -52,8 +52,8 @@
   },
   "peerDependencies": {
     "@goatjs/download": "workspace:*",
-    "@goatjs/node": "*",
-    "@goatjs/rimraf": "*",
+    "@goatjs/node": "1.9.1",
+    "@goatjs/rimraf": "1.9.1",
     "zod": "*"
   },
   "peerDependenciesMeta": {
