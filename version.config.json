@@ -1,9 +1,0 @@
-{
-  "tagPrefix": "v",
-  "baseBranch": "main",
-  "sync": false,
-  "updateInternalDependencies": "patch",
-  "versionStrategy": "commitMessage",
-  "prereleaseIdentifier": "beta",
-  "skipHooks": false
-}
