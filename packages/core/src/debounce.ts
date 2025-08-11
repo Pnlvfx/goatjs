@@ -10,6 +10,7 @@ export const debounce = <T extends Function, Args extends (...args: unknown[]) =
     timeout = setTimeout(() => {
       timeout = undefined;
       if (!leading) {
+        console.log(leading);
         func.apply(this, args);
       }
     }, wait);
