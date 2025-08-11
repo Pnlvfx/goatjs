@@ -2,9 +2,6 @@ export const parseError = (err: unknown) => {
   return err instanceof Error ? err : new Error(errorToString(err));
 };
 
-/** @deprecated use parseError */
-export const parseCatchError = parseError;
-
 const errorToString = (err: unknown, ...args: string[]) => {
   let error = '';
   if (err instanceof Error) {
