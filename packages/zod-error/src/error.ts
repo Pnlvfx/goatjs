@@ -3,7 +3,7 @@ class ValidationError extends Error {
   constructor(message: string, data: unknown) {
     super(message);
     this.name = 'ValidationError';
-    this.data = data;
+    this.data = process.env['NODE_ENV'] !== 'production' ? data : undefined;
     Object.setPrototypeOf(this, ValidationError.prototype);
   }
 }

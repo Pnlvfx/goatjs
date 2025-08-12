@@ -34,12 +34,10 @@ export const dbz = {
     await git.add();
     await git.commit('RELEASE');
     await git.push();
-    await execAsync('yarn workspaces foreach --all run rimraf dist .next');
   },
   clear: async () => {
     if (await isMonorepo()) {
-      await rimraf('.turbo');
-      await execAsync('yarn workspaces foreach --all run rimraf dist .turbo .next');
+      await execAsync('yarn workspaces foreach --all run rimraf dist .next');
     } else {
       await execAsync('yarn rimraf dist .next');
     }
