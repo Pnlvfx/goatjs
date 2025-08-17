@@ -22,6 +22,7 @@ const options = await yargs(process.argv.slice(2))
     description: 'Whether or not to enable verbose logging, defaults to false',
     type: 'boolean',
   })
+  .option('firstRelease', { default: false })
   .parseAsync();
 
 const { projectsVersionData, workspaceVersion } = await releaseVersion({
@@ -29,6 +30,7 @@ const { projectsVersionData, workspaceVersion } = await releaseVersion({
   dryRun: options.dryRun,
   stageChanges: true,
   verbose: options.verbose,
+  firstRelease: options.firstRelease,
 });
 
 if (!options.dryRun) {
@@ -43,6 +45,7 @@ await releaseChangelog({
   verbose: options.verbose,
   version: workspaceVersion,
   versionData: projectsVersionData,
+  firstRelease: options.firstRelease,
 });
 
 if (!options.forceReleaseWithoutChanges && workspaceVersion === null) {
@@ -52,6 +55,7 @@ if (!options.forceReleaseWithoutChanges && workspaceVersion === null) {
 const publishProjectsResult = await releasePublish({
   dryRun: options.dryRun,
   verbose: options.verbose,
+  firstRelease: options.firstRelease,
 });
 
 const hasError = Object.values(publishProjectsResult).some(({ code }) => code !== 0);

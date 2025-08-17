@@ -1,6 +1,11 @@
 import type { BulkWriteOptions, CollectionOptions, Db, InsertOneOptions } from '../mongo.js';
 import * as z from 'zod';
 
+// TODO [2025-08-31] we have a problem validating the objectID, we should try one of this solutions
+
+// const mongoObjectId = z.string().refine((val) => ObjectId.isValid(val));
+// const mongoObjectId = z.string().transform((val) => new ObjectId(val));
+
 /** Thinked to integrate zod on the existing implementation but we have to recreate the whole wrapper duo to how is nested
  * actually I'm boring, but it will be really cool to do, and we should do it, wrap insertOne, insertMany ecc with this schema.
  * use
