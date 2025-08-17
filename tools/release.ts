@@ -1,7 +1,7 @@
 import { git } from '@goatjs/node/git/git';
+import { spawnWithLog } from '@goatjs/node/spawn';
 import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release/index.js';
 import yargs from 'yargs';
-import { execa } from 'execa';
 
 const options = await yargs(process.argv.slice(2))
   .version(false)
@@ -33,7 +33,7 @@ const { projectsVersionData, workspaceVersion } = await releaseVersion({
 
 if (!options.dryRun) {
   console.log('⏳ Updating yarn.lock...');
-  await execa('yarn', ['install']);
+  await spawnWithLog('yarn', ['install']);
   await git.add('yarn.lock');
   console.log('✅ Updated and staged yarn.lock\n');
 }

@@ -4,7 +4,7 @@ import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './dbz/helpers.js';
 import { isValidYarnVersion } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
-import { execa } from 'execa';
+import { spawnWithLog } from '@goatjs/node/spawn';
 
 const [command, ...args] = process.argv.slice(2);
 
@@ -23,7 +23,7 @@ switch (command) {
   }
   case 'unpublish': {
     const pkgName = getNextArg(args, false);
-    await execa('npm', ['unpublish', pkgName, '--force', '--registry', await getPublishRegistryUrl()]);
+    await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', await getPublishRegistryUrl()]);
     break;
   }
   case 'clear': {

@@ -1,6 +1,6 @@
-import { execa } from 'execa';
+import { spawnWithLog } from '@goatjs/node/spawn';
 
 export const updateUnversionedDeps = async (packages: Record<string, string>) => {
   const deps = Object.entries(packages).map(([name, version]) => `${name}@${version}`);
-  await execa('yarn', ['up', ...deps]);
+  await spawnWithLog('yarn', ['up', ...deps]);
 };

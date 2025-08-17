@@ -1,4 +1,4 @@
-import { execa } from 'execa';
+import { spawnWithLog } from '@goatjs/node/spawn';
 
 export const workspace = {
   runAll: async (command: string[], { includePrivate }: { includePrivate?: boolean } = {}) => {
@@ -6,6 +6,6 @@ export const workspace = {
     if (!includePrivate) {
       args.push('--all', '--no-private');
     }
-    return execa('yarn', [...args, ...command]);
+    return spawnWithLog('yarn', [...args, ...command]);
   },
 };

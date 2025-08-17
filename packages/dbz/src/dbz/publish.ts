@@ -1,5 +1,6 @@
-import { execa } from 'execa';
+import { spawnWithLog } from '@goatjs/node/spawn';
 import { workspace } from './workspace.js';
+import { execAsync } from '@goatjs/node/exec';
 
 export interface PublishOptions {
   version?: YarnVersion;
@@ -17,10 +18,10 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
 // KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    await (monorepo ? workspace.runAll(['npm', 'publish']) : execa('yarn', ['npm', 'publish']));
+    await (monorepo ? workspace.runAll(['npm', 'publish']) : spawnWithLog('yarn', ['npm', 'publish']));
   } catch (err) {
     const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
-    await execa(command);
+    await execAsync(command);
     throw err;
   }
 };
@@ -34,5 +35,5 @@ export const isValidYarnVersion = (version: string): version is YarnVersion => {
 
 const increaseVersion = ({ monorepo, version }: { monorepo: boolean; version: YarnVersion }) => {
   // eslint-disable-next-line sonarjs/no-selector-parameter
-  return monorepo ? workspace.runAll(['version', version]) : execa('yarn', ['version', version]);
+  return monorepo ? workspace.runAll(['version', version]) : spawnWithLog('yarn', ['version', version]);
 };

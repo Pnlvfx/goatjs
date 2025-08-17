@@ -5,7 +5,7 @@ import { publish, type PublishOptions } from './publish.js';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
-import { execa } from 'execa';
+import { spawnWithLog } from '@goatjs/node/spawn';
 
 interface DbzPublishOptions extends PublishOptions {
   provider?: 'gcp' | 'verdaccio';
@@ -13,7 +13,7 @@ interface DbzPublishOptions extends PublishOptions {
 
 export const dbz = {
   config: {
-    set: async (name: string, value: string) => execa('yarn', ['config', 'set', name, value]),
+    set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
   },
   createYarnEnv: async () => {
     await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
@@ -27,7 +27,7 @@ export const dbz = {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await execa('yarn', ['build']);
+      await spawnWithLog('yarn', ['build']);
     }
     await publish({ version, monorepo });
     await git.add();

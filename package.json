@@ -24,7 +24,6 @@
     "@goatjs/typescript-config": "workspace:*",
     "@nx/js": "^21.3.11",
     "@types/yargs": "^17.0.33",
-    "execa": "^9.6.0",
     "nx": "21.3.11",
     "prettier": "^3.6.2",
     "tsx": "^4.20.3",
