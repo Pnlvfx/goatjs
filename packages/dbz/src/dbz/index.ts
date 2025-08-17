@@ -6,6 +6,7 @@ import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
 import { spawnStdio } from '@goatjs/node/terminal/stdio';
+import { execa } from 'execa';
 
 interface DbzPublishOptions extends PublishOptions {
   provider?: 'gcp' | 'verdaccio';
@@ -27,7 +28,7 @@ export const dbz = {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await spawnStdio('yarn', ['build']);
+      await execa('yarn', ['build']);
     }
     await publish({ version, monorepo });
     await git.add();
