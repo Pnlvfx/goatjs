@@ -2,7 +2,6 @@ import { consoleColor } from '@goatjs/node/console-color';
 import { git } from '@goatjs/node/git/git';
 import { checkGitStatus, getAccessToken, isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
-import { rimraf } from '@goatjs/rimraf';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
@@ -37,10 +36,7 @@ export const dbz = {
     await execAsync('yarn workspaces foreach --all run rimraf dist');
   },
   clear: async () => {
-    if (await isMonorepo()) {
-      await execAsync('yarn workspaces foreach --all run rimraf dist .next');
-    } else {
-      await execAsync('yarn rimraf dist .next');
-    }
+    const command = (await isMonorepo()) ? 'yarn workspaces foreach --all run rimraf dist .next' : 'yarn rimraf dist .next';
+    await execAsync(command);
   },
 };

@@ -1,5 +1,6 @@
 import { execAsync } from '@goatjs/node/exec';
 import { spawnStdio } from '@goatjs/node/terminal/stdio';
+import { execa } from 'execa';
 
 export interface PublishOptions {
   version?: YarnVersion;
@@ -17,7 +18,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
 // KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    await spawnStdio('yarn', monorepo ? publishArgs.monorepo : publishArgs.standalone);
+    await execa('yarn', monorepo ? publishArgs.monorepo : publishArgs.standalone);
   } catch (err) {
     const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';
     await execAsync(command);
