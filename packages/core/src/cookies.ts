@@ -1,8 +1,6 @@
 const endings = new Set(['/', ':', '?', '#']);
 const starters = new Set(['.', '/', '@']);
 
-// TODO [2025-08-15] POSSIBLY MOVE THIS ON GOATJS/core
-
 export const getDomainFromUrl = (url: string) => {
   let domainInc = 0;
   let offsetDomain = 0;
