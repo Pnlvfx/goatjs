@@ -14,7 +14,8 @@
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
     "update": "yarn upgrade-interactive",
-    "publish": "tsx tools/publish.ts"
+    "publish": "tsx tools/publish.ts",
+    "release": "tsx tools/release.ts"
   },
   "workspaces": [
     "packages/*"
@@ -22,10 +23,12 @@
   "devDependencies": {
     "@goatjs/typescript-config": "workspace:*",
     "@nx/js": "^21.3.11",
+    "@types/yargs": "^17.0.33",
     "nx": "21.3.11",
     "prettier": "^3.6.2",
     "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "yargs": "^18.0.0"
   },
   "packageManager": "yarn@4.9.2+sha512.1fc009bc09d13cfd0e19efa44cbfc2b9cf6ca61482725eb35bbc5e257e093ebf4130db6dfe15d604ff4b79efd8e1e8e99b25fa7d0a6197c9f9826358d4d65c3c"
 }
