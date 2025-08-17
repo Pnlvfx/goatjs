@@ -9,7 +9,7 @@ import { spawnWithLog } from '@goatjs/node/spawn';
 import { workspace } from './workspace.js';
 
 interface DbzPublishOptions extends PublishOptions {
-  provider?: 'gcp' | 'verdaccio';
+  shouldClear?: boolean;
 }
 
 const clear = async () => {
@@ -28,7 +28,7 @@ export const dbz = {
     const token = await getAccessToken();
     await (platform() === 'win32' ? execAsync(`set YARN_NPM_AUTH_TOKEN=${token}`) : execAsync(`export YARN_NPM_AUTH_TOKEN="${token}"`));
   },
-  publish: async ({ version }: DbzPublishOptions = {}) => {
+  publish: async ({ version, shouldClear }: DbzPublishOptions = {}) => {
     await checkGitStatus();
     const monorepo = await isMonorepo();
     if (monorepo) {
@@ -40,7 +40,9 @@ export const dbz = {
     await git.add();
     await git.commit('RELEASE');
     await git.push();
-    await clear();
+    if (shouldClear) {
+      await clear();
+    }
   },
   clear,
 };
