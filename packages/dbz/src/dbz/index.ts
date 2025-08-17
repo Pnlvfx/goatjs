@@ -8,10 +8,6 @@ import fs from 'node:fs/promises';
 import { spawnWithLog } from '@goatjs/node/spawn';
 import { workspace } from './workspace.js';
 
-interface DbzPublishOptions extends PublishOptions {
-  shouldClear?: boolean;
-}
-
 const clear = async () => {
   const monorepo = await isMonorepo();
   await (monorepo ? workspace.runAll(['run', 'rimraf', 'dist', '.next']) : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
@@ -28,7 +24,7 @@ export const dbz = {
     const token = await getAccessToken();
     await (platform() === 'win32' ? execAsync(`set YARN_NPM_AUTH_TOKEN=${token}`) : execAsync(`export YARN_NPM_AUTH_TOKEN="${token}"`));
   },
-  publish: async ({ version, shouldClear }: DbzPublishOptions = {}) => {
+  publish: async ({ version }: PublishOptions = {}) => {
     await checkGitStatus();
     const monorepo = await isMonorepo();
     if (monorepo) {
@@ -40,9 +36,7 @@ export const dbz = {
     await git.add();
     await git.commit('RELEASE');
     await git.push();
-    if (shouldClear) {
-      await clear();
-    }
+    await clear();
   },
   clear,
 };
