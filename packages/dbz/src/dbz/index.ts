@@ -6,10 +6,16 @@ import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
 import { spawnWithLog } from '@goatjs/node/spawn';
+import { workspace } from './workspace.js';
 
 interface DbzPublishOptions extends PublishOptions {
   provider?: 'gcp' | 'verdaccio';
 }
+
+const clear = async () => {
+  const monorepo = await isMonorepo();
+  await (monorepo ? workspace.runAll(['run', 'rimraf', 'dist', '.next']) : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
+};
 
 export const dbz = {
   config: {
@@ -27,16 +33,14 @@ export const dbz = {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await spawnWithLog('yarn', ['build']);
+      await workspace.runAll(['tsc']);
+      await workspace.runAll(['lint']);
     }
     await publish({ version, monorepo });
     await git.add();
     await git.commit('RELEASE');
     await git.push();
-    await execAsync('yarn workspaces foreach --all run rimraf dist');
+    await clear();
   },
-  clear: async () => {
-    const command = (await isMonorepo()) ? 'yarn workspaces foreach --all run rimraf dist .next' : 'yarn rimraf dist .next';
-    await execAsync(command);
-  },
+  clear,
 };
