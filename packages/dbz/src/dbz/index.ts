@@ -5,7 +5,6 @@ import { publish, type PublishOptions } from './publish.js';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
-import { spawnStdio } from '@goatjs/node/terminal/stdio';
 import { execa } from 'execa';
 
 interface DbzPublishOptions extends PublishOptions {
@@ -14,7 +13,7 @@ interface DbzPublishOptions extends PublishOptions {
 
 export const dbz = {
   config: {
-    set: async (name: string, value: string) => spawnStdio('yarn', ['config', 'set', name, value]),
+    set: async (name: string, value: string) => execa('yarn', ['config', 'set', name, value]),
   },
   createYarnEnv: async () => {
     await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);

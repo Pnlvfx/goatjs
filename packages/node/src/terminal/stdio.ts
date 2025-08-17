@@ -3,6 +3,7 @@ import os from 'node:os';
 
 const platform = os.platform();
 
+/** @deprecated use execa */
 export const spawnStdio = (command: string, args: string[]) => {
   command = platform === 'win32' && !command.endsWith('.cmd') ? `${command}.cmd` : command;
   return new Promise<void>((resolve, reject) => {

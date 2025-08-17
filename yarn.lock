@@ -4627,6 +4627,7 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@nx/js": "npm:^21.3.11"
     "@types/yargs": "npm:^17.0.33"
+    execa: "npm:^9.6.0"
     nx: "npm:21.3.11"
     prettier: "npm:^3.6.2"
     tsx: "npm:^4.20.3"
