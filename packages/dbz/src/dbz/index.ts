@@ -33,8 +33,8 @@ export const dbz = {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await workspace.runAll(['tsc']);
-      await workspace.runAll(['lint']);
+      await workspace.runAll(['run', 'tsc']);
+      await workspace.runAll(['run', 'lint']);
     }
     await publish({ version, monorepo });
     await git.add();
