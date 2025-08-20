@@ -10,7 +10,7 @@ import { workspace } from './workspace.js';
 
 const clear = async () => {
   const monorepo = await isMonorepo();
-  await (monorepo ? workspace.runAll(['run', 'rimraf', 'dist', '.next']) : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
+  await (monorepo ? workspace.runAll(['run', 'rimraf', 'dist', '.next'], {includePrivate: true}) : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
 };
 
 export const dbz = {
