@@ -22,7 +22,7 @@ const options = await yargs(process.argv.slice(2))
     description: 'Whether or not to enable verbose logging, defaults to false',
     type: 'boolean',
   })
-  .option('firstRelease', { default: false })
+  .option('firstRelease', { default: false, type: 'boolean' })
   .parseAsync();
 
 const { projectsVersionData, workspaceVersion } = await releaseVersion({
