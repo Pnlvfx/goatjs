@@ -10,7 +10,7 @@ const generatedFileComment = `/**
 interface Params {
   inputFolder: string;
   outputFolder: string;
-  files: string[] | '*';
+  files: string[] | readonly string[] | '*';
 }
 
 const withComment = new Set(['js', 'ts', 'tsx', 'jsx', 'cjs', 'mjs', 'cts']);
