@@ -36,12 +36,12 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.1.0",
+    "@goatjs/node-monorepo-eslint": "^1.2.0",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
-    "tsx": "^4.20.3",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2"
   },
   "bin": "dist/cli/rimraf.js"
