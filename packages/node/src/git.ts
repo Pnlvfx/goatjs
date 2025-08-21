@@ -1,7 +1,10 @@
-import type { GitStatusParams } from './types.js';
 import type { ExecOptions } from 'node:child_process';
-import { parseBashOptions } from './params.js';
-import { execAsync } from '../exec.js';
+import { execAsync } from './exec.js';
+import { parseBashOptions } from './bash.js';
+
+interface GitStatusParams extends ExecOptions {
+  porcelain?: boolean;
+}
 
 export const git = {
   clone: (url: string, options?: ExecOptions) => {

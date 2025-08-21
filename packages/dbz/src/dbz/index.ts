@@ -1,16 +1,18 @@
 import { consoleColor } from '@goatjs/node/console-color';
-import { git } from '@goatjs/node/git/git';
+import { git } from '@goatjs/node/git';
 import { checkGitStatus, getAccessToken, isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
 import fs from 'node:fs/promises';
 import { spawnWithLog } from '@goatjs/node/spawn';
-import { workspace } from './workspace.js';
+import { yarn } from '@goatjs/node/yarn';
 
 const clear = async () => {
   const monorepo = await isMonorepo();
-  await (monorepo ? workspace.runAll(['run', 'rimraf', 'dist', '.next'], {includePrivate: true}) : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
+  await (monorepo
+    ? yarn.workspace.runAll(['run', 'rimraf', 'dist', '.next'], { includePrivate: true })
+    : spawnWithLog('yarn', ['rimraf', 'dist', '.next']));
 };
 
 export const dbz = {
@@ -29,7 +31,7 @@ export const dbz = {
     const monorepo = await isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await workspace.runAll(['run', 'build']);
+      await yarn.workspace.runAll(['run', 'build']);
     }
     await publish({ version, monorepo });
     await git.add();

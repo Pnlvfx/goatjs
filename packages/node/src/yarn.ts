@@ -1,6 +1,6 @@
-import { spawnWithLog } from '@goatjs/node/spawn';
+import { spawnWithLog } from './spawn.js';
 
-export const workspace = {
+const workspace = {
   runAll: async (command: string[], { includePrivate }: { includePrivate?: boolean } = {}) => {
     const args = ['workspaces', 'foreach'];
     if (!includePrivate) {
@@ -8,4 +8,8 @@ export const workspace = {
     }
     return spawnWithLog('yarn', [...args, ...command]);
   },
+};
+
+export const yarn = {
+  workspace,
 };
