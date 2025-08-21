@@ -41,7 +41,7 @@ export const git = {
   },
   status: async ({ porcelain, ...options }: GitStatusParams = {}) => {
     const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`, options);
-    return stdout.trim();
+    return stdout;
   },
   reset: ({ hard, amount = 1 }: { hard?: boolean; amount?: number } = {}) => {
     let command = 'git reset';
