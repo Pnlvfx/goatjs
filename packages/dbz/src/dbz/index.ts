@@ -10,7 +10,7 @@ import { yarn } from '@goatjs/node/yarn';
 
 const clear = async () => {
   const monorepo = await isMonorepo();
-  const foldersToInclude = ['dist', '.next']
+  const foldersToInclude = ['dist', '.next'];
   await (monorepo
     ? yarn.workspace.runAll(['run', 'rimraf', ...foldersToInclude], { includePrivate: true })
     : spawnWithLog('yarn', ['rimraf', ...foldersToInclude]));
