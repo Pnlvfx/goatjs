@@ -2,9 +2,9 @@ import { spawnWithLog } from './spawn.js';
 
 const workspace = {
   runAll: async (command: string[], { includePrivate }: { includePrivate?: boolean } = {}) => {
-    const args = ['workspaces', 'foreach'];
+    const args = ['workspaces', 'foreach', '--all'];
     if (!includePrivate) {
-      args.push('--all', '--no-private');
+      args.push('--no-private');
     }
     return spawnWithLog('yarn', [...args, ...command]);
   },
