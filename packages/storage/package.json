@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/storage",
   "description": "Help to organiza data stored from your app.",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -49,6 +49,6 @@
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "@goatjs/node": "1.12.0"
+    "@goatjs/node": "1.13.0"
   }
 }
