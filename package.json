@@ -15,7 +15,8 @@
     "postinstall": "yarn initialize",
     "update": "yarn upgrade-interactive",
     "publish": "tsx tools/publish.ts",
-    "release": "tsx tools/release.ts"
+    "release": "tsx tools/release.ts",
+    "clear": "tsx tools/clear.ts"
   },
   "workspaces": [
     "packages/*"
