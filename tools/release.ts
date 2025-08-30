@@ -1,4 +1,4 @@
-import { git } from '@goatjs/node/git/git';
+import { git } from '@goatjs/node/git';
 import { spawnWithLog } from '@goatjs/node/spawn';
 import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release/index.js';
 import yargs from 'yargs';
