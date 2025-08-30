@@ -12,4 +12,7 @@ const workspace = {
 
 export const yarn = {
   workspace,
+  config: {
+    set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
+  },
 };

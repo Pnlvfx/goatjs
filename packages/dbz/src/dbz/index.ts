@@ -4,9 +4,9 @@ import { checkGitStatus, getAccessToken, isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';
-import fs from 'node:fs/promises';
 import { spawnWithLog } from '@goatjs/node/spawn';
 import { yarn } from '@goatjs/node/yarn';
+import fs from 'node:fs/promises';
 
 const clear = async () => {
   const monorepo = await isMonorepo();
@@ -17,9 +17,6 @@ const clear = async () => {
 };
 
 export const dbz = {
-  config: {
-    set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
-  },
   createYarnEnv: async () => {
     await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
   },

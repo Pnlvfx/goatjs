@@ -7,7 +7,7 @@ export const getProjectName = async () => {
    * but if name is core scope is core and scopeName is undefined
    */
   const [scope, scopeName] = name.split('/');
-  return { scope: scopeName ? scope.slice(1) : scope, name: scopeName ?? name.replace('api-', '') };
+  return { scope: scopeName ? scope?.slice(1) : scope, name: scopeName ?? name.replace('api-', '') };
 };
 
 export const mkDir = async (folder: string, recursive?: boolean) => {
