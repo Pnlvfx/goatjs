@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-// TODO [2025-08-30] ADD A CHECK TO DON'T ALLOW DELETING FILES OUTSIDE THE PACKAGE.JSON
+// TODO [2025-09-30] ADD A CHECK TO DON'T ALLOW DELETING FILES OUTSIDE THE PACKAGE.JSON
 // rename core to js and create a core package which has shared functions
 // it has a way to get package.json and we can do that.
 // of couse when then have to pack everything to continue use this

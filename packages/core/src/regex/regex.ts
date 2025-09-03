@@ -1,4 +1,4 @@
-// TODO [2025-08-30] split by files
+// TODO [2025-12-30] split by files
 
 export const regex = {
   /** Detect if a given string has emoji. */
