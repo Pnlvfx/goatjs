@@ -11,6 +11,6 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   }
 }

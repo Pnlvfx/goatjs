@@ -1748,7 +1748,7 @@ __metadata:
     "@types/node": "npm:^24.3.0"
     eslint: "npm:^9.34.0"
     globals: "npm:^16.3.0"
-    puppeteer-core: "npm:^24.17.1"
+    puppeteer-core: "npm:^24.18.0"
     typescript: "npm:^5.9.2"
   peerDependencies:
     puppeteer-core: "*"
@@ -6065,9 +6065,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^24.17.1":
-  version: 24.17.1
-  resolution: "puppeteer-core@npm:24.17.1"
+"puppeteer-core@npm:^24.18.0":
+  version: 24.18.0
+  resolution: "puppeteer-core@npm:24.18.0"
   dependencies:
     "@puppeteer/browsers": "npm:2.10.8"
     chromium-bidi: "npm:8.0.0"
@@ -6075,7 +6075,7 @@ __metadata:
     devtools-protocol: "npm:0.0.1475386"
     typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.3"
-  checksum: 10c0/dd5383f43cd0eaac653505ca130e675e46519ec50c8ededb60fe0d4926ec8fad65ab5030f797ab15658f11841d60a34f870fd21425226d7269265006cc944758
+  checksum: 10c0/784dca37f24eb7db1aada19a2a2f108f9527b0b235ef87b2d67a44d2f0ec1f675089ee0b134ef8b92cc2eb78f74e04e58356a1a62686f91efa53b6231285b3eb
   languageName: node
   linkType: hard
 
