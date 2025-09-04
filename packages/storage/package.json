@@ -49,6 +49,6 @@
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "@goatjs/node": "1.15.0"
+    "@goatjs/node": "*"
   }
 }
