@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execAsync } from '@goatjs/node/exec';
 import { git } from '@goatjs/node/git';
+import { checkGitStatus } from '@goatjs/node/dev/git';
 
 export interface PrivateGitParams {
   /** Where to store the generated tarball. */
@@ -25,8 +26,7 @@ export const resolvePrivateGitDependencies = async ({ packages, outputDir, packa
     console.log(`\n--- Processing ${pkg} ---`);
     const packageDir = path.join(packagesDir, pkg);
     await fs.access(packageDir);
-    const status = await git.status({ porcelain: true, cwd: packageDir });
-    if (status) throw new Error('Please stash or commit package changes before proceeding');
+    await checkGitStatus();
     await git.pull({ cwd: packageDir });
     await execAsync('yarn', { cwd: packageDir });
     const filename = `${pkg}.tgz`;
