@@ -57,7 +57,7 @@ const filenameRegex = /filename[^\n;=]*=((["']).*?\2|[^\n;]*)/;
 const getFileNameFromContentDisposition = (contentDisposition: string | null) => {
   if (!contentDisposition?.includes('filename=')) return;
   const match = filenameRegex.exec(contentDisposition)?.at(1);
-  return match?.replace(/["']/g, '');
+  return match?.replaceAll(/["']/g, '');
 };
 
 const getFileNameFromContentType = (url: string, contentType: string | null) => {

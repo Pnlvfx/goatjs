@@ -1,6 +1,7 @@
 import { consoleColor } from '@goatjs/node/console-color';
+import { checkGitStatus } from '@goatjs/node/dev/git';
 import { git } from '@goatjs/node/git';
-import { checkGitStatus, getAccessToken, isMonorepo } from './helpers.js';
+import { getAccessToken, isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
 import { execAsync } from '@goatjs/node/exec';
 import { platform } from 'node:os';

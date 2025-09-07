@@ -1,6 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "tui": { "enabled": false },
+  "neverConnectToCloud": true,
+  "cli": { "packageManager": "yarn" },
   "release": {
     "projects": ["packages/*"],
     "version": {
