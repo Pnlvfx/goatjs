@@ -14,13 +14,23 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./*": "./src/*/index.ts"
+    ".": "./src/storage.ts",
+    "./logger": "./src/logger.ts",
+    "./store": "./src/store.ts"
   },
   "publishConfig": {
     "exports": {
-      "./*": {
-        "types": "./dist/*/index.d.ts",
-        "import": "./dist/*/index.js"
+      ".": {
+        "types": "./dist/storage.d.ts",
+        "import": "./dist/storage.js"
+      },
+      "./logger": {
+        "types": "./dist/logger.d.ts",
+        "import": "./dist/logger.js"
+      },
+      "./store": {
+        "types": "./dist/store.d.ts",
+        "import": "./dist/store.js"
       }
     }
   },

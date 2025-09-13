@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { rm } from 'node:fs/promises';
-import { coralineRoot, cwd } from '../config.js';
-import { mkDir } from '../helpers.js';
+import { coralineRoot, cwd } from './config.js';
+import { mkDir } from './helpers.js';
 
 interface UseOptions {
   root?: boolean;
