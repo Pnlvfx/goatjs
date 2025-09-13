@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/puppeteer-mouse",
   "description": "Show mouse position while using puppeteer.",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"

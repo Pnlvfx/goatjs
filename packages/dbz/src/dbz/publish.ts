@@ -34,6 +34,5 @@ export const isValidYarnVersion = (version: string): version is YarnVersion => {
 };
 
 const increaseVersion = ({ monorepo, version }: { monorepo: boolean; version: YarnVersion }) => {
-  // eslint-disable-next-line sonarjs/no-selector-parameter
   return monorepo ? yarn.workspace.runAll(['version', version]) : spawnWithLog('yarn', ['version', version]);
 };
