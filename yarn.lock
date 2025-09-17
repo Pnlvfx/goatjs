@@ -1540,7 +1540,7 @@ __metadata:
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1574,7 +1574,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1589,7 +1589,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1605,7 +1605,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1621,7 +1621,7 @@ __metadata:
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/mime-types": "npm:^3.0.1"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     mime-types: "npm:^3.0.1"
@@ -1640,11 +1640,11 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
-    zod: "npm:^4.1.8"
+    zod: "npm:^4.1.9"
   peerDependencies:
     "@goatjs/download": "workspace:*"
     "@goatjs/node": 1.18.0
@@ -1667,7 +1667,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     html-metadata-parser: "npm:^2.0.4"
@@ -1702,11 +1702,10 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     sanitize-filename: "npm:1.6.3"
-    tsx: "npm:^4.20.5"
     typescript: "npm:^5.9.2"
   peerDependencies:
     prettier: "*"
@@ -1723,7 +1722,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1737,10 +1736,10 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
-    puppeteer-core: "npm:^24.20.0"
+    puppeteer-core: "npm:^24.22.0"
     typescript: "npm:^5.9.2"
   peerDependencies:
     puppeteer-core: "*"
@@ -1753,7 +1752,7 @@ __metadata:
   dependencies:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     tsx: "npm:^4.20.5"
@@ -1771,7 +1770,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
@@ -1787,7 +1786,7 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     ts-unused-exports: "npm:^11.0.1"
@@ -1812,11 +1811,11 @@ __metadata:
     "@goatjs/node-monorepo-eslint": "npm:^1.6.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.3.3"
+    "@types/node": "npm:^24.5.1"
     eslint: "npm:^9.35.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.2"
-    zod: "npm:^4.1.8"
+    zod: "npm:^4.1.9"
   peerDependencies:
     zod: "*"
   languageName: unknown
@@ -2145,11 +2144,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:2.10.9":
-  version: 2.10.9
-  resolution: "@puppeteer/browsers@npm:2.10.9"
+"@puppeteer/browsers@npm:2.10.10":
+  version: 2.10.10
+  resolution: "@puppeteer/browsers@npm:2.10.10"
   dependencies:
-    debug: "npm:^4.4.1"
+    debug: "npm:^4.4.3"
     extract-zip: "npm:^2.0.1"
     progress: "npm:^2.0.3"
     proxy-agent: "npm:^6.5.0"
@@ -2158,7 +2157,7 @@ __metadata:
     yargs: "npm:^17.7.2"
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: 10c0/c6c335deb3214297e82f93363969d6a73f0596f0d66cdd8ece30458e771e601a9165d8a964e4f86e6ec40bcd55283660edb69b532d744d9033edf4acc3e0d818
+  checksum: 10c0/88dd1f34821d4479eed399ab6095e57e91bd4715134e5706ed86ab11b501402294db9446caf349bdd163ff38805e6a7beaa9eed4ecdeeaf2a43373079f890369
   languageName: node
   linkType: hard
 
@@ -2222,12 +2221,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.3.3":
-  version: 24.3.3
-  resolution: "@types/node@npm:24.3.3"
+"@types/node@npm:^24.5.1":
+  version: 24.5.1
+  resolution: "@types/node@npm:24.5.1"
   dependencies:
-    undici-types: "npm:~7.10.0"
-  checksum: 10c0/5324108314b3d9abaafd82ea04a91ea6904580c1fbe47c52600881ae250fef3b2d3d28c7d68cb979b07241d29fe889b66bd9f92346902bea65a3e562937c7d9a
+    undici-types: "npm:~7.12.0"
+  checksum: 10c0/5f0cb038be789b58170e616452ba1f8ebb85bf2fbce58a7e32b1eb08391f64f5e31a9cdbccefbfcd9e6d73b66b564b5e037a1d678ab20213559a32e1d7b6ce17
   languageName: node
   linkType: hard
 
@@ -3189,6 +3188,18 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10c0/d2b44bc1afd912b49bb7ebb0d50a860dc93a4dd7d946e8de94abc957bb63726b7dd5aa48c18c2386c379ec024c46692e15ed3ed97d481729f929201e671fcd55
+  languageName: node
+  linkType: hard
+
+"debug@npm:^4.4.3":
+  version: 4.4.3
+  resolution: "debug@npm:4.4.3"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10c0/d79136ec6c83ecbefd0f6a5593da6a9c91ec4d7ddc4b54c883d6e71ec9accb5f67a1a5e96d00a328196b5b5c86d365e98d8a3a70856aaf16b4e7b1985e67f5a6
   languageName: node
   linkType: hard
 
@@ -5554,18 +5565,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^24.20.0":
-  version: 24.20.0
-  resolution: "puppeteer-core@npm:24.20.0"
+"puppeteer-core@npm:^24.22.0":
+  version: 24.22.0
+  resolution: "puppeteer-core@npm:24.22.0"
   dependencies:
-    "@puppeteer/browsers": "npm:2.10.9"
+    "@puppeteer/browsers": "npm:2.10.10"
     chromium-bidi: "npm:8.0.0"
-    debug: "npm:^4.4.1"
+    debug: "npm:^4.4.3"
     devtools-protocol: "npm:0.0.1495869"
     typed-query-selector: "npm:^2.12.0"
-    webdriver-bidi-protocol: "npm:0.2.8"
+    webdriver-bidi-protocol: "npm:0.2.11"
     ws: "npm:^8.18.3"
-  checksum: 10c0/b72e356cfedaf0f29ff53f4679b72f38c5fe9cc4ff98a125f496bda790341315e0f5361f8b2f64a89557155d5dc2710ba46ff0b527ad871ea9a91bfc69cc381d
+  checksum: 10c0/24059f35337d436a4d12a51ea67e47478a94869a2eb9b8fcebc53d83fc889d1eeb6d57b0bdb2668b3f8aa395e081f21615740e6878e45510551772c1826938da
   languageName: node
   linkType: hard
 
@@ -6298,10 +6309,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.10.0":
-  version: 7.10.0
-  resolution: "undici-types@npm:7.10.0"
-  checksum: 10c0/8b00ce50e235fe3cc601307f148b5e8fb427092ee3b23e8118ec0a5d7f68eca8cee468c8fc9f15cbb2cf2a3797945ebceb1cbd9732306a1d00e0a9b6afa0f635
+"undici-types@npm:~7.12.0":
+  version: 7.12.0
+  resolution: "undici-types@npm:7.12.0"
+  checksum: 10c0/326e455bbc0026db1d6b81c76a1cf10c63f7e2f9821db2e24fdc258f482814e5bfa8481f8910d07c68e305937c5c049610fdc441c5e8b7bb0daca7154fb8a306
   languageName: node
   linkType: hard
 
@@ -6407,10 +6418,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webdriver-bidi-protocol@npm:0.2.8":
-  version: 0.2.8
-  resolution: "webdriver-bidi-protocol@npm:0.2.8"
-  checksum: 10c0/63f0d2255b80951f28c6430a6bd88f7c7bf32b3096dc2d6ef673b222499aa57c46a16aaf86780be4aa130986c87350b2ef9c322289730acdb54ada5322fa3224
+"webdriver-bidi-protocol@npm:0.2.11":
+  version: 0.2.11
+  resolution: "webdriver-bidi-protocol@npm:0.2.11"
+  checksum: 10c0/de03680e6c061801d730243eb8dead6d5cb1ea4eda63546528b52f25f9c7a3cc56709b0de689e155a3d070c3a97269d9b203aef010349ee5b0df9582929bd8bb
   languageName: node
   linkType: hard
 
@@ -6602,9 +6613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^4.1.8":
-  version: 4.1.8
-  resolution: "zod@npm:4.1.8"
-  checksum: 10c0/5eae39da09d7bd0564a30dfd2348811e4e2e7dd15955d8f3444f8e196f35e5422b1482eda234b722fafb0738f4a8b718adb042b860936bfdd2cc19cdbdac8a9a
+"zod@npm:^4.1.9":
+  version: 4.1.9
+  resolution: "zod@npm:4.1.9"
+  checksum: 10c0/8aa2f240a3ccd153feb061f8ef17b9a4c2bcc98f1146c16655f8623c628c7376006fb70c5e1adcb655fc3585b848435eec307c5bf690cfedbdb220c567e62075
   languageName: node
   linkType: hard

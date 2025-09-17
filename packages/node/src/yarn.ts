@@ -1,4 +1,10 @@
+import { execAsync } from './exec.js';
 import { spawnWithLog } from './spawn.js';
+
+export interface ListItem {
+  location: string;
+  name: string;
+}
 
 const workspace = {
   runAll: async (command: string[], { includePrivate }: { includePrivate?: boolean } = {}) => {
@@ -8,7 +14,10 @@ const workspace = {
     }
     return spawnWithLog('yarn', [...args, ...command]);
   },
-  list: () => spawnWithLog('yarn', ['workspace', 'list', '--json']),
+  list: async () => {
+    const { stdout } = await execAsync('yarn workspace list --json');
+    return JSON.parse(stdout) as ListItem[];
+  },
 };
 
 export const yarn = {
