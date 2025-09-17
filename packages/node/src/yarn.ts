@@ -8,6 +8,7 @@ const workspace = {
     }
     return spawnWithLog('yarn', [...args, ...command]);
   },
+  list: () => spawnWithLog('yarn', ['workspace', 'list', '--json']),
 };
 
 export const yarn = {
