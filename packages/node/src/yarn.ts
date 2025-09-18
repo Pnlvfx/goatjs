@@ -16,7 +16,10 @@ const workspace = {
   },
   list: async () => {
     const { stdout } = await execAsync('yarn workspaces list --json');
-    return JSON.parse(stdout) as ListItem[];
+    return stdout
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line) as ListItem);
   },
 };
 
