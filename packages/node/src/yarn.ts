@@ -15,7 +15,7 @@ const workspace = {
     return spawnWithLog('yarn', [...args, ...command]);
   },
   list: async () => {
-    const { stdout } = await execAsync('yarn workspace list --json');
+    const { stdout } = await execAsync('yarn workspaces list --json');
     return JSON.parse(stdout) as ListItem[];
   },
 };
