@@ -5,7 +5,7 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 import { getUserAgent } from '@goatjs/node/user-agent';
 import { sanitize } from '@goatjs/node/sanitize';
-import fs from 'node:fs/promises';
+import { fsExtra } from '@goatjs/node/fs-extra/index';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
@@ -32,9 +32,7 @@ export const download = async (
   if (!res.body) throw new Error('It looks like there is nothing to download at this url.');
   const filename = sanitize(getFilename(url, res.headers));
   const output = path.join(directory, filename);
-  if (!override) {
-    await fs.access(output);
-  }
+  if (!override && (await fsExtra.exist(output))) throw new Error('You disabled override and this file already exist.');
   const fileStream = createWriteStream(output);
   await pipeline(res.body, fileStream);
   return output;
