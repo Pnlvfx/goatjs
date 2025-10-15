@@ -19,7 +19,6 @@ export interface DownloadOptions {
 }
 
 const defaultHeaders = new Headers({ 'user-agent': getUserAgent() });
-
 const systemDownloadDirectory = path.join(os.homedir(), 'Downloads');
 
 /** Download a file from a given url. */
