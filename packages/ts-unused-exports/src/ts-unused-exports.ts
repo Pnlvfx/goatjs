@@ -1,7 +1,7 @@
 import type { UnusedOptions, UnusedResponse } from './types.js';
 import path from 'node:path';
-import { analyzeTsConfig } from 'ts-unused-exports';
 import fs from 'node:fs/promises';
+import { analyzeTsConfig } from 'ts-unused-exports';
 import { patchSkipVanillaCssFiles } from './patch-vanilla.js';
 
 /** Find all the unused variables in your code. */
