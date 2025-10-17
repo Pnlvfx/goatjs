@@ -1538,11 +1538,11 @@ __metadata:
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1552,16 +1552,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/core-eslint@npm:1.14.0":
-  version: 1.14.0
-  resolution: "@goatjs/core-eslint@npm:1.14.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fcore-eslint%2F-%2F%40goatjs%2Fcore-eslint-1.14.0.tgz"
+"@goatjs/core-eslint@npm:1.16.0":
+  version: 1.16.0
+  resolution: "@goatjs/core-eslint@npm:1.16.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fcore-eslint%2F-%2F%40goatjs%2Fcore-eslint-1.16.0.tgz"
   dependencies:
     "@eslint/js": "npm:^9.37.0"
     eslint-plugin-import-zod: "npm:^1.2.0"
     eslint-plugin-sonarjs: "npm:^3.0.5"
     eslint-plugin-unicorn: "npm:^61.0.2"
     typescript-eslint: "npm:^8.46.1"
-  checksum: 10c0/4eef7489bc75459a24165e32e167b402d2054ebb6bad0def472bdbf16187a3bde3a7fa2921af2c4315223951ab95b985b6d457bfbb727d840ba39e0b73a00df9
+  checksum: 10c0/9f8f871418fc627caac9fa5d010c2ce05233f509fb9063213022c84ae20b664294dfade16496333a8c2f78c6158f3dd928111bff87c5d7f8b9ffe4680cbcbf12
   languageName: node
   linkType: hard
 
@@ -1569,10 +1569,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1584,10 +1584,10 @@ __metadata:
   resolution: "@goatjs/dbz@workspace:packages/dbz"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1600,10 +1600,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1615,11 +1615,11 @@ __metadata:
   resolution: "@goatjs/download@workspace:packages/download"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/mime-types": "npm:^3.0.1"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     mime-types: "npm:^3.0.1"
@@ -1635,10 +1635,10 @@ __metadata:
   dependencies:
     "@goatjs/download": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1662,10 +1662,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     html-metadata-parser: "npm:^2.0.4"
@@ -1673,22 +1673,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/node-eslint@npm:1.14.0":
-  version: 1.14.0
-  resolution: "@goatjs/node-eslint@npm:1.14.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-1.14.0.tgz"
+"@goatjs/node-eslint@npm:1.16.0":
+  version: 1.16.0
+  resolution: "@goatjs/node-eslint@npm:1.16.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-1.16.0.tgz"
   dependencies:
-    "@goatjs/core-eslint": "npm:1.14.0"
+    "@goatjs/core-eslint": "npm:1.16.0"
     globals: "npm:^16.4.0"
-  checksum: 10c0/5b328079d584d7b39f5269cd6bfd3ec2ec1abdc74ef86255f7f39a8ac2630549dcf76e5a4d546cf099efc09c1c21e22ad0a2e60ae462ce0795abbcede34062e5
+  checksum: 10c0/de6e2d96bc35f65dad46463b9b36aac3a6101729dfd14aaf7d84edcd38384eb4f5d8f7430e011acdd22c086679aef1f5387a0ef29c3199e567daadd56f8c8a0f
   languageName: node
   linkType: hard
 
-"@goatjs/node-monorepo-eslint@npm:^1.14.0":
-  version: 1.14.0
-  resolution: "@goatjs/node-monorepo-eslint@npm:1.14.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-1.14.0.tgz"
+"@goatjs/node-monorepo-eslint@npm:^1.16.0":
+  version: 1.16.0
+  resolution: "@goatjs/node-monorepo-eslint@npm:1.16.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-1.16.0.tgz"
   dependencies:
-    "@goatjs/node-eslint": "npm:1.14.0"
-  checksum: 10c0/ad4d1b7570bc2826b994ff7baf58e018891bd4ff37c8d57f21c1e705d979e9fad74f03965473dcf49e07a0a6b956e85fa0f99b61200f43324310c65cbea4fdf6
+    "@goatjs/node-eslint": "npm:1.16.0"
+  checksum: 10c0/906d103fec108dfe6aa27347b140cd07b405259ef98b62ad861c102508efccd0b25fcc0588b6f5ed36d1f43c23fdfd94d21af4d564485efae2e7e29449b7c21e
   languageName: node
   linkType: hard
 
@@ -1696,10 +1696,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     sanitize-filename: "npm:1.6.3"
@@ -1716,10 +1716,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1730,10 +1730,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     puppeteer-core: "npm:^24.25.0"
@@ -1747,9 +1747,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     tsx: "npm:^4.20.6"
@@ -1764,10 +1764,10 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1780,10 +1780,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     ts-unused-exports: "npm:^11.0.1"
@@ -1805,10 +1805,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/zod-error@workspace:packages/zod-error"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.14.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.1"
     eslint: "npm:^9.37.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
@@ -1987,9 +1987,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/devkit@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/devkit@npm:21.6.4"
+"@nx/devkit@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/devkit@npm:21.6.5"
   dependencies:
     ejs: "npm:^3.1.7"
     enquirer: "npm:~2.3.6"
@@ -2000,13 +2000,13 @@ __metadata:
     yargs-parser: "npm:21.1.1"
   peerDependencies:
     nx: ">= 20 <= 22"
-  checksum: 10c0/50ffb17f0edf3dcba5e518da396d84ae085c70fc0d6b94f5eb104a5adfea63f057e12511a3f29aeb59f76998dc9e591df8eb7886e24ea1f0cf425bc3bd72fd9e
+  checksum: 10c0/b229fbe76d7dde714e174badedef1867c1ba5dec6506eb6ebb9b083aff5742d63f5ed3df7ea85f60b6423bd03eecf70a0fccc04f6a52d28783aca3162349acbe
   languageName: node
   linkType: hard
 
-"@nx/js@npm:^21.6.4":
-  version: 21.6.4
-  resolution: "@nx/js@npm:21.6.4"
+"@nx/js@npm:^21.6.5":
+  version: 21.6.5
+  resolution: "@nx/js@npm:21.6.5"
   dependencies:
     "@babel/core": "npm:^7.23.2"
     "@babel/plugin-proposal-decorators": "npm:^7.22.7"
@@ -2015,8 +2015,8 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/preset-typescript": "npm:^7.22.5"
     "@babel/runtime": "npm:^7.22.6"
-    "@nx/devkit": "npm:21.6.4"
-    "@nx/workspace": "npm:21.6.4"
+    "@nx/devkit": "npm:21.6.5"
+    "@nx/workspace": "npm:21.6.5"
     "@zkochan/js-yaml": "npm:0.0.7"
     babel-plugin-const-enum: "npm:^1.0.1"
     babel-plugin-macros: "npm:^3.1.0"
@@ -2042,94 +2042,94 @@ __metadata:
   peerDependenciesMeta:
     verdaccio:
       optional: true
-  checksum: 10c0/266400b066df8358631b7655642efd6c16548881d42c3ab6a552fa90c0a7adf8a13d4d4b277bab24d6022289234ed15a33151beea50840cd3cb60fc71a318221
+  checksum: 10c0/4c42ecd203764c5dc083d36d3f1b007d787e0a3165eecf52ab3a33ed8712d22186a10dedc7195a1e6aaf60bcc332446167da5b0191128c2323050a08488919e1
   languageName: node
   linkType: hard
 
-"@nx/nx-darwin-arm64@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-darwin-arm64@npm:21.6.4"
+"@nx/nx-darwin-arm64@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-darwin-arm64@npm:21.6.5"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nx/nx-darwin-x64@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-darwin-x64@npm:21.6.4"
+"@nx/nx-darwin-x64@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-darwin-x64@npm:21.6.5"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/nx-freebsd-x64@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-freebsd-x64@npm:21.6.4"
+"@nx/nx-freebsd-x64@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-freebsd-x64@npm:21.6.5"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm-gnueabihf@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-linux-arm-gnueabihf@npm:21.6.4"
+"@nx/nx-linux-arm-gnueabihf@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-linux-arm-gnueabihf@npm:21.6.5"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm64-gnu@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-linux-arm64-gnu@npm:21.6.4"
+"@nx/nx-linux-arm64-gnu@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-linux-arm64-gnu@npm:21.6.5"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm64-musl@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-linux-arm64-musl@npm:21.6.4"
+"@nx/nx-linux-arm64-musl@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-linux-arm64-musl@npm:21.6.5"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-x64-gnu@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-linux-x64-gnu@npm:21.6.4"
+"@nx/nx-linux-x64-gnu@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-linux-x64-gnu@npm:21.6.5"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-x64-musl@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-linux-x64-musl@npm:21.6.4"
+"@nx/nx-linux-x64-musl@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-linux-x64-musl@npm:21.6.5"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nx/nx-win32-arm64-msvc@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-win32-arm64-msvc@npm:21.6.4"
+"@nx/nx-win32-arm64-msvc@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-win32-arm64-msvc@npm:21.6.5"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nx/nx-win32-x64-msvc@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/nx-win32-x64-msvc@npm:21.6.4"
+"@nx/nx-win32-x64-msvc@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/nx-win32-x64-msvc@npm:21.6.5"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/workspace@npm:21.6.4":
-  version: 21.6.4
-  resolution: "@nx/workspace@npm:21.6.4"
+"@nx/workspace@npm:21.6.5":
+  version: 21.6.5
+  resolution: "@nx/workspace@npm:21.6.5"
   dependencies:
-    "@nx/devkit": "npm:21.6.4"
+    "@nx/devkit": "npm:21.6.5"
     "@zkochan/js-yaml": "npm:0.0.7"
     chalk: "npm:^4.1.0"
     enquirer: "npm:~2.3.6"
-    nx: "npm:21.6.4"
+    nx: "npm:21.6.5"
     picomatch: "npm:4.0.2"
     semver: "npm:^7.6.3"
     tslib: "npm:^2.3.0"
     yargs-parser: "npm:21.1.1"
-  checksum: 10c0/9e7f9b910695b1d837b277e4e7a0848ea4926f35cc69b42d7de91f262a5bc9c036ae7d9bddd4732c7ccfcce647fb0f32d2c837f6416b38556840acf51620cdea
+  checksum: 10c0/0b0a4ac7428b3d8e3c057a1b76b134173d918333f794a21de24d1a5d5d4527b521e2c867085fe9816dfdcb96006e683b349e5c34bdc23dc25f4d5b2b83b0b369
   languageName: node
   linkType: hard
 
@@ -2217,12 +2217,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.7.2":
-  version: 24.7.2
-  resolution: "@types/node@npm:24.7.2"
+"@types/node@npm:^24.8.1":
+  version: 24.8.1
+  resolution: "@types/node@npm:24.8.1"
   dependencies:
     undici-types: "npm:~7.14.0"
-  checksum: 10c0/03f662f10e4b89bc97016e067101cbabe55025b54c24afb581fb50992d5eeaaf417bdae34bbc668ae8759d3cdbbbadf35fc8b9b29d26f52ede2525d48e919e49
+  checksum: 10c0/d185f2f14aa26cc2b482aa730bfc452943f9636df37aad6ceed80aa397f1278f894043336bd72f74c47b3dbef23e772ac9b1a256168984aa8aee26836132d290
   languageName: node
   linkType: hard
 
@@ -4247,9 +4247,9 @@ __metadata:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@nx/js": "npm:^21.6.4"
+    "@nx/js": "npm:^21.6.5"
     "@types/yargs": "npm:^17.0.33"
-    nx: "npm:21.6.4"
+    nx: "npm:21.6.5"
     prettier: "npm:^3.6.2"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
@@ -5158,21 +5158,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:21.6.4":
-  version: 21.6.4
-  resolution: "nx@npm:21.6.4"
+"nx@npm:21.6.5":
+  version: 21.6.5
+  resolution: "nx@npm:21.6.5"
   dependencies:
     "@napi-rs/wasm-runtime": "npm:0.2.4"
-    "@nx/nx-darwin-arm64": "npm:21.6.4"
-    "@nx/nx-darwin-x64": "npm:21.6.4"
-    "@nx/nx-freebsd-x64": "npm:21.6.4"
-    "@nx/nx-linux-arm-gnueabihf": "npm:21.6.4"
-    "@nx/nx-linux-arm64-gnu": "npm:21.6.4"
-    "@nx/nx-linux-arm64-musl": "npm:21.6.4"
-    "@nx/nx-linux-x64-gnu": "npm:21.6.4"
-    "@nx/nx-linux-x64-musl": "npm:21.6.4"
-    "@nx/nx-win32-arm64-msvc": "npm:21.6.4"
-    "@nx/nx-win32-x64-msvc": "npm:21.6.4"
+    "@nx/nx-darwin-arm64": "npm:21.6.5"
+    "@nx/nx-darwin-x64": "npm:21.6.5"
+    "@nx/nx-freebsd-x64": "npm:21.6.5"
+    "@nx/nx-linux-arm-gnueabihf": "npm:21.6.5"
+    "@nx/nx-linux-arm64-gnu": "npm:21.6.5"
+    "@nx/nx-linux-arm64-musl": "npm:21.6.5"
+    "@nx/nx-linux-x64-gnu": "npm:21.6.5"
+    "@nx/nx-linux-x64-musl": "npm:21.6.5"
+    "@nx/nx-win32-arm64-msvc": "npm:21.6.5"
+    "@nx/nx-win32-x64-msvc": "npm:21.6.5"
     "@yarnpkg/lockfile": "npm:^1.1.0"
     "@yarnpkg/parsers": "npm:3.0.2"
     "@zkochan/js-yaml": "npm:0.0.7"
@@ -5239,7 +5239,7 @@ __metadata:
   bin:
     nx: bin/nx.js
     nx-cloud: bin/nx-cloud.js
-  checksum: 10c0/296003d01671367c55602f50ff80407e4b121cccea09e9d4e9a606ca75f80181c63d777439e081609a8fde3d44b32e559134ecbca2b5d3ed100b829d8fc09c6d
+  checksum: 10c0/1668ec0469ae796c60474b0441a7840b45848ea2cf0b808c4ef82dfd5771d34cead09f0f0bdc878a9266ef5bbcd7774fb4b4581ce18dc74ccf0a4f60bb2d77e5
   languageName: node
   linkType: hard
 
