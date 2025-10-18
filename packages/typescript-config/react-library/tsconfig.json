@@ -11,6 +11,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
   }
 }
