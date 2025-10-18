@@ -9,9 +9,9 @@ import { spawnWithLog } from '@goatjs/node/spawn';
 import { yarn } from '@goatjs/node/yarn';
 import fs from 'node:fs/promises';
 
-const clear = async () => {
+const clear = async ({ extra }: { extra: string[] }) => {
   const monorepo = await isMonorepo();
-  const foldersToInclude = ['dist', '.next'];
+  const foldersToInclude = ['dist', '.next', ...extra];
   await (monorepo
     ? yarn.workspace.runAll(['run', 'rimraf', ...foldersToInclude], { includePrivate: true })
     : spawnWithLog('yarn', ['rimraf', ...foldersToInclude]));
