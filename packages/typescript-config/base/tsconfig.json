@@ -26,6 +26,8 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "strictBuiltinIteratorReturn": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
   }
 }
