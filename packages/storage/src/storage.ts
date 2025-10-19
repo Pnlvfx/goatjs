@@ -1,7 +1,7 @@
 import path from 'node:path';
+import fs from 'node:fs/promises';
 import { rm } from 'node:fs/promises';
 import { coralineRoot, cwd } from './config.js';
-import { mkDir } from './helpers.js';
 
 interface UseOptions {
   root?: boolean;
@@ -12,16 +12,16 @@ export const storage = {
   use: async (internalPath: string, { root }: UseOptions = {}) => {
     const rootDirectory = root ? coralineRoot : cwd;
     const directory = path.join(rootDirectory, internalPath);
-    await mkDir(directory);
+    await fs.mkdir(directory);
     return directory;
   },
   useStatic: async () => {
     const folder = path.join(cwd, 'static');
-    await mkDir(folder);
+    await fs.mkdir(folder);
     const imagePath = path.join(folder, 'images');
-    await mkDir(imagePath);
+    await fs.mkdir(imagePath);
     const videoPath = path.join(folder, 'videos');
-    await mkDir(videoPath);
+    await fs.mkdir(videoPath);
     return { staticPath: folder, imagePath, videoPath };
   },
   clearAll: () => rm(cwd, { recursive: true, force: true }),

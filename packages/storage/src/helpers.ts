@@ -1,17 +1,14 @@
 import { getRootPkgJSON } from '@goatjs/node/package-json';
-import fs from 'node:fs/promises';
 
 export const getProjectName = async () => {
   const { name } = await getRootPkgJSON();
   /** if name is @goatjs/core scope is @goatjs and scopeName is core
-   * but if name is core scope is core and scopeName is undefined
+   * but if name is core scope is undefined and scopeName is core
    */
-  const [scope, scopeName] = name.split('/');
-  return { scope: scopeName ? scope?.slice(1) : scope, name: scopeName ?? name.replace('api-', '') };
-};
-
-export const mkDir = async (folder: string, recursive?: boolean) => {
-  try {
-    await fs.mkdir(folder, { recursive });
-  } catch {}
+  const parts = name.split('/');
+  if (parts.length !== 1 && parts.length !== 2) throw new Error('invalid package.json name');
+  const scope = parts.length > 1 ? parts.at(0)?.slice(1) : '';
+  const scopeName = parts.length > 1 ? parts.at(1) : parts.at(0);
+  if (!scopeName) throw new Error('unable to parse ackage name');
+  return { scope, name: scopeName.replace('api-', '') };
 };

@@ -18,9 +18,6 @@
       "dependsOn": ["^lint"],
       "cache": true
     },
-    "dev": {
-      "cache": false
-    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/dist"],

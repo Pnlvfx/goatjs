@@ -2,11 +2,9 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import { prettier, type PrettierParsingOption } from '@goatjs/node/prettier';
-import { cwd } from './config.js';
-import { mkDir } from './helpers.js';
+import { storage } from './storage.js';
 
-const logPath = path.join(cwd, 'log');
-await mkDir(logPath);
+const logPath = await storage.use('log');
 
 interface FileOptions {
   extension?: PrettierParsingOption | 'txt';

@@ -1765,7 +1765,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports":
+"@goatjs/ts-unused-exports@workspace:*, @goatjs/ts-unused-exports@workspace:packages/ts-unused-exports":
   version: 0.0.0-use.local
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
@@ -2945,6 +2945,21 @@ __metadata:
   checksum: 10c0/907a1c227ddf0d7a101e7ab8b300affc742ead4b4ebe920a5bf1bc6d45dce2958fcd195eb28fa25275062fe6fa9b109b93b63bc8033396ed3bcb50297008b3a3
   languageName: node
   linkType: hard
+
+"cli@workspace:apps/cli":
+  version: 0.0.0-use.local
+  resolution: "cli@workspace:apps/cli"
+  dependencies:
+    "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
+    "@goatjs/rimraf": "workspace:*"
+    "@goatjs/storage": "workspace:*"
+    "@goatjs/ts-unused-exports": "workspace:*"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^24.8.1"
+    eslint: "npm:^9.38.0"
+    typescript: "npm:^5.9.3"
+  languageName: unknown
+  linkType: soft
 
 "cliui@npm:^8.0.1":
   version: 8.0.1
