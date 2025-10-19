@@ -1,23 +1,19 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { rm } from 'node:fs/promises';
-import { coralineRoot, cwd } from './config.js';
-
-interface UseOptions {
-  root?: boolean;
-}
+import { cwd, root } from './config.js';
 
 export const storage = {
   cwd,
-  use: async (internalPath: string, { root }: UseOptions = {}) => {
-    const rootDirectory = root ? coralineRoot : cwd;
+  use: async (internalPath: string, { root: toRoot }: { root?: boolean } = {}) => {
+    const rootDirectory = toRoot ? root : cwd;
     const directory = path.join(rootDirectory, internalPath);
-    await fs.mkdir(directory);
+    await fs.mkdir(directory, { recursive: true });
     return directory;
   },
   useStatic: async () => {
     const folder = path.join(cwd, 'static');
-    await fs.mkdir(folder);
+    await fs.mkdir(folder, { recursive: true });
     const imagePath = path.join(folder, 'images');
     await fs.mkdir(imagePath);
     const videoPath = path.join(folder, 'videos');
@@ -25,14 +21,10 @@ export const storage = {
     return { staticPath: folder, imagePath, videoPath };
   },
   clearAll: () => rm(cwd, { recursive: true, force: true }),
-  getUrlFromStaticPath: (coraPath: string, query?: Record<string, string>) => {
-    // eslint-disable-next-line no-restricted-properties
-    if (!process.env['SERVER_URL']) throw new Error('Please add SERVER_URL to your env file to use this function');
+  getUrlFromStaticPath: (coraPath: string, { host }: { host: string }) => {
     const extra_path = coraPath.split('/static/').at(1);
     if (!extra_path) throw new Error(`Invalid path provided: ${coraPath} should contain a static path!`);
-    const q = new URLSearchParams(query).toString();
-    // eslint-disable-next-line no-restricted-properties
-    return `${process.env['SERVER_URL']}/static/${extra_path}${q ? '?' + q : ''}`;
+    return `${host}/static/${extra_path}`;
   },
   getPathFromStaticUrl: (url: string) => {
     const { pathname } = new URL(url);

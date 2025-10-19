@@ -1,5 +1,5 @@
 {
-  "name": "@goatjs/cli",
+  "name": "cli",
   "description": "GoatJS cli.",
   "private": true,
   "license": "MIT",

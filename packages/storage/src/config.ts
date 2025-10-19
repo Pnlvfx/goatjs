@@ -4,16 +4,18 @@ import fs from 'node:fs/promises';
 import { getProjectName } from './helpers.js';
 
 const { scope, name } = await getProjectName();
-const root = path.join(os.homedir(), '.coraline');
-export const coralineRoot = path.join(root, 'all');
-export const cwd = path.join(root, scope ?? name, ...(scope ? [name] : []));
+const baseRoot = path.join(os.homedir(), '.coraline');
+export const root = path.join(baseRoot, 'all');
+export const cwd = path.join(baseRoot, scope ?? name, ...(scope ? [name] : []));
 
-try {
-  await fs.mkdir(root);
-} catch {}
+export const initializeStorage = async () => {
+  try {
+    await fs.mkdir(baseRoot);
+  } catch {}
 
-try {
-  await fs.mkdir(coralineRoot);
-} catch {}
+  try {
+    await fs.mkdir(root);
+  } catch {}
 
-await fs.mkdir(cwd, { recursive: true });
+  await fs.mkdir(cwd, { recursive: true });
+};
