@@ -6,7 +6,7 @@ import { getProjectName } from './helpers.js';
 const { scope, name } = await getProjectName();
 const baseRoot = path.join(os.homedir(), '.coraline');
 export const root = path.join(baseRoot, 'all');
-export const cwd = path.join(baseRoot, scope ?? name, ...(scope ? [name] : []));
+export const cwd = path.join(baseRoot, scope ?? '', name);
 
 export const initializeStorage = async () => {
   try {

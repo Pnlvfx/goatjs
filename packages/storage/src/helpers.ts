@@ -6,6 +6,6 @@ export const getProjectName = async () => {
   if (parts.length !== 1 && parts.length !== 2) throw new Error('invalid package.json name');
   const scope = parts.length > 1 ? parts.at(0)?.slice(1) : '';
   const scopeName = parts.length > 1 ? parts.at(1) : parts.at(0);
-  if (!scopeName) throw new Error('unable to parse ackage name');
+  if (!scopeName) throw new Error('unable to parse package name');
   return { scope, name: scopeName.replace('api-', '') };
 };

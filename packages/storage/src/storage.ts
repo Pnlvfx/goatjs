@@ -5,20 +5,23 @@ import { cwd, root } from './config.js';
 
 export const storage = {
   cwd,
-  use: async (internalPath: string, { root: toRoot }: { root?: boolean } = {}) => {
+  use: async (dir: string, { root: toRoot }: { root?: boolean } = {}) => {
     const rootDirectory = toRoot ? root : cwd;
-    const directory = path.join(rootDirectory, internalPath);
+    const directory = path.join(rootDirectory, dir);
     await fs.mkdir(directory, { recursive: true });
     return directory;
   },
   useStatic: async () => {
-    const folder = path.join(cwd, 'static');
-    await fs.mkdir(folder, { recursive: true });
-    const imagePath = path.join(folder, 'images');
-    await fs.mkdir(imagePath);
-    const videoPath = path.join(folder, 'videos');
-    await fs.mkdir(videoPath);
-    return { staticPath: folder, imagePath, videoPath };
+    const staticPath = path.join(cwd, 'static');
+    const imagePath = path.join(staticPath, 'images');
+    const videoPath = path.join(staticPath, 'videos');
+    try {
+      await fs.mkdir(staticPath);
+      await fs.mkdir(imagePath);
+      await fs.mkdir(videoPath);
+    } catch {}
+
+    return { staticPath, imagePath, videoPath };
   },
   clearAll: () => rm(cwd, { recursive: true, force: true }),
   getUrlFromStaticPath: (coraPath: string, { host }: { host: string }) => {

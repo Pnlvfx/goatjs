@@ -9,7 +9,7 @@
   "scripts": {
     "tsc": "nx run-many -t tsc",
     "build": "nx run-many -t build",
-    "dev": "yarn workspace cli dev",
+    "dev": "yarn workspace @goatjs/cli dev",
     "lint": "nx run-many -t lint",
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
