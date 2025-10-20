@@ -10,7 +10,15 @@ interface Params {
 
 const withComment = new Set(['js', 'ts', 'tsx', 'jsx', 'cjs', 'mjs', 'cts']);
 
-export const copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: Params) => {
+export const copyFilesFromFolder = async (params: Params | Params[]) => {
+  const array = Array.isArray(params) ? params : [params];
+
+  for (const item of array) {
+    await $copyFilesFromFolder(item);
+  }
+};
+
+const $copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: Params) => {
   try {
     await fs.mkdir(outputFolder, { recursive: true });
   } catch {}
