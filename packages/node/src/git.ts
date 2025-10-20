@@ -10,12 +10,12 @@ export const git = {
   clone: (url: string, options?: ExecOptions) => {
     return execAsync(`git clone ${url}`, options);
   },
-  fetch: () => {
-    return execAsync('git fetch origin');
+  fetch: (options?: ExecOptions) => {
+    return execAsync('git fetch origin', options);
   },
-  revList: () => {
+  revList: (options?: ExecOptions) => {
     // add support for branch other than main
-    return execAsync('git rev-list --count HEAD..origin/main');
+    return execAsync('git rev-list --count HEAD..origin/main', options);
   },
   getBranchList: (options?: ExecOptions) => {
     return execAsync('git branch --list', options);
