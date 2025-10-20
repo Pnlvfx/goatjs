@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-useless-undefined */
 import type { ExecOptions } from 'node:child_process';
 import { execAsync } from './exec.js';
 import { parseBashOptions } from './bash.js';
@@ -20,10 +21,12 @@ export const git = {
   getBranchList: (options?: ExecOptions) => {
     return execAsync('git branch --list', options);
   },
-  getBranch: async (name: string, options?: ExecOptions) => {
+  branch: async (name: string, options?: ExecOptions) => {
     try {
-      await execAsync(`git branch ${name}`, options);
-    } catch {}
+      return await execAsync(`git branch ${name}`, options);
+    } catch {
+      return undefined;
+    }
   },
   deleteBranch: async (name: string, options?: ExecOptions) => {
     try {
@@ -31,20 +34,20 @@ export const git = {
       await execAsync(`git push origin --delete ${name}`, options);
     } catch {}
   },
-  checkout: async (name: string, options?: ExecOptions) => {
-    await execAsync(`git checkout ${name}`, options);
+  checkout: (name: string, options?: ExecOptions) => {
+    return execAsync(`git checkout ${name}`, options);
   },
-  add: async (fromPath = '.', options?: ExecOptions) => {
-    await execAsync(`git add ${fromPath}`, options);
+  add: (fromPath = '.', options?: ExecOptions) => {
+    return execAsync(`git add ${fromPath}`, options);
   },
-  commit: async (message: string, options?: ExecOptions) => {
-    await execAsync(`git commit -m "${message}"`, options);
+  commit: (message: string, options?: ExecOptions) => {
+    return execAsync(`git commit -m "${message}"`, options);
   },
-  push: async (options?: ExecOptions) => {
-    await execAsync('git push', options);
+  push: (options?: ExecOptions) => {
+    return execAsync('git push', options);
   },
-  pull: async (options?: ExecOptions) => {
-    await execAsync('git pull', options);
+  pull: (options?: ExecOptions) => {
+    return execAsync('git pull', options);
   },
   status: async ({ porcelain, ...options }: GitStatusParams = {}) => {
     const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`, options);
