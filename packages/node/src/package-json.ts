@@ -9,6 +9,7 @@ interface PkgJSON {
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
+  packageManager?: string;
 }
 
 export const getRootPkgJSON = async () => {
