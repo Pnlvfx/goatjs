@@ -3,7 +3,7 @@ import os from 'node:os';
 
 const platform = os.platform();
 
-export const spawnWithLog = (command: string, args: string[]) => {
+export const spawnWithLog = (command: string, args: string[] = []) => {
   return new Promise<string>((resolve, reject) => {
     const child = spawn(command, args, { stdio: 'inherit', shell: platform === 'win32' });
     child.on('error', reject);
