@@ -1,5 +1,5 @@
 import { execAsync } from './exec.js';
-import { spawnWithLog } from './spawn.js';
+import { spawnWithLog } from './dev/spawn.js';
 
 export interface ListItem {
   location: string;
