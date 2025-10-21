@@ -3,18 +3,18 @@ type AllowedValue = string | boolean | undefined;
 type BashOptions = Record<string, AllowedValue>;
 
 export const parseBashOptions = (options: BashOptions) => {
-  let parsedOptions = '';
+  const values = [];
   for (const [key, value] of Object.entries(options)) {
     if (value === undefined) continue;
     switch (typeof value) {
       case 'boolean': {
         if (value) {
-          parsedOptions += ` --${key}`;
+          values.push(`--${key}`);
         }
         break;
       }
       case 'string': {
-        parsedOptions += ` --${key} ${value}`;
+        values.push(`--${key} ${value}`);
         break;
       }
       default: {
@@ -23,5 +23,5 @@ export const parseBashOptions = (options: BashOptions) => {
     }
   }
 
-  return parsedOptions;
+  return values.join(' ');
 };

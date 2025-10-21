@@ -38,8 +38,8 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
     checkout: (name: string) => {
       return execAsync(`git checkout ${name}`);
     },
-    add: (fromPath = '.') => {
-      return runGitCommand(`git add ${fromPath}`);
+    add: (from = '.') => {
+      return runGitCommand(`git add ${from}`);
     },
     commit: (message: string) => {
       return runGitCommand(`git commit -m "${message}"`);
@@ -51,7 +51,7 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       return runGitCommand('git pull');
     },
     status: async ({ porcelain }: { porcelain?: boolean } = {}) => {
-      const { stdout } = await runGitCommand(`git status${parseBashOptions({ porcelain })}`);
+      const { stdout } = await runGitCommand(`git status ${parseBashOptions({ porcelain })}`);
       return stdout;
     },
     reset: ({ hard, amount }: { hard?: boolean; amount?: number } = {}) => {
