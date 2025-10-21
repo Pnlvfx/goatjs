@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-interface PkgJSON {
+export interface PackageJSON {
   name: string;
   description?: string;
   scripts?: Record<string, string>;
@@ -14,7 +14,7 @@ interface PkgJSON {
 
 export const getRootPkgJSON = async () => {
   const buf = await fs.readFile('package.json');
-  const { name, ...pkg } = JSON.parse(buf.toString()) as Partial<PkgJSON>;
+  const { name, ...pkg } = JSON.parse(buf.toString()) as Partial<PackageJSON>;
   if (!name) throw new Error('Please add a valid name on your package.json.');
   return { name, ...pkg };
 };
