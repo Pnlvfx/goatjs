@@ -6,9 +6,6 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
   const runGitCommand = (command: string) => execAsync(command, { cwd });
 
   return {
-    clone: (url: string) => {
-      return runGitCommand(`git clone ${url}`);
-    },
     stash: () => {
       return runGitCommand('git stash');
     },
@@ -21,6 +18,9 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
     },
     getBranchList: () => {
       return runGitCommand('git branch --list');
+    },
+    clone: (url: string) => {
+      return runGitCommand(`git clone ${url}`);
     },
     branch: async (name: string) => {
       try {
@@ -38,8 +38,14 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
     checkout: (name: string) => {
       return execAsync(`git checkout ${name}`);
     },
+    clean: () => {
+      return runGitCommand('git clean -fd'); // -fd: f = force, d = directories too.
+    },
     add: (from = '.') => {
       return runGitCommand(`git add ${from}`);
+    },
+    restore: (from = '.') => {
+      return runGitCommand(`git restore ${from}`);
     },
     commit: (message: string) => {
       return runGitCommand(`git commit -m "${message}"`);
