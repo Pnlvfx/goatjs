@@ -1,37 +1,47 @@
-/* eslint-disable no-console */
 import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.js';
-import { getPublishRegistryUrl } from './dbz/helpers.js';
 import { isValidYarnVersion } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
 import { spawnWithLog } from '@goatjs/node/dev/spawn';
+import { yarn } from '@goatjs/node/yarn';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
-const [command, ...args] = process.argv.slice(2);
-
-switch (command) {
-  case 'auth': {
-    console.log('🔐 Setting YARN_NPM_AUTH_TOKEN...');
-    await dbz.createYarnEnv();
-    console.log('✅ Authentication token set successfully!');
-    break;
-  }
-  case 'publish': {
-    const versionInput = args.at(0);
-    const version = versionInput && isValidYarnVersion(versionInput) ? versionInput : undefined;
-    await dbz.publish({ version });
-    break;
-  }
-  case 'unpublish': {
-    const pkgName = getNextArg(args, false);
-    await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', await getPublishRegistryUrl()]);
-    break;
-  }
-  case 'clear': {
+await yargs(hideBin(process.argv))
+  .version(false)
+  .strict()
+  .help()
+  .scriptName('dbz')
+  .usage('$0 <cmd> [args]')
+  .command(
+    'publish [version]',
+    'Publish the package',
+    (yargs) => {
+      return yargs.positional('version', { type: 'string', describe: 'Version to publish' });
+    },
+    async (argv) => {
+      const version = argv.version && isValidYarnVersion(argv.version) ? argv.version : undefined;
+      await dbz.publish({ version });
+    },
+  )
+  .command(
+    'unpublish [package]',
+    'Unpublish a package',
+    (yargs) => {
+      return yargs.positional('package', {
+        type: 'string',
+        describe: 'Package name to unpublish',
+      });
+    },
+    async (argv) => {
+      const pkgName = argv.package ?? getNextArg(hideBin(process.argv).slice(1), false);
+      const registry = await yarn.config.get('npmPublishRegistry');
+      await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', registry]);
+    },
+  )
+  .command('clear', 'Clear the project', undefined, async () => {
     await dbz.clear();
     consoleColor('blue', 'Project cleaned.');
-    break;
-  }
-  default: {
-    throw new Error('Invalid or empty command received');
-  }
-}
+  })
+  .demandCommand(1, 'You need at least one command before moving on')
+  .parseAsync();

@@ -1,11 +1,8 @@
 import { consoleColor } from '@goatjs/node/console-color';
 import { checkGitStatus } from '@goatjs/node/dev/git';
-import { getAccessToken, isMonorepo } from './helpers.js';
+import { isMonorepo } from './helpers.js';
 import { publish, type PublishOptions } from './publish.js';
-import { execAsync } from '@goatjs/node/exec';
-import { platform } from 'node:os';
 import { yarn } from '@goatjs/node/yarn';
-import fs from 'node:fs/promises';
 import { spawnWithLog } from '@goatjs/node/dev/spawn';
 import { createGitClient } from '@goatjs/node/git';
 
@@ -18,13 +15,7 @@ const clear = async ({ extra }: { extra?: string[] } = {}) => {
 };
 
 export const dbz = {
-  createYarnEnv: async () => {
-    await fs.writeFile('.env.yarn', `YARN_NPM_AUTH_TOKEN = ${await getAccessToken()}`);
-  },
-  auth: async (): Promise<void> => {
-    const token = await getAccessToken();
-    await (platform() === 'win32' ? execAsync(`set YARN_NPM_AUTH_TOKEN=${token}`) : execAsync(`export YARN_NPM_AUTH_TOKEN="${token}"`));
-  },
+  isMonorepo,
   publish: async ({ version }: PublishOptions = {}) => {
     const git = createGitClient();
     await checkGitStatus();

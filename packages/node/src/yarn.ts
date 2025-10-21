@@ -6,6 +6,15 @@ export interface ListItem {
   name: string;
 }
 
+interface YarnConfig {
+  key: string;
+  effective: string;
+  source: string;
+  description: string;
+  type: 'STRING';
+  default: null;
+}
+
 const workspace = {
   runAll: async (command: string[], { includePrivate }: { includePrivate?: boolean } = {}) => {
     const args = ['workspaces', 'foreach', '--all'];
@@ -26,6 +35,11 @@ const workspace = {
 export const yarn = {
   workspace,
   config: {
+    get: async (name: string) => {
+      const { stdout } = await execAsync(`yarn config ${name} --json`);
+      const json = JSON.parse(stdout) as YarnConfig;
+      return json.effective;
+    },
     set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
   },
 };

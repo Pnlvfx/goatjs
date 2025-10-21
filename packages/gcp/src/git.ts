@@ -26,7 +26,7 @@ export const resolvePrivateGitDependencies = async ({ packages, outputDir, packa
     console.log(`\n--- Processing ${pkg} ---`);
     const packageDir = path.join(packagesDir, pkg);
     await fs.access(packageDir);
-    await checkGitStatus(packageDir);
+    await checkGitStatus({ cwd: packageDir });
     const git = createGitClient({ cwd: packageDir });
     await git.pull();
     await execAsync('yarn', { cwd: packageDir });

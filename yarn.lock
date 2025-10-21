@@ -1592,9 +1592,11 @@ __metadata:
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.0"
+    "@types/yargs": "npm:^17.0.33"
     eslint: "npm:^9.38.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
+    yargs: "npm:^18.0.0"
   bin:
     dbz: dist/cli.js
   languageName: unknown
