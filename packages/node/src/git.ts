@@ -1,64 +1,68 @@
 /* eslint-disable unicorn/no-useless-undefined */
-import type { ExecOptions } from 'node:child_process';
 import { execAsync } from './exec.js';
 import { parseBashOptions } from './bash.js';
 
-interface GitStatusParams extends ExecOptions {
-  porcelain?: boolean;
-}
+export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
+  const runGitCommand = (command: string) => execAsync(command, { cwd });
 
-export const git = {
-  clone: (url: string, options?: ExecOptions) => {
-    return execAsync(`git clone ${url}`, options);
-  },
-  fetch: (options?: ExecOptions) => {
-    return execAsync('git fetch origin', options);
-  },
-  revList: (options?: ExecOptions) => {
-    // add support for branch other than main
-    return execAsync('git rev-list --count HEAD..origin/main', options);
-  },
-  getBranchList: (options?: ExecOptions) => {
-    return execAsync('git branch --list', options);
-  },
-  branch: async (name: string, options?: ExecOptions) => {
-    try {
-      return await execAsync(`git branch ${name}`, options);
-    } catch {
-      return undefined;
-    }
-  },
-  deleteBranch: async (name: string, options?: ExecOptions) => {
-    try {
-      await execAsync(`git branch -D ${name}`, options);
-      await execAsync(`git push origin --delete ${name}`, options);
-    } catch {}
-  },
-  checkout: (name: string, options?: ExecOptions) => {
-    return execAsync(`git checkout ${name}`, options);
-  },
-  add: (fromPath = '.', options?: ExecOptions) => {
-    return execAsync(`git add ${fromPath}`, options);
-  },
-  commit: (message: string, options?: ExecOptions) => {
-    return execAsync(`git commit -m "${message}"`, options);
-  },
-  push: (options?: ExecOptions) => {
-    return execAsync('git push', options);
-  },
-  pull: (options?: ExecOptions) => {
-    return execAsync('git pull', options);
-  },
-  status: async ({ porcelain, ...options }: GitStatusParams = {}) => {
-    const { stdout } = await execAsync(`git status${parseBashOptions({ porcelain })}`, options);
-    return stdout;
-  },
-  reset: ({ hard, amount = 1 }: { hard?: boolean; amount?: number } = {}) => {
-    let command = 'git reset';
-    if (hard) {
-      command += ' --hard';
-    }
-    command += ` HEAD~${amount.toString()}`;
-    return execAsync(command);
-  },
+  return {
+    clone: (url: string) => {
+      return runGitCommand(`git clone ${url}`);
+    },
+    stash: () => {
+      return runGitCommand('git stash');
+    },
+    fetch: () => {
+      return runGitCommand('git fetch origin');
+    },
+    revList: () => {
+      // add support for branch other than main
+      return runGitCommand('git rev-list --count HEAD..origin/main');
+    },
+    getBranchList: () => {
+      return runGitCommand('git branch --list');
+    },
+    branch: async (name: string) => {
+      try {
+        return await runGitCommand(`git branch ${name}`);
+      } catch {
+        return undefined;
+      }
+    },
+    deleteBranch: async (name: string) => {
+      try {
+        await runGitCommand(`git branch -D ${name}`);
+        await runGitCommand(`git push origin --delete ${name}`);
+      } catch {}
+    },
+    checkout: (name: string) => {
+      return execAsync(`git checkout ${name}`);
+    },
+    add: (fromPath = '.') => {
+      return runGitCommand(`git add ${fromPath}`);
+    },
+    commit: (message: string) => {
+      return runGitCommand(`git commit -m "${message}"`);
+    },
+    push: () => {
+      return runGitCommand('git push');
+    },
+    pull: () => {
+      return runGitCommand('git pull');
+    },
+    status: async ({ porcelain }: { porcelain?: boolean } = {}) => {
+      const { stdout } = await runGitCommand(`git status${parseBashOptions({ porcelain })}`);
+      return stdout;
+    },
+    reset: ({ hard, amount }: { hard?: boolean; amount?: number } = {}) => {
+      let command = 'git reset';
+      if (hard) {
+        command += ' --hard';
+      }
+      if (amount) {
+        command += ` HEAD~${amount.toString()}`;
+      }
+      return runGitCommand(command);
+    },
+  };
 };

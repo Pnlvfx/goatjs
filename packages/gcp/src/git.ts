@@ -2,8 +2,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execAsync } from '@goatjs/node/exec';
-import { git } from '@goatjs/node/git';
 import { checkGitStatus } from '@goatjs/node/dev/git';
+import { createGitClient } from '@goatjs/node/git';
 
 export interface PrivateGitParams {
   /** Where to store the generated tarball. */
@@ -26,8 +26,9 @@ export const resolvePrivateGitDependencies = async ({ packages, outputDir, packa
     console.log(`\n--- Processing ${pkg} ---`);
     const packageDir = path.join(packagesDir, pkg);
     await fs.access(packageDir);
-    await checkGitStatus();
-    await git.pull({ cwd: packageDir });
+    await checkGitStatus(packageDir);
+    const git = createGitClient({ cwd: packageDir });
+    await git.pull();
     await execAsync('yarn', { cwd: packageDir });
     const filename = `${pkg}.tgz`;
     await execAsync(`yarn pack --filename ${filename}`, { cwd: packageDir });

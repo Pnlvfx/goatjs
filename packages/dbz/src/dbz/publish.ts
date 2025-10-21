@@ -1,4 +1,4 @@
-import { spawnWithLog } from '@goatjs/node/spawn';
+import { spawnWithLog } from '@goatjs/node/dev/spawn';
 import { execAsync } from '@goatjs/node/exec';
 import { yarn } from '@goatjs/node/yarn';
 

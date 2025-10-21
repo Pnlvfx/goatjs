@@ -4,7 +4,7 @@ import { getNextArg } from './cli-helpers.js';
 import { getPublishRegistryUrl } from './dbz/helpers.js';
 import { isValidYarnVersion } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
-import { spawnWithLog } from '@goatjs/node/spawn';
+import { spawnWithLog } from '@goatjs/node/dev/spawn';
 
 const [command, ...args] = process.argv.slice(2);
 
