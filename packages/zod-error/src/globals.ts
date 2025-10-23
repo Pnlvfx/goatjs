@@ -14,7 +14,8 @@ export const configureGlobalZodError = () => {
           return `Invalid format: expected ${iss.format}, received ${iss.input ?? '"Empty"'}`;
         }
         case 'unrecognized_keys': {
-          return `Unrecognized keys: received ${JSON.stringify(iss.input)}`;
+          const keyValuePairs = iss.keys.map((key) => `${key}: ${JSON.stringify(iss.input?.[key])}`);
+          return `Unrecognized keys: ${keyValuePairs.join(', ')}`;
         }
         default: {
           return iss.message;
