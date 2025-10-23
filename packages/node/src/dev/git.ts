@@ -1,10 +1,22 @@
 import { createGitClient } from '../git.js';
 import { input } from '../input.js';
+import { toNumber } from '@goatjs/core/number';
 
 export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {
   const git = createGitClient({ cwd });
-  const changes = await git.status({ porcelain: true });
-  if (changes) {
+  await git.fetch();
+  const { stdout } = await git.revList();
+  const remoteChanges = toNumber(stdout);
+  if (remoteChanges > 0) {
+    const text = await input.create({
+      title: 'You have remote changes to pull, please send "ok" if you want to run git pull or do it manually yourself.',
+    });
+    if (text === 'ok') {
+      await git.pull();
+    }
+  }
+  const localChanges = await git.status({ porcelain: true });
+  if (localChanges) {
     const text = await input.create({
       title: 'You have uncommitted changes, insert a valid git message here to let us commit for you. An empty message will abort the operation.',
     });
