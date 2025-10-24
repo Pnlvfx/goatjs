@@ -5,7 +5,11 @@ export interface ExecaProcess {
   stdout: string;
 }
 
-export const execa = async (command: string, args: string[] = [], { cwd }: { cwd?: string } = {}) => {
+export interface ExecaOptions {
+  cwd?: string;
+}
+
+export const execa = async (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
     const child = spawn(command, args, { cwd });
 
