@@ -28,6 +28,7 @@
     "strictBuiltinIteratorReturn": true,
     "skipLibCheck": true,
     "erasableSyntaxOnly": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "allowUnreachableCode": false
   }
 }
