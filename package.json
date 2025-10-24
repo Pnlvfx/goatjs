@@ -27,7 +27,7 @@
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@nx/js": "^22.0.1",
-    "@types/yargs": "^17.0.33",
+    "@types/yargs": "^17.0.34",
     "nx": "22.0.1",
     "prettier": "^3.6.2",
     "tsx": "^4.20.6",
