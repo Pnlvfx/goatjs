@@ -4,7 +4,7 @@ import os from 'node:os';
 
 const platform = os.platform();
 
-export const spawnWithLog = (command: string, args: string[] = [], { cwd }: ExecaOptions) => {
+export const spawnWithLog = (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
     const child = spawn(command, args, { stdio: 'inherit', shell: platform === 'win32', cwd });
     child.on('error', reject);
