@@ -39,7 +39,7 @@ await yargs(hideBin(process.argv))
       await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', registry]);
     },
   )
-  .command('clear', 'Clear the project', undefined, async () => {
+  .command('clear', 'Clear the project', {}, async () => {
     await dbz.clear();
     consoleColor('blue', 'Project cleaned.');
   })
