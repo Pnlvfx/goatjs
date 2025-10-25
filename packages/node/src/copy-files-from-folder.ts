@@ -10,6 +10,7 @@ interface Params {
 
 const withComment = new Set(['js', 'ts', 'tsx', 'jsx', 'cjs', 'mjs', 'cts']);
 
+// wrapper to support params as array
 export const copyFilesFromFolder = async (params: Params | Params[]) => {
   const array = Array.isArray(params) ? params : [params];
 
@@ -25,11 +26,18 @@ const $copyFilesFromFolder = async ({ files, inputFolder, outputFolder }: Params
 
   const array = files === '*' ? await fsExtra.readdir(inputFolder) : files;
 
-  for (const file of array) {
-    const buf = await fs.readFile(path.join(inputFolder, file));
-    const extname = path.extname(file).slice(1);
-    const isJs = withComment.has(extname);
-    const content = isJs ? `${mark()}\n\n${buf.toString()}` : buf.toString();
-    await fs.writeFile(path.join(outputFolder, file), content);
+  for (const item of array) {
+    const fullItemPath = path.join(inputFolder, item);
+    const stats = await fs.stat(fullItemPath);
+    if (stats.isDirectory()) {
+      const $outputFolder = path.join(outputFolder, item);
+      await $copyFilesFromFolder({ inputFolder: fullItemPath, outputFolder: $outputFolder, files: '*' });
+    } else {
+      const buf = await fs.readFile(fullItemPath);
+      const extname = path.extname(item).slice(1);
+      const isJs = withComment.has(extname);
+      const content = isJs ? `${mark()}\n\n${buf.toString()}` : buf.toString();
+      await fs.writeFile(path.join(outputFolder, item), content);
+    }
   }
 };
