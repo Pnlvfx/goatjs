@@ -4,11 +4,19 @@ import { storage } from '@goatjs/storage';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+// TODO [2025-11-30] add support for non json
+
 interface CacheData<T> {
   timestamp: number;
   data: T;
   isStored: boolean;
   customId?: string;
+}
+
+interface UseOptions {
+  customId?: string;
+  expires?: number;
+  store?: boolean;
 }
 
 const cacheDir = await storage.use('cache');
@@ -30,7 +38,7 @@ const store = async <T>(cache: CacheData<T>, name: string) => {
 };
 
 export const cache = {
-  use: async <T>(name: string, callback: Callback<T>, options?: { customId?: string; expires?: number; store?: boolean }): Promise<T> => {
+  use: async <T>(name: string, callback: Callback<T>, options?: UseOptions): Promise<T> => {
     const saved = options?.store ? await getStored(name) : caches[name];
     const currentTime = Date.now();
 
