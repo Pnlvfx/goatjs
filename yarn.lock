@@ -1702,6 +1702,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
+    "@goatjs/core": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"

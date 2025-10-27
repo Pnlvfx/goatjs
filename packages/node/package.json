@@ -40,6 +40,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@goatjs/core": "workspace:*",
     "sanitize-filename": "1.6.3"
   },
   "devDependencies": {
