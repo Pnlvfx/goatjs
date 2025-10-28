@@ -1,71 +1,91 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
 import type { Callback } from '@goatjs/core/types';
 import { storage } from '@goatjs/storage';
-import fs from 'node:fs/promises';
 import path from 'node:path';
+import fs from 'node:fs/promises';
+import { createStore } from '@goatjs/storage/store';
 
-// TODO [2025-11-30] add support for non json
+interface Options<T> {
+  key?: string;
+  expires?: number;
+  persist?: boolean;
+  type: 'json' | 'xml' | 'html';
+  callback: Callback<T>;
+}
 
 interface CacheData<T> {
   timestamp: number;
   data: T;
-  isStored: boolean;
-  customId?: string;
+  persist?: boolean;
+  key?: string;
 }
 
-interface UseOptions {
-  customId?: string;
-  expires?: number;
-  store?: boolean;
+interface CacheStore {
+  id: string;
+  key: string;
+  timestamp: number;
+  filename: string;
+  type: 'json' | 'xml' | 'html';
 }
 
-const cacheDir = await storage.use('cache');
-const caches: Partial<Record<string, CacheData<unknown>>> = {};
+export const createCacheKey = async <T>(name: string, { expires, key, persist, type, callback }: Options<T>) => {
+  const cacheDir = await storage.use('cache');
+  const store = await createStore<CacheStore>('cache');
+  const caches: Record<string, CacheData<unknown>> = {};
 
-const getStored = async <T>(name: string) => {
-  try {
-    const file = path.join(cacheDir, `${name}.json`);
-    const buf = await fs.readFile(file);
-    return JSON.parse(buf.toString()) as CacheData<T>;
-  } catch {
-    return;
-  }
-};
+  const dataFileName = `${name}.${type}`;
+  const dataFilePath = path.join(cacheDir, dataFileName);
 
-const store = async <T>(cache: CacheData<T>, name: string) => {
-  const file = path.join(cacheDir, `${name}.json`);
-  await fs.writeFile(file, JSON.stringify(cache));
-};
+  // we're trying to separate the data from the cache data to allow other than json files like xml ecc
+  // but they require different file extension so first seaprate them then we have to retrieve the data from the store config
+  // and serve it from the stored file
 
-export const cache = {
-  use: async <T>(name: string, callback: Callback<T>, options?: UseOptions): Promise<T> => {
-    const saved = options?.store ? await getStored(name) : caches[name];
-    const currentTime = Date.now();
+  const getStored = async () => {
+    const metadata = await store.get();
+    if (!metadata) return;
+    const buf = await fs.readFile(dataFilePath);
+    const data = type === 'json' ? (JSON.parse(buf.toString()) as CacheData<T>) : buf.toString();
+    return {
+      data,
+      timestamp: metadata.timestamp,
+      persist: true,
+      key: metadata.key,
+    };
+  };
 
-    if (!saved || options?.customId !== saved.customId || (options?.expires && currentTime - saved.timestamp > options.expires)) {
-      const cacheNew = {
-        data: await callback(),
-        timestamp: currentTime,
-        isStored: options?.store ?? false,
-      };
-      caches[name] = cacheNew;
+  const storeFile = async (data: T, timestamp: number) => {
+    await store.set({ id: name, key, timestamp, filename: dataFileName, type });
+    await fs.writeFile(dataFilePath, type === 'json' ? JSON.stringify(data) : (data as string));
+  };
 
-      if (options?.store) {
-        await store(cacheNew, name);
+  return {
+    query: async (): Promise<T> => {
+      const saved = persist ? await getStored() : caches[name];
+      const currentTime = Date.now();
+
+      if (!saved || key !== saved.key || (expires && currentTime - saved.timestamp > expires)) {
+        const data = await callback();
+        const cacheData = {
+          data,
+          timestamp: currentTime,
+          persist,
+          key,
+        };
+        caches[name] = cacheData;
+
+        if (persist) {
+          await storeFile(data, currentTime);
+        }
+
+        return data;
       }
-      return cacheNew.data;
-    }
 
-    return saved.data as T;
-  },
-  clear: async (name: string) => {
-    await fs.rm(path.join(cacheDir, `${name}.json`));
-    delete caches[name];
-  },
-  clearAll: () => {
-    for (const [key] of Object.entries(caches)) {
-      delete caches[key];
-    }
-    return fs.rm(cacheDir);
-  },
+      return saved.data as T;
+    },
+    invalidate: async () => {
+      await fs.rm(path.join(cacheDir, `${name}.json`));
+      await store.clear();
+      delete caches[name];
+    },
+  };
 };
