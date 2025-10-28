@@ -44,7 +44,7 @@
     "sanitize-filename": "1.6.3"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.16.0",
+    "@goatjs/node-monorepo-eslint": "^1.18.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.9.1",
