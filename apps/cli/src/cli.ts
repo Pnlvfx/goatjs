@@ -134,7 +134,7 @@ const run = async () => {
           th: { left: 720, top: 485, width: 70, height: 97 },
           ts: { left: 0, top: 676, width: 70, height: 97 },
         };
-        console.log({ deck: camelizeObject(deckSpriteKebab, { mergeAmbiguousCharacters: true }) });
+        console.log({ deck: camelizeObject(deckSpriteKebab) });
         break;
       }
     }
