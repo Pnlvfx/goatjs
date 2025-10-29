@@ -20,6 +20,7 @@
     "start": "node ."
   },
   "dependencies": {
+    "@goatjs/cache": "workspace:*",
     "@goatjs/core": "workspace:*",
     "@goatjs/storage": "workspace:*"
   },

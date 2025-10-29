@@ -1503,7 +1503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@goatjs/cache@workspace:packages/cache":
+"@goatjs/cache@workspace:*, @goatjs/cache@workspace:packages/cache":
   version: 0.0.0-use.local
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
@@ -1526,6 +1526,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/cli@workspace:apps/cli"
   dependencies:
+    "@goatjs/cache": "workspace:*"
     "@goatjs/core": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^1.18.0"
     "@goatjs/rimraf": "workspace:*"

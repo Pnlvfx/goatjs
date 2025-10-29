@@ -11,6 +11,7 @@ interface Options<T> {
   persist?: boolean;
   type: 'json' | 'xml' | 'html';
   callback: Callback<T>;
+  debug?: boolean;
 }
 
 interface CacheData<T> {
@@ -28,23 +29,19 @@ interface CacheStore {
   type: 'json' | 'xml' | 'html';
 }
 
-export const createCacheKey = async <T>(name: string, { expires, key, persist, type, callback }: Options<T>) => {
+export const createCacheKey = async <T>(name: string, { expires, key, persist, type, debug, callback }: Options<T>) => {
   const cacheDir = await storage.use('cache');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<unknown>> = {};
-
   const dataFileName = `${name}.${type}`;
   const dataFilePath = path.join(cacheDir, dataFileName);
-
-  // we're trying to separate the data from the cache data to allow other than json files like xml ecc
-  // but they require different file extension so first seaprate them then we have to retrieve the data from the store config
-  // and serve it from the stored file
 
   const getStored = async () => {
     const metadata = await store.get();
     if (!metadata) return;
     const buf = await fs.readFile(dataFilePath);
     const data = type === 'json' ? (JSON.parse(buf.toString()) as CacheData<T>) : buf.toString();
+
     return {
       data,
       timestamp: metadata.timestamp,
@@ -60,10 +57,18 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
 
   return {
     query: async (): Promise<T> => {
-      const saved = persist ? await getStored() : caches[name];
+      if (debug) {
+        // eslint-disable-next-line no-console
+        console.log('querying', name);
+      }
+      const saved = caches[name] ?? (persist ? await getStored() : undefined);
       const currentTime = Date.now();
 
       if (!saved || key !== saved.key || (expires && currentTime - saved.timestamp > expires)) {
+        if (debug) {
+          // eslint-disable-next-line no-console
+          console.log('CACHE MISS');
+        }
         const data = await callback();
         const cacheData = {
           data,
@@ -78,9 +83,13 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
         }
 
         return data;
+      } else {
+        if (debug) {
+          // eslint-disable-next-line no-console
+          console.log('CACHE HIT');
+        }
+        return saved.data as T;
       }
-
-      return saved.data as T;
     },
     invalidate: async () => {
       await fs.rm(path.join(cacheDir, `${name}.json`));

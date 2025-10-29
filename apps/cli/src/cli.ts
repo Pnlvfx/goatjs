@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { createCacheKey } from '@goatjs/cache';
 import { camelizeObject } from '@goatjs/core/object/camel';
 import { input } from '@goatjs/node/input';
 import { storage } from '@goatjs/storage';
@@ -135,6 +136,20 @@ const run = async () => {
           ts: { left: 0, top: 676, width: 70, height: 97 },
         };
         console.log({ deck: camelizeObject(deckSpriteKebab) });
+        break;
+      }
+      case '3': {
+        const persistentCacheStore = await createCacheKey('test', {
+          type: 'json',
+          callback: () => {
+            return ['2', '3', '4'];
+          },
+          key: 'test',
+          persist: true,
+          debug: true,
+        });
+
+        console.log(await persistentCacheStore.query());
         break;
       }
     }
