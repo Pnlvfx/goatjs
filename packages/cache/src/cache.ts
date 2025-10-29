@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
 import type { Callback } from '@goatjs/core/types';
 import { storage } from '@goatjs/storage';
+import { createStore } from '@goatjs/storage/store';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { createStore } from '@goatjs/storage/store';
+import { hasSameKeys } from './key.js';
 
 interface Options<T> {
-  key?: string;
-  expires?: number;
+  keys: string[];
+  expiresIn?: number;
   persist?: boolean;
   type: 'json' | 'xml' | 'html';
   callback: Callback<T>;
@@ -18,21 +19,21 @@ interface CacheData<T> {
   timestamp: number;
   data: T;
   persist?: boolean;
-  key?: string;
+  keys: string[];
 }
 
 interface CacheStore {
   id: string;
-  key: string;
+  keys: string[];
   timestamp: number;
   filename: string;
   type: 'json' | 'xml' | 'html';
 }
 
-export const createCacheKey = async <T>(name: string, { expires, key, persist, type, debug, callback }: Options<T>) => {
+export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist, type, debug, callback }: Options<T>) => {
   const cacheDir = await storage.use('cache');
   const store = await createStore<CacheStore>('cache');
-  const caches: Record<string, CacheData<unknown>> = {};
+  const caches: Record<string, CacheData<T>> = {};
   const dataFileName = `${name}.${type}`;
   const dataFilePath = path.join(cacheDir, dataFileName);
 
@@ -46,12 +47,12 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
       data,
       timestamp: metadata.timestamp,
       persist: true,
-      key: metadata.key,
+      keys: metadata.keys,
     };
   };
 
   const storeFile = async (data: T, timestamp: number) => {
-    await store.set({ id: name, key, timestamp, filename: dataFileName, type });
+    await store.set({ id: name, keys, timestamp, filename: dataFileName, type });
     await fs.writeFile(dataFilePath, type === 'json' ? JSON.stringify(data) : (data as string));
   };
 
@@ -64,7 +65,7 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
       const saved = caches[name] ?? (persist ? await getStored() : undefined);
       const currentTime = Date.now();
 
-      if (!saved || key !== saved.key || (expires && currentTime - saved.timestamp > expires)) {
+      if (!saved || !hasSameKeys(keys, saved.keys) || (expiresIn && currentTime - saved.timestamp > expiresIn)) {
         if (debug) {
           // eslint-disable-next-line no-console
           console.log('CACHE MISS');
@@ -74,7 +75,7 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
           data,
           timestamp: currentTime,
           persist,
-          key,
+          keys,
         };
         caches[name] = cacheData;
 
@@ -92,9 +93,9 @@ export const createCacheKey = async <T>(name: string, { expires, key, persist, t
       }
     },
     invalidate: async () => {
-      await fs.rm(path.join(cacheDir, `${name}.json`));
-      await store.clear();
       delete caches[name];
+      await fs.rm(dataFilePath);
+      await store.clear();
     },
   };
 };

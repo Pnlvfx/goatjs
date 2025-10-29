@@ -144,9 +144,10 @@ const run = async () => {
           callback: () => {
             return ['2', '3', '4'];
           },
-          key: 'test',
+          keys: ['test'],
           persist: true,
           debug: true,
+          expiresIn: 10 * 60 * 1000,
         });
 
         console.log(await persistentCacheStore.query());
