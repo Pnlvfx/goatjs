@@ -1516,9 +1516,6 @@ __metadata:
     eslint: "npm:^9.38.0"
     globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
-  peerDependencies:
-    "@goatjs/core": 1.36.0
-    "@goatjs/storage": 1.36.0
   languageName: unknown
   linkType: soft
 
