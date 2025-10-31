@@ -15,7 +15,6 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
   await safePublish({ monorepo });
 };
 
-// KEEP THIS AS A STANDALONE FUNCTION AS WE WANT TO GIT RESET ONLY IF IT FAIL WHILE PUBLISHING.
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
     await (monorepo ? yarn.workspace.runAll(['npm', 'publish']) : spawnWithLog('yarn', ['npm', 'publish']));

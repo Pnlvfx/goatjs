@@ -7,6 +7,7 @@ export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {
   await git.fetch();
   const { stdout } = await git.revList();
   const remoteChanges = toNumber(stdout);
+
   if (remoteChanges > 0) {
     const text = await input.create({
       title: 'You have remote changes to pull, please send "ok" if you want to run git pull or do it manually yourself.',
@@ -16,6 +17,7 @@ export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {
     }
   }
   const localChanges = await git.status({ porcelain: true });
+
   if (localChanges) {
     const text = await input.create({
       title: 'You have uncommitted changes, insert a valid git message here to let us commit for you. An empty message will abort the operation.',
