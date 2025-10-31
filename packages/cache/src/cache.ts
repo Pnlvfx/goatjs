@@ -6,7 +6,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import { hasSameKeys } from './key.js';
 
-interface Options<T> {
+export interface CacheOptions<T> {
   keys: string[];
   expiresIn?: number;
   persist?: boolean;
@@ -15,7 +15,7 @@ interface Options<T> {
   debug?: boolean;
 }
 
-interface CacheData<T> {
+export interface CacheData<T> {
   timestamp: number;
   data: T;
   persist?: boolean;
@@ -30,7 +30,7 @@ interface CacheStore {
   type: 'json' | 'xml' | 'html';
 }
 
-export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist, type, debug, callback }: Options<T>) => {
+export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist, type, debug, callback }: CacheOptions<T>) => {
   const cacheDir = await storage.use('cached');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<T>> = {};
