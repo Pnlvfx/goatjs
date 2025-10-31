@@ -3,10 +3,9 @@ import path from 'node:path';
 import { storage } from './storage.js';
 
 const projectRoot = await storage.use('store');
-// await fs.rm(projectRoot, { recursive: true, force: true });
 
 /** This mimic the browser localStorage and allow you to store
- * primitives on disk.
+ *  primitives on disk.
  */
 export const createStore = async <T extends object>(name: string) => {
   const root = path.join(projectRoot, name);
@@ -35,6 +34,7 @@ export const createStore = async <T extends object>(name: string) => {
         if (!buf) return;
         currentConfig = JSON.parse(buf.toString()) as T;
       }
+
       return currentConfig;
     },
     set: async (configs: Partial<T>) => {
@@ -44,6 +44,7 @@ export const createStore = async <T extends object>(name: string) => {
     },
     clear: async () => {
       await fs.rm(configFile);
+      currentConfig = undefined;
     },
   };
 };

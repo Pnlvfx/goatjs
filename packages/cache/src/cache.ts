@@ -31,7 +31,7 @@ interface CacheStore {
 }
 
 export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist, type, debug, callback }: Options<T>) => {
-  const cacheDir = await storage.use('cache');
+  const cacheDir = await storage.use('cached');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<T>> = {};
   const dataFileName = `${name}.${type}`;
