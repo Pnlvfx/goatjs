@@ -52,8 +52,8 @@
   },
   "peerDependencies": {
     "@goatjs/download": "workspace:*",
-    "@goatjs/node": "1.38.0",
-    "@goatjs/rimraf": "1.38.0",
+    "@goatjs/node": "1.39.0",
+    "@goatjs/rimraf": "1.39.0",
     "zod": "*"
   },
   "peerDependenciesMeta": {
