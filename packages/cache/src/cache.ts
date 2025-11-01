@@ -26,7 +26,6 @@ interface CacheStore {
   id: string;
   keys: string[];
   timestamp: number;
-  filename: string;
   type: 'json' | 'xml' | 'html';
 }
 
@@ -34,6 +33,7 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
   const cacheDir = await storage.use('cached');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<T>> = {};
+
   const dataFileName = `${name}.${type}`;
   const dataFilePath = path.join(cacheDir, dataFileName);
 
@@ -52,7 +52,7 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
   };
 
   const storeFile = async (data: T, timestamp: number) => {
-    await store.set({ id: name, keys, timestamp, filename: dataFileName, type });
+    await store.set({ id: name, keys, timestamp, type });
     await fs.writeFile(dataFilePath, type === 'json' ? JSON.stringify(data) : (data as string));
   };
 
@@ -94,7 +94,9 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
     },
     invalidate: async () => {
       delete caches[name];
-      await fs.rm(dataFilePath);
+      try {
+        await fs.rm(dataFilePath);
+      } catch {}
       await store.clear();
     },
   };

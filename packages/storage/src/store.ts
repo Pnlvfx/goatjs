@@ -34,7 +34,6 @@ export const createStore = async <T extends object>(name: string) => {
         if (!buf) return;
         currentConfig = JSON.parse(buf.toString()) as T;
       }
-
       return currentConfig;
     },
     set: async (configs: Partial<T>) => {
