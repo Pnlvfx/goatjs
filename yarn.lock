@@ -1514,7 +1514,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -1558,7 +1557,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -1574,7 +1572,6 @@ __metadata:
     "@types/node": "npm:^24.9.2"
     "@types/yargs": "npm:^17.0.34"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
     yargs: "npm:^18.0.0"
   bin:
@@ -1591,7 +1588,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -1607,7 +1603,6 @@ __metadata:
     "@types/mime-types": "npm:^3.0.1"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     mime-types: "npm:^3.0.1"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -1626,7 +1621,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
     zod: "npm:^4.1.12"
   peerDependencies:
@@ -1653,7 +1647,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     html-metadata-parser: "npm:^2.0.4"
     typescript: "npm:^5.9.3"
   languageName: unknown
@@ -1688,7 +1681,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     sanitize-filename: "npm:1.6.3"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -1708,7 +1700,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
   languageName: unknown
   linkType: soft
@@ -1722,7 +1713,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     puppeteer-core: "npm:^24.27.0"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -1738,7 +1728,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
   bin:
@@ -1756,7 +1745,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
   peerDependencies:
     "@goatjs/node": "*"
@@ -1772,7 +1760,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     ts-unused-exports: "npm:^11.0.1"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -1797,7 +1784,6 @@ __metadata:
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.9.2"
     eslint: "npm:^9.38.0"
-    globals: "npm:^16.4.0"
     typescript: "npm:^5.9.3"
     zod: "npm:^4.1.12"
   peerDependencies:
