@@ -1,12 +1,13 @@
 import type { ExecaOptions, ExecaProcess } from '../execa.js';
 import { spawn } from 'node:child_process';
 import os from 'node:os';
+import { isProduction } from './prod.js';
 
 const platform = os.platform();
 
 export const spawnWithLog = (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
-    const child = spawn(command, args, { stdio: 'inherit', shell: platform === 'win32', cwd });
+    const child = spawn(command, args, { stdio: isProduction ? undefined : 'inherit', shell: platform === 'win32', cwd });
     child.on('error', reject);
 
     let stderr = '';
