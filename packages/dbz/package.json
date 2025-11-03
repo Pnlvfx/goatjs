@@ -46,9 +46,9 @@
   "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.19.0",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^24.9.2",
+    "@types/node": "^24.10.0",
     "@types/yargs": "^17.0.34",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.1",
     "typescript": "^5.9.3"
   },
   "bin": "dist/cli.js"
