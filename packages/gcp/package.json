@@ -42,10 +42,10 @@
   "devDependencies": {
     "@goatjs/download": "workspace:*",
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^1.19.0",
+    "@goatjs/node-monorepo-eslint": "^1.21.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3",
     "zod": "^4.1.12"

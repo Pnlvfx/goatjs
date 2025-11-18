@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
-import type { Callback } from '@goatjs/core/types';
+import type { Callback } from '@goatjs/core/types/callback';
 import { storage } from '@goatjs/storage';
 import { createStore } from '@goatjs/storage/store';
 import path from 'node:path';

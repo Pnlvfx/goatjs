@@ -1,4 +1,4 @@
-import type { Callback } from './types.js';
+import type { Callback } from './types/callback.js';
 import { parseError } from './error.js';
 import { wait } from './wait.js';
 
