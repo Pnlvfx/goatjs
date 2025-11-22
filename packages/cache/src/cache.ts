@@ -6,12 +6,12 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import { hasSameKeys } from './key.js';
 
-export interface CacheOptions<T> {
+export interface CacheOptions<T, P extends unknown[]> {
   keys: string[];
   expiresIn?: number;
   persist?: boolean;
   type: 'json' | 'xml' | 'html';
-  callback: Callback<T>;
+  callback: Callback<T, P>;
   debug?: boolean;
 }
 
@@ -29,7 +29,10 @@ interface CacheStore {
   type: 'json' | 'xml' | 'html';
 }
 
-export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist, type, debug, callback }: CacheOptions<T>) => {
+export const createCacheKey = async <T, P extends unknown[]>(
+  name: string,
+  { expiresIn, keys, persist, type, debug, callback }: CacheOptions<T, P>,
+) => {
   const cacheDir = await storage.use('cached');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<T>> = {};
@@ -57,7 +60,7 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
   };
 
   return {
-    query: async (): Promise<T> => {
+    query: async (...params: P): Promise<T> => {
       if (debug) {
         // eslint-disable-next-line no-console
         console.log('querying', name);
@@ -70,7 +73,7 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
           // eslint-disable-next-line no-console
           console.log('CACHE MISS');
         }
-        const data = await callback();
+        const data = await callback(...params);
         const cacheData = {
           data,
           timestamp: currentTime,
@@ -101,3 +104,15 @@ export const createCacheKey = async <T>(name: string, { expiresIn, keys, persist
     },
   };
 };
+
+// const test = await createCacheKey('test', {
+//   keys: ['test'],
+//   callback: ({ number }: { number: number }) => {
+//     return number;
+//   },
+//   type: 'html',
+//   debug: true,
+//   expiresIn: 0,
+// });
+
+// const data = await test.query({ number: 0 });
