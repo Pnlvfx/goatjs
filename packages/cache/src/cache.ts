@@ -11,7 +11,7 @@ export interface CacheOptions<T, P extends unknown[]> {
   expiresIn?: number;
   persist?: boolean;
   type: 'json' | 'xml' | 'html';
-  callback: Callback<T, P>;
+  fn: Callback<T, P>;
   debug?: boolean;
 }
 
@@ -29,10 +29,7 @@ interface CacheStore {
   type: 'json' | 'xml' | 'html';
 }
 
-export const createCacheKey = async <T, P extends unknown[]>(
-  name: string,
-  { expiresIn, keys, persist, type, debug, callback }: CacheOptions<T, P>,
-) => {
+export const createCacheKey = async <T, P extends unknown[]>(name: string, { expiresIn, keys, persist, type, debug, fn }: CacheOptions<T, P>) => {
   const cacheDir = await storage.use('cached');
   const store = await createStore<CacheStore>('cache');
   const caches: Record<string, CacheData<T>> = {};
@@ -73,7 +70,7 @@ export const createCacheKey = async <T, P extends unknown[]>(
           // eslint-disable-next-line no-console
           console.log('CACHE MISS');
         }
-        const data = await callback(...params);
+        const data = await fn(...params);
         const cacheData = {
           data,
           timestamp: currentTime,

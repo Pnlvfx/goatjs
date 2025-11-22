@@ -141,7 +141,7 @@ const run = async () => {
       case '3': {
         const persistentCacheStore = await createCacheKey('test', {
           type: 'json',
-          callback: () => {
+          fn: () => {
             return ['2', '3', '4'];
           },
           keys: ['test'],
