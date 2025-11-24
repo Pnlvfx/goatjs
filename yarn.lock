@@ -1606,7 +1606,7 @@ __metadata:
     mime-types: "npm:^3.0.2"
     typescript: "npm:^5.9.3"
   peerDependencies:
-    "@goatjs/node": 1.42.0
+    "@goatjs/node": 1.43.0
   languageName: unknown
   linkType: soft
 
@@ -1625,8 +1625,8 @@ __metadata:
     zod: "npm:^4.1.13"
   peerDependencies:
     "@goatjs/download": "workspace:*"
-    "@goatjs/node": 1.42.0
-    "@goatjs/rimraf": 1.42.0
+    "@goatjs/node": 1.43.0
+    "@goatjs/rimraf": 1.43.0
     zod: "*"
   peerDependenciesMeta:
     "@goatjs/download":
