@@ -101,15 +101,3 @@ export const createCacheKey = async <T, P extends unknown[]>(name: string, { exp
     },
   };
 };
-
-// const test = await createCacheKey('test', {
-//   keys: ['test'],
-//   callback: ({ number }: { number: number }) => {
-//     return number;
-//   },
-//   type: 'html',
-//   debug: true,
-//   expiresIn: 0,
-// });
-
-// const data = await test.query({ number: 0 });
