@@ -3,7 +3,7 @@ export const numberToString = <K extends number>(number: K) => number.toString()
 // most of the time we do if (!) on a number
 // which will also affect 0 and maybe other numbers,
 // this will correctly check
-export const isNumber = (value: string | number | undefined | null) => {
+export const isNumber = (value: string | number | undefined | null): value is number => {
   if (typeof value === 'number') return true;
   if (value === undefined || value === null) return false;
   try {
