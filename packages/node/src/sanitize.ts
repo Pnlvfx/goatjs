@@ -1,6 +1,6 @@
 import nativeSanitize from 'sanitize-filename';
 
-// TODO [2025-12-30] use this and remove sanitize-filename (note that actually it doesn't work!)
+// TODO [2026-12-30] use this and remove sanitize-filename (note that actually it doesn't work!)
 
 // const illegalRe = /["*/:<>?\\|]/g;
 // const controlRe = /[\u0000-\u001F\u0080-\u009F]/g;
