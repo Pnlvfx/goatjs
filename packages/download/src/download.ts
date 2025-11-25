@@ -60,7 +60,7 @@ const getFileNameFromContentDisposition = (contentDisposition: string | null) =>
 const getFileNameFromContentType = (url: string, contentType: string | null) => {
   if (!contentType) return;
   const extension = mime.extension(contentType);
-  if (!extension) return;
+  if (extension === false) return;
   const withoutExt = removeExtension(path.basename(url));
   return `${withoutExt}.${extension}`;
 };

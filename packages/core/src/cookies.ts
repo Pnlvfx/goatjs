@@ -10,9 +10,9 @@ export const getDomainFromUrl = (url: string) => {
   let i = 0;
 
   // Find end offset of domain
-  while (len-- && ++i) {
+  while (len-- !== 0 && ++i !== 0) {
     const u = url[i];
-    if (domainInc && u && endings.has(u)) {
+    if (domainInc !== 0 && u && endings.has(u)) {
       break;
     }
 
@@ -30,7 +30,7 @@ export const getDomainFromUrl = (url: string) => {
   i = offsetDomain;
 
   // Find offset before domain name.
-  while (i--) {
+  while (i-- !== 0) {
     const u = url[i];
     // Look for sub domain, protocol or basic auth
     if (!u || !starters.has(u)) {

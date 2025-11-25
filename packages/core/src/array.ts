@@ -13,7 +13,6 @@ export const shuffleArray = (array: unknown[]) => {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
     const val = array.at(j);
-    if (!temp || !val) throw new Error('Something went wrong');
     array[i] = val;
     array[j] = temp;
   }

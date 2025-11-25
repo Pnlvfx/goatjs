@@ -8,7 +8,7 @@ export interface ListItem {
 
 interface YarnConfig {
   key: string;
-  effective: string;
+  effective: string | null;
   source: string;
   description: string;
   type: 'STRING';
@@ -38,7 +38,7 @@ export const yarn = {
     get: async (name: string) => {
       const { stdout } = await execAsync(`yarn config ${name} --json`);
       const json = JSON.parse(stdout) as YarnConfig;
-      return json.effective;
+      return json.effective ?? undefined;
     },
     set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
   },

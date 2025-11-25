@@ -1,6 +1,8 @@
 export const isUrl = (str: string) => {
   try {
-    return !!new URL(str);
+    // eslint-disable-next-line no-new
+    new URL(str);
+    return true;
   } catch {
     return false;
   }

@@ -2,8 +2,6 @@ import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.js';
 import { isValidYarnVersion } from './dbz/publish.js';
 import { dbz } from './dbz/index.js';
-import { spawnWithLog } from '@goatjs/node/dev/spawn';
-import { yarn } from '@goatjs/node/yarn';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -35,8 +33,7 @@ await yargs(hideBin(process.argv))
     },
     async (argv) => {
       const pkgName = argv.package ?? getNextArg(hideBin(process.argv).slice(1), false);
-      const registry = await yarn.config.get('npmPublishRegistry');
-      await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', registry]);
+      await dbz.unpublish(pkgName);
     },
   )
   .command('clear', 'Clear the project', {}, async () => {

@@ -30,5 +30,11 @@ export const dbz = {
     await git.push();
     await clear();
   },
+  unpublish: async (pkgName: string) => {
+    const npmScopes = await yarn.config.get('npmScopes');
+    const registry = npmScopes; // yarn with json doesn't give us the publish registry,
+    if (!registry) throw new Error('Registry not found!');
+    await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', registry]);
+  },
   clear,
 };

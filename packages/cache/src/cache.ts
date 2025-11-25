@@ -65,7 +65,7 @@ export const createCacheKey = async <T, P extends unknown[]>(name: string, { exp
       const saved = caches[name] ?? (persist ? await getStored() : undefined);
       const currentTime = Date.now();
 
-      if (!saved || !hasSameKeys(keys, saved.keys) || (expiresIn && currentTime - saved.timestamp > expiresIn)) {
+      if (!saved || !hasSameKeys(keys, saved.keys) || (expiresIn !== undefined && currentTime - saved.timestamp > expiresIn)) {
         if (debug) {
           // eslint-disable-next-line no-console
           console.log('CACHE MISS');

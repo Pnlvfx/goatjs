@@ -65,7 +65,7 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       if (hard) {
         command += ' --hard';
       }
-      if (amount) {
+      if (amount !== undefined) {
         command += ` HEAD~${amount.toString()}`;
       }
       return runGitCommand(command);

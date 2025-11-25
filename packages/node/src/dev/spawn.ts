@@ -25,7 +25,7 @@ export const spawnWithLog = (command: string, args: string[] = [], { cwd }: Exec
       if (code === 0) {
         resolve({ stderr, stdout });
       } else {
-        const parts = [`command ${command} ${args.join(' ')} failed`, stderr || stdout, code ? `with code ${code.toString()}` : ''];
+        const parts = [`command ${command} ${args.join(' ')} failed`, stderr || stdout, code === null ? '' : `with code ${code.toString()}`];
         reject(new Error(parts.filter(Boolean).join(' ')));
       }
     });

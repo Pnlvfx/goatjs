@@ -3,6 +3,7 @@ import { createCacheKey } from '@goatjs/cache';
 import { camelizeObject } from '@goatjs/core/object/camel';
 import { input } from '@goatjs/node/input';
 import { storage } from '@goatjs/storage';
+import { dbz } from '@goatjs/dbz/dbz';
 
 const run = async () => {
   try {
@@ -152,6 +153,9 @@ const run = async () => {
 
         console.log(await persistentCacheStore.query());
         break;
+      }
+      case '4': {
+        await dbz.unpublish('@poker/replayer-images');
       }
     }
   } catch (err) {

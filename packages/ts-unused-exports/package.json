@@ -38,7 +38,7 @@
     "ts-unused-exports": "^11.0.1"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.22.0",
+    "@goatjs/node-monorepo-eslint": "^1.25.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^24.10.1",
