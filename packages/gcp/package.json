@@ -39,9 +39,12 @@
     "LICENSE",
     "README.md"
   ],
-  "devDependencies": {
+  "dependencies": {
+    "@goatjs/dbz": "workspace:*",
     "@goatjs/download": "workspace:*",
-    "@goatjs/node": "workspace:*",
+    "@goatjs/node": "workspace:*"
+  },
+  "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.25.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
@@ -51,20 +54,7 @@
     "zod": "^4.1.13"
   },
   "peerDependencies": {
-    "@goatjs/download": "workspace:*",
-    "@goatjs/node": "1.43.0",
-    "@goatjs/rimraf": "1.43.0",
+    "@goatjs/rimraf": "*",
     "zod": "*"
-  },
-  "peerDependenciesMeta": {
-    "@goatjs/download": {
-      "optional": true
-    },
-    "@goatjs/rimraf": {
-      "optional": true
-    },
-    "zod": {
-      "optional": true
-    }
   }
 }

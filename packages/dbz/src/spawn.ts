@@ -1,7 +1,7 @@
-import type { ExecaOptions, ExecaProcess } from '../execa.js';
+import type { ExecaOptions, ExecaProcess } from '@goatjs/node/execa';
+import { isProduction } from '@goatjs/node/prod';
 import { spawn } from 'node:child_process';
 import os from 'node:os';
-import { isProduction } from './prod.js';
 
 const platform = os.platform();
 

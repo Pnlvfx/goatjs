@@ -1,5 +1,6 @@
-import { execAsync } from './exec.js';
-import { spawnWithLog } from './dev/spawn.js';
+import { execa } from '@goatjs/node/execa';
+import { spawnWithLog } from './spawn.js';
+import { getRootPkgJSON } from '@goatjs/node/package-json';
 
 export interface ListItem {
   location: string;
@@ -24,7 +25,7 @@ const workspace = {
     return spawnWithLog('yarn', [...args, ...command]);
   },
   list: async () => {
-    const { stdout } = await execAsync('yarn workspaces list --json');
+    const { stdout } = await execa('yarn', ['workspaces', 'list', '--json']);
     return stdout
       .trim()
       .split('\n')
@@ -33,10 +34,14 @@ const workspace = {
 };
 
 export const yarn = {
+  isMonorepo: async () => {
+    const pkg = await getRootPkgJSON();
+    return Array.isArray(pkg.workspaces);
+  },
   workspace,
   config: {
     get: async (name: string) => {
-      const { stdout } = await execAsync(`yarn config ${name} --json`);
+      const { stdout } = await execa('yarn', ['config', name, '--json']);
       const json = JSON.parse(stdout) as YarnConfig;
       return json.effective ?? undefined;
     },

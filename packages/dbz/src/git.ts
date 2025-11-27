@@ -1,6 +1,6 @@
-import { createGitClient } from '../git.js';
-import { input } from '../input.js';
 import { toNumber } from '@goatjs/core/number';
+import { createGitClient } from '@goatjs/node/git';
+import { input } from '@goatjs/node/input';
 
 export const checkGitStatus = async ({ cwd }: { cwd?: string } = {}) => {
   const git = createGitClient({ cwd });

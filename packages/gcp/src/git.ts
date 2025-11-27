@@ -2,8 +2,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execAsync } from '@goatjs/node/exec';
-import { checkGitStatus } from '@goatjs/node/dev/git';
 import { createGitClient } from '@goatjs/node/git';
+import { checkGitStatus } from '@goatjs/dbz/git';
 
 export interface PrivateGitParams {
   /** Where to store the generated tarball. */

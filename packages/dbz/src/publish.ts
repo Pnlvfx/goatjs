@@ -1,6 +1,6 @@
-import { spawnWithLog } from '@goatjs/node/dev/spawn';
 import { execAsync } from '@goatjs/node/exec';
-import { yarn } from '@goatjs/node/yarn';
+import { yarn } from './yarn.js';
+import { spawnWithLog } from './spawn.js';
 
 export interface PublishOptions {
   version?: YarnVersion;

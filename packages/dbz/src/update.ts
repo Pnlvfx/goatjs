@@ -1,4 +1,4 @@
-import { spawnWithLog } from '@goatjs/node/dev/spawn';
+import { spawnWithLog } from './spawn.js';
 
 export const updateUnversionedDeps = async (packages: Record<string, string>) => {
   const deps = Object.entries(packages).map(([name, version]) => `${name}@${version}`);

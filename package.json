@@ -26,10 +26,10 @@
     "@goatjs/dbz": "workspace:*",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@nx/js": "^22.1.1",
+    "@nx/js": "^22.1.2",
     "@types/yargs": "^17.0.35",
-    "nx": "22.1.1",
-    "prettier": "^3.6.2",
+    "nx": "22.1.2",
+    "prettier": "^3.7.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "yargs": "^18.0.0"

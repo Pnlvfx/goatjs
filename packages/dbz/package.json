@@ -14,13 +14,13 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./*": "./src/*/index.ts"
+    "./*": "./src/*.ts"
   },
   "publishConfig": {
     "exports": {
       "./*": {
-        "types": "./dist/*/index.d.ts",
-        "import": "./dist/*/index.js"
+        "types": "./dist/*.d.ts",
+        "import": "./dist/*.js"
       }
     }
   },
