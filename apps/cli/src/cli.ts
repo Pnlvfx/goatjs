@@ -4,6 +4,7 @@ import { camelizeObject } from '@goatjs/core/object/camel';
 import { input } from '@goatjs/node/input';
 import { storage } from '@goatjs/storage';
 import { dbz } from '@goatjs/dbz/dbz';
+import { getProjectTsConfig } from '@goatjs/dbz/typescript/read';
 
 const run = async () => {
   try {
@@ -156,6 +157,11 @@ const run = async () => {
       }
       case '4': {
         await dbz.unpublish('@poker/replayer-images');
+        break;
+      }
+      case '5': {
+        const tsConfigs = getProjectTsConfig();
+        console.log({ tsConfigs });
       }
     }
   } catch (err) {

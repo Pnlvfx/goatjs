@@ -3,7 +3,7 @@ import path from 'node:path';
 import ts from 'typescript';
 
 export const getProjectTsConfig = () => {
-  const tsconfigPath = 'tsconfig.build.json';
+  const tsconfigPath = path.resolve(process.cwd(), 'tsconfig.build.json');
   const configFile = ts.readConfigFile(tsconfigPath, (path) => ts.sys.readFile(path));
 
   if (configFile.error) {
