@@ -5,6 +5,7 @@ import { input } from '@goatjs/node/input';
 import { storage } from '@goatjs/storage';
 import { dbz } from '@goatjs/dbz/dbz';
 import { getProjectTsConfig } from '@goatjs/dbz/typescript/read';
+import { deepStrictEqual } from '@goatjs/deep-diff/assert';
 
 const run = async () => {
   try {
@@ -162,6 +163,11 @@ const run = async () => {
       case '5': {
         const tsConfigs = getProjectTsConfig();
         console.log({ tsConfigs });
+        break;
+      }
+      case '6': {
+        deepStrictEqual({ name: 'john', age: 10 }, { name: 'joh', age: 10 });
+        break;
       }
     }
   } catch (err) {

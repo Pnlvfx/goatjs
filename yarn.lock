@@ -1508,7 +1508,7 @@ __metadata:
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -1525,7 +1525,8 @@ __metadata:
     "@goatjs/cache": "workspace:*"
     "@goatjs/core": "workspace:*"
     "@goatjs/dbz": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/deep-diff": "workspace:*"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
@@ -1536,16 +1537,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/core-eslint@npm:1.25.0":
-  version: 1.25.0
-  resolution: "@goatjs/core-eslint@npm:1.25.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fcore-eslint%2F-%2F%40goatjs%2Fcore-eslint-1.25.0.tgz"
+"@goatjs/core-eslint@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@goatjs/core-eslint@npm:1.26.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fcore-eslint%2F-%2F%40goatjs%2Fcore-eslint-1.26.0.tgz"
   dependencies:
     "@eslint/js": "npm:^9.39.1"
     eslint-plugin-import-zod: "npm:^1.2.1"
     eslint-plugin-sonarjs: "npm:^3.0.5"
     eslint-plugin-unicorn: "npm:^62.0.0"
     typescript-eslint: "npm:^8.48.0"
-  checksum: 10c0/6dec859a4066e7e4c55abbcad4c9f35aa4294e64ebb30aa4a14bb8aff79a26d2d9867d762c556832fa01230982c5df6e44dba1161ec6733f5cf7f2f26bd1fe1f
+  checksum: 10c0/b51c7009790971f6fa94ca0549032bd41ce3ae26035c0d2581628b2fb63446b46d175f4fd98760023d3a2aad7730512b2d8d9c2871fa6fcbc0196c9aa9defff9
   languageName: node
   linkType: hard
 
@@ -1553,7 +1554,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1567,7 +1568,7 @@ __metadata:
   resolution: "@goatjs/dbz@workspace:packages/dbz"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1580,11 +1581,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/deep-diff@workspace:packages/deep-diff":
+"@goatjs/deep-diff@workspace:*, @goatjs/deep-diff@workspace:packages/deep-diff":
   version: 0.0.0-use.local
   resolution: "@goatjs/deep-diff@workspace:packages/deep-diff"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1598,7 +1599,7 @@ __metadata:
   resolution: "@goatjs/download@workspace:packages/download"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/mime-types": "npm:^3.0.1"
@@ -1618,7 +1619,7 @@ __metadata:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/download": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1635,7 +1636,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1645,22 +1646,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/node-eslint@npm:1.25.0":
-  version: 1.25.0
-  resolution: "@goatjs/node-eslint@npm:1.25.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-1.25.0.tgz"
+"@goatjs/node-eslint@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@goatjs/node-eslint@npm:1.26.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-1.26.0.tgz"
   dependencies:
-    "@goatjs/core-eslint": "npm:1.25.0"
+    "@goatjs/core-eslint": "npm:1.26.0"
     globals: "npm:^16.5.0"
-  checksum: 10c0/6aaac57dea74524f431422bdd0b672ec851ecde0aa8179b89be67e1b87fe56d24c9a699c82a329e4d7d43e87a588c5e5533bbb6e41fa9fbb8934dfd753c9a66a
+  checksum: 10c0/212f29f861677566d912f395f0ddd02959a92962b9d52cda815760bccd9c75ce30330bea41cd01f3dc47c9eaa6150016181a9e1eb9f03f94af342bbf73c7c908
   languageName: node
   linkType: hard
 
-"@goatjs/node-monorepo-eslint@npm:^1.25.0":
-  version: 1.25.0
-  resolution: "@goatjs/node-monorepo-eslint@npm:1.25.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-1.25.0.tgz"
+"@goatjs/node-monorepo-eslint@npm:^1.26.0":
+  version: 1.26.0
+  resolution: "@goatjs/node-monorepo-eslint@npm:1.26.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-1.26.0.tgz"
   dependencies:
-    "@goatjs/node-eslint": "npm:1.25.0"
-  checksum: 10c0/0177e4b397c09ecd149319d0fd457edcede27c6f1a55e7cd1644598bc7662281436ebeb22b926f8a34afe29ca733f57a1ae0c304c1ac6c95328a4e5fe7990ad9
+    "@goatjs/node-eslint": "npm:1.26.0"
+  checksum: 10c0/01aae0cc3b033ade20ace99a7c4f13861fc0fea6fff86bf680b1d995d701583c2dde77574c0819072d5fd4a2b2efd29d747d04efbf3ad064beb3c8d7a9cd5fac
   languageName: node
   linkType: hard
 
@@ -1669,12 +1670,12 @@ __metadata:
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
     eslint: "npm:^9.39.1"
-    prettier: "npm:^3.7.0"
+    prettier: "npm:^3.7.3"
     sanitize-filename: "npm:1.6.3"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -1689,7 +1690,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1702,7 +1703,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1718,7 +1719,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
     eslint: "npm:^9.39.1"
@@ -1734,7 +1735,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1749,7 +1750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1773,7 +1774,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/zod-error@workspace:packages/zod-error"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^1.25.0"
+    "@goatjs/node-monorepo-eslint": "npm:^1.26.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^24.10.1"
@@ -1927,9 +1928,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/devkit@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/devkit@npm:22.1.2"
+"@nx/devkit@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/devkit@npm:22.1.3"
   dependencies:
     "@zkochan/js-yaml": "npm:0.0.7"
     ejs: "npm:^3.1.7"
@@ -1940,13 +1941,13 @@ __metadata:
     yargs-parser: "npm:21.1.1"
   peerDependencies:
     nx: ">= 21 <= 23 || ^22.0.0-0"
-  checksum: 10c0/f20d74af08a69b4b89d4026b563c23730c75f298125000102e49accce814d7a134d5c0f6c8ef49dbfc9b52538c0f272395be4bb59dea2609746bfa69d2197316
+  checksum: 10c0/9b75154962edf6b1aeee4392c1db5218964ed95eb0b5cc66f499c802acd957789fef2551964dac21682768f78552502bdb43bfe5f364b89dbd9f8ecb637e2e42
   languageName: node
   linkType: hard
 
-"@nx/js@npm:^22.1.2":
-  version: 22.1.2
-  resolution: "@nx/js@npm:22.1.2"
+"@nx/js@npm:^22.1.3":
+  version: 22.1.3
+  resolution: "@nx/js@npm:22.1.3"
   dependencies:
     "@babel/core": "npm:^7.23.2"
     "@babel/plugin-proposal-decorators": "npm:^7.22.7"
@@ -1955,8 +1956,8 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/preset-typescript": "npm:^7.22.5"
     "@babel/runtime": "npm:^7.22.6"
-    "@nx/devkit": "npm:22.1.2"
-    "@nx/workspace": "npm:22.1.2"
+    "@nx/devkit": "npm:22.1.3"
+    "@nx/workspace": "npm:22.1.3"
     "@zkochan/js-yaml": "npm:0.0.7"
     babel-plugin-const-enum: "npm:^1.0.1"
     babel-plugin-macros: "npm:^3.1.0"
@@ -1979,94 +1980,94 @@ __metadata:
   peerDependenciesMeta:
     verdaccio:
       optional: true
-  checksum: 10c0/75e08c15bf9e7c9538732d6d0e5cc29bcddb6944cf9e8462a15ee27c72e6d1ead3b00c49e95b29c50ec96656f36719965b6c2e6d4c58f14ee53e23161e5c0448
+  checksum: 10c0/b62db9ce14f076b4d3168da418316575d2a39674575b1039c07e4018ea88e614927c2559d01b1fd86177ca7fc9f9ee8519201114cbc5d98c30ff633ab72da97d
   languageName: node
   linkType: hard
 
-"@nx/nx-darwin-arm64@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-darwin-arm64@npm:22.1.2"
+"@nx/nx-darwin-arm64@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-darwin-arm64@npm:22.1.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nx/nx-darwin-x64@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-darwin-x64@npm:22.1.2"
+"@nx/nx-darwin-x64@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-darwin-x64@npm:22.1.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/nx-freebsd-x64@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-freebsd-x64@npm:22.1.2"
+"@nx/nx-freebsd-x64@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-freebsd-x64@npm:22.1.3"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm-gnueabihf@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-linux-arm-gnueabihf@npm:22.1.2"
+"@nx/nx-linux-arm-gnueabihf@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-linux-arm-gnueabihf@npm:22.1.3"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm64-gnu@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-linux-arm64-gnu@npm:22.1.2"
+"@nx/nx-linux-arm64-gnu@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-linux-arm64-gnu@npm:22.1.3"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-arm64-musl@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-linux-arm64-musl@npm:22.1.2"
+"@nx/nx-linux-arm64-musl@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-linux-arm64-musl@npm:22.1.3"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-x64-gnu@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-linux-x64-gnu@npm:22.1.2"
+"@nx/nx-linux-x64-gnu@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-linux-x64-gnu@npm:22.1.3"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@nx/nx-linux-x64-musl@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-linux-x64-musl@npm:22.1.2"
+"@nx/nx-linux-x64-musl@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-linux-x64-musl@npm:22.1.3"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@nx/nx-win32-arm64-msvc@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-win32-arm64-msvc@npm:22.1.2"
+"@nx/nx-win32-arm64-msvc@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-win32-arm64-msvc@npm:22.1.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@nx/nx-win32-x64-msvc@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/nx-win32-x64-msvc@npm:22.1.2"
+"@nx/nx-win32-x64-msvc@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/nx-win32-x64-msvc@npm:22.1.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@nx/workspace@npm:22.1.2":
-  version: 22.1.2
-  resolution: "@nx/workspace@npm:22.1.2"
+"@nx/workspace@npm:22.1.3":
+  version: 22.1.3
+  resolution: "@nx/workspace@npm:22.1.3"
   dependencies:
-    "@nx/devkit": "npm:22.1.2"
+    "@nx/devkit": "npm:22.1.3"
     "@zkochan/js-yaml": "npm:0.0.7"
     chalk: "npm:^4.1.0"
     enquirer: "npm:~2.3.6"
-    nx: "npm:22.1.2"
+    nx: "npm:22.1.3"
     picomatch: "npm:4.0.2"
     semver: "npm:^7.6.3"
     tslib: "npm:^2.3.0"
     yargs-parser: "npm:21.1.1"
-  checksum: 10c0/ede46332c2f62a74759afe8d59ae1fecb991d0cf810101cf9a584c5bdbd4bde6541a983a7f9fad176040e33d03b24822eb7ccad4affbd69b5df7b3b9cd4cabb7
+  checksum: 10c0/0e67d7bd353f749dab4b7a3f55fc84586b38281a6591454b6a0594f7c33602c8c2121d138c434818b2c19241928200d103155f9b3d7b55eae30383b7314b222c
   languageName: node
   linkType: hard
 
@@ -3991,10 +3992,10 @@ __metadata:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
-    "@nx/js": "npm:^22.1.2"
+    "@nx/js": "npm:^22.1.3"
     "@types/yargs": "npm:^17.0.35"
-    nx: "npm:22.1.2"
-    prettier: "npm:^3.7.0"
+    nx: "npm:22.1.3"
+    prettier: "npm:^3.7.3"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
     yargs: "npm:^18.0.0"
@@ -4833,21 +4834,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:22.1.2":
-  version: 22.1.2
-  resolution: "nx@npm:22.1.2"
+"nx@npm:22.1.3":
+  version: 22.1.3
+  resolution: "nx@npm:22.1.3"
   dependencies:
     "@napi-rs/wasm-runtime": "npm:0.2.4"
-    "@nx/nx-darwin-arm64": "npm:22.1.2"
-    "@nx/nx-darwin-x64": "npm:22.1.2"
-    "@nx/nx-freebsd-x64": "npm:22.1.2"
-    "@nx/nx-linux-arm-gnueabihf": "npm:22.1.2"
-    "@nx/nx-linux-arm64-gnu": "npm:22.1.2"
-    "@nx/nx-linux-arm64-musl": "npm:22.1.2"
-    "@nx/nx-linux-x64-gnu": "npm:22.1.2"
-    "@nx/nx-linux-x64-musl": "npm:22.1.2"
-    "@nx/nx-win32-arm64-msvc": "npm:22.1.2"
-    "@nx/nx-win32-x64-msvc": "npm:22.1.2"
+    "@nx/nx-darwin-arm64": "npm:22.1.3"
+    "@nx/nx-darwin-x64": "npm:22.1.3"
+    "@nx/nx-freebsd-x64": "npm:22.1.3"
+    "@nx/nx-linux-arm-gnueabihf": "npm:22.1.3"
+    "@nx/nx-linux-arm64-gnu": "npm:22.1.3"
+    "@nx/nx-linux-arm64-musl": "npm:22.1.3"
+    "@nx/nx-linux-x64-gnu": "npm:22.1.3"
+    "@nx/nx-linux-x64-musl": "npm:22.1.3"
+    "@nx/nx-win32-arm64-msvc": "npm:22.1.3"
+    "@nx/nx-win32-x64-msvc": "npm:22.1.3"
     "@yarnpkg/lockfile": "npm:^1.1.0"
     "@yarnpkg/parsers": "npm:3.0.2"
     "@zkochan/js-yaml": "npm:0.0.7"
@@ -4914,7 +4915,7 @@ __metadata:
   bin:
     nx: bin/nx.js
     nx-cloud: bin/nx-cloud.js
-  checksum: 10c0/9d8be12b51bccce2f3f953a9df551fa4ffe97c364130a4824a933f5bfe3d06a92faa7ae353aa0e8b402cdbca83a968075e41e1faa710201597ce23e5124e8d00
+  checksum: 10c0/d6bbc6bb4df78cd84b0f02a51dca7e94c31a7f102b29b24b67dea6c32063704bd9ba2083b6b27b4ec60f91484b7ed4ae7370ef46ab77646d88e98f9da58500c2
   languageName: node
   linkType: hard
 
@@ -5138,12 +5139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "prettier@npm:3.7.0"
+"prettier@npm:^3.7.3":
+  version: 3.7.3
+  resolution: "prettier@npm:3.7.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/ef2ca136ae69d07248b3cbbe199b0862bec3b1f84c94192dd4df572649df1ebb2281f8513269fc328a0f1265851dc564af5723c6bd7a8c0559451aa560bac4d5
+  checksum: 10c0/ee86bb06121c74dadc54f30b6f99aff6288966d9b842ce501d6991e20d20c6ce2d45028651b3b0955ca6e5fa89c1bee1e72b6f810243a93cef8bc69737972ef7
   languageName: node
   linkType: hard
 

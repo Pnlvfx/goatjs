@@ -22,11 +22,12 @@
   "dependencies": {
     "@goatjs/cache": "workspace:*",
     "@goatjs/core": "workspace:*",
+    "@goatjs/deep-diff": "workspace:*",
     "@goatjs/storage": "workspace:*"
   },
   "devDependencies": {
     "@goatjs/dbz": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^1.25.0",
+    "@goatjs/node-monorepo-eslint": "^1.26.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
