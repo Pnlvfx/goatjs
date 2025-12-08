@@ -22,7 +22,6 @@
   "dependencies": {
     "@goatjs/cache": "workspace:*",
     "@goatjs/core": "workspace:*",
-    "@goatjs/deep-diff": "workspace:*",
     "@goatjs/storage": "workspace:*"
   },
   "devDependencies": {
