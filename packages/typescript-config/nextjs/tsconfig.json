@@ -5,8 +5,8 @@
   "compilerOptions": {
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "target": "es2022",
-    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "target": "es2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "esnext",
     "noEmit": true,
     "resolveJsonModule": true,

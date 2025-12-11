@@ -17,7 +17,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
 
 const safePublish = async ({ monorepo }: { monorepo: boolean }) => {
   try {
-    // const hasCustomRegistry = await yarn.config.get(''); // TODO [2025-11-30] use npm for public pkg
+    // const hasCustomRegistry = await yarn.config.get(''); // TODO [2026-12-30] use npm for public pkg
     await (monorepo ? yarn.workspace.runAll(['npm', 'publish']) : spawnWithLog('yarn', ['npm', 'publish']));
   } catch (err) {
     const command = monorepo ? 'git checkout -- "**/package.json"' : 'git checkout -- package.json';

@@ -44,9 +44,9 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.26.0",
+    "@goatjs/node-monorepo-eslint": "^1.27.0",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.0",
     "@types/yargs": "^17.0.35",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3"
