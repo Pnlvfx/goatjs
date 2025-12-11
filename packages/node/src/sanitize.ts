@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-commented-code */
 import nativeSanitize from 'sanitize-filename';
 
 // TODO [2026-12-30] use this and remove sanitize-filename (note that actually it doesn't work!)

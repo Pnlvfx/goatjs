@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/ts-unused-exports",
   "description": "Find unused exports on your code.",
-  "version": "1.45.0",
+  "version": "1.46.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
