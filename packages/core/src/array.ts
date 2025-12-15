@@ -18,6 +18,4 @@ export const shuffleArray = (array: unknown[]) => {
   }
 };
 
-export const getDuplicates = <T>(array: T[]) => {
-  return array.filter((e, i, a) => a.indexOf(e) !== i);
-};
+export const getDuplicates = <T>(array: T[]) => array.filter((e, i, a) => a.indexOf(e) !== i);
