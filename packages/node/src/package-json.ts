@@ -10,6 +10,7 @@ export interface PackageJSON {
   devDependencies?: Record<string, string>;
   peerDependencies?: Record<string, string>;
   packageManager?: string;
+  exports?: Record<string, string | object> | null;
 }
 
 export const getRootPkgJSON = async () => {

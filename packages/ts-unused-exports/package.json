@@ -35,13 +35,14 @@
     "README.md"
   ],
   "dependencies": {
+    "@goatjs/node": "workspace:*",
     "ts-unused-exports": "^11.0.1"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^1.27.0",
+    "@goatjs/node-monorepo-eslint": "^1.31.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.0.2",
+    "@types/node": "^25.0.3",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3"
   },
