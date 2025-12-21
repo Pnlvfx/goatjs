@@ -2,8 +2,8 @@ import type { UnusedOptions, UnusedResponse } from './types.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { analyzeTsConfig } from 'ts-unused-exports';
-import { patchSkipVanillaCssFiles } from './patch-vanilla.js';
 import { getExportedFiles } from './exports.js';
+import { patchVanillaCssFiles } from './vanilla-2.js';
 
 /** Find all the unused variables in your code. */
 export const findUnusedExports = async ({
@@ -79,7 +79,7 @@ export const findUnusedExports = async ({
     throw new Error(`The following ignore entries are no longer needed: Folders: ${[...unusedFolders].join(', ')}`);
   }
 
-  const patchedResponse = patchSkipVanillaCssFiles(response);
+  const patchedResponse = patchVanillaCssFiles(response);
 
   return Object.keys(patchedResponse).length > 0 ? patchedResponse : undefined;
 };
