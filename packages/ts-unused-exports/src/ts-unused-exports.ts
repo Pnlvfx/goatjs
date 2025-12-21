@@ -79,7 +79,7 @@ export const findUnusedExports = async ({
     throw new Error(`The following ignore entries are no longer needed: Folders: ${[...unusedFolders].join(', ')}`);
   }
 
-  const patchedResponse = patchVanillaCssFiles(response);
+  const patchedResponse = await patchVanillaCssFiles(response);
 
   return Object.keys(patchedResponse).length > 0 ? patchedResponse : undefined;
 };
