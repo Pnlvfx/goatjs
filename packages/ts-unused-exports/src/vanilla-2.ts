@@ -2,7 +2,6 @@
 import type { UnusedResponse } from './types.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { glob } from 'glob';
 
 // TODO [2026-01-01] this is experimental, if it work, delete the other.
 
@@ -52,11 +51,18 @@ const isVanillaCssFileUsed = async (cssTsFilePath: string): Promise<boolean> => 
 
     // Find all TypeScript/JavaScript files in the project
     const projectRoot = path.resolve('.');
-    const sourceFiles = await glob('**/*.{ts,tsx,js,jsx,mts,cts}', {
-      cwd: projectRoot,
-      ignore: ['**/node_modules/**', '**/dist/**', '**/build/**', '**/.next/**'],
-      absolute: true,
-    });
+    const sourceFiles: string[] = [];
+
+    // Use fs.glob to find all source files
+    const patterns = ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.mts', '**/*.cts'];
+    for (const pattern of patterns) {
+      for await (const file of fs.glob(pattern, {
+        cwd: projectRoot,
+        exclude: (name) => name.includes('node_modules') || name.includes('dist') || name.includes('build') || name.includes('.next'),
+      })) {
+        sourceFiles.push(path.resolve(projectRoot, file));
+      }
+    }
 
     // Search for imports of this CSS file
     for (const sourceFile of sourceFiles) {
