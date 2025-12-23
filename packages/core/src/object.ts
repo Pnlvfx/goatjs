@@ -12,3 +12,9 @@ export const getKeys = <T extends object>(obj: T) => {
 export const getValues = <T extends object>(obj: T) => {
   return Object.values(obj) as T[keyof T][];
 };
+
+/** a more elegant and inline way of spreading rest object. This create a new object and don't modify the existing one. */
+export const omit = <T extends object, K extends keyof T>(object: T, fields: K[]): Omit<T, K> => {
+  const fieldSet = new Set(fields);
+  return Object.fromEntries(Object.entries(object).filter(([key]) => !fieldSet.has(key as K))) as Omit<T, K>;
+};

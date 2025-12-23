@@ -22,15 +22,18 @@
     "exports": {
       ".": {
         "types": "./dist/storage.d.ts",
-        "import": "./dist/storage.js"
+        "import": "./dist/storage.js",
+        "require": "./dist/storage.js"
       },
       "./logger": {
         "types": "./dist/logger.d.ts",
-        "import": "./dist/logger.js"
+        "import": "./dist/logger.js",
+        "require": "./dist/logger.js"
       },
       "./store": {
         "types": "./dist/store.d.ts",
-        "import": "./dist/store.js"
+        "import": "./dist/store.js",
+        "require": "./dist/store.js"
       }
     }
   },
