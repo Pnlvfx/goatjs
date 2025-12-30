@@ -26,6 +26,7 @@ export const withRetry = <T, Args extends unknown[]>(
           resolve(maybe);
         } catch (err) {
           const parsedError = parseError(err);
+
           if (signal?.aborted) {
             reject(new Error('Aborted'));
             return;
@@ -43,7 +44,7 @@ export const withRetry = <T, Args extends unknown[]>(
               // eslint-disable-next-line no-console
               console.log(failMessage(parsedError.message, attempt));
             }
-            if (!ignoreWarnings && attempt > 10) {
+            if (!ignoreWarnings) {
               // eslint-disable-next-line no-console
               console.log(
                 `Function fail, try again, error: ${parsedError.message}, attempt: ${attempt.toString()}, maxAttempts: ${maxAttempts?.toString() ?? 'Infinity'}`,
