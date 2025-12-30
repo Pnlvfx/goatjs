@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { Callback } from './types/callback.js';
 import { parseError } from './error.js';
 import { wait } from './wait.js';
@@ -6,7 +7,7 @@ export interface RetryOptions {
   maxAttempts?: number;
   retryIntervalMs?: number;
   signal?: AbortSignal;
-  ignoreWarnings?: boolean;
+  debug?: boolean;
   failMessage?: (err: string, attempt: number) => string;
   shouldRetry?: (err: unknown, attempt: number) => boolean;
 }
@@ -14,7 +15,7 @@ export interface RetryOptions {
 /** Run a function for the desired amount of times, if it fails the last retry, it will throw an error. */
 export const withRetry = <T, Args extends unknown[]>(
   callback: Callback<T, Args>,
-  { failMessage, ignoreWarnings, maxAttempts, retryIntervalMs = 1000, shouldRetry, signal }: RetryOptions = {},
+  { failMessage, debug, maxAttempts, retryIntervalMs = 1000, shouldRetry, signal }: RetryOptions = {},
 ) => {
   return (...args: Args): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
@@ -31,6 +32,7 @@ export const withRetry = <T, Args extends unknown[]>(
             reject(new Error('Aborted'));
             return;
           }
+
           if (attempt === maxAttempts || (shouldRetry && !shouldRetry(err, attempt))) {
             reject(parsedError);
             return;
@@ -38,21 +40,18 @@ export const withRetry = <T, Args extends unknown[]>(
 
           attempt++;
 
-          // eslint-disable-next-line no-restricted-properties
-          if (process.env['NODE_ENV'] !== 'production') {
-            if (failMessage) {
-              // eslint-disable-next-line no-console
-              console.log(failMessage(parsedError.message, attempt));
-            }
-            if (!ignoreWarnings) {
-              // eslint-disable-next-line no-console
-              console.log(
-                `Function fail, try again, error: ${parsedError.message}, attempt: ${attempt.toString()}, maxAttempts: ${maxAttempts?.toString() ?? 'Infinity'}`,
-              );
-            }
+          if (failMessage) {
+            console.log(failMessage(parsedError.message, attempt));
+          }
+
+          if (debug) {
+            console.log(
+              `Function fail, try again, error: ${parsedError.message}, attempt: ${attempt.toString()}, maxAttempts: ${maxAttempts?.toString() ?? 'Infinity'}`,
+            );
           }
 
           await wait(retryIntervalMs);
+
           void handle();
         }
       };
