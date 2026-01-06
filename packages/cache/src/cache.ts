@@ -5,7 +5,9 @@ import { createStore } from '@goatjs/storage/store';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { hasSameKeys } from './key.js';
+import * as z from 'zod';
 
+export type CacheStore = z.infer<typeof cacheStoreSchema>;
 export interface CacheOptions<T, P extends unknown[]> {
   keys: string[];
   expiresIn?: number;
@@ -22,16 +24,16 @@ export interface CacheData<T> {
   keys: string[];
 }
 
-interface CacheStore {
-  id: string;
-  keys: string[];
-  timestamp: number;
-  type: 'json' | 'xml' | 'html';
-}
+const cacheStoreSchema = z.strictObject({
+  id: z.string(),
+  keys: z.array(z.string()),
+  timestamp: z.number(),
+  type: z.literal(['json', 'xml', 'html']),
+});
 
 export const createCacheKey = async <T, P extends unknown[]>(name: string, { expiresIn, keys, persist, type, debug, fn }: CacheOptions<T, P>) => {
   const cacheDir = await storage.use('cached');
-  const store = await createStore<CacheStore>('cache');
+  const store = await createStore('cache', cacheStoreSchema);
   const caches: Record<string, CacheData<T>> = {};
 
   const dataFileName = `${name}.${type}`;

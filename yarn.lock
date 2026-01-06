@@ -1519,6 +1519,9 @@ __metadata:
     "@types/node": "npm:^25.0.3"
     eslint: "npm:^9.39.2"
     typescript: "npm:^5.9.3"
+    zod: "npm:^4.3.5"
+  peerDependencies:
+    zod: "*"
   languageName: unknown
   linkType: soft
 

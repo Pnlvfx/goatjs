@@ -3,7 +3,7 @@ import type { UnusedResponse } from './types.js';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
-// TODO [2026-01-01] this is experimental, if it work, delete the other.
+// TODO [2026-02-01] this is experimental, if it work, delete the other.
 
 /**
  * Filter out Vanilla Extract .css.ts files that are actually being imported as .css
