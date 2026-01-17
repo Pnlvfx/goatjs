@@ -19,3 +19,17 @@ export const shuffleArray = (array: unknown[]) => {
 };
 
 export const getDuplicates = <T>(array: T[]) => array.filter((e, i, a) => a.indexOf(e) !== i);
+
+export const indexOf = (source: unknown[], searchElement: unknown, fromIndex?: number) => {
+  // eslint-disable-next-line sonarjs/argument-type
+  const value = source.indexOf(searchElement, fromIndex);
+  if (value === -1) throw new Error('Index not found');
+  return value;
+};
+
+export const lastIndexOf = (source: unknown[], searchElement: unknown, fromIndex?: number) => {
+  // eslint-disable-next-line sonarjs/argument-type
+  const value = source.lastIndexOf(searchElement, fromIndex);
+  if (value === -1) throw new Error('Index not found');
+  return value;
+};
