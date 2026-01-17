@@ -7,7 +7,8 @@ const platform = os.platform();
 
 export const spawnWithLog = (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
-    const child = spawn(command, args, { stdio: isProduction ? undefined : 'inherit', shell: platform === 'win32', cwd });
+    const shell = platform === 'win32' && (command.endsWith('.cmd') || command.endsWith('.bat'));
+    const child = spawn(command, args, { stdio: isProduction ? undefined : 'inherit', shell, cwd });
     child.on('error', reject);
 
     let stderr = '';
