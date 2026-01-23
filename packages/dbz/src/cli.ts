@@ -15,11 +15,13 @@ await yargs(hideBin(process.argv))
     'publish [version]',
     'Publish the package',
     (yargs) => {
-      return yargs.positional('version', { type: 'string', describe: 'Version to publish' });
+      return yargs
+        .positional('version', { type: 'string', describe: 'Version to publish' })
+        .option('skip-git', { type: 'boolean', default: false })
+        .option('skip-clear', { type: 'boolean', default: false });
     },
-    async (argv) => {
-      const version = argv.version && isValidYarnVersion(argv.version) ? argv.version : undefined;
-      await dbz.publish({ version });
+    async ({ version, skipClear, skipGit }) => {
+      await dbz.publish({ version: version && isValidYarnVersion(version) ? version : undefined, skipClear, skipGit });
     },
   )
   .command(
