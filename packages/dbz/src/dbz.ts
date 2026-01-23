@@ -22,7 +22,7 @@ export interface PublishParams extends PublishOptions {
 export const dbz = {
   publish: async ({ version, skipClear, skipGit }: PublishParams = {}) => {
     const git = createGitClient();
-    await (skipGit ? input.create({ title: 'Are you sure you want to publish without git checks?' }) : checkGitStatus());
+    await (skipGit ? input.create({ title: 'Are you sure you want to publish without git checks?', color: 'red' }) : checkGitStatus());
     const monorepo = await yarn.isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
