@@ -56,10 +56,10 @@
     "@goatjs/node-monorepo-eslint": "^1.36.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.0.10",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
-    "zod": "^4.3.5"
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "@goatjs/node": "*",

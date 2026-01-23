@@ -39,9 +39,9 @@
     "@goatjs/node-monorepo-eslint": "^1.36.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.0.9",
+    "@types/node": "^25.0.10",
     "eslint": "^9.39.2",
-    "puppeteer-core": "^24.35.0",
+    "puppeteer-core": "^24.36.0",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
