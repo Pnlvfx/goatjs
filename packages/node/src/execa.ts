@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process';
+import os from 'node:os';
 
 export interface ExecaProcess {
   stderr: string;
@@ -9,9 +10,11 @@ export interface ExecaOptions {
   cwd?: string;
 }
 
+const platform = os.platform();
+
 export const execa = async (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
-    const child = spawn(command, args, { cwd });
+    const child = spawn(command, args, { cwd, shell: platform === 'win32' });
 
     child.on('error', reject);
 
