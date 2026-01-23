@@ -1,7 +1,18 @@
+import * as z from 'zod';
+
+// warn: zod is not listed as peer, i don't wanna force it but i need it here
+
 const endings = new Set(['/', ':', '?', '#']);
 const starters = new Set(['.', '/', '@']);
 
-export const getDomainFromUrl = (url: string) => {
+const ipSchema = z.union([z.ipv4(), z.ipv6()]);
+
+// eslint-disable-next-line sonarjs/cognitive-complexity
+export const getDomainFromUrl = async (url: string) => {
+  if (url.includes('localhost')) return 'localhost';
+  const { hostname } = new URL(url);
+  const { success } = await z.safeParseAsync(ipSchema, hostname);
+  if (success) return;
   let domainInc = 0;
   let offsetDomain = 0;
   let offsetStartSlice = 0;

@@ -5,10 +5,11 @@ import { input } from '@goatjs/node/input';
 import { storage } from '@goatjs/storage';
 import { dbz } from '@goatjs/dbz/dbz';
 import { getProjectTsConfig } from '@goatjs/dbz/typescript/read';
+import { getDomainFromUrl } from '@goatjs/core/cookies';
 
 const run = async () => {
   try {
-    const text = await input.create({ title: '1. Write your code and test it.' });
+    const text = await input.create({ title: '1. Write your code and test it.\n6. getDomainFromUrl' });
 
     switch (text) {
       case '1': {
@@ -163,6 +164,13 @@ const run = async () => {
         const tsConfigs = getProjectTsConfig();
         console.log({ tsConfigs });
         break;
+      }
+      case '6': {
+        const localhost = await getDomainFromUrl('http://localhost:3000');
+        // eslint-disable-next-line sonarjs/no-clear-text-protocols
+        const ipv4 = await getDomainFromUrl('http://192.168.1.100');
+        const real = await getDomainFromUrl('https://www.open-gto.com');
+        console.log({ localhost, real, ipv4 });
       }
     }
   } catch (err) {
