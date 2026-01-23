@@ -37,7 +37,7 @@ export const dbz = {
       await git.commit('RELEASE');
       await git.push();
     }
-    if (noClear) {
+    if (!noClear) {
       await clear();
     }
   },
