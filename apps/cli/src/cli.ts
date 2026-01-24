@@ -147,7 +147,6 @@ const run = async () => {
           fn: () => {
             return ['2', '3', '4'];
           },
-          keys: ['test'],
           persist: true,
           debug: true,
           expiresIn: 10 * 60 * 1000,
