@@ -1,6 +1,6 @@
 import assert from 'node:assert';
 
-export const hasSameKeys = (actual: string[], expected: string[]) => {
+export const hasSameKey = (actual: string, expected: string) => {
   try {
     assert.deepStrictEqual(actual, expected);
     return true;

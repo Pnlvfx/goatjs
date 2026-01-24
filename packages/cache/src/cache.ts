@@ -4,12 +4,11 @@ import { storage } from '@goatjs/storage';
 import { createStore } from '@goatjs/storage/store';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { hasSameKeys } from './key.js';
+import { hasSameKey } from './key.js';
 import * as z from 'zod';
 
 export type CacheStore = z.infer<typeof cacheStoreSchema>;
 export interface CacheOptions<T, P extends unknown[]> {
-  keys: string[];
   expiresIn?: number;
   persist?: boolean;
   type: 'json' | 'xml' | 'html';
@@ -21,12 +20,12 @@ export interface CacheData<T> {
   timestamp: number;
   data: T;
   persist?: boolean;
-  keys: string[];
+  cacheKey: string;
 }
 
 const cacheStoreSchema = z.strictObject({
   id: z.string(),
-  keys: z.array(z.string()),
+  cacheKey: z.string(),
   timestamp: z.number(),
   type: z.literal(['json', 'xml', 'html']),
 });
@@ -34,7 +33,7 @@ const cacheStoreSchema = z.strictObject({
 const cacheDir = await storage.use('cached');
 const store = await createStore('cache', cacheStoreSchema);
 
-export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn, keys, persist, type, debug, fn }: CacheOptions<T, P>) => {
+export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn, persist, type, debug, fn }: CacheOptions<T, P>) => {
   const caches: Record<string, CacheData<T>> = {};
   const dataFilePath = path.join(cacheDir, `${name}.${type}`);
 
@@ -49,19 +48,20 @@ export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn
         data,
         timestamp: metadata.timestamp,
         persist: true,
-        keys: metadata.keys,
+        cacheKey: metadata.cacheKey,
       };
     } catch {
       return;
     }
   };
 
-  const storeFile = async (data: T, timestamp: number) => {
-    await store.set({ id: name, keys, timestamp, type });
+  const storeFile = async (data: T, timestamp: number, cacheKey: string) => {
+    await store.set({ id: name, cacheKey, timestamp, type });
     await fs.writeFile(dataFilePath, type === 'json' ? JSON.stringify(data) : (data as string));
   };
 
   return {
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     query: async (...params: P): Promise<T> => {
       if (debug) {
         // eslint-disable-next-line no-console
@@ -70,22 +70,26 @@ export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn
       const saved = caches[name] ?? (persist ? await getStored() : undefined);
       const currentTime = Date.now();
 
-      if (!saved || !hasSameKeys(keys, saved.keys) || (expiresIn !== undefined && currentTime - saved.timestamp > expiresIn)) {
+      const cacheKey = JSON.stringify(params);
+
+      if (!saved || !hasSameKey(cacheKey, saved.cacheKey) || (expiresIn !== undefined && currentTime - saved.timestamp > expiresIn)) {
         if (debug) {
+          // eslint-disable-next-line sonarjs/no-nested-conditional
+          const reason = saved ? (hasSameKey(cacheKey, saved.cacheKey) ? 'DIFFERENT_KEYS' : 'EXPIRED') : 'NOT_STORED_BEFORE';
           // eslint-disable-next-line no-console
-          console.log('CACHE MISS');
+          console.log('CACHE MISS', reason);
         }
         const data = await fn(...params);
         const cacheData = {
           data,
           timestamp: currentTime,
           persist,
-          keys,
+          cacheKey,
         };
         caches[name] = cacheData;
 
         if (persist) {
-          await storeFile(data, currentTime);
+          await storeFile(data, currentTime, cacheKey);
         }
 
         return data;
