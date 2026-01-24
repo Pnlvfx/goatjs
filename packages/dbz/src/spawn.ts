@@ -5,11 +5,11 @@ import os from 'node:os';
 
 const platform = os.platform();
 
-export const spawnWithLog = (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
+export const spawnWithLog = (command: string, args: string[] = [], { cwd, env }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
     const isWin = platform === 'win32';
     const safe = command.startsWith('"') || command.startsWith("'");
-    const child = spawn(isWin && !safe ? `"${command}"` : command, args, { stdio: isProduction ? undefined : 'inherit', shell: isWin, cwd });
+    const child = spawn(isWin && !safe ? `"${command}"` : command, args, { stdio: isProduction ? undefined : 'inherit', shell: isWin, cwd, env });
     child.on('error', reject);
 
     let stderr = '';

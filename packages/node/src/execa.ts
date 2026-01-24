@@ -8,13 +8,14 @@ export interface ExecaProcess {
 
 export interface ExecaOptions {
   cwd?: string;
+  env?: NodeJS.ProcessEnv;
 }
 
 const platform = os.platform();
 
-export const execa = async (command: string, args: string[] = [], { cwd }: ExecaOptions = {}) => {
+export const execa = async (command: string, args: string[] = [], { cwd, env }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
-    const child = spawn(command, args, { cwd, shell: platform === 'win32' });
+    const child = spawn(command, args, { cwd, shell: platform === 'win32', env });
 
     child.on('error', reject);
 
