@@ -46,7 +46,9 @@ export const createStore = async <T extends z.ZodType>(name: string, schema: T) 
       await fs.writeFile(configFile, JSON.stringify(currentConfig));
     },
     clear: async () => {
-      await fs.rm(configFile);
+      try {
+        await fs.rm(configFile);
+      } catch {}
       currentConfig = undefined;
     },
   };
