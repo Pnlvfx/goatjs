@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/download",
   "description": "Download any file through nodejs",
-  "version": "1.60.0",
+  "version": "1.61.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -49,6 +49,6 @@
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "@goatjs/node": "1.60.0"
+    "@goatjs/node": "1.61.0"
   }
 }
