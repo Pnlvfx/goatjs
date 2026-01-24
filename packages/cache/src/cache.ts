@@ -31,26 +31,29 @@ const cacheStoreSchema = z.strictObject({
   type: z.literal(['json', 'xml', 'html']),
 });
 
-export const createCacheKey = async <T, P extends unknown[]>(name: string, { expiresIn, keys, persist, type, debug, fn }: CacheOptions<T, P>) => {
-  const cacheDir = await storage.use('cached');
-  const store = await createStore('cache', cacheStoreSchema);
-  const caches: Record<string, CacheData<T>> = {};
+const cacheDir = await storage.use('cached');
+const store = await createStore('cache', cacheStoreSchema);
 
-  const dataFileName = `${name}.${type}`;
-  const dataFilePath = path.join(cacheDir, dataFileName);
+export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn, keys, persist, type, debug, fn }: CacheOptions<T, P>) => {
+  const caches: Record<string, CacheData<T>> = {};
+  const dataFilePath = path.join(cacheDir, `${name}.${type}`);
 
   const getStored = async () => {
-    const metadata = await store.get();
-    if (!metadata) return;
-    const buf = await fs.readFile(dataFilePath);
-    const data = type === 'json' ? (JSON.parse(buf.toString()) as CacheData<T>) : buf.toString();
+    try {
+      const metadata = await store.get();
+      if (!metadata) return;
+      const buf = await fs.readFile(dataFilePath);
+      const data = type === 'json' ? (JSON.parse(buf.toString()) as CacheData<T>) : buf.toString();
 
-    return {
-      data,
-      timestamp: metadata.timestamp,
-      persist: true,
-      keys: metadata.keys,
-    };
+      return {
+        data,
+        timestamp: metadata.timestamp,
+        persist: true,
+        keys: metadata.keys,
+      };
+    } catch {
+      return;
+    }
   };
 
   const storeFile = async (data: T, timestamp: number) => {

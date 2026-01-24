@@ -142,7 +142,7 @@ const run = async () => {
         break;
       }
       case '3': {
-        const persistentCacheStore = await createCacheKey('test', {
+        const persistentCacheStore = createCacheKey('test', {
           type: 'json',
           fn: () => {
             return ['2', '3', '4'];
