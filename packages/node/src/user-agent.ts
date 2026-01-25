@@ -1,6 +1,6 @@
 import os from 'node:os';
 
-// GET THE LATEST FROM:
+// GET THE LATEST FROM: or find a free json api?
 // https://www.whatismybrowser.com/guides/the-latest-user-agent/chrome
 
 export const getUserAgent = () => {
