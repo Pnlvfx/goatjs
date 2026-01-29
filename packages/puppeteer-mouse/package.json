@@ -2,6 +2,7 @@
   "name": "@goatjs/puppeteer-mouse",
   "description": "Show mouse position while using puppeteer.",
   "version": "1.61.0",
+  "private": true,
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -39,9 +40,9 @@
     "@goatjs/node-monorepo-eslint": "^1.36.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.0.10",
+    "@types/node": "^25.1.0",
     "eslint": "^9.39.2",
-    "puppeteer-core": "^24.36.0",
+    "puppeteer-core": "^24.36.1",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {

@@ -16,3 +16,14 @@ export const makeErrorWrapper =
       return errorHandler(err);
     }
   };
+
+export const makeAsyncErrorWrapper =
+  <T>(errorHandler: (err: any) => T) =>
+  <A extends any[], R>(fn: (...a: A) => Promise<R>) =>
+  async (...a: A): Promise<R | T> => {
+    try {
+      return await fn(...a);
+    } catch (err) {
+      return errorHandler(err);
+    }
+  };
