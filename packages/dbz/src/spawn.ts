@@ -1,15 +1,19 @@
-import type { ExecaOptions, ExecaProcess } from '@goatjs/node/execa';
 import { isProduction } from '@goatjs/node/prod';
-import { spawn } from 'node:child_process';
-import os from 'node:os';
+import { spawn } from 'cross-spawn';
 
-const platform = os.platform();
+export interface ExecaProcess {
+  stderr: string;
+  stdout: string;
+}
+
+export interface ExecaOptions {
+  cwd?: string;
+  env?: NodeJS.ProcessEnv;
+}
 
 export const spawnWithLog = (command: string, args: string[] = [], { cwd, env }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
-    const isWin = platform === 'win32';
-    const safe = command.startsWith('"') || command.startsWith("'");
-    const child = spawn(isWin && !safe ? `"${command}"` : command, args, { stdio: isProduction ? undefined : 'inherit', shell: isWin, cwd, env });
+    const child = spawn(command, args, { stdio: isProduction ? undefined : 'inherit', cwd, env });
     child.on('error', reject);
 
     let stderr = '';

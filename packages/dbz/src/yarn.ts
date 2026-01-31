@@ -1,4 +1,4 @@
-import { execa } from '@goatjs/node/execa';
+import { execa } from 'execa';
 import { spawnWithLog } from './spawn.js';
 import { getRootPkgJSON } from '@goatjs/node/package-json';
 

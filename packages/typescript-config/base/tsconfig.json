@@ -29,6 +29,8 @@
     "skipLibCheck": true,
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true,
-    "allowUnreachableCode": false
+    "allowUnreachableCode": false,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true
   }
 }
