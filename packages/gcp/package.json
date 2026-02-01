@@ -2,7 +2,6 @@
   "name": "@goatjs/gcp",
   "description": "Node gcp helpers",
   "version": "1.26.0",
-  "private": true,
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -43,19 +42,14 @@
   "dependencies": {
     "@goatjs/dbz": "workspace:*",
     "@goatjs/download": "workspace:*",
-    "@goatjs/node": "workspace:*"
+    "@goatjs/node": "workspace:*",
+    "@goatjs/rimraf": "workspace:*"
   },
   "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.36.0",
-    "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.1.0",
+    "@types/node": "^25.2.0",
     "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
-    "zod": "^4.3.6"
-  },
-  "peerDependencies": {
-    "@goatjs/rimraf": "*",
-    "zod": "*"
+    "typescript": "^5.9.3"
   }
 }
