@@ -3,7 +3,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import { analyzeTsConfig } from 'ts-unused-exports';
 import { getExportedFiles } from './exports.js';
-import { patchVanillaCssFiles } from './vanilla-2.js';
+import { patchVanillaCssFiles } from './patch-vanilla-extract.ts';
 
 /** Find all the unused variables in your code. */
 export const findUnusedExports = async ({

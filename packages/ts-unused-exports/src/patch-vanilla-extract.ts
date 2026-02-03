@@ -1,9 +1,8 @@
+/* eslint-disable no-console */
 /* eslint-disable sonarjs/no-nested-template-literals */
-import type { UnusedResponse } from './types.js';
+import type { UnusedResponse } from './types.ts';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-
-// TODO [2026-02-01] this is experimental, if it work, delete the other.
 
 /**
  * Filter out Vanilla Extract .css.ts files that are actually being imported as .css
