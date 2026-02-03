@@ -10,12 +10,13 @@ export interface RetryOptions {
   debug?: boolean;
   failMessage?: (err: string, attempt: number) => string;
   shouldRetry?: (err: unknown, attempt: number) => boolean;
+  onError?: (err: unknown, attempt: number) => void;
 }
 
 /** Run a function for the desired amount of times, if it fails the last retry, it will throw an error. */
 export const withRetry = <T, Args extends unknown[]>(
   callback: Callback<T, Args>,
-  { failMessage, debug, maxAttempts, retryIntervalMs = 1000, shouldRetry, signal }: RetryOptions = {},
+  { failMessage, debug, maxAttempts, retryIntervalMs = 1000, shouldRetry, onError, signal }: RetryOptions = {},
 ) => {
   return (...args: Args): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
@@ -27,6 +28,8 @@ export const withRetry = <T, Args extends unknown[]>(
           resolve(maybe);
         } catch (err) {
           const parsedError = parseError(err);
+
+          onError?.(err, attempt);
 
           if (signal?.aborted) {
             reject(new Error('Aborted'));
