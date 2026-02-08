@@ -4,14 +4,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { storage } from './storage.js';
 
-const projectRoot = await storage.use('store');
-
 /** This mimic the browser localStorage and allow you to store
  *  primitives on disk.
  */
-export const createStore = async <T extends z.ZodType>(name: string, schema: T) => {
+export const createStore = async <T extends z.ZodType>(name: string, schema: T, { root: baseRoot }: { root?: string } = {}) => {
+  const base = baseRoot ?? (await storage.use('store'));
   type StoreType = z.infer<T>;
-  const root = path.join(projectRoot, name);
+  const root = path.join(base, name);
 
   try {
     await fs.mkdir(root);
