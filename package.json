@@ -7,16 +7,16 @@
     "url": "https://github.com/Pnlvfx/goatjs.git"
   },
   "scripts": {
-    "tsc": "nx run-many -t tsc",
-    "build": "nx run-many -t build",
+    "tsc": "turbo tsc",
+    "build": "turbo build",
     "dev": "yarn workspace @goatjs/cli dev",
-    "lint": "nx run-many -t lint",
+    "lint": "turbo lint",
     "initialize": "yarn workspace @goatjs/node prettier-gen",
     "postinstall": "yarn initialize",
     "update": "yarn upgrade-interactive",
-    "publish": "tsx tools/publish.ts",
-    "release": "tsx tools/release.ts",
-    "clear": "tsx tools/clear.ts"
+    "publish": "node tools/publish.ts",
+    "release": "node tools/release.ts",
+    "clear": "node tools/clear.ts"
   },
   "workspaces": [
     "apps/*",
@@ -26,11 +26,9 @@
     "@goatjs/dbz": "workspace:*",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@nx/js": "^22.4.5",
     "@types/yargs": "^17.0.35",
-    "nx": "22.4.5",
     "prettier": "^3.8.1",
-    "tsx": "^4.21.0",
+    "turbo": "^2.8.6",
     "typescript": "^5.9.3",
     "yargs": "^18.0.0"
   },
