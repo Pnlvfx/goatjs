@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/download",
-  "description": "Download any file through nodejs",
+  "description": "A utility for downloading files from URLs with automatic filename detection.",
   "version": "1.68.0",
   "author": {
     "email": "simonegauli@gmail.com",

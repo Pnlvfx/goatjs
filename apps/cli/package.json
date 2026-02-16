@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/cli",
-  "description": "GoatJS cli.",
+  "description": "Development CLI for testing and experimenting with GoatJS packages.",
   "private": true,
   "license": "MIT",
   "author": "Simone Gauli",

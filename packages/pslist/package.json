@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/pslist",
-  "description": "Get running processes.",
+  "description": "Get a list of running processes on the system with cross-platform support.",
   "version": "1.61.0",
   "private": true,
   "author": {

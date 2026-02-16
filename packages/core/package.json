@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/core",
-  "description": "Your favourite package helper.",
+  "description": "Core utility functions for JavaScript and TypeScript projects including arrays, strings, dates, colors, objects, and types.",
   "version": "1.68.0",
   "author": {
     "email": "simonegauli@gmail.com",

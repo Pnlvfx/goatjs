@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/node",
-  "description": "Your favourite package helper.",
+  "description": "Node.js utility functions for file system operations, process management, git operations, and CLI helpers.",
   "version": "1.68.0",
   "author": {
     "email": "simonegauli@gmail.com",

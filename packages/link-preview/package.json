@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/link-preview",
-  "description": "Preview url.",
+  "description": "Extract metadata from URLs for creating link previews.",
   "version": "1.61.0",
   "private": true,
   "author": {

@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/dbz",
-  "description": "Npm publish helper",
+  "description": "CLI tool and library for publishing packages to npm with monorepo support.",
   "version": "1.68.0",
   "author": {
     "email": "simonegauli@gmail.com",

@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/rimraf",
-  "description": "Node rimraf equivalent.",
+  "description": "A cross-platform file and directory deletion utility (like rm -rf).","}'}  }'
   "version": "1.68.0",
   "author": {
     "email": "simonegauli@gmail.com",

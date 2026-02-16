@@ -1,6 +1,6 @@
 {
   "name": "@goatjs/puppeteer-mouse",
-  "description": "Show mouse position while using puppeteer.",
+  "description": "Visual mouse helper for Puppeteer that displays a visible cursor during automation.",
   "version": "1.61.0",
   "private": true,
   "author": {
