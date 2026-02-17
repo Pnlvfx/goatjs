@@ -1,33 +1,25 @@
+import { isFetchError } from './errors/fetch.ts';
+
 export const parseError = (err: unknown) => {
-  return err instanceof Error ? err : new Error(errorToString(err));
+  if (Error.isError(err) || isFetchError(err)) return err;
+  return new Error(errorToString(err));
 };
 
-const errorToString = (err: unknown, ...args: string[]) => {
+const errorToString = (err: unknown) => {
   let error = '';
-  if (err instanceof Error) {
-    error += err.message;
-  } else if (typeof err === 'string') {
+  if (typeof err === 'string') {
     error += err;
-  } else if (typeof err === 'object' && err !== null && 'description' in err) {
-    const des = err.description;
-    if (typeof des === 'string') {
-      error += des;
-    }
   } else {
     try {
-      error = `UNHANDLED ERROR: ${JSON.stringify(err)}`;
+      error = JSON.stringify(err);
     } catch {
-      error = 'UNHANDLED ERROR';
+      error = 'Unknown Error';
     }
     // eslint-disable-next-line no-restricted-properties
     if (process.env['NODE_ENV'] !== 'production') {
       // eslint-disable-next-line no-console
       console.warn('Unable to parse', err);
     }
-  }
-
-  for (const value of args) {
-    error += ' ' + value;
   }
 
   return error;

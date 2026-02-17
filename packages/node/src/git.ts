@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-useless-undefined */
-import { execAsync } from './exec.js';
-import { parseBashOptions } from './bash.js';
+import { execAsync } from './exec.ts';
+import { parseBashOptions } from './bash.ts';
 
 export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
   const runGitCommand = (command: string) => execAsync(command, { cwd });
