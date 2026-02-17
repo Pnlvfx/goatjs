@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/core",
   "description": "Core utility functions for JavaScript and TypeScript projects including arrays, strings, dates, colors, objects, and types.",
-  "version": "1.68.0",
+  "version": "1.69.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"

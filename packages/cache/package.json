@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/cache",
   "description": "A caching utility for JavaScript and TypeScript with support for in-memory and persistent storage.",
-  "version": "1.68.0",
+  "version": "1.69.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
