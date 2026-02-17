@@ -1,5 +1,5 @@
-import type { CaseOptions } from './options.js';
-import { capitalCase } from './capitalize.js';
+import type { CaseOptions } from './options.ts';
+import { capitalCase } from './capitalize.ts';
 
 /**
  * Convert a string to header case (`Foo-Bar`).

@@ -86,7 +86,9 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
 
 const parseNameValuePair = (nameValuePairStr: string) => {
   let name = '';
+  // eslint-disable-next-line no-useless-assignment
   let value = '';
+
   const nameValueArr = nameValuePairStr.split('=');
   if (nameValueArr.length > 1) {
     name = nameValueArr.shift() ?? '';
@@ -94,5 +96,6 @@ const parseNameValuePair = (nameValuePairStr: string) => {
   } else {
     value = nameValuePairStr;
   }
+
   return { name, value };
 };

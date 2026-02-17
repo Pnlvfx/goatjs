@@ -1,5 +1,5 @@
-import type { CaseOptions } from './options.js';
-import { noCase } from './internal.js';
+import type { CaseOptions } from './options.ts';
+import { noCase } from './internal.ts';
 
 type IsNumericString<S extends string> = S extends `${number}` ? true : false;
 

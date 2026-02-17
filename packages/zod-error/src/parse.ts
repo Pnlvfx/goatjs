@@ -1,5 +1,5 @@
 import * as z from 'zod/v4/core';
-import { validationError } from './error.js';
+import { validationError } from './error.ts';
 
 /** Attach the data on zodError */
 export const parseAsync = async <T extends z.$ZodType>(schema: T, value: unknown, _ctx?: z.ParseContext<z.$ZodIssue>): Promise<z.output<T>> => {

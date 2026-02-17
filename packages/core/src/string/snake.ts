@@ -1,5 +1,5 @@
-import type { CaseOptions } from './options.js';
-import { noCase } from './internal.js';
+import type { CaseOptions } from './options.ts';
+import { noCase } from './internal.ts';
 
 export type SnakeCase<S extends string> = S extends `${infer T}${infer U}`
   ? `${T extends Capitalize<T> ? '_' : ''}${Lowercase<T>}${SnakeCase<U>}`

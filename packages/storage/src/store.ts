@@ -2,7 +2,7 @@
 import type * as z from 'zod';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { storage } from './storage.js';
+import { storage } from './storage.ts';
 
 /** This mimic the browser localStorage and allow you to store
  *  primitives on disk.

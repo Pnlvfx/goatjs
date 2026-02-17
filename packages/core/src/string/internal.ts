@@ -1,5 +1,5 @@
-import { split, splitSeparateNumbers } from './split.js';
-import type { CaseOptions, Locale } from './options.js';
+import { split, splitSeparateNumbers } from './split.ts';
+import type { CaseOptions, Locale } from './options.ts';
 
 // The default characters to keep after transforming case.
 const DEFAULT_PREFIX_SUFFIX_CHARACTERS = '';

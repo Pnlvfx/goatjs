@@ -1,9 +1,9 @@
 import { consoleColor } from '@goatjs/node/console-color';
-import { publish, type PublishOptions } from './publish.js';
+import { publish, type PublishOptions } from './publish.ts';
 import { createGitClient } from '@goatjs/node/git';
-import { checkGitStatus } from './git.js';
-import { yarn } from './yarn.js';
-import { spawnWithLog } from './spawn.js';
+import { checkGitStatus } from './git.ts';
+import { yarn } from './yarn.ts';
+import { spawnWithLog } from './spawn.ts';
 import { input } from '@goatjs/node/input';
 
 const clear = async ({ extra }: { extra?: string[] } = {}) => {

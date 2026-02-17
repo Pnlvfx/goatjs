@@ -1,4 +1,4 @@
-import type { RgbPixel } from './rgb.js';
+import type { RgbPixel } from './rgb.ts';
 
 /* eslint-disable sonarjs/pseudo-random */
 export interface HSLInput {

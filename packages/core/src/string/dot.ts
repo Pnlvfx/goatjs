@@ -1,5 +1,5 @@
-import { noCase } from './internal.js';
-import type { CaseOptions } from './options.js';
+import { noCase } from './internal.ts';
+import type { CaseOptions } from './options.ts';
 
 /**
  * Convert a string to dot case (`foo.bar`).

@@ -1,7 +1,7 @@
 import { consoleColor } from '@goatjs/node/console-color';
-import { getNextArg } from './cli-helpers.js';
-import { isValidYarnVersion } from './publish.js';
-import { dbz } from './dbz.js';
+import { getNextArg } from './cli-helpers.ts';
+import { isValidYarnVersion } from './publish.ts';
+import { dbz } from './dbz.ts';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 

@@ -1,5 +1,5 @@
-import { splitPrefixSuffix, upperFactory } from './internal.js';
-import type { CaseOptions } from './options.js';
+import { splitPrefixSuffix, upperFactory } from './internal.ts';
+import type { CaseOptions } from './options.ts';
 
 /**
  * Convert a string to constant case (`FOO_BAR`).

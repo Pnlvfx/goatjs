@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fsExtra } from './fs-extra/index.js';
-import { mark } from './mark.js';
+import { fsExtra } from './fs-extra/index.ts';
+import { mark } from './mark.ts';
 interface Params {
   inputFolder: string;
   outputFolder: string;

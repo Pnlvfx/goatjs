@@ -1,5 +1,5 @@
-import { capitalCaseTransformFactory, lowerFactory, splitPrefixSuffix, upperFactory } from './internal.js';
-import type { CaseOptions } from './options.js';
+import { capitalCaseTransformFactory, lowerFactory, splitPrefixSuffix, upperFactory } from './internal.ts';
+import type { CaseOptions } from './options.ts';
 
 /**
  * Convert a string to path case (`Foo bar`).

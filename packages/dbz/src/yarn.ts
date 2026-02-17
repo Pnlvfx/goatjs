@@ -1,5 +1,5 @@
 import { execa } from 'execa';
-import { spawnWithLog } from './spawn.js';
+import { spawnWithLog } from './spawn.ts';
 import { getRootPkgJSON } from '@goatjs/node/package-json';
 
 export interface ListItem {

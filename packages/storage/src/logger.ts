@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import { prettier, prettierParsers, type PrettierParser } from '@goatjs/node/prettier';
-import { storage } from './storage.js';
+import { storage } from './storage.ts';
 
 interface FileOptions {
   extension?: PrettierParser | 'txt' | 'xml';

@@ -15,7 +15,6 @@ export const truncate = (string: string, byteLength: number) => {
     segment += string[i];
 
     if (isHighSurrogate(codePoint) && isLowSurrogate(string.charCodeAt(i + 1))) {
-      // eslint-disable-next-line sonarjs/updated-loop-counter
       i += 1;
       /** @ts-expect-error Skip this shit for now. */
       // eslint-disable-next-line @typescript-eslint/restrict-plus-operands

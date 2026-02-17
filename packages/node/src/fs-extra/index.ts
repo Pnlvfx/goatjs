@@ -1,6 +1,6 @@
 import type { PathLike } from 'node:fs';
 import { readdir, access, rm } from 'node:fs/promises';
-import { isJunk } from './junk.js';
+import { isJunk } from './junk.ts';
 import path from 'node:path';
 
 interface ReaddirOptions {

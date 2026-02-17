@@ -1,5 +1,5 @@
-import type { PascalCaseOptions } from './options.js';
-import { capitalCaseTransformFactory, lowerFactory, pascalCaseTransformFactory, splitPrefixSuffix, upperFactory } from './internal.js';
+import type { PascalCaseOptions } from './options.ts';
+import { capitalCaseTransformFactory, lowerFactory, pascalCaseTransformFactory, splitPrefixSuffix, upperFactory } from './internal.ts';
 
 export type CamelCase<S extends string> = S extends `${infer T}_${infer U}`
   ? `${T}${Capitalize<CamelCase<U>>}`

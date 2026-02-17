@@ -1,8 +1,8 @@
-import type { UnusedOptions, UnusedResponse } from './types.js';
+import type { UnusedOptions, UnusedResponse } from './types.ts';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { analyzeTsConfig } from 'ts-unused-exports';
-import { getExportedFiles } from './exports.js';
+import { getExportedFiles } from './exports.ts';
 import { patchVanillaCssFiles } from './patch-vanilla-extract.ts';
 
 /** Find all the unused variables in your code. */
@@ -10,7 +10,7 @@ export const findUnusedExports = async ({
   ignoreFiles,
   ignoreVars,
   ignoreFolders,
-  tsConfigPath = path.resolve('.', 'tsconfig.json'),
+  tsConfigPath = path.resolve('.', 'tsconfig.tson'),
   // eslint-disable-next-line sonarjs/cognitive-complexity
 }: UnusedOptions = {}) => {
   await fs.access(tsConfigPath);
@@ -25,7 +25,7 @@ export const findUnusedExports = async ({
     const filename = path.basename(filePath);
     const folderPath = path.dirname(filePath);
 
-    // Skip files that are exported in package.json
+    // Skip files that are exported in package.tson
     if (exportedFiles.has(resolvedFilePath)) continue;
 
     const withoutExt = resolvedFilePath.replace(/\.(ts|tsx|js|jsx|mts|cts)$/, '');
@@ -84,4 +84,4 @@ export const findUnusedExports = async ({
   return Object.keys(patchedResponse).length > 0 ? patchedResponse : undefined;
 };
 
-export type * from './types.js';
+export type * from './types.ts';

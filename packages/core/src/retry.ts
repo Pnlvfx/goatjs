@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import type { Callback } from './types/callback.js';
-import { parseError } from './error.js';
-import { wait } from './wait.js';
+import type { Callback } from './types/callback.ts';
+import { parseError } from './error.ts';
+import { wait } from './wait.ts';
 
 export interface RetryOptions {
   maxAttempts?: number;

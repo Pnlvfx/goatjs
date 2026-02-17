@@ -1,4 +1,4 @@
-import { camelCase, type CamelCase } from '../string/camel.js';
+import { camelCase, type CamelCase } from '../string/camel.ts';
 
 export type Camelize<T> = T extends (infer U)[]
   ? Camelize<U>[]

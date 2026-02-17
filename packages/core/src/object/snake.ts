@@ -1,5 +1,5 @@
-import type { CaseOptions } from '../string/options.js';
-import { snakeCase, type SnakeCase } from '../string/snake.js';
+import type { CaseOptions } from '../string/options.ts';
+import { snakeCase, type SnakeCase } from '../string/snake.ts';
 
 export type Snakeize<T> = T extends (infer U)[]
   ? Snakeize<U>[]

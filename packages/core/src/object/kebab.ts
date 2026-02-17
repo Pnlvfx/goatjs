@@ -1,5 +1,5 @@
-import { kebabCase, type KebabCase } from '../string/kebab.js';
-import type { CaseOptions } from '../string/options.js';
+import { kebabCase, type KebabCase } from '../string/kebab.ts';
+import type { CaseOptions } from '../string/options.ts';
 
 export type Kebabize<T> = T extends (infer U)[]
   ? Kebabize<U>[]

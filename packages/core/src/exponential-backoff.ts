@@ -1,4 +1,4 @@
-import { wait } from './wait.js';
+import { wait } from './wait.ts';
 
 export const backOff = <T>(fn: () => Promise<T>, maxAttempt = 5, baseDelayMs = 1000) => {
   let attempt = 1;

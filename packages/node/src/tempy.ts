@@ -19,15 +19,14 @@ interface TempDirExtParams {
 export type TempDirParams = TempDirNameParams | TempDirExtParams;
 
 const getTempDir = async () => {
-  return tempDir ?? fs.realpath(os.tmpdir());
+  tempDir ??= await fs.realpath(os.tmpdir());
+  return tempDir;
 };
 
 const getPath = async (prefix = '') => path.join(await getTempDir(), prefix + crypto.randomBytes(5).toString('hex'));
 
 export const temporaryFile = async ({ name, extension }: TempDirParams) => {
-  if (name) {
-    return path.join(await temporaryDirectory(), name);
-  }
+  if (name) return path.join(await temporaryDirectory(), name);
   return (await getPath()) + (extension ? '.' + extension.replace(/^\./, '') : '');
 };
 

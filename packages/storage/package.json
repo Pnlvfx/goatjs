@@ -53,11 +53,11 @@
   ],
   "devDependencies": {
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^1.37.0",
+    "@goatjs/node-monorepo-eslint": "^1.38.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.2.3",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "typescript": "^5.9.3",
     "zod": "^4.3.6"
   },

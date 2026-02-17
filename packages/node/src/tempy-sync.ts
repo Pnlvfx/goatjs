@@ -1,4 +1,4 @@
-import type { TempDirParams } from './tempy.js';
+import type { TempDirParams } from './tempy.ts';
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';

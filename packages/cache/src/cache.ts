@@ -4,7 +4,7 @@ import { storage } from '@goatjs/storage';
 import { createStore } from '@goatjs/storage/store';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import { hasSameKey } from './key.js';
+import { hasSameKey } from './key.ts';
 import * as z from 'zod';
 
 export type CacheStore = z.infer<typeof cacheStoreSchema>;

@@ -1,6 +1,6 @@
-import type { CaseOptions, PascalCaseOptions } from './options.js';
-import { capitalCase } from './capitalize.js';
-import { capitalCaseTransformFactory, lowerFactory, pascalCaseTransformFactory, splitPrefixSuffix, upperFactory } from './internal.js';
+import type { CaseOptions, PascalCaseOptions } from './options.ts';
+import { capitalCase } from './capitalize.ts';
+import { capitalCaseTransformFactory, lowerFactory, pascalCaseTransformFactory, splitPrefixSuffix, upperFactory } from './internal.ts';
 
 /**
  * Convert a string to pascal case (`FooBar`).

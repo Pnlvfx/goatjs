@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/empty-string-repetition */
 /* eslint-disable sonarjs/regex-complexity */
-import type { ProcessDescriptor, ProcessDescriptorInternal } from './types.js';
+import type { ProcessDescriptor, ProcessDescriptorInternal } from './types.ts';
 import process from 'node:process';
 import path from 'node:path';
 import { execFile } from 'node:child_process';

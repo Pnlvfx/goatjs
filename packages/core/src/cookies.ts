@@ -16,7 +16,6 @@ export const getDomainFromUrl = async (url: string) => {
   let domainInc = 0;
   let offsetDomain = 0;
   let offsetStartSlice = 0;
-  let offsetPath = 0;
   let len = url.length;
   let i = 0;
 
@@ -36,7 +35,7 @@ export const getDomainFromUrl = async (url: string) => {
     offsetDomain = i;
   }
 
-  offsetPath = i;
+  const offsetPath = i;
 
   i = offsetDomain;
 

@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { rm } from 'node:fs/promises';
-import { cwd, root } from './config.js';
+import { cwd, root } from './config.ts';
 
 export const storage = {
   cwd,

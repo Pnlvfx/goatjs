@@ -1,7 +1,7 @@
 import path from 'node:path';
 import os from 'node:os';
 import fs from 'node:fs/promises';
-import { getProjectName } from './helpers.js';
+import { getProjectName } from './helpers.ts';
 
 const { scope, name } = await getProjectName();
 const baseRoot = path.join(os.homedir(), '.coraline');
