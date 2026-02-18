@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/node",
   "description": "Node.js utility functions for file system operations, process management, git operations, and CLI helpers.",
-  "version": "1.69.0",
+  "version": "1.70.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
