@@ -20,7 +20,7 @@ export const withRetry = <T, Args extends unknown[]>(
 ) => {
   return (...args: Args): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
-      let attempt = 0;
+      let attempt = 1;
 
       const handle = async () => {
         try {
