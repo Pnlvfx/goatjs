@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/gcp",
   "description": "Utilities for deploying applications to Google Cloud Platform (GCP).",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"

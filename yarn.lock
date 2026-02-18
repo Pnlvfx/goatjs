@@ -350,7 +350,7 @@ __metadata:
     typescript: "npm:^5.9.3"
     yargs: "npm:^18.0.0"
   bin:
-    dbz: dist/cli.js
+    dbz: src/cli.ts
   languageName: unknown
   linkType: soft
 
@@ -368,7 +368,7 @@ __metadata:
     mime-types: "npm:^3.0.2"
     typescript: "npm:^5.9.3"
   peerDependencies:
-    "@goatjs/node": 1.70.0
+    "@goatjs/node": 1.71.0
   languageName: unknown
   linkType: soft
 

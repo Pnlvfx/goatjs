@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/dbz",
   "description": "CLI tool and library for publishing packages to npm with monorepo support.",
-  "version": "1.70.0",
+  "version": "1.71.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"

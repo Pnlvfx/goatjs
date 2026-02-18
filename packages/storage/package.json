@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/storage",
   "description": "Persistent storage utilities for Node.js applications with support for files, stores, and logging.",
-  "version": "1.70.0",
+  "version": "1.71.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
