@@ -42,7 +42,7 @@
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.2.3",
     "eslint": "^10.0.0",
-    "puppeteer-core": "^24.37.3",
+    "puppeteer-core": "^24.37.4",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
