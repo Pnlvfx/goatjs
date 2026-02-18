@@ -20,15 +20,13 @@ export interface PublishParams extends PublishOptions {
 }
 
 export const dbz = {
-  publish: async ({ version, skipClear, skipGit }: PublishParams = {}) => {
+  publish: async ({ version, skipClear = true, skipGit }: PublishParams = {}) => {
     const git = createGitClient();
     await (skipGit ? input.create({ title: 'Are you sure you want to publish without git checks?', color: 'red' }) : checkGitStatus());
     const monorepo = await yarn.isMonorepo();
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      // changed to this, this has a limitation that build also the private packages, but this is cached compared to the commented one.
       await spawnWithLog('yarn', ['build']);
-      // await yarn.workspace.runAll(['run', 'build']);
     }
     await publish({ version, monorepo });
     if (skipGit) {
