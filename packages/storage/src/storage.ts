@@ -5,9 +5,9 @@ import { cwd, root } from './config.ts';
 
 export const storage = {
   cwd,
-  use: async (dir: string, { root: toRoot }: { root?: boolean } = {}) => {
+  use: async (name: string, { root: toRoot }: { root?: boolean } = {}) => {
     const rootDirectory = toRoot ? root : cwd;
-    const directory = path.join(rootDirectory, dir);
+    const directory = path.join(rootDirectory, name);
     await fs.mkdir(directory, { recursive: true });
     return directory;
   },
