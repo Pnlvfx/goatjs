@@ -10,7 +10,7 @@ export const findUnusedExports = async ({
   ignoreFiles,
   ignoreVars,
   ignoreFolders,
-  tsConfigPath = path.resolve('.', 'tsconfig.tson'),
+  tsConfigPath = path.resolve('.', 'tsconfig.json'),
   // eslint-disable-next-line sonarjs/cognitive-complexity
 }: UnusedOptions = {}) => {
   await fs.access(tsConfigPath);
@@ -25,7 +25,7 @@ export const findUnusedExports = async ({
     const filename = path.basename(filePath);
     const folderPath = path.dirname(filePath);
 
-    // Skip files that are exported in package.tson
+    // Skip files that are exported in package.json
     if (exportedFiles.has(resolvedFilePath)) continue;
 
     const withoutExt = resolvedFilePath.replace(/\.(ts|tsx|js|jsx|mts|cts)$/, '');
