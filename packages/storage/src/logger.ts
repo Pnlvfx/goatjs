@@ -10,7 +10,7 @@ interface FileOptions {
   unique?: boolean;
 }
 
-export const logger = {
+export const fileLogger = {
   toFile: async (data: string, { extension = 'json', name = 'log', unique }: FileOptions = {}) => {
     const fileNameNoExt = unique ? `${name}-${getHash()}` : name;
     const file = path.join(logPath, `${fileNameNoExt}.${extension}`);

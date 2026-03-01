@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable sonarjs/no-nested-template-literals */
 import type { UnusedResponse } from './types.ts';
 import path from 'node:path';
 import fs from 'node:fs/promises';

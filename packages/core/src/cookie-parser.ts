@@ -60,7 +60,7 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
           break;
         }
         case 'samesite': {
-          // eslint-disable-next-line unicorn/no-nested-ternary, sonarjs/no-nested-conditional
+          // sonarjs/no-nested-conditional
           const parsedValue = value === 'true' ? true : value === 'false' ? false : value;
           if (isValidSameSite(parsedValue)) {
             cookie.sameSite = parsedValue;

@@ -74,7 +74,6 @@ export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn
 
       if (!saved || !hasSameKey(cacheKey, saved.cacheKey) || (expiresIn !== undefined && currentTime - saved.timestamp > expiresIn)) {
         if (debug) {
-          // eslint-disable-next-line sonarjs/no-nested-conditional
           const reason = saved ? (hasSameKey(cacheKey, saved.cacheKey) ? 'DIFFERENT_KEYS' : 'EXPIRED') : 'NOT_STORED_BEFORE';
           // eslint-disable-next-line no-console
           console.log('CACHE MISS', reason);
