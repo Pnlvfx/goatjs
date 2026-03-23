@@ -26,7 +26,7 @@
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "build": "node tools/build.ts",
     "prepare": "yarn build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint"

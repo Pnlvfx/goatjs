@@ -16,7 +16,7 @@
     "tsc": "tsc --noEmit",
     "lint": "eslint",
     "dev": "node --watch src/cli.ts",
-    "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "build": "node tools/build.ts",
     "start": "node ."
   },
   "dependencies": {
