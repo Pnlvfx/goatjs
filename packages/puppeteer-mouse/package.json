@@ -41,9 +41,9 @@
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.5.0",
-    "eslint": "^10.0.3",
-    "puppeteer-core": "^24.39.1",
-    "typescript": "^5.9.3"
+    "eslint": "^10.1.0",
+    "puppeteer-core": "^24.40.0",
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "puppeteer-core": "*"

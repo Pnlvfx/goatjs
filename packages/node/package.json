@@ -42,16 +42,16 @@
   ],
   "dependencies": {
     "@goatjs/core": "workspace:*",
-    "sanitize-filename": "1.6.3"
+    "sanitize-filename": "1.6.4"
   },
   "devDependencies": {
     "@goatjs/node-monorepo-eslint": "^1.47.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.5.0",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "prettier": "*"
