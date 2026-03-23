@@ -242,7 +242,7 @@ __metadata:
     mime-types: "npm:^3.0.2"
     typescript: "npm:^6.0.2"
   peerDependencies:
-    "@goatjs/node": 1.75.0
+    "@goatjs/node": 1.76.0
   languageName: unknown
   linkType: soft
 
