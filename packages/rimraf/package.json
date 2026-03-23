@@ -25,11 +25,10 @@
     "tsc": "tsc --noEmit true",
     "test": "",
     "lint": "eslint",
-    "build": "yarn rimraf dist && eslint && tsc -p tsconfig.build.json",
+    "build": "node tools/build.ts",
     "prepare": "npm run build",
     "prepack": "yarn build",
-    "prepublishOnly": "yarn test && eslint",
-    "rimraf": "tsx --no-cache src/cli/rimraf.ts"
+    "prepublishOnly": "yarn test && eslint"
   },
   "files": [
     "dist",
@@ -41,7 +40,6 @@
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.5.0",
     "eslint": "^10.1.0",
-    "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   },
   "bin": "dist/cli/rimraf.js"

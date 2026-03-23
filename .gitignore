@@ -47,7 +47,7 @@ yarn-error.log*
 .DS_Store
 *.pem
 
-
+tsconfig.build.tsbuildinfo
 
 .nx/cache
 .nx/workspace-data

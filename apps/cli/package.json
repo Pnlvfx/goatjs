@@ -15,7 +15,7 @@
     "unused": "node tools/unused.ts",
     "tsc": "tsc --noEmit",
     "lint": "eslint",
-    "dev": "tsx --no-cache --watch src/cli.ts",
+    "dev": "node --watch src/cli.ts",
     "build": "rimraf dist && eslint && tsc -p tsconfig.build.json",
     "start": "node ."
   },
