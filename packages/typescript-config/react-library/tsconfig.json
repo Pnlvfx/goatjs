@@ -3,7 +3,6 @@
   "extends": "../base/tsconfig.json",
   "display": "React Library",
   "compilerOptions": {
-    "incremental": true,
     "target": "ES2023",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
