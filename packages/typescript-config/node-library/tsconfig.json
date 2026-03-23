@@ -3,7 +3,6 @@
   "extends": "../base/tsconfig.json",
   "display": "Node Library",
   "compilerOptions": {
-    "incremental": true,
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
