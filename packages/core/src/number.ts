@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
 export const numberToString = <K extends number>(number: K) => number.toString() as `${K}`;
 
 // most of the time we do if (!) on a number
@@ -20,5 +21,6 @@ export const toNumber = <T extends string>(string: T) => {
   if (string.trim() === '') throw new Error(`"${string}" is not a valid number.`);
   const num = Number(string);
   if (Number.isNaN(num)) throw new Error(`"${string}" is not a valid number.`);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return num as StringToNumber<T>;
 };

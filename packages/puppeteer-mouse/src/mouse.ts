@@ -78,6 +78,7 @@ export const installMouseHelper = async (page: Page) => {
           true,
         );
         function updateButtons(buttons: number) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
           for (let i = 0; i < 5; i++) box.classList.toggle('button-' + i.toString(), (buttons & (1 << i)) as unknown as boolean);
         }
       },

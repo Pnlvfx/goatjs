@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 import type { CaseOptions } from '../string/options.ts';
 import { snakeCase, type SnakeCase } from '../string/snake.ts';
 

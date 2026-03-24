@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 import type { PascalCaseOptions } from './options.ts';
 import { capitalCaseTransformFactory, lowerFactory, pascalCaseTransformFactory, splitPrefixSuffix, upperFactory } from './internal.ts';
 

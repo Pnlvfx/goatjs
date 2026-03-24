@@ -1,12 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 /* eslint-disable sonarjs/empty-string-repetition */
 /* eslint-disable sonarjs/regex-complexity */
 import type { ProcessDescriptor, ProcessDescriptorInternal } from './types.ts';
 import process from 'node:process';
 import path from 'node:path';
-import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
-
-export const execFileAsync = promisify(execFile);
+import { execFileAsync } from '@goatjs/node/exec';
 
 interface Options {
   all?: boolean;

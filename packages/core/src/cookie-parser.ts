@@ -3,6 +3,7 @@ const sameSiteValues = [true, false, 'lax', 'strict', 'none'] as const;
 type CookieSameSite = (typeof sameSiteValues)[number];
 
 const isValidSameSite = (value: boolean | string): value is CookieSameSite => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return sameSiteValues.includes(value as CookieSameSite);
 };
 

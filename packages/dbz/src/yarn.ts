@@ -26,10 +26,13 @@ const workspace = {
   },
   list: async () => {
     const { stdout } = await execa('yarn', ['workspaces', 'list', '--json']);
-    return stdout
-      .trim()
-      .split('\n')
-      .map((line) => JSON.parse(line) as ListItem);
+    return (
+      stdout
+        .trim()
+        .split('\n')
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+        .map((line) => JSON.parse(line) as ListItem)
+    );
   },
 };
 
@@ -42,6 +45,7 @@ export const yarn = {
   config: {
     get: async (name: string) => {
       const { stdout } = await execa('yarn', ['config', name, '--json']);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       const json = JSON.parse(stdout) as YarnConfig;
       return json.effective ?? undefined;
     },

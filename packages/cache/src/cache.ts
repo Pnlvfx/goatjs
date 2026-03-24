@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
 import type { Callback } from '@goatjs/core/types/callback';
 import { storage } from '@goatjs/storage';

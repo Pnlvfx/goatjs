@@ -30,6 +30,7 @@ const supportedVersions = ['major', 'minor', 'patch'] as const;
 type YarnVersion = (typeof supportedVersions)[number];
 
 export const isValidYarnVersion = (version: string): version is YarnVersion => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return supportedVersions.includes(version as YarnVersion);
 };
 

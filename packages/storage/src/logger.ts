@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import { prettier, prettierParsers, type PrettierParser } from '@goatjs/node/prettier';
+import { prettier, isPrettierFormat, type PrettierParser } from '@goatjs/node/prettier';
 import { storage } from './storage.ts';
 
 interface FileOptions {
@@ -27,8 +27,4 @@ const logPath = await storage.use('log');
 
 const getHash = () => {
   return crypto.randomBytes(5).toString('hex');
-};
-
-const isPrettierFormat = (format: string): format is PrettierParser => {
-  return prettierParsers.includes(format as PrettierParser);
 };

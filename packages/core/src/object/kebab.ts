@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 import { kebabCase, type KebabCase } from '../string/kebab.ts';
 import type { CaseOptions } from '../string/options.ts';
 

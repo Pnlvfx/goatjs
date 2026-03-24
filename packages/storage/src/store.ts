@@ -29,6 +29,7 @@ export const createStore = async <T extends z.ZodType>(name: string, schema: T, 
     if (!currentConfig) {
       const buf = await getBuffer();
       if (!buf) return;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       currentConfig = JSON.parse(buf.toString()) as StoreType;
     }
 

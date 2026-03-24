@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 import { camelCase, type CamelCase } from '../string/camel.ts';
 
 export type Camelize<T> = T extends (infer U)[]

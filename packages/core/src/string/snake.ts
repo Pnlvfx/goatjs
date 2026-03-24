@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
 import type { CaseOptions } from './options.ts';
 import { noCase } from './internal.ts';
 
