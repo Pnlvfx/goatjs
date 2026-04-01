@@ -1,0 +1,10 @@
+import { findUnusedExports } from '@goatjs/ts-unused-exports';
+import { prettier } from '../src/prettier.ts';
+
+const unused = await findUnusedExports();
+
+if (unused) {
+  throw new Error(
+    `The following exports are unused, add them on the ignore or remove the exports to continue.\n${await prettier.format(JSON.stringify(unused), { parser: 'json' })}`,
+  );
+}

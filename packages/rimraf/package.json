@@ -28,20 +28,9 @@
     "test": "",
     "lint": "eslint",
     "build": "node tools/build.ts",
-    "prepare": "npm run build",
+    "prepare": "yarn build",
     "prepack": "yarn build",
-    "prepublishOnly": "yarn test && eslint"
-  },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^2.1.0",
-    "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.5.0",
-    "eslint": "^10.1.0",
-    "typescript": "^6.0.2"
+    "prepublishOnly": "yarn test && eslint",
+    "unused": "node tools/unused.ts"
   }
 }

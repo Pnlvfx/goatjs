@@ -33,7 +33,8 @@
     "prepare": "yarn build",
     "prepack": "yarn build",
     "prepublishOnly": "yarn test && eslint",
-    "prettier-gen": "node tools/prettier-gen.ts"
+    "prettier-gen": "node tools/prettier-gen.ts",
+    "unused": "node tools/unused.ts"
   },
   "files": [
     "dist",

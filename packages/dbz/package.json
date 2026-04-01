@@ -34,7 +34,8 @@
     "build": "node tools/build.ts",
     "prepare": "yarn build",
     "prepack": "yarn build",
-    "prepublishOnly": "yarn test && eslint"
+    "prepublishOnly": "yarn test && eslint",
+    "unused": "node tools/unused.ts"
   },
   "files": [
     "dist",
@@ -50,7 +51,9 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.1.0",
+    "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.5.0",
     "@types/yargs": "^17.0.35",

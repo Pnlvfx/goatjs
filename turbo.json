@@ -1,6 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "unused": {
+      "dependsOn": ["^unused"],
+      "cache": true
+    },
     "tsc": {
       "dependsOn": ["^tsc"],
       "cache": true
