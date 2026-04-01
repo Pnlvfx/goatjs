@@ -200,10 +200,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
-    "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^2.1.0"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.5.0"
     eslint: "npm:^10.1.0"
@@ -312,7 +310,6 @@ __metadata:
     "@goatjs/core": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^2.1.0"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.5.0"
     eslint: "npm:^10.1.0"
@@ -363,6 +360,12 @@ __metadata:
 "@goatjs/rimraf@workspace:*, @goatjs/rimraf@workspace:packages/rimraf":
   version: 0.0.0-use.local
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
+  dependencies:
+    "@goatjs/node-monorepo-eslint": "npm:^2.1.0"
+    "@goatjs/typescript-config": "workspace:*"
+    "@types/node": "npm:^25.5.0"
+    eslint: "npm:^10.1.0"
+    typescript: "npm:^6.0.2"
   bin:
     rimraf: src/cli/rimraf.ts
   languageName: unknown
