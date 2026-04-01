@@ -1,4 +1,5 @@
 import { getRootPkgJSON } from '@goatjs/node/package-json';
+import { glob } from 'node:fs/promises';
 import path from 'node:path';
 
 export const getExportedFiles = async () => {
@@ -8,23 +9,28 @@ export const getExportedFiles = async () => {
 
   if (!exports) return exportedFiles;
 
-  const processValue = (value: unknown) => {
+  const processValue = async (value: unknown): Promise<void> => {
     if (typeof value === 'string') {
-      // Handle direct string exports like "./dist/index.js"
-      exportedFiles.add(path.resolve(value));
+      if (value.includes('*')) {
+        const matches = glob(path.resolve(value));
+        for await (const match of matches) {
+          exportedFiles.add(match);
+        }
+      } else {
+        exportedFiles.add(path.resolve(value));
+      }
     } else if (typeof value === 'object' && value !== null) {
-      // Handle conditional exports like { "import": "./dist/index.js", "require": "./dist/index.cjs" }
       for (const val of Object.values(value)) {
-        processValue(val);
+        await processValue(val);
       }
     }
   };
 
   if (typeof exports === 'string') {
-    processValue(exports);
+    await processValue(exports);
   } else if (typeof exports === 'object') {
     for (const value of Object.values(exports)) {
-      processValue(value);
+      await processValue(value);
     }
   }
 
