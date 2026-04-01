@@ -1,7 +1,7 @@
 import { prettier } from '@goatjs/node/prettier';
 import { findUnusedExports } from '../src/ts-unused-exports.ts';
 
-const unused = await findUnusedExports();
+const unused = await findUnusedExports({ ignoreFiles: ['eslint.config.js'] });
 
 if (unused) {
   throw new Error(
