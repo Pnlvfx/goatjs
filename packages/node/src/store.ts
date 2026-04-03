@@ -10,6 +10,7 @@ export interface StoreParams<T extends z.ZodType> {
 
 /** This mimic the browser localStorage and allow you to store primitives on disk. */
 export const createStore = async <T extends z.ZodType>(name: string, schema: T, { directory, initial }: StoreParams<T>) => {
+  await fs.mkdir(directory, { recursive: true });
   type StoreType = z.infer<T>;
   const configFile = path.join(directory, `${name}.json`);
   let currentConfig: StoreType | undefined;

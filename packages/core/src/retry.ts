@@ -3,28 +3,35 @@ import type { Callback } from './types/callback.ts';
 import { parseError } from './error.ts';
 import { wait } from './wait.ts';
 
-export interface RetryOptions {
+export interface RetryParams<T, Args extends unknown[]> {
   maxAttempts?: number;
   retryIntervalMs?: number;
   signal?: AbortSignal;
   debug?: boolean;
+  handler: Callback<T, Args>;
   failMessage?: Callback<string, [err: unknown, attempt: number]>;
   shouldRetry?: Callback<boolean, [err: unknown, attempt: number]>;
   onError?: Callback<void, [err: unknown, attempt: number]>;
 }
 
 /** Run a function for the desired amount of times, if it fails the last retry, it will throw an error. */
-export const withRetry = <T, Args extends unknown[]>(
-  callback: Callback<T, Args>,
-  { failMessage, debug, maxAttempts, retryIntervalMs = 1000, shouldRetry, onError, signal }: RetryOptions = {},
-) => {
+export const withRetry = <T, Args extends unknown[]>({
+  failMessage,
+  debug,
+  maxAttempts,
+  retryIntervalMs = 1000,
+  shouldRetry,
+  onError,
+  signal,
+  handler,
+}: RetryParams<T, Args>) => {
   return (...args: Args): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
       let attempt = 1;
 
       const handle = async () => {
         try {
-          const maybe = await callback(...args);
+          const maybe = await handler(...args);
           resolve(maybe);
         } catch (err) {
           const parsedError = parseError(err);
