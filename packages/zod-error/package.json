@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/zod-error",
   "description": "Enhanced Zod error handling with custom error messages and global configuration.",
-  "version": "1.80.0",
+  "version": "1.81.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
