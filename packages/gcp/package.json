@@ -46,11 +46,11 @@
   },
   "devDependencies": {
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^2.2.0",
+    "@goatjs/node-monorepo-eslint": "^2.8.0",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.5.2",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "typescript": "^6.0.2"
   }
 }
