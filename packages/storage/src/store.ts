@@ -7,7 +7,7 @@ export interface StoreParams<T extends z.ZodType> {
   initial?: z.infer<T>;
 }
 
-/** This mimic the browser localStorage and allow you to store primitives on disk. */
+/** @deprecated use @goatjs/node/store one */
 export const createStore = async <T extends z.ZodType>(name: string, schema: T, { root: baseRoot, initial }: StoreParams<T> = {}) => {
   const base = baseRoot ?? (await storage.use('store'));
   return createStoreCore(name, schema, { directory: base, initial });
