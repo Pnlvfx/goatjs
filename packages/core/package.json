@@ -41,10 +41,10 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^2.8.0",
+    "@goatjs/node-monorepo-eslint": "^2.11.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.6.0",
     "eslint": "^10.2.0",
     "typescript": "^6.0.2",
     "zod": "^4.3.6"
