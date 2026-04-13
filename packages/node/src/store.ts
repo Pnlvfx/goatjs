@@ -3,8 +3,6 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 export interface StoreParams<T extends z.ZodType> {
-  name: string;
-  schema: T;
   directory: string;
   initial?: z.infer<T>;
 }
@@ -18,12 +16,11 @@ export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>
 }
 
 /** This mimic the browser localStorage and allow you to store primitives on disk. */
-export const createStore = async <T extends z.ZodType, TParams extends StoreParams<T>>({
-  directory,
-  initial,
-  name,
-  schema,
-}: TParams): Promise<StoreResult<T, TParams>> => {
+export const createStore = async <T extends z.ZodType, TParams extends StoreParams<T>>(
+  name: string,
+  schema: T,
+  { directory, initial }: TParams,
+): Promise<StoreResult<T, TParams>> => {
   await fs.mkdir(directory, { recursive: true });
   type StoreType = z.infer<T>;
   const configFile = path.join(directory, `${name}.json`);

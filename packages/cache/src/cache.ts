@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
 import type { Callback } from '@goatjs/core/types/callback';
 import { storage } from '@goatjs/storage';
-import { createStore } from '@goatjs/storage/store';
+import { createStore } from '@goatjs/node/store';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { hasSameKey } from './key.ts';
@@ -31,12 +31,16 @@ const cacheStoreSchema = z.strictObject({
   type: z.literal(['json', 'xml', 'html']),
 });
 
-const cacheDir = await storage.use('cached');
-const store = await createStore('cache', cacheStoreSchema);
+const cacheRoot = await storage.use('cache');
+const cacheDataPath = path.join(cacheRoot, 'data');
+
+await fs.mkdir(cacheDataPath, { recursive: true });
+
+const store = await createStore('cache', cacheStoreSchema, { directory: cacheRoot });
 
 export const createCacheKey = <T, P extends unknown[]>(name: string, { expiresIn, persist, type, debug, fn }: CacheOptions<T, P>) => {
   const caches: Record<string, CacheData<T>> = {};
-  const dataFilePath = path.join(cacheDir, `${name}.${type}`);
+  const dataFilePath = path.join(cacheDataPath, `${name}.${type}`);
 
   const getStored = async () => {
     try {
