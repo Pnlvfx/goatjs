@@ -9,7 +9,9 @@ export interface StoreParams<T extends z.ZodType> {
 
 export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>> {
   get: TParams['initial'] extends z.infer<T> ? () => Promise<z.infer<T>> : () => Promise<z.infer<T> | undefined>;
-  set: (value: z.infer<T> | ((prev: TParams['initial'] extends z.infer<T> ? z.infer<T> : z.infer<T> | undefined) => z.infer<T>)) => Promise<void>;
+  set: (
+    value: z.infer<T> | ((prev: TParams['initial'] extends z.infer<T> ? z.infer<T> : z.infer<T> | undefined) => z.infer<T> | Promise<z.infer<T>>),
+  ) => Promise<void>;
   clear: () => Promise<void>;
 }
 
@@ -65,14 +67,15 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
     await write(initial);
   }
 
-  const isUpdater = (v: StoreType | ((prev: StoreType | undefined) => StoreType)): v is (prev: StoreType | undefined) => StoreType =>
-    typeof v === 'function';
+  const isUpdater = (
+    v: StoreType | ((prev: StoreType | undefined) => StoreType | Promise<StoreType>),
+  ): v is (prev: StoreType | undefined) => StoreType | Promise<StoreType> => typeof v === 'function';
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return {
     get,
-    set: async (value: StoreType | ((prev: StoreType | undefined) => StoreType)) => {
-      const resolved = isUpdater(value) ? value(currentConfig) : value;
+    set: async (value: StoreType | ((prev: StoreType | undefined) => StoreType | Promise<StoreType>)) => {
+      const resolved = isUpdater(value) ? await value(currentConfig) : value;
       await write(resolved);
     },
     clear: async () => {
