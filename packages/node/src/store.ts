@@ -9,9 +9,7 @@ export interface StoreParams<T extends z.ZodType> {
 
 export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>> {
   get: TParams['initial'] extends z.infer<T> ? () => Promise<z.infer<T>> : () => Promise<z.infer<T> | undefined>;
-  set: (value: z.infer<T>) => Promise<void>;
-  /** @experimental Shallow-merges the given partial into the current value. Avoid for arrays or nested objects. */
-  experimental_merge: (partial: Partial<z.infer<T>>) => Promise<void>;
+  set: (value: z.infer<T> | ((prev: z.infer<T> | undefined) => z.infer<T>)) => Promise<void>;
   clear: () => Promise<void>;
 }
 
@@ -46,7 +44,7 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
     return currentConfig;
   };
 
-  const set = async (value: StoreType) => {
+  const write = async (value: StoreType) => {
     currentConfig = await schema.parseAsync(value);
     await fs.writeFile(configFile, JSON.stringify(currentConfig));
   };
@@ -64,17 +62,18 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
       );
     }
   } else if (initial !== undefined) {
-    await set(initial);
+    await write(initial);
   }
+
+  const isUpdater = (v: StoreType | ((prev: StoreType | undefined) => StoreType)): v is (prev: StoreType | undefined) => StoreType =>
+    typeof v === 'function';
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
   return {
     get,
-    set,
-    experimental_merge: async (partial: Partial<StoreType>) => {
-      const update = currentConfig === undefined ? partial : { ...currentConfig, ...partial };
-      currentConfig = await schema.parseAsync(update);
-      await fs.writeFile(configFile, JSON.stringify(currentConfig));
+    set: async (value: StoreType | ((prev: StoreType | undefined) => StoreType)) => {
+      const resolved = isUpdater(value) ? value(currentConfig) : value;
+      await write(resolved);
     },
     clear: async () => {
       try {
