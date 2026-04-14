@@ -11,7 +11,7 @@ export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>
   get: TParams['initial'] extends z.infer<T> ? () => Promise<z.infer<T>> : () => Promise<z.infer<T> | undefined>;
   set: (
     value: z.infer<T> | ((prev: TParams['initial'] extends z.infer<T> ? z.infer<T> : z.infer<T> | undefined) => z.infer<T> | Promise<z.infer<T>>),
-  ) => Promise<void>;
+  ) => Promise<z.infer<T>>;
   clear: () => Promise<void>;
 }
 
@@ -77,6 +77,7 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
     set: async (value: StoreType | ((prev: StoreType | undefined) => StoreType | Promise<StoreType>)) => {
       const resolved = isUpdater(value) ? await value(currentConfig) : value;
       await write(resolved);
+      return currentConfig;
     },
     clear: async () => {
       try {
