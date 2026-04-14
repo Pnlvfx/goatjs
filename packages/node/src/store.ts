@@ -9,7 +9,7 @@ export interface StoreParams<T extends z.ZodType> {
 
 export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>> {
   get: TParams['initial'] extends z.infer<T> ? () => Promise<z.infer<T>> : () => Promise<z.infer<T> | undefined>;
-  set: (value: z.infer<T> | ((prev: z.infer<T> | undefined) => z.infer<T>)) => Promise<void>;
+  set: (value: z.infer<T> | ((prev: TParams['initial'] extends z.infer<T> ? z.infer<T> : z.infer<T> | undefined) => z.infer<T>)) => Promise<void>;
   clear: () => Promise<void>;
 }
 
