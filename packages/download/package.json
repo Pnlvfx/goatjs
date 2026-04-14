@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/download",
   "description": "A utility for downloading files from URLs with automatic filename detection.",
-  "version": "1.84.0",
+  "version": "1.85.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -51,6 +51,6 @@
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
-    "@goatjs/node": "1.84.0"
+    "@goatjs/node": "1.85.0"
   }
 }
