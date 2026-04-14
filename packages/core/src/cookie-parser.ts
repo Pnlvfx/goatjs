@@ -1,12 +1,3 @@
-const sameSiteValues = [true, false, 'lax', 'strict', 'none'] as const;
-
-type CookieSameSite = (typeof sameSiteValues)[number];
-
-const isValidSameSite = (value: boolean | string): value is CookieSameSite => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-  return sameSiteValues.includes(value as CookieSameSite);
-};
-
 export interface Cookie {
   name: string;
   value: string;
@@ -33,10 +24,8 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
   if (!nameValuePairStr) throw new Error('Error while trying to parse cookie string!');
   const parsed = parseNameValuePair(nameValuePairStr);
   const value = decodeValues ? decodeURIComponent(parsed.value) : parsed.value;
-  const cookie: Cookie = {
-    name: parsed.name,
-    value,
-  };
+  const cookie: Cookie = { name: parsed.name, value };
+
   for (const part of parts) {
     const sides = part.split('=');
     const key = sides.shift()?.trimStart().toLowerCase();
@@ -82,6 +71,7 @@ const parseString = (cookieString: string, decodeValues?: boolean): Cookie => {
       }
     }
   }
+
   return cookie;
 };
 
@@ -99,4 +89,13 @@ const parseNameValuePair = (nameValuePairStr: string) => {
   }
 
   return { name, value };
+};
+
+const sameSiteValues = [true, false, 'lax', 'strict', 'none'] as const;
+
+type CookieSameSite = (typeof sameSiteValues)[number];
+
+const isValidSameSite = (value: boolean | string): value is CookieSameSite => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+  return sameSiteValues.includes(value as CookieSameSite);
 };
