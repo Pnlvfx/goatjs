@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-type-assertion */
-import { kebabCase, type KebabCase } from '../string/kebab.ts';
 import type { CaseOptions } from '../string/options.ts';
+import { kebabCase, type KebabCase } from '../string/kebab.ts';
 
 export type Kebabize<T> = T extends (infer U)[]
   ? Kebabize<U>[]
