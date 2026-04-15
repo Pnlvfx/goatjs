@@ -55,11 +55,8 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
   if (buf) {
     const parsed: unknown = JSON.parse(buf.toString());
     const result = await schema.safeParseAsync(parsed);
-    if (result.success) {
-      currentConfig = result.data;
-    } else {
-      // eslint-disable-next-line no-console
-      console.warn(
+    if (!result.success) {
+      throw new Error(
         `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
       );
     }
