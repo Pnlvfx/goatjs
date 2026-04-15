@@ -1,15 +1,18 @@
 class FetchError extends Error {
   status: number;
-  constructor(message: string, status: number) {
+  url: string;
+
+  constructor(message: string, status: number, url: string) {
     super(message);
     this.status = status;
     this.name = 'FetchError';
+    this.url = url;
     Object.setPrototypeOf(this, FetchError.prototype);
   }
 }
 
-export const fetchError = (message: string, { status }: { status: number }) => {
-  return new FetchError(message, status);
+export const fetchError = (message: string, { status, url }: { status: number; url: string }) => {
+  return new FetchError(message, status, url);
 };
 
 export const isFetchError = (err: unknown) => {
