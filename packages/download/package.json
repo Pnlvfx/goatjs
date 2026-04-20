@@ -41,14 +41,14 @@
   },
   "devDependencies": {
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^2.11.0",
+    "@goatjs/node-monorepo-eslint": "^2.13.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/mime-types": "^3.0.1",
     "@types/node": "^25.6.0",
-    "eslint": "^10.2.0",
-    "typescript": "^6.0.2"
+    "eslint": "^10.2.1",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "@goatjs/node": "1.86.0"

@@ -18,7 +18,7 @@ const errorToString = (err: unknown) => {
     // eslint-disable-next-line no-restricted-properties
     if (process.env['NODE_ENV'] !== 'production') {
       // eslint-disable-next-line no-console
-      console.warn('Unable to parse', err);
+      console.warn('[parse-error]', 'Unable to parse', err);
     }
   }
 

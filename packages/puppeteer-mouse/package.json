@@ -39,14 +39,14 @@
   ],
   "devDependencies": {
     "@goatjs/node": "workspace:*",
-    "@goatjs/node-monorepo-eslint": "^2.11.0",
+    "@goatjs/node-monorepo-eslint": "^2.13.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.6.0",
-    "eslint": "^10.2.0",
-    "puppeteer-core": "^24.40.0",
-    "typescript": "^6.0.2"
+    "eslint": "^10.2.1",
+    "puppeteer-core": "^24.42.0",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "puppeteer-core": "*"

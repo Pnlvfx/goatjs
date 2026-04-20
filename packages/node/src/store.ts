@@ -77,10 +77,14 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
       return currentConfig;
     },
     clear: async () => {
-      try {
-        await fs.rm(configFile);
-      } catch {}
-      currentConfig = undefined;
+      if (initial === undefined) {
+        try {
+          await fs.rm(configFile);
+        } catch {}
+        currentConfig = undefined;
+      } else {
+        await write(initial);
+      }
     },
   } as StoreResult<T, TParams>;
 };
