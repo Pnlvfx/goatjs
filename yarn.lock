@@ -2477,12 +2477,8 @@ __metadata:
   dependencies:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/rimraf": "workspace:*"
-    "@goatjs/typescript-config": "workspace:*"
-    "@types/yargs": "npm:^17.0.35"
     prettier: "npm:^3.8.3"
     turbo: "npm:^2.9.6"
-    typescript: "npm:^6.0.3"
-    yargs: "npm:^18.0.0"
   languageName: unknown
   linkType: soft
 
