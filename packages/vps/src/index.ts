@@ -95,3 +95,5 @@ export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
     throw err;
   }
 };
+
+export type { NginxConfig, VpsConfig } from './config.ts';
