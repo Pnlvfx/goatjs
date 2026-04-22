@@ -6,4 +6,5 @@ export default {
   host: '',
   plugins: [],
   gcpCredentialsPath: '',
+  nginx: { serverName: '', port: 8080 },
 } satisfies VpsConfig;

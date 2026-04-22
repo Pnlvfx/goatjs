@@ -12,6 +12,9 @@ import { nano } from './internal-plugins/nano.ts';
 import { unzip } from './internal-plugins/unzip.ts';
 import { loadConfigFile } from './config.ts';
 import { gcloud } from './internal-plugins/gcloud.ts';
+import { nginx } from './internal-plugins/nginx.ts';
+import { pm2 } from './internal-plugins/pm2.ts';
+import { certbot } from './internal-plugins/certbot.ts';
 
 export interface DeployParams {
   skipGit?: boolean;
@@ -20,7 +23,7 @@ export interface DeployParams {
 }
 
 export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
-  const { host, projectName, plugins = [], gcpCredentialsPath } = await loadConfigFile();
+  const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
   const git = createGitClient();
   const ssh = await createSshClient({ host });
 
@@ -44,14 +47,14 @@ export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
     if (init) {
       await input.create({ title: 'Are you sure that you want to init? It should be used only the first time.' });
 
-      const requiredPlugins = [node, nano, unzip, gcloud];
+      const requiredPlugins = [node, nano, unzip, gcloud, nginx, certbot, pm2];
 
       for (const plugin of requiredPlugins) {
-        await plugin({ ssh, projectName, host, gcpCredentialsPath });
+        await plugin({ ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig });
       }
 
       for (const plugin of plugins) {
-        await plugin({ ssh, projectName, host, gcpCredentialsPath });
+        await plugin({ ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig });
       }
     }
 
