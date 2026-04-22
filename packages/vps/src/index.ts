@@ -6,17 +6,21 @@ import { createSshClient } from './ssh.ts';
 import { rimraf } from '@goatjs/rimraf';
 import { zipServer } from './zip.ts';
 import { consoleColor } from '@goatjs/node/console-color';
-import { updateSystem } from './plugins/update.ts';
+import { updateSystem } from './internal-plugins/update.ts';
+import { node } from './internal-plugins/node.ts';
+import { nano } from './internal-plugins/nano.ts';
+import { unzip } from './internal-plugins/unzip.ts';
+import { loadConfigFile } from './config.ts';
+import { gcloud } from './internal-plugins/gcloud.ts';
 
 export interface DeployParams {
-  projectName: string;
-  host: string;
   skipGit?: boolean;
   init?: boolean;
   update?: boolean;
 }
 
-export const deployToVps = async ({ host, skipGit, init, update, projectName }: DeployParams) => {
+export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
+  const { host, projectName, plugins = [], gcpCredentialsPath } = await loadConfigFile();
   const git = createGitClient();
   const ssh = await createSshClient({ host });
 
@@ -33,11 +37,22 @@ export const deployToVps = async ({ host, skipGit, init, update, projectName }: 
       await checkGitStatus();
     }
 
+    if (init || update) {
+      await updateSystem(ssh);
+    }
+
     if (init) {
       await input.create({ title: 'Are you sure that you want to init? It should be used only the first time.' });
-      await prepareVps();
-    } else if (update) {
-      await updateSystem(ssh);
+
+      const requiredPlugins = [node, nano, unzip, gcloud];
+
+      for (const plugin of requiredPlugins) {
+        await plugin({ ssh, projectName, host, gcpCredentialsPath });
+      }
+
+      for (const plugin of plugins) {
+        await plugin({ ssh, projectName, host, gcpCredentialsPath });
+      }
     }
 
     await rimraf('dist');
@@ -63,6 +78,7 @@ export const deployToVps = async ({ host, skipGit, init, update, projectName }: 
     await reset();
 
     await spawnWithLog('yarn', ['version', 'minor']);
+
     if (!skipGit) {
       await git.add();
       await git.commit('RELEASE');

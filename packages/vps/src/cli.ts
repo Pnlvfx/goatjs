@@ -1,6 +1,5 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { loadConfigFile } from './config.ts';
 import { deployToVps } from './index.ts';
 
 const { init, update, skipGit } = await yargs(hideBin(process.argv))
@@ -9,5 +8,4 @@ const { init, update, skipGit } = await yargs(hideBin(process.argv))
   .option('skip-git', { type: 'boolean' })
   .parseAsync();
 
-const { host, projectName, plugins } = await loadConfigFile();
-await deployToVps({ host, projectName, init, skipGit, update });
+await deployToVps({ init, skipGit, update });

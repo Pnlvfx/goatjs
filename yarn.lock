@@ -432,6 +432,10 @@ __metadata:
     eslint: "npm:^10.2.1"
     node-ssh: "npm:^13.2.1"
     typescript: "npm:^6.0.3"
+    yargs: "npm:^18.0.0"
+    zod: "npm:^4.3.6"
+  bin:
+    vps: src/cli.ts
   languageName: unknown
   linkType: soft
 

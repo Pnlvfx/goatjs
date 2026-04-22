@@ -4,5 +4,6 @@ import type { VpsConfig } from './src/config.js';
 
 export default {
   host: '',
-  projectName: 'test',
+  plugins: [],
+  gcpCredentialsPath: '',
 } satisfies VpsConfig;
