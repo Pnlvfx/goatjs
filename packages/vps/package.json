@@ -1,0 +1,61 @@
+{
+  "name": "@goatjs/vps",
+  "description": "Utilities for deploying applications to VPS.",
+  "version": "1.49.0",
+  "author": {
+    "email": "simonegauli@gmail.com",
+    "name": "Simone Gauli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pnlvfx/goatjs.git",
+    "directory": "packages/vps"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "test": "",
+    "lint": "eslint",
+    "build": "node tools/build.ts",
+    "prepare": "yarn build",
+    "prepack": "yarn build",
+    "prepublishOnly": "yarn test && eslint",
+    "unused": "node tools/unused.ts"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "@goatjs/dbz": "workspace:*",
+    "@goatjs/node": "workspace:*",
+    "@goatjs/rimraf": "workspace:*",
+    "@goatjs/storage": "workspace:*",
+    "adm-zip": "^0.5.17",
+    "node-ssh": "^13.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@goatjs/node": "workspace:*",
+    "@goatjs/node-monorepo-eslint": "^2.13.0",
+    "@goatjs/ts-unused-exports": "workspace:*",
+    "@goatjs/typescript-config": "workspace:*",
+    "@types/adm-zip": "^0.5.8",
+    "yargs": "^18.0.0",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "typescript": "^6.0.3"
+  }
+}
