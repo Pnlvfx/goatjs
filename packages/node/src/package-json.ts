@@ -14,7 +14,7 @@ const pkgJsonSchema = z.looseObject({
   peerDependencies: z.record(z.string(), z.string()).optional(),
   packageManager: z.string().optional(),
   exports: z
-    .union([z.string(), z.record(z.string(), z.union([z.string(), z.record(z.string(), z.unknown())]))])
+    .record(z.string(), z.union([z.string(), z.record(z.string(), z.unknown())]))
     .nullable()
     .optional(),
 });
