@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/ts-unused-exports",
   "description": "Find unused exports in TypeScript projects with support for package.json exports and Vanilla Extract CSS.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
