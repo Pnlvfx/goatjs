@@ -39,6 +39,9 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
 
   await spawnWithLog('yarn', ['workspaces', 'foreach', ...includeArgs, 'version', version]);
 
+  // eslint-disable-next-line no-console
+  console.log(`About to publish: ${names}`);
+
   try {
     await spawnWithLog('yarn', ['workspaces', 'foreach', ...includeArgs, 'npm', 'publish']);
   } catch (err) {
