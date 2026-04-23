@@ -1,6 +1,7 @@
 import type * as z from 'zod';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fsExtra } from './fs-extra/index.ts';
 
 export interface StoreParams<T extends z.ZodType> {
   directory: string;
@@ -29,16 +30,16 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
   const getBuffer = async () => {
     try {
       return await fs.readFile(configFile);
-    } catch {
-      // eslint-disable-next-line unicorn/no-useless-undefined
-      return undefined;
+    } catch (err) {
+      if (fsExtra.isFsError(err) && err.code === 'ENOENT') return;
+      throw err;
     }
   };
 
   const get = async () => {
     if (currentConfig === undefined) {
       const buf = await getBuffer();
-      if (!buf) return currentConfig;
+      if (!buf) return;
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
       currentConfig = JSON.parse(buf.toString()) as StoreType;
     }
@@ -60,8 +61,9 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
         `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
       );
     }
+    currentConfig = result.data;
   } else if (initial !== undefined) {
-    await write(initial);
+    currentConfig = await schema.parseAsync(initial);
   }
 
   const isUpdater = (
