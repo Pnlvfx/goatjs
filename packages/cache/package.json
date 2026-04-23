@@ -41,7 +41,6 @@
     "@goatjs/storage": "workspace:*"
   },
   "devDependencies": {
-    "@goatjs/dbz": "workspace:*",
     "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.13.0",
     "@goatjs/rimraf": "workspace:*",

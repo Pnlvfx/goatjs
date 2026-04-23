@@ -147,7 +147,6 @@ __metadata:
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/dbz": "workspace:*"
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^2.13.0"
     "@goatjs/rimraf": "workspace:*"
