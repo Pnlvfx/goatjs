@@ -35,7 +35,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
   // eslint-disable-next-line no-console
   console.log(`Publishing ${changed.length.toString()} package(s): ${names}`);
 
-  const includeArgs = changed.flatMap((w) => ['--include', w.name]);
+  const includeArgs = ['--all', ...changed.flatMap((w) => ['--include', w.name])];
 
   await spawnWithLog('yarn', ['workspaces', 'foreach', ...includeArgs, 'version', version]);
 
