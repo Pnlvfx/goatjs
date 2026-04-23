@@ -1,5 +1,5 @@
 import { consoleColor } from '@goatjs/node/console-color';
-import { publish, type PublishOptions } from './publish.ts';
+import { publish, type PublishOptions, type PublishedPackage } from './publish.ts';
 import { createGitClient } from '@goatjs/node/git';
 import { checkGitStatus } from './git.ts';
 import { yarn } from './yarn.ts';
@@ -12,6 +12,13 @@ const clear = async ({ extra }: { extra?: string[] } = {}) => {
   await (monorepo
     ? yarn.workspace.runAll(['run', 'rimraf', ...foldersToInclude], { includePrivate: true })
     : spawnWithLog('yarn', ['rimraf', ...foldersToInclude]));
+};
+
+const createReleaseTags = async (git: ReturnType<typeof createGitClient>, published: PublishedPackage[]) => {
+  for (const pkg of published) {
+    await git.createTag(`${pkg.name}@${pkg.version}`);
+  }
+  await git.pushTags();
 };
 
 export interface PublishParams extends PublishOptions {
@@ -28,7 +35,7 @@ export const dbz = {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
       await spawnWithLog('yarn', ['build']);
     }
-    await publish({ version, monorepo });
+    const published = await publish({ version, monorepo });
     if (skipGit) {
       // eslint-disable-next-line no-console
       console.warn('commit skipped, make sure to commit the new versions yourself or you might face versions issue later on.');
@@ -36,6 +43,7 @@ export const dbz = {
       await git.add();
       await git.commit('RELEASE');
       await git.push();
+      await createReleaseTags(git, published);
     }
     if (!skipClear) {
       await clear();

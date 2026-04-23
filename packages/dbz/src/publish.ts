@@ -1,5 +1,4 @@
 import { execAsync } from '@goatjs/node/exec';
-import { createGitClient } from '@goatjs/node/git';
 import { spawnWithLog } from './spawn.ts';
 import { getChangedWorkspaces, getWorkspaceVersion } from './changed.ts';
 
@@ -11,7 +10,12 @@ interface InternalPublishOptions extends PublishOptions {
   monorepo: boolean;
 }
 
-export const publish = async ({ version = 'minor', monorepo }: InternalPublishOptions) => {
+export interface PublishedPackage {
+  name: string;
+  version: string;
+}
+
+export const publish = async ({ version = 'minor', monorepo }: InternalPublishOptions): Promise<PublishedPackage[]> => {
   if (!monorepo) {
     await spawnWithLog('yarn', ['version', version]);
     try {
@@ -20,7 +24,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
       await execAsync('git checkout -- package.json');
       throw err;
     }
-    return;
+    return [];
   }
 
   const changed = await getChangedWorkspaces();
@@ -28,7 +32,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
   if (changed.length === 0) {
     // eslint-disable-next-line no-console
     console.log('Nothing to publish - no packages changed since last release.');
-    return;
+    return [];
   }
 
   const names = changed.map((w) => w.name).join(', ');
@@ -49,14 +53,13 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
     throw err;
   }
 
-  const git = createGitClient();
-
+  const published: PublishedPackage[] = [];
   for (const w of changed) {
     const ver = await getWorkspaceVersion(w.location);
-    await git.createTag(`${w.name}@${ver}`);
+    published.push({ name: w.name, version: ver });
   }
 
-  await git.pushTags();
+  return published;
 };
 
 const supportedVersions = ['major', 'minor', 'patch'] as const;
