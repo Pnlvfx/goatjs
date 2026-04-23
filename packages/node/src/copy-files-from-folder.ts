@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fsExtra } from './fs-extra/index.ts';
+import { fsExtra } from './fs-extra/fs-extra.ts';
 import { mark } from './mark.ts';
 interface Params {
   inputFolder: string;

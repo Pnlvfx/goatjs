@@ -1,7 +1,7 @@
 import type * as z from 'zod';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fsExtra } from './fs-extra/index.ts';
+import { fsExtra } from './fs-extra/fs-extra.ts';
 
 export interface StoreParams<T extends z.ZodType> {
   directory: string;
