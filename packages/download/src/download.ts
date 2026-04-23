@@ -5,7 +5,7 @@ import { pipeline } from 'node:stream/promises';
 import { createWriteStream } from 'node:fs';
 import { getUserAgent } from '@goatjs/node/user-agent';
 import { sanitize } from '@goatjs/node/sanitize';
-import { fsExtra } from '@goatjs/node/fs-extra/index';
+import { fsExtra } from '@goatjs/node/fs-extra/fs-extra';
 
 export interface DownloadOptions {
   /** The directory in which the file will be stored. */
