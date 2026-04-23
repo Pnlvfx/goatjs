@@ -1,25 +1,31 @@
 import fs from 'node:fs/promises';
+import * as z from 'zod';
 
-export interface PackageJSON {
-  name: string;
-  description?: string;
-  version?: string;
-  scripts?: Record<string, string>;
-  workspaces?: string[];
-  author?: string | object;
-  dependencies?: Record<string, string>;
-  devDependencies?: Record<string, string>;
-  peerDependencies?: Record<string, string>;
-  packageManager?: string;
-  exports?: Record<string, string | object> | null;
-}
+const pkgJsonSchema = z.looseObject({
+  name: z.string(),
+  description: z.string().optional(),
+  version: z.string().optional(),
+  private: z.boolean().optional(),
+  scripts: z.record(z.string(), z.string()).optional(),
+  workspaces: z.array(z.string()).optional(),
+  author: z.union([z.string(), z.record(z.string(), z.unknown())]).optional(),
+  dependencies: z.record(z.string(), z.string()).optional(),
+  devDependencies: z.record(z.string(), z.string()).optional(),
+  peerDependencies: z.record(z.string(), z.string()).optional(),
+  packageManager: z.string().optional(),
+  exports: z
+    .record(z.string(), z.union([z.string(), z.record(z.string(), z.unknown())]))
+    .nullable()
+    .optional(),
+});
 
-export const getRootPkgJSON = async () => getPkgJSON('package.json');
+export type PackageJSON = z.infer<typeof pkgJsonSchema>;
 
 export const getPkgJSON = async (file: string) => {
   const buf = await fs.readFile(file);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-  const { name, ...pkg } = JSON.parse(buf.toString()) as Partial<PackageJSON>;
+  const { name, ...pkg } = await pkgJsonSchema.parseAsync(JSON.parse(buf.toString()));
   if (!name) throw new Error('Please add a valid name on your package.json.');
   return { name, ...pkg };
 };
+
+export const getRootPkgJSON = async () => getPkgJSON('package.json');

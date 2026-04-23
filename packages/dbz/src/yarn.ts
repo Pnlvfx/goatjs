@@ -5,6 +5,7 @@ import { getRootPkgJSON } from '@goatjs/node/package-json';
 export interface ListItem {
   location: string;
   name: string;
+  private?: boolean;
 }
 
 interface YarnConfig {
