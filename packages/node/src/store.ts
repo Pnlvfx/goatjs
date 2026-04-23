@@ -61,7 +61,6 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
         `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
       );
     }
-    currentConfig = result.data;
   } else if (initial !== undefined) {
     currentConfig = await schema.parseAsync(initial);
   }
