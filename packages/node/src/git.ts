@@ -81,7 +81,7 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       return runGitCommand('git push --tags');
     },
     diffSince: async (tag: string, path: string) => {
-      const { stdout } = await runGitCommand(`git diff ${tag} -- "${path}"`);
+      const { stdout } = await runGitCommand(`git diff ${tag} HEAD -- "${path}"`);
       return stdout.trim();
     },
   };
