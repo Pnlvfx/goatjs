@@ -17,12 +17,11 @@ import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 
 export interface DeployParams {
-  skipGit?: boolean;
   init?: boolean;
   update?: boolean;
 }
 
-export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
+export const deployToVps = async ({ init, update }: DeployParams) => {
   const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
   const git = createGitClient();
   const ssh = await createSshClient({ host });
@@ -33,12 +32,7 @@ export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
   };
 
   try {
-    // eslint-disable-next-line unicorn/prefer-ternary
-    if (skipGit) {
-      await input.create({ title: 'Are you sure you want to release without git?' });
-    } else {
-      await checkGitStatus();
-    }
+    await checkGitStatus();
 
     if (init || update) {
       await updateSystem(ssh);
@@ -82,11 +76,9 @@ export const deployToVps = async ({ skipGit, init, update }: DeployParams) => {
 
     await spawnWithLog('yarn', ['version', 'minor']);
 
-    if (!skipGit) {
-      await git.add();
-      await git.commit('RELEASE');
-      await git.push();
-    }
+    await git.add();
+    await git.commit('RELEASE');
+    await git.push();
 
     consoleColor('blue', 'done');
   } catch (err) {

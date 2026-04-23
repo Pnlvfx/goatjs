@@ -13,13 +13,13 @@
   },
   "license": "MIT",
   "type": "module",
-  "bin": "src/cli.ts",
+  "bin": { "vps": "src/cli.ts" },
   "exports": {
     ".": "./src/index.ts",
     "./plugins/*": "./src/plugins/*.ts"
   },
   "publishConfig": {
-    "bin": "dist/cli.js",
+      "bin": { "vps": "dist/cli.js" },
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
