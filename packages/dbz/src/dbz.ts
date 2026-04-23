@@ -5,6 +5,7 @@ import { checkGitStatus } from './git.ts';
 import { yarn } from './yarn.ts';
 import { spawnWithLog } from './spawn.ts';
 import { input } from '@goatjs/node/input';
+import { getChangedWorkspaces } from './changed.ts';
 
 const clear = async ({ extra }: { extra?: string[] } = {}) => {
   const monorepo = await yarn.isMonorepo();
@@ -31,9 +32,15 @@ export const dbz = {
     const git = createGitClient();
     await (skipGit ? input.create({ title: 'Are you sure you want to publish without git checks?', color: 'red' }) : checkGitStatus());
     const monorepo = await yarn.isMonorepo();
+    const changed = monorepo ? await getChangedWorkspaces() : undefined;
     if (monorepo) {
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      await spawnWithLog('yarn', ['build']);
+      if (!changed || changed.length === 0) {
+        consoleColor('blue', 'Nothing to publish - no packages changed since last release.');
+        return;
+      }
+      const filterArgs = changed.flatMap((w) => ['--filter', w.name]);
+      await spawnWithLog('yarn', ['build', ...filterArgs]);
     }
     const published = await publish({ version, monorepo });
     if (published.length === 0) {
