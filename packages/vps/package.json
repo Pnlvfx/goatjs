@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/vps",
   "description": "Utilities for deploying applications to VPS.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
@@ -13,13 +13,15 @@
   },
   "license": "MIT",
   "type": "module",
-  "bin": { "vps": "src/cli.ts" },
+  "bin": "src/cli.ts",
   "exports": {
     ".": "./src/index.ts",
     "./plugins/*": "./src/plugins/*.ts"
   },
   "publishConfig": {
-      "bin": { "vps": "dist/cli.js" },
+    "bin": {
+      "vps": "dist/cli.js"
+    },
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
