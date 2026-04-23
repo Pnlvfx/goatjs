@@ -36,22 +36,7 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
     }
   };
 
-  const get = async () => {
-    if (currentConfig === undefined) {
-      const buf = await getBuffer();
-      if (!buf) return;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-      currentConfig = JSON.parse(buf.toString()) as StoreType;
-    }
-
-    return currentConfig;
-  };
-
-  const write = async (value: StoreType) => {
-    currentConfig = await schema.parseAsync(value);
-    await fs.writeFile(configFile, JSON.stringify(currentConfig));
-  };
-
+  // validate prev stored
   const buf = await getBuffer();
   if (buf) {
     const parsed: unknown = JSON.parse(buf.toString());
@@ -61,9 +46,24 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
         `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
       );
     }
-  } else if (initial !== undefined) {
-    currentConfig = await schema.parseAsync(initial);
   }
+  //
+
+  const get = async () => {
+    if (currentConfig === undefined) {
+      const buf = await getBuffer();
+      if (!buf) return;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+      currentConfig = JSON.parse(buf.toString()) as StoreType;
+    }
+
+    return currentConfig ?? initial;
+  };
+
+  const write = async (value: StoreType) => {
+    currentConfig = await schema.parseAsync(value);
+    await fs.writeFile(configFile, JSON.stringify(currentConfig));
+  };
 
   const isUpdater = (
     v: StoreType | ((prev: StoreType | undefined) => StoreType | Promise<StoreType>),
@@ -73,7 +73,16 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
   return {
     get,
     set: async (value: StoreType | ((prev: StoreType | undefined) => StoreType | Promise<StoreType>)) => {
-      const resolved = isUpdater(value) ? await value(currentConfig) : value;
+      let resolved;
+      if (isUpdater(value)) {
+        // if set is called before get, we have to call get ourself otherwise currentConfig is not set
+        if (currentConfig === undefined) {
+          await get();
+        }
+        resolved = await value(currentConfig);
+      } else {
+        resolved = value;
+      }
       await write(resolved);
       return currentConfig;
     },
