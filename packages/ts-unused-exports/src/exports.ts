@@ -10,7 +10,7 @@ export const getExportedFiles = async (pkgJsonPath = path.resolve('.', 'package.
   const exports = pkgJson.exports;
   const exportedFiles = new Set<string>();
 
-  if (!exports) return exportedFiles;
+  if (exports === null || exports === undefined) return exportedFiles;
 
   const processValue = async (value: unknown): Promise<void> => {
     if (typeof value === 'string') {
