@@ -5,7 +5,6 @@ import { getRootPkgJSON } from '@goatjs/node/package-json';
 export interface ListItem {
   location: string;
   name: string;
-  private?: boolean;
 }
 
 interface YarnConfig {
@@ -25,14 +24,17 @@ const workspace = {
     }
     return spawnWithLog('yarn', [...args, ...command]);
   },
-  list: async () => {
-    const { stdout } = await execa('yarn', ['workspaces', 'list', '--json']);
+  list: async ({ includePrivate }: { includePrivate?: boolean } = {}) => {
+    const args = ['workspaces', 'list', '--json'];
+    if (!includePrivate) args.push('--no-private');
+    const { stdout } = await execa('yarn', args);
     return (
       stdout
         .trim()
         .split('\n')
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
         .map((line) => JSON.parse(line) as ListItem)
+        .filter((w) => w.location !== '.')
     );
   },
 };

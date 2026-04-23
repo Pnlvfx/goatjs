@@ -15,12 +15,11 @@ export const getWorkspaceVersion = async (location: string): Promise<string> => 
 
 export const getChangedWorkspaces = async (): Promise<ListItem[]> => {
   const git = createGitClient();
-  const all = await yarn.workspace.list();
-  const publicWorkspaces = all.filter((w) => w.location !== '.' && !w.private);
-
+  const all = await yarn.workspace.list({ includePrivate: false });
   const withVersions: WorkspaceWithVersion[] = [];
-  for (const w of publicWorkspaces) {
-    withVersions.push({ ...w, version: await getWorkspaceVersion(w.location) });
+  for (const w of all) {
+    const version = await getWorkspaceVersion(w.location);
+    withVersions.push({ ...w, version });
   }
 
   const changedNames = new Set<string>();
