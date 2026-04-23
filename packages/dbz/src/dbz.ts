@@ -36,6 +36,9 @@ export const dbz = {
       await spawnWithLog('yarn', ['build']);
     }
     const published = await publish({ version, monorepo });
+    if (published.length === 0) {
+      return;
+    }
     if (skipGit) {
       // eslint-disable-next-line no-console
       console.warn('commit skipped, make sure to commit the new versions yourself or you might face versions issue later on.');
