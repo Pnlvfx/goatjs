@@ -70,5 +70,23 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       }
       return runGitCommand(command);
     },
+    tagExists: async (tag: string) => {
+      try {
+        await runGitCommand(`git rev-parse ${tag}`);
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    createTag: (tag: string) => {
+      return runGitCommand(`git tag ${tag}`);
+    },
+    pushTags: () => {
+      return runGitCommand('git push --tags');
+    },
+    diffSince: async (tag: string, path: string) => {
+      const { stdout } = await runGitCommand(`git diff ${tag} -- ${path}`);
+      return stdout.trim();
+    },
   };
 };
