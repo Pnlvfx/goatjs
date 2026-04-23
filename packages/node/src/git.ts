@@ -71,12 +71,8 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       return runGitCommand(command);
     },
     tagExists: async (tag: string) => {
-      try {
-        await runGitCommand(`git rev-parse ${tag}`);
-        return true;
-      } catch {
-        return false;
-      }
+      const { stdout } = await runGitCommand(`git tag -l ${tag}`);
+      return stdout.trim() === tag;
     },
     createTag: (tag: string) => {
       return runGitCommand(`git tag ${tag}`);
@@ -85,7 +81,7 @@ export const createGitClient = ({ cwd }: { cwd?: string } = {}) => {
       return runGitCommand('git push --tags');
     },
     diffSince: async (tag: string, path: string) => {
-      const { stdout } = await runGitCommand(`git diff ${tag} -- ${path}`);
+      const { stdout } = await runGitCommand(`git diff ${tag} -- "${path}"`);
       return stdout.trim();
     },
   };

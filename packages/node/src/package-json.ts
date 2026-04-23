@@ -14,13 +14,7 @@ export interface PackageJSON {
   exports?: Record<string, string | object> | null;
 }
 
-export const getRootPkgJSON = async () => {
-  const buf = await fs.readFile('package.json');
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
-  const { name, ...pkg } = JSON.parse(buf.toString()) as Partial<PackageJSON>;
-  if (!name) throw new Error('Please add a valid name on your package.json.');
-  return { name, ...pkg };
-};
+export const getRootPkgJSON = async () => getPkgJSON('package.json');
 
 export const getPkgJSON = async (file: string) => {
   const buf = await fs.readFile(file);

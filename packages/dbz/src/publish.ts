@@ -47,12 +47,12 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
   }
 
   const git = createGitClient();
-  await Promise.all(
-    changed.map(async (w) => {
-      const ver = await getWorkspaceVersion(w.location);
-      await git.createTag(`${w.name}@${ver}`);
-    }),
-  );
+
+  for (const w of changed) {
+    const ver = await getWorkspaceVersion(w.location);
+    await git.createTag(`${w.name}@${ver}`);
+  }
+
   await git.pushTags();
 };
 
