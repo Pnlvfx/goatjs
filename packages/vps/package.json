@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/vps",
   "description": "Utilities for deploying applications to VPS.",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
