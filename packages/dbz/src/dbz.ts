@@ -1,41 +1,25 @@
 import { consoleColor } from '@goatjs/node/console-color';
-import { publish, type PublishOptions, type PublishedPackage } from './publish.ts';
+import { publish, type PublishOptions } from './publish.ts';
 import { createGitClient } from '@goatjs/node/git';
 import { checkGitStatus } from './git.ts';
 import { yarn } from './yarn.ts';
 import { spawnWithLog } from './spawn.ts';
-import { input } from '@goatjs/node/input';
 import { getChangedWorkspaces } from './changed.ts';
-
-const clear = async ({ extra }: { extra?: string[] } = {}) => {
-  const monorepo = await yarn.isMonorepo();
-  const foldersToInclude = ['dist', '.next', ...(extra ?? [])];
-  await (monorepo
-    ? yarn.workspace.runAll(['run', 'rimraf', ...foldersToInclude], { includePrivate: true })
-    : spawnWithLog('yarn', ['rimraf', ...foldersToInclude]));
-};
-
-const createReleaseTags = async (git: ReturnType<typeof createGitClient>, published: PublishedPackage[]) => {
-  for (const pkg of published) {
-    await git.createTag(`${pkg.name}@${pkg.version}`);
-  }
-  await git.pushTags();
-};
+import { clear, createReleaseTags } from './helpers.ts';
 
 export interface PublishParams extends PublishOptions {
   skipClear?: boolean;
-  skipGit?: boolean;
 }
 
 export const dbz = {
-  publish: async ({ version, skipClear = true, skipGit }: PublishParams = {}) => {
+  publish: async ({ version, skipClear = true }: PublishParams = {}) => {
     const git = createGitClient();
-    await (skipGit ? input.create({ title: 'Are you sure you want to publish without git checks?', color: 'red' }) : checkGitStatus());
+    await checkGitStatus();
     const monorepo = await yarn.isMonorepo();
-    const changed = monorepo ? await getChangedWorkspaces() : undefined;
     if (monorepo) {
+      const changed = await getChangedWorkspaces();
       consoleColor('yellow', "dbz detect that you're running in a monorepo. Please ensure to run this scripts from the root.");
-      if (!changed || changed.length === 0) {
+      if (changed.length === 0) {
         consoleColor('blue', 'Nothing to publish - no packages changed since last release.');
         return;
       }
@@ -43,18 +27,13 @@ export const dbz = {
       await spawnWithLog('yarn', ['build', ...filterArgs]);
     }
     const published = await publish({ version, monorepo });
-    if (published.length === 0) {
-      return;
-    }
-    if (skipGit) {
-      // eslint-disable-next-line no-console
-      console.warn('commit skipped, make sure to commit the new versions yourself or you might face versions issue later on.');
-    } else {
-      await git.add();
-      await git.commit('RELEASE');
-      await git.push();
-      await createReleaseTags(git, published);
-    }
+    if (published.length === 0) return;
+
+    await git.add();
+    await git.commit('RELEASE');
+    await git.push();
+    await createReleaseTags(git, published);
+
     if (!skipClear) {
       await clear();
     }

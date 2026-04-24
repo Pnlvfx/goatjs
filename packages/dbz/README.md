@@ -73,7 +73,6 @@ import { dbz } from '@goatjs/dbz/dbz';
 await dbz.publish({
   version: 'minor',
   skipClear: false,
-  skipGit: false,
 });
 
 // Unpublish a package
