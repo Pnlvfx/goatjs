@@ -79,7 +79,7 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
         if (currentConfig === undefined) {
           await get();
         }
-        resolved = await value(currentConfig);
+        resolved = await value(currentConfig ?? initial);
       } else {
         resolved = value;
       }
