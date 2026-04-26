@@ -1,6 +1,6 @@
+import type { Ssh } from '../ssh.ts';
 import * as z from 'zod';
-import type { Ssh } from './ssh.ts';
-import { nginxConfigSchema } from './config.ts';
+import { nginxConfigSchema } from './nginx.ts';
 
 const pluginContextSchema = z.strictObject({
   ssh: z.custom<Ssh>(),

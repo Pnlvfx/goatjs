@@ -1,4 +1,4 @@
-import type { PluginContext } from '../plugin.ts';
+import type { PluginContext } from '../types/plugin.ts';
 
 export const mongo = async ({ ssh }: PluginContext) => {
   await ssh.execCommand('sudo apt-get install gnupg curl');

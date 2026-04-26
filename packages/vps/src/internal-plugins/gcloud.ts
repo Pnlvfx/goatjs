@@ -1,4 +1,4 @@
-import type { PluginContext } from '../plugin.ts';
+import type { PluginContext } from '../types/plugin.ts';
 import path from 'node:path';
 
 export const gcloud = async ({ ssh, gcpCredentialsPath }: PluginContext) => {

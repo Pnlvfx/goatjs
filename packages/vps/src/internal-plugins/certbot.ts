@@ -1,4 +1,4 @@
-import type { PluginContext } from '../plugin.ts';
+import type { PluginContext } from '../types/plugin.ts';
 
 export const certbot = async ({ ssh, nginx: { serverName } }: PluginContext) => {
   await ssh.execCommand('sudo snap install certbot --classic');

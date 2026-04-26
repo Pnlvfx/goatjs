@@ -1,5 +1,5 @@
-import type { NginxConfig } from '../config.ts';
-import type { PluginContext } from '../plugin.ts';
+import type { NginxConfig } from '../types/nginx.ts';
+import type { PluginContext } from '../types/plugin.ts';
 
 export const nginx = async ({ ssh, nginx: { serverName, port } }: PluginContext) => {
   await ssh.execCommand('sudo apt install -y nginx');

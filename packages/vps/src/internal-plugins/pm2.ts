@@ -1,4 +1,4 @@
-import type { PluginContext } from '../plugin.ts';
+import type { PluginContext } from '../types/plugin.ts';
 
 export const pm2 = async ({ ssh }: PluginContext) => {
   await ssh.execCommand('sudo npm i -g pm2');

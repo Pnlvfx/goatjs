@@ -16,7 +16,8 @@
   "bin": "src/cli.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./plugins/*": "./src/plugins/*.ts"
+    "./plugins/*": "./src/plugins/*.ts",
+    "./types/*": "./src/types/*.ts"
   },
   "publishConfig": {
     "bin": {
@@ -30,6 +31,10 @@
       "./plugins/*": {
         "types": "./dist/plugins/*.d.ts",
         "import": "./dist/plugins/*.js"
+      },
+      "./types/*": {
+        "types": "./dist/types/*.d.ts",
+        "import": "./dist/types/*.js"
       }
     }
   },

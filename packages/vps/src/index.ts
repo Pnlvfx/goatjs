@@ -87,6 +87,3 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
     throw err;
   }
 };
-
-export type { NginxConfig, VpsConfig } from './config.ts';
-export type { Plugin, PluginContext } from './plugin.ts';

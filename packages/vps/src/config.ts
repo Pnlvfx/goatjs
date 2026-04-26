@@ -1,20 +1,7 @@
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import * as z from 'zod';
-import { pluginSchema } from './plugin.ts';
 import { getRootPkgJSON } from '@goatjs/node/package-json';
-
-export const nginxConfigSchema = z.strictObject({ serverName: z.string(), port: z.number() });
-
-const vpsConfigSchema = z.strictObject({
-  host: z.string(),
-  gcpCredentialsPath: z.string(),
-  plugins: z.array(pluginSchema).optional(),
-  nginx: nginxConfigSchema,
-});
-
-export type NginxConfig = z.infer<typeof nginxConfigSchema>;
-export type VpsConfig = z.infer<typeof vpsConfigSchema>;
+import { vpsConfigSchema } from './types/config.ts';
 
 export const loadConfigFile = async () => {
   // eslint-disable-next-line no-restricted-properties
