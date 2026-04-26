@@ -16,7 +16,6 @@ import { nginx } from './internal-plugins/nginx.ts';
 import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 import { runPlugin } from './run-plugin.ts';
-import type { Plugin } from './types/plugin.ts';
 
 export const restartVps = async () => {
   const { host } = await loadConfigFile();
