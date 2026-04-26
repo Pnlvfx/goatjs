@@ -1,6 +1,8 @@
 import { execAsync } from '@goatjs/node/exec';
 import { spawnWithLog } from './spawn.ts';
+import path from 'node:path';
 import { getChangedWorkspaces, getWorkspaceVersion } from './changed.ts';
+import { getPkgJSON } from '@goatjs/node/package-json';
 
 export interface PublishOptions {
   version?: YarnVersion;
@@ -24,7 +26,9 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
       await execAsync('git checkout -- package.json');
       throw err;
     }
-    return [];
+    const pkg = await getPkgJSON(path.resolve('package.json'));
+    if (!pkg.version) throw new Error('Missing version in package.json');
+    return [{ name: pkg.name, version: pkg.version }];
   }
 
   const changed = await getChangedWorkspaces();
