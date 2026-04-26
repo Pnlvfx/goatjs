@@ -16,6 +16,7 @@ import { nginx } from './internal-plugins/nginx.ts';
 import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 import { runPlugin } from './run-plugin.ts';
+import { corepack } from './internal-plugins/corepack.ts';
 
 export const restartVps = async () => {
   const { host } = await loadConfigFile();
@@ -55,7 +56,7 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
     if (init) {
       await input.create({ title: 'Are you sure that you want to init? It should be used only the first time.' });
 
-      const requiredPlugins = [node, nano, unzip, gcloud, nginx, certbot, pm2];
+      const requiredPlugins = [node, nano, unzip, gcloud, nginx, pm2, corepack];
 
       for (const plugin of requiredPlugins) {
         await runPlugin(plugin.name, plugin, ctx);
@@ -80,6 +81,7 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
     if (init) {
       await ssh.execCommand('pm2 start --name "api" npm -- start', { cwd: projectName });
       await ssh.execCommand('pm2 save');
+      await certbot(ctx);
       await ssh.execCommand('sudo reboot');
     } else {
       await ssh.execCommand('pm2 restart api', { cwd: projectName });

@@ -1,6 +1,4 @@
-import type { VpsConfig } from './src/config.js';
-
-// this is just an usage example
+import type { VpsConfig } from './src/types/config.ts';
 
 export default {
   host: '',
@@ -8,3 +6,5 @@ export default {
   gcpCredentialsPath: '',
   nginx: { serverName: '', port: 8080 },
 } satisfies VpsConfig;
+
+// this is just an usage example
