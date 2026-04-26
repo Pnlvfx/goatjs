@@ -16,6 +16,18 @@ import { nginx } from './internal-plugins/nginx.ts';
 import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 
+export const restartVps = async () => {
+  const { host } = await loadConfigFile();
+  const ssh = await createSshClient({ host });
+
+  try {
+    await ssh.execCommand('sudo reboot');
+    consoleColor('blue', 'restarted');
+  } finally {
+    ssh.dispose();
+  }
+};
+
 export interface DeployParams {
   init?: boolean;
   update?: boolean;

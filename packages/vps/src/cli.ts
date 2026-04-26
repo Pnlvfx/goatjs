@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { deployToVps } from './index.ts';
+import { deployToVps, restartVps } from './index.ts';
 
 await yargs(hideBin(process.argv))
   .scriptName('vps')
@@ -19,4 +19,7 @@ await yargs(hideBin(process.argv))
       await deployToVps({ init, update });
     },
   )
+  .command('restart', 'Restart the VPS pm2 process via SSH', {}, async () => {
+    await restartVps();
+  })
   .parseAsync();
