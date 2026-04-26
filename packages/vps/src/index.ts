@@ -15,6 +15,8 @@ import { gcloud } from './internal-plugins/gcloud.ts';
 import { nginx } from './internal-plugins/nginx.ts';
 import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
+import { runPlugin } from './run-plugin.ts';
+import type { Plugin } from './types/plugin.ts';
 
 export const restartVps = async () => {
   const { host } = await loadConfigFile();
@@ -40,8 +42,10 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
 
   const reset = async () => {
     await git.checkout('.yarnrc.yml package.json');
-    await spawnWithLog('yarn'); // predeploy remove some packages and we have to add them back
+    await spawnWithLog('yarn');
   };
+
+  const ctx = { ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig };
 
   try {
     await checkGitStatus();
@@ -56,11 +60,11 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
       const requiredPlugins = [node, nano, unzip, gcloud, nginx, certbot, pm2];
 
       for (const plugin of requiredPlugins) {
-        await plugin({ ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig });
+        await runPlugin(plugin.name, plugin, ctx);
       }
 
       for (const plugin of plugins) {
-        await plugin({ ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig });
+        await runPlugin(plugin.name, plugin, ctx);
       }
     }
 
