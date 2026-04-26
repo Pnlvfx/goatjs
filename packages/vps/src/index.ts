@@ -37,18 +37,17 @@ export interface DeployParams {
 export const deployToVps = async ({ init, update }: DeployParams) => {
   const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
   const git = createGitClient();
-  const ssh = await createSshClient({ host });
+  await checkGitStatus();
 
   const reset = async () => {
     await git.checkout('.yarnrc.yml package.json');
     await spawnWithLog('yarn');
   };
 
+  const ssh = await createSshClient({ host });
   const ctx = { ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig };
 
   try {
-    await checkGitStatus();
-
     if (init || update) {
       await updateSystem(ssh);
     }
