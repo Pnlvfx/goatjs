@@ -3,13 +3,21 @@ import { isFetchError } from './errors/fetch.ts';
 export const parseError = (err: unknown) => {
   // error.isError is suggested and should replace instanceof
   // but for this helper we still need to parse whatever we get so we used both
-  if (Error.isError(err) || err instanceof Error || isFetchError(err)) return err;
+  if ((typeof Error.isError === 'function' && Error.isError(err)) || err instanceof Error || isFetchError(err)) return err;
+  if (err === undefined || err === null) {
+    // eslint-disable-next-line no-restricted-properties
+    if (process.env['NODE_ENV'] !== 'production') {
+      // eslint-disable-next-line no-console
+      console.warn('[parse-error]', 'Received an undefined / null error');
+    }
+    return new Error('Something went wrong!');
+  }
   return new Error(errorToString(err));
 };
 
 const errorToString = (err: unknown) => {
   let error = '';
-  if (typeof err === 'object' && err !== null && 'message' in err && err.message === 'string') {
+  if (typeof err === 'object' && err !== null && 'message' in err && typeof err.message === 'string') {
     error = err.message;
   } else if (typeof err === 'string') {
     error += err;
@@ -17,7 +25,7 @@ const errorToString = (err: unknown) => {
     try {
       error = JSON.stringify(err);
     } catch {
-      error = 'Unknown Error';
+      error = 'Something went wrong!';
     }
     // eslint-disable-next-line no-restricted-properties
     if (process.env['NODE_ENV'] !== 'production') {
