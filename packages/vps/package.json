@@ -54,6 +54,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@goatjs/core": "workspace:*",
     "@goatjs/dbz": "workspace:*",
     "@goatjs/node": "workspace:*",
     "@goatjs/rimraf": "workspace:*",

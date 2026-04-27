@@ -18,6 +18,7 @@ import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 import { runPlugin } from './run-plugin.ts';
 import { corepack } from './internal-plugins/corepack.ts';
+import { getEntries } from '@goatjs/core/object';
 
 export const connectToVps = async () => {
   const { host } = await loadConfigFile();
@@ -33,16 +34,16 @@ export const connectToVps = async () => {
 };
 
 export const runPluginByName = async (name: string) => {
-  const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
+  const { host, projectName, plugins = {}, gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
 
-  const plugin = plugins.find((p) => p.name === name);
-  if (!plugin) throw new Error(`Plugin "${name}" not found. Available: ${plugins.map((p) => p.name).join(', ') || 'none'}`);
+  const plugin = plugins[name];
+  if (!plugin) throw new Error(`Plugin "${name}" not found. Available: ${Object.keys(plugins).join(', ') || 'none'}`);
 
   const ssh = await createSshClient({ host });
   const ctx = { ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig };
 
   try {
-    await runPlugin(plugin.name, plugin, ctx);
+    await runPlugin(name, plugin, ctx);
   } finally {
     ssh.dispose();
   }
@@ -66,7 +67,7 @@ export interface DeployParams {
 }
 
 export const deployToVps = async ({ init, update }: DeployParams) => {
-  const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
+  const { host, projectName, plugins = {}, gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
   const git = createGitClient();
   await checkGitStatus();
 
@@ -92,8 +93,8 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
         await runPlugin(plugin.name, plugin, ctx);
       }
 
-      for (const plugin of plugins) {
-        await runPlugin(plugin.name, plugin, ctx);
+      for (const [name, plugin] of getEntries(plugins)) {
+        await runPlugin(name, plugin, ctx);
       }
     }
 

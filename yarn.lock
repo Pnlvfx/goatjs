@@ -418,6 +418,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/vps@workspace:packages/vps"
   dependencies:
+    "@goatjs/core": "workspace:*"
     "@goatjs/dbz": "workspace:*"
     "@goatjs/node": "workspace:*"
     "@goatjs/node-monorepo-eslint": "npm:^2.14.0"
