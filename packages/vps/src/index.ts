@@ -70,6 +70,9 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
   const { host, projectName, plugins = {}, gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
   const git = createGitClient();
   await checkGitStatus();
+  // run this before so if they fail we don't even connect to the vps
+  await rimraf('dist');
+  await spawnWithLog('yarn', ['build']);
 
   const reset = async () => {
     await git.checkout('.yarnrc.yml package.json');
@@ -98,8 +101,6 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
       }
     }
 
-    await rimraf('dist');
-    await spawnWithLog('yarn', ['build']);
     const localZipServer = await zipServer(projectName);
     const vpsZipServer = `/root/${projectName}.zip`;
 
