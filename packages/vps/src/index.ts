@@ -32,6 +32,22 @@ export const connectToVps = async () => {
   });
 };
 
+export const runPluginByName = async (name: string) => {
+  const { host, projectName, plugins = [], gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
+
+  const plugin = plugins.find((p) => p.name === name);
+  if (!plugin) throw new Error(`Plugin "${name}" not found. Available: ${plugins.map((p) => p.name).join(', ') || 'none'}`);
+
+  const ssh = await createSshClient({ host });
+  const ctx = { ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig };
+
+  try {
+    await runPlugin(plugin.name, plugin, ctx);
+  } finally {
+    ssh.dispose();
+  }
+};
+
 export const restartVps = async () => {
   const { host } = await loadConfigFile();
   const ssh = await createSshClient({ host });

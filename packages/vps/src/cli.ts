@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { connectToVps, deployToVps, restartVps } from './index.ts';
+import { connectToVps, deployToVps, restartVps, runPluginByName } from './index.ts';
 
 await yargs(hideBin(process.argv))
   .scriptName('vps')
@@ -25,4 +25,12 @@ await yargs(hideBin(process.argv))
   .command('connect', 'Start an interactive SSH session on the VPS', {}, async () => {
     await connectToVps();
   })
+  .command(
+    'plugin <name>',
+    'Run a user-defined plugin by name',
+    (y) => y.positional('name', { type: 'string', description: 'Plugin name to run', demandOption: true }),
+    async ({ name }) => {
+      await runPluginByName(name);
+    },
+  )
   .parseAsync();
