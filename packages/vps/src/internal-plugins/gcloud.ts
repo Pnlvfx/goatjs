@@ -1,6 +1,8 @@
 import type { PluginContext } from '../types/plugin.ts';
 import path from 'node:path';
 
+// TODO [2026-05-01] change the google-crednetials path to be inside /credentials
+
 export const gcloud = async ({ ssh, gcpCredentialsPath }: PluginContext) => {
   // gcloud
   await ssh.execCommand('sudo apt-get install apt-transport-https ca-certificates gnupg curl');
