@@ -1,3 +1,4 @@
+import { spawn } from 'cross-spawn';
 import { checkGitStatus } from '@goatjs/dbz/git';
 import { spawnWithLog } from '@goatjs/dbz/spawn';
 import { createGitClient } from '@goatjs/node/git';
@@ -17,6 +18,19 @@ import { pm2 } from './internal-plugins/pm2.ts';
 import { certbot } from './internal-plugins/certbot.ts';
 import { runPlugin } from './run-plugin.ts';
 import { corepack } from './internal-plugins/corepack.ts';
+
+export const connectToVps = async () => {
+  const { host } = await loadConfigFile();
+
+  await new Promise<void>((resolve, reject) => {
+    const proc = spawn('ssh', [`root@${host}`], { stdio: 'inherit' });
+    proc.on('close', (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`SSH exited with code ${code?.toString() ?? 'null'}`));
+    });
+    proc.on('error', reject);
+  });
+};
 
 export const restartVps = async () => {
   const { host } = await loadConfigFile();
