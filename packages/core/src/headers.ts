@@ -1,0 +1,78 @@
+const contentTypes = [
+  'application/json',
+  'application/ld+json',
+  'application/xml',
+  'application/atom+xml',
+  'application/rss+xml',
+  'application/xhtml+xml',
+  'application/javascript',
+  'application/ecmascript',
+  'application/x-javascript',
+  'application/wasm',
+  'application/pdf',
+  'application/octet-stream',
+  'application/x-www-form-urlencoded',
+  'application/graphql',
+  'application/vnd.api+json',
+  'application/x-protobuf',
+  'application/x-protobuffer',
+  'application/grpc',
+  'application/zip',
+  'application/x-zip-compressed',
+  'application/gzip',
+  'application/x-gzip',
+  'application/brotli',
+  'application/x-brotli',
+  'application/x-yaml',
+  'application/yaml',
+  'application/x-msgpack',
+  'text/html',
+  'text/plain',
+  'text/xml',
+  'text/javascript',
+  'text/css',
+  'text/event-stream',
+  'text/csv',
+  'text/markdown',
+  'text/x-yaml',
+  'multipart/form-data',
+  'multipart/byteranges',
+  'multipart/mixed',
+  'image/png',
+  'image/jpeg',
+  'image/webp',
+  'image/gif',
+  'image/svg+xml',
+  'image/avif',
+  'image/bmp',
+  'image/tiff',
+  'audio/mpeg',
+  'audio/ogg',
+  'audio/wav',
+  'audio/webm',
+  'audio/aac',
+  'audio/flac',
+  'video/mp4',
+  'video/webm',
+  'video/ogg',
+  'video/mpeg',
+  'font/woff2',
+  'font/woff',
+  'font/otf',
+  'font/ttf',
+  'message/rfc822',
+  'model/gltf+json',
+  'model/gltf-binary',
+] as const;
+
+export type ContentType = (typeof contentTypes)[number];
+
+const contentTypesSet = new Set(contentTypes);
+
+export const getContentType = (headers: Headers): ContentType | undefined => {
+  const raw = headers.get('content-type');
+  if (!raw) return;
+  const mime = raw.split(';')[0]?.trim().toLowerCase();
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+  return mime && contentTypesSet.has(mime as ContentType) ? (mime as ContentType) : undefined;
+};

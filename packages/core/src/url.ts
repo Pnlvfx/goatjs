@@ -7,5 +7,3 @@ export const isUrl = (str: string) => {
     return false;
   }
 };
-
-export const isJsonResponse = (res: Response) => res.headers.get('content-type')?.includes('application/json');
