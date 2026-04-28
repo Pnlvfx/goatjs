@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { connectToVps, deployToVps, restartVps, runPluginByName } from './index.ts';
+import { deployToVps } from './commands/deploy.ts';
+import { restartVps } from './commands/restart.ts';
+import { connectToVps } from './commands/connect.ts';
+import { runPluginByName } from './commands/plugin.ts';
+
+// TODO
+/** yarn vps status -> pm2 status
+ * yarn vps logs -> pm2 logs
+ * add pm2 status check after deploy, add auto rollback if we detect that pm2 status is not ok, that will require a lot of architecture change since we don't preserve old versions but maybe claude knows something more, or we can change the architecture to preserve some old versions to allow rollback
+ */
 
 await yargs(hideBin(process.argv))
   .scriptName('vps')

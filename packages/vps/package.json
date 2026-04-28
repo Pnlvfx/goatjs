@@ -15,7 +15,6 @@
   "type": "module",
   "bin": "src/cli.ts",
   "exports": {
-    ".": "./src/index.ts",
     "./plugins/*": "./src/plugins/*.ts",
     "./types/*": "./src/types/*.ts"
   },
@@ -24,10 +23,6 @@
       "vps": "dist/cli.js"
     },
     "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.js"
-      },
       "./plugins/*": {
         "types": "./dist/plugins/*.d.ts",
         "import": "./dist/plugins/*.js"

@@ -1,65 +1,23 @@
-import { spawn } from 'cross-spawn';
-import { checkGitStatus } from '@goatjs/dbz/git';
 import { createGitClient } from '@goatjs/node/git';
-import { input } from '@goatjs/node/input';
-import { createSshClient } from './ssh.ts';
+import { loadConfigFile } from '../config.ts';
+import { checkGitStatus } from '@goatjs/dbz/git';
 import { rimraf } from '@goatjs/rimraf';
-import { zipServer } from './zip.ts';
-import { consoleColor } from '@goatjs/node/console-color';
-import { updateSystem } from './internal-plugins/update.ts';
-import { node } from './internal-plugins/node.ts';
-import { nano } from './internal-plugins/nano.ts';
-import { unzip } from './internal-plugins/unzip.ts';
-import { loadConfigFile } from './config.ts';
-import { gcloud } from './internal-plugins/gcloud.ts';
-import { nginx } from './internal-plugins/nginx.ts';
-import { pm2 } from './internal-plugins/pm2.ts';
-import { certbot } from './internal-plugins/certbot.ts';
-import { runPlugin } from './run-plugin.ts';
-import { corepack } from './internal-plugins/corepack.ts';
-import { getEntries } from '@goatjs/core/object';
 import { execa } from 'execa';
-
-export const connectToVps = async () => {
-  const { host } = await loadConfigFile();
-
-  await new Promise<void>((resolve, reject) => {
-    const proc = spawn('ssh', [`root@${host}`], { stdio: 'inherit' });
-    proc.on('close', (code) => {
-      if (code === 0) resolve();
-      else reject(new Error(`SSH exited with code ${code?.toString() ?? 'null'}`));
-    });
-    proc.on('error', reject);
-  });
-};
-
-export const runPluginByName = async (name: string) => {
-  const { host, projectName, plugins = {}, gcpCredentialsPath, nginx: nginxConfig } = await loadConfigFile();
-
-  const plugin = plugins[name];
-  if (!plugin) throw new Error(`Plugin "${name}" not found. Available: ${Object.keys(plugins).join(', ') || 'none'}`);
-
-  const ssh = await createSshClient({ host });
-  const ctx = { ssh, projectName, host, gcpCredentialsPath, nginx: nginxConfig };
-
-  try {
-    await runPlugin(name, plugin, ctx);
-  } finally {
-    ssh.dispose();
-  }
-};
-
-export const restartVps = async () => {
-  const { host } = await loadConfigFile();
-  const ssh = await createSshClient({ host });
-
-  try {
-    await ssh.execCommand('sudo reboot');
-    consoleColor('blue', 'restarted');
-  } finally {
-    ssh.dispose();
-  }
-};
+import { createSshClient } from '../ssh.ts';
+import { updateSystem } from '../internal-plugins/update.ts';
+import { input } from '@goatjs/node/input';
+import { node } from '../internal-plugins/node.ts';
+import { nano } from '../internal-plugins/nano.ts';
+import { gcloud } from '../internal-plugins/gcloud.ts';
+import { nginx } from '../internal-plugins/nginx.ts';
+import { pm2 } from '../internal-plugins/pm2.ts';
+import { corepack } from '../internal-plugins/corepack.ts';
+import { runPlugin } from '../run-plugin.ts';
+import { getEntries } from '@goatjs/core/object';
+import { zipServer } from '../zip.ts';
+import { certbot } from '../internal-plugins/certbot.ts';
+import { consoleColor } from '@goatjs/node/console-color';
+import { unzip } from '../internal-plugins/unzip.ts';
 
 export interface DeployParams {
   init?: boolean;
