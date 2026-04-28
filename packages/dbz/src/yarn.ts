@@ -22,7 +22,7 @@ const workspace = {
     if (!includePrivate) {
       args.push('--no-private');
     }
-    return spawnWithLog('yarn', [...args, ...command]);
+    return execa('yarn', [...args, ...command], { stdio: 'inherit' });
   },
   list: async ({ includePrivate }: { includePrivate?: boolean } = {}) => {
     const args = ['workspaces', 'list', '--json'];
@@ -52,6 +52,6 @@ export const yarn = {
       const json = JSON.parse(stdout) as YarnConfig;
       return json.effective ?? undefined;
     },
-    set: async (name: string, value: string) => spawnWithLog('yarn', ['config', 'set', name, value]),
+    set: async (name: string, value: string) => execa('yarn', ['config', 'set', name, value], { stdio: 'inherit' }),
   },
 };

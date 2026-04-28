@@ -1,6 +1,6 @@
-import { spawnWithLog } from './spawn.ts';
+import { execa } from 'execa';
 
 export const updateUnversionedDeps = async (packages: Record<string, string>) => {
   const deps = Object.entries(packages).map(([name, version]) => `${name}@${version}`);
-  await spawnWithLog('yarn', ['up', ...deps]);
+  await execa('yarn', ['up', ...deps], { stdio: 'inherit' });
 };
