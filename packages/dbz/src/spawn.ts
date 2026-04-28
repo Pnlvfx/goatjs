@@ -11,6 +11,7 @@ export interface ExecaOptions {
   env?: NodeJS.ProcessEnv;
 }
 
+/** @deprecated use execa with stdio: inherit */
 export const spawnWithLog = (command: string, args: string[] = [], { cwd, env }: ExecaOptions = {}) => {
   return new Promise<ExecaProcess>((resolve, reject) => {
     const child = spawn(command, args, { stdio: isProduction ? undefined : 'inherit', cwd, env });

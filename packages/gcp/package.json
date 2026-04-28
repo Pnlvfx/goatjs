@@ -39,13 +39,11 @@
     "README.md"
   ],
   "dependencies": {
-    "@goatjs/dbz": "workspace:*",
     "@goatjs/download": "workspace:*",
     "@goatjs/node": "workspace:*",
     "@goatjs/rimraf": "workspace:*"
   },
   "devDependencies": {
-    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.14.0",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",

@@ -41,7 +41,6 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.14.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",

@@ -51,7 +51,6 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.14.0",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",

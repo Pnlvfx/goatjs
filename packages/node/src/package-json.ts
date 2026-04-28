@@ -21,11 +21,11 @@ const pkgJsonSchema = z.looseObject({
 
 export type PackageJSON = z.infer<typeof pkgJsonSchema>;
 
+export const getRootPkgJSON = async () => getPkgJSON('package.json');
+
 export const getPkgJSON = async (file: string) => {
   const buf = await fs.readFile(file);
   const { name, ...pkg } = await pkgJsonSchema.parseAsync(JSON.parse(buf.toString()));
   if (!name) throw new Error('Please add a valid name on your package.json.');
   return { name, ...pkg };
 };
-
-export const getRootPkgJSON = async () => getPkgJSON('package.json');

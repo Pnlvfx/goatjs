@@ -52,8 +52,10 @@
     "LICENSE",
     "README.md"
   ],
+  "dependencies": {
+    "@goatjs/node": "workspace:*"
+  },
   "devDependencies": {
-    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.14.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
@@ -64,7 +66,6 @@
     "zod": "^4.3.6"
   },
   "peerDependencies": {
-    "@goatjs/node": "*",
     "zod": "*"
   }
 }
