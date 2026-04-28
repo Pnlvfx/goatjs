@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { checkGitStatus } from '@goatjs/dbz/git';
-import { spawnWithLog } from '@goatjs/dbz/spawn';
 import { execAsync } from '@goatjs/node/exec';
 import { createGitClient } from '@goatjs/node/git';
 import { rimraf } from '@goatjs/rimraf';
 import { preDeploy } from './pre.ts';
+import { execa } from 'execa';
 
 export const gcp = {
   appEngine: {
@@ -14,19 +14,19 @@ export const gcp = {
 
       const reset = async () => {
         await git.checkout('.yarnrc.yml package.json');
-        await spawnWithLog('yarn'); // predeploy remove some packages and we have to add them back
+        await execa('yarn', { stdio: 'inherit' }); // predeploy remove some packages and we have to add them back
       };
 
       try {
         const startTime = Date.now();
         await rimraf('dist');
-        await spawnWithLog('yarn', ['build']);
+        await execa('yarn', ['build'], { stdio: 'inherit' });
         await preDeploy(); // temp for gcp machine only
         await execAsync('yarn config set enableGlobalCache false');
         await execAsync(`gcloud config set project ${projectName}`);
-        await spawnWithLog('gcloud', ['app', 'deploy', '-q']);
+        await execa('gcloud', ['app', 'deploy', '-q'], { stdio: 'inherit' });
         await reset();
-        await spawnWithLog('yarn', ['version', 'minor']);
+        await execa('yarn', ['version', 'minor'], { stdio: 'inherit' });
         await git.add();
         await git.commit('RELEASE');
         await git.push();

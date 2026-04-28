@@ -1,6 +1,5 @@
 import { spawn } from 'cross-spawn';
 import { checkGitStatus } from '@goatjs/dbz/git';
-import { spawnWithLog } from '@goatjs/dbz/spawn';
 import { createGitClient } from '@goatjs/node/git';
 import { input } from '@goatjs/node/input';
 import { createSshClient } from './ssh.ts';
@@ -19,6 +18,7 @@ import { certbot } from './internal-plugins/certbot.ts';
 import { runPlugin } from './run-plugin.ts';
 import { corepack } from './internal-plugins/corepack.ts';
 import { getEntries } from '@goatjs/core/object';
+import { execa } from 'execa';
 
 export const connectToVps = async () => {
   const { host } = await loadConfigFile();
@@ -72,11 +72,11 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
   await checkGitStatus();
   // run this before so if they fail we don't even connect to the vps
   await rimraf('dist');
-  await spawnWithLog('yarn', ['build']);
+  await execa('yarn', ['build'], { stdio: 'inherit' });
 
   const reset = async () => {
     await git.checkout('.yarnrc.yml package.json');
-    await spawnWithLog('yarn');
+    await execa('yarn', { stdio: 'inherit' });
   };
 
   const ssh = await createSshClient({ host });
@@ -122,7 +122,7 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
     ssh.dispose();
     await reset();
 
-    await spawnWithLog('yarn', ['version', 'minor']);
+    await execa('yarn', ['version', 'minor'], { stdio: 'inherit' });
 
     await git.add();
     await git.commit('RELEASE');
