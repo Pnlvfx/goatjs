@@ -1,6 +1,6 @@
 import { rimraf } from '@goatjs/rimraf';
-import { spawnWithLog } from '@goatjs/dbz/spawn';
+import { execa } from 'execa';
 
 await rimraf('dist');
-await spawnWithLog('eslint');
-await spawnWithLog('tsc', ['-p', 'tsconfig.build.json']);
+await execa('eslint', { stdio: 'inherit' });
+await execa('tsc', ['-p', 'tsconfig.build.json'], { stdio: 'inherit' });

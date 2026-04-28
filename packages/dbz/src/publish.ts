@@ -1,8 +1,8 @@
 import { execAsync } from '@goatjs/node/exec';
-import { spawnWithLog } from './spawn.ts';
 import path from 'node:path';
 import { getChangedWorkspaces, getWorkspaceVersion } from './changed.ts';
 import { getPkgJSON } from '@goatjs/node/package-json';
+import { execa } from 'execa';
 
 export interface PublishOptions {
   version?: YarnVersion;
@@ -19,9 +19,9 @@ export interface PublishedPackage {
 
 export const publish = async ({ version = 'minor', monorepo }: InternalPublishOptions): Promise<PublishedPackage[]> => {
   if (!monorepo) {
-    await spawnWithLog('yarn', ['version', version]);
+    await execa('yarn', ['version', version], { stdio: 'inherit' });
     try {
-      await spawnWithLog('yarn', ['npm', 'publish']);
+      await execa('yarn', ['npm', 'publish'], { stdio: 'inherit' });
     } catch (err) {
       await execAsync('git checkout -- package.json');
       throw err;
@@ -45,13 +45,13 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
 
   const includeArgs = ['--all', ...changed.flatMap((w) => ['--include', w.name])];
 
-  await spawnWithLog('yarn', ['workspaces', 'foreach', ...includeArgs, 'version', version]);
+  await execa('yarn', ['workspaces', 'foreach', ...includeArgs, 'version', version], { stdio: 'inherit' });
 
   // eslint-disable-next-line no-console
   console.log(`About to publish: ${names}`);
 
   try {
-    await spawnWithLog('yarn', ['workspaces', 'foreach', ...includeArgs, 'npm', 'publish']);
+    await execa('yarn', ['workspaces', 'foreach', ...includeArgs, 'npm', 'publish'], { stdio: 'inherit' });
   } catch (err) {
     await execAsync(String.raw`git checkout -- **/package.json`);
     throw err;

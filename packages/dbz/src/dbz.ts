@@ -3,9 +3,9 @@ import { publish, type PublishOptions } from './publish.ts';
 import { createGitClient } from '@goatjs/node/git';
 import { checkGitStatus } from './git.ts';
 import { yarn } from './yarn.ts';
-import { spawnWithLog } from './spawn.ts';
 import { getChangedWorkspaces } from './changed.ts';
 import { clear, createReleaseTags } from './helpers.ts';
+import { execa } from 'execa';
 
 export interface PublishParams extends PublishOptions {
   skipClear?: boolean;
@@ -24,7 +24,7 @@ export const dbz = {
         return;
       }
       const filterArgs = changed.flatMap((w) => ['--filter', w.name]);
-      await spawnWithLog('yarn', ['build', ...filterArgs]);
+      await execa('yarn', ['build', ...filterArgs], { stdio: 'inherit' });
     }
     const published = await publish({ version, monorepo });
     if (published.length === 0) return;
@@ -42,7 +42,7 @@ export const dbz = {
     const npmScopes = await yarn.config.get('npmScopes');
     const registry = npmScopes; // yarn with json doesn't give us the publish registry,
     if (!registry) throw new Error('Registry not found!');
-    await spawnWithLog('npm', ['unpublish', pkgName, '--force', '--registry', registry]);
+    await execa('npm', ['unpublish', pkgName, '--force', '--registry', registry], { stdio: 'inherit' });
   },
   clear,
 };
