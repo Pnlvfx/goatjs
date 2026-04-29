@@ -14,7 +14,7 @@ export const createSshClient = async ({ host }: { readonly host: string }) => {
   return {
     execCommand: async (command: string, options: SSHExecCommandOptions = {}) => {
       console.log('running', command, 'on vps');
-      const { code, stderr } = await client.execCommand(command, {
+      const { code, stderr, stdout, signal } = await client.execCommand(command, {
         onStdout(chunk) {
           process.stdout.write(chunk.toString('utf8'));
         },
@@ -25,6 +25,7 @@ export const createSshClient = async ({ host }: { readonly host: string }) => {
       });
 
       if (code !== 0) throw new Error(`Command failed with exit code ${code?.toString() ?? 'null'}: ${command}\n${stderr}`);
+      return { code, stderr, stdout, signal };
     },
     putFile: async (localFile: string, remoteFile: string) => {
       return client.putFile(localFile, remoteFile);

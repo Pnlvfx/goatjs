@@ -62,7 +62,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@goatjs/node": "workspace:*",
     "@goatjs/node-monorepo-eslint": "^2.14.0",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
