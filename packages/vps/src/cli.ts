@@ -5,10 +5,11 @@ import { deployToVps } from './commands/deploy.ts';
 import { restartVps } from './commands/restart.ts';
 import { connectToVps } from './commands/connect.ts';
 import { runPluginByName } from './commands/plugin.ts';
+import { vpsStatus } from './commands/status.ts';
+import { vpsLogs } from './commands/logs.ts';
 
 // TODO
-/** yarn vps status -> pm2 status
- * yarn vps logs -> pm2 logs
+/**
  * add pm2 status check after deploy, add auto rollback if we detect that pm2 status is not ok, that will require a lot of architecture change since we don't preserve old versions but maybe claude knows something more, or we can change the architecture to preserve some old versions to allow rollback
  */
 
@@ -30,6 +31,12 @@ await yargs(hideBin(process.argv))
   )
   .command('restart', 'Restart the VPS pm2 process via SSH', {}, async () => {
     await restartVps();
+  })
+  .command('logs', 'Show pm2 logs from the VPS', {}, async () => {
+    await vpsLogs();
+  })
+  .command('status', 'Show pm2 process status on the VPS', {}, async () => {
+    await vpsStatus();
   })
   .command('connect', 'Start an interactive SSH session on the VPS', {}, async () => {
     await connectToVps();
