@@ -59,15 +59,15 @@
     "cross-spawn": "^7.0.6",
     "node-ssh": "^13.2.1",
     "yargs": "^18.0.0",
-    "zod": "^4.3.6"
+    "zod": "^4.4.2"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^2.14.0",
+    "@goatjs/node-monorepo-eslint": "^2.15.0",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/adm-zip": "^0.5.8",
     "@types/node": "^25.6.0",
-    "eslint": "^10.2.1",
+    "eslint": "^10.3.0",
     "execa": "^9.6.1",
     "typescript": "^6.0.3"
   }
