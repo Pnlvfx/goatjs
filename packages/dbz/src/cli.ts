@@ -17,12 +17,10 @@ await yargs(hideBin(process.argv))
     'publish [version]',
     'Publish the package',
     (yargs) => {
-      return yargs
-        .positional('version', { type: 'string', describe: 'Version to publish' })
-        .option('skip-clear', { type: 'boolean', default: false });
+      return yargs.positional('version', { type: 'string', describe: 'Version to publish' });
     },
-    async ({ version, skipClear }) => {
-      await dbz.publish({ version: version && isValidYarnVersion(version) ? version : undefined, skipClear });
+    async ({ version }) => {
+      await dbz.publish({ version: version && isValidYarnVersion(version) ? version : undefined });
     },
   )
   .command(

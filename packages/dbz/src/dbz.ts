@@ -6,13 +6,8 @@ import { yarn } from './yarn.ts';
 import { getChangedWorkspaces } from './changed.ts';
 import { clear, createReleaseTags } from './helpers.ts';
 import { execa } from 'execa';
-
-export interface PublishParams extends PublishOptions {
-  skipClear?: boolean;
-}
-
 export const dbz = {
-  publish: async ({ version, skipClear = true }: PublishParams = {}) => {
+  publish: async ({ version }: PublishOptions = {}) => {
     const git = createGitClient();
     await checkGitStatus();
     const monorepo = await yarn.isMonorepo();
@@ -34,10 +29,6 @@ export const dbz = {
     await git.commit(['chore(release): publish', packages].join(' '));
     await git.push();
     await createReleaseTags(git, published);
-
-    if (!skipClear) {
-      await clear();
-    }
   },
   unpublish: async (pkgName: string) => {
     const npmScopes = await yarn.config.get('npmScopes');
