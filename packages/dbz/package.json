@@ -45,8 +45,6 @@
   "dependencies": {
     "@goatjs/node": "workspace:*",
     "@goatjs/rimraf": "workspace:*",
-    "@types/cross-spawn": "^6.0.6",
-    "cross-spawn": "^7.0.6",
     "execa": "^9.6.1",
     "yargs": "^18.0.0"
   },
