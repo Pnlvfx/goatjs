@@ -43,7 +43,7 @@ export const getChangedWorkspaces = async (): Promise<ListItem[]> => {
 
 const getWorkspaceDeps = async (location: string): Promise<string[]> => {
   const pkg = await getPkgJSON(path.resolve(location, 'package.json'));
-  return [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.devDependencies ?? {})];
+  return Object.keys(pkg.dependencies ?? {});
 };
 
 const hasChangedSinceTag = async (
