@@ -8,10 +8,7 @@ import { runPluginByName } from './commands/plugin.ts';
 import { vpsStatus } from './commands/status.ts';
 import { vpsLogs } from './commands/logs.ts';
 
-// TODO
-/**
- * add pm2 status check after deploy, add auto rollback if we detect that pm2 status is not ok, that will require a lot of architecture change since we don't preserve old versions but maybe claude knows something more, or we can change the architecture to preserve some old versions to allow rollback
- */
+// TODO [2026-06-01] review and merge the vps-checkout branch
 
 await yargs(hideBin(process.argv))
   .scriptName('vps')
