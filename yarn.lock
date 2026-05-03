@@ -225,6 +225,7 @@ __metadata:
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
     yargs: "npm:^18.0.0"
+    zod: "npm:^4.4.2"
   bin:
     dbz: src/cli.ts
   languageName: unknown
@@ -314,8 +315,10 @@ __metadata:
     prettier: "npm:^3.8.3"
     sanitize-filename: "npm:1.6.4"
     typescript: "npm:^6.0.3"
+    zod: "npm:^4.4.2"
   peerDependencies:
     prettier: "*"
+    zod: "*"
   peerDependenciesMeta:
     prettier:
       optional: true

@@ -29,8 +29,9 @@ export const dbz = {
     const published = await publish({ version, monorepo });
     if (published.length === 0) return;
 
+    const packages = published.map((p) => [p.name, p.version].join('@')).join(', ');
     await git.add();
-    await git.commit('RELEASE');
+    await git.commit(['chore(release): publish', packages].join(' '));
     await git.push();
     await createReleaseTags(git, published);
 

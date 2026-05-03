@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { consoleColor } from '@goatjs/node/console-color';
 import { getNextArg } from './cli-helpers.ts';
 import { isValidYarnVersion } from './publish.ts';
