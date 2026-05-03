@@ -7,11 +7,7 @@ import { connectToVps } from './commands/connect.ts';
 import { runPluginByName } from './commands/plugin.ts';
 import { vpsStatus } from './commands/status.ts';
 import { vpsLogs } from './commands/logs.ts';
-
-// TODO
-/**
- * add pm2 status check after deploy, add auto rollback if we detect that pm2 status is not ok, that will require a lot of architecture change since we don't preserve old versions but maybe claude knows something more, or we can change the architecture to preserve some old versions to allow rollback
- */
+import { rollbackVps } from './commands/rollback.ts';
 
 await yargs(hideBin(process.argv))
   .scriptName('vps')
@@ -31,6 +27,9 @@ await yargs(hideBin(process.argv))
   )
   .command('restart', 'Restart the VPS pm2 process via SSH', {}, async () => {
     await restartVps();
+  })
+  .command('rollback', 'Roll back to the previous release on the VPS', {}, async () => {
+    await rollbackVps();
   })
   .command('logs', 'Show pm2 logs from the VPS', {}, async () => {
     await vpsLogs();
