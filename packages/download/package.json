@@ -41,7 +41,7 @@
     "mime-types": "^3.0.2"
   },
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^2.15.0",
+    "@goatjs/node-monorepo-eslint": "^2.16.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",

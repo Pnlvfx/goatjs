@@ -147,7 +147,7 @@ __metadata:
   resolution: "@goatjs/cache@workspace:packages/cache"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
@@ -170,7 +170,7 @@ __metadata:
     "@goatjs/core": "workspace:*"
     "@goatjs/dbz": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
@@ -199,7 +199,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/core@workspace:packages/core"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.6.0"
@@ -215,7 +215,7 @@ __metadata:
   resolution: "@goatjs/dbz@workspace:packages/dbz"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -237,7 +237,7 @@ __metadata:
   resolution: "@goatjs/download@workspace:packages/download"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -256,7 +256,7 @@ __metadata:
   dependencies:
     "@goatjs/download": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -271,7 +271,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/link-preview@workspace:packages/link-preview"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -283,22 +283,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@goatjs/node-eslint@npm:2.15.0":
-  version: 2.15.0
-  resolution: "@goatjs/node-eslint@npm:2.15.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-2.15.0.tgz"
+"@goatjs/node-eslint@npm:2.16.0":
+  version: 2.16.0
+  resolution: "@goatjs/node-eslint@npm:2.16.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-eslint%2F-%2F%40goatjs%2Fnode-eslint-2.16.0.tgz"
   dependencies:
     "@goatjs/core-eslint": "npm:2.15.0"
-    globals: "npm:^17.5.0"
-  checksum: 10c0/77c8d560101e64fffaccec1409a48043b62f541f6dd55119ac746df2b23be8e28be43a19f8098f64d6eb9cf25ad8833063697dfef138fe27ff1f19f1584a71b4
+    globals: "npm:^17.6.0"
+  checksum: 10c0/5cf8e4df333a6b55a595d237ff6308e8a07cf9d8bb6e5b9edd7e6fdebf46c03700be0982565ba92ad54bb3322ef2b7a599ee9d1192ed5e5f1fcbe0f79a1ef4f8
   languageName: node
   linkType: hard
 
-"@goatjs/node-monorepo-eslint@npm:^2.15.0":
-  version: 2.15.0
-  resolution: "@goatjs/node-monorepo-eslint@npm:2.15.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-2.15.0.tgz"
+"@goatjs/node-monorepo-eslint@npm:^2.16.0":
+  version: 2.16.0
+  resolution: "@goatjs/node-monorepo-eslint@npm:2.16.0::__archiveUrl=https%3A%2F%2Feurope-west8-npm.pkg.dev%2Fopen-gto-2%2Fgoat%2F%40goatjs%2Fnode-monorepo-eslint%2F-%2F%40goatjs%2Fnode-monorepo-eslint-2.16.0.tgz"
   dependencies:
-    "@goatjs/node-eslint": "npm:2.15.0"
-  checksum: 10c0/5e5e54ed564f5ca1c25a324da13a9f258cda4f96d9798b5df9fcc6af13a20e65f96ff65216ff204e4d9744cd002cc2db0236a3324c749c258c36cbae5c9a3e2c
+    "@goatjs/node-eslint": "npm:2.16.0"
+  checksum: 10c0/950dea1db082b065059206c5bebfc43e412d2f8bf4fe62c76b6f980acbec5d341b92ee88c5b135b65ebea7a0433cfd3cc97f128059617c5f166c0f902b94e3df
   languageName: node
   linkType: hard
 
@@ -307,7 +307,7 @@ __metadata:
   resolution: "@goatjs/node@workspace:packages/node"
   dependencies:
     "@goatjs/core": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.6.0"
@@ -329,7 +329,7 @@ __metadata:
   resolution: "@goatjs/pslist@workspace:packages/pslist"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -344,7 +344,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/puppeteer-mouse@workspace:packages/puppeteer-mouse"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -362,7 +362,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/rimraf@workspace:packages/rimraf"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.6.0"
     eslint: "npm:^10.3.0"
@@ -378,7 +378,7 @@ __metadata:
   resolution: "@goatjs/storage@workspace:packages/storage"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -397,7 +397,7 @@ __metadata:
   resolution: "@goatjs/ts-unused-exports@workspace:packages/ts-unused-exports"
   dependencies:
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
     "@types/node": "npm:^25.6.0"
@@ -425,7 +425,7 @@ __metadata:
     "@goatjs/core": "workspace:*"
     "@goatjs/dbz": "workspace:*"
     "@goatjs/node": "workspace:*"
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/storage": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
@@ -450,7 +450,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@goatjs/zod-error@workspace:packages/zod-error"
   dependencies:
-    "@goatjs/node-monorepo-eslint": "npm:^2.15.0"
+    "@goatjs/node-monorepo-eslint": "npm:^2.16.0"
     "@goatjs/rimraf": "workspace:*"
     "@goatjs/ts-unused-exports": "workspace:*"
     "@goatjs/typescript-config": "workspace:*"
@@ -556,44 +556,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/darwin-64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/darwin-64@npm:2.9.7"
+"@turbo/darwin-64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/darwin-64@npm:2.9.8"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/darwin-arm64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/darwin-arm64@npm:2.9.7"
+"@turbo/darwin-arm64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/darwin-arm64@npm:2.9.8"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/linux-64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/linux-64@npm:2.9.7"
+"@turbo/linux-64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/linux-64@npm:2.9.8"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/linux-arm64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/linux-arm64@npm:2.9.7"
+"@turbo/linux-arm64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/linux-arm64@npm:2.9.8"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/windows-64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/windows-64@npm:2.9.7"
+"@turbo/windows-64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/windows-64@npm:2.9.8"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/windows-arm64@npm:2.9.7":
-  version: 2.9.7
-  resolution: "@turbo/windows-arm64@npm:2.9.7"
+"@turbo/windows-arm64@npm:2.9.8":
+  version: 2.9.8
+  resolution: "@turbo/windows-arm64@npm:2.9.8"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -2574,10 +2574,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.4.0, globals@npm:^17.5.0":
-  version: 17.5.0
-  resolution: "globals@npm:17.5.0"
-  checksum: 10c0/92828102ed2f5637907725f0478038bed02fc83e9fc89300bb753639ba7c022b6c02576fc772117302b431b204591db1f2fa909d26f3f0a9852cc856a941df3f
+"globals@npm:^17.4.0, globals@npm:^17.6.0":
+  version: 17.6.0
+  resolution: "globals@npm:17.6.0"
+  checksum: 10c0/cf94fb4329cc5c68cf81018fd68324f413181ee169f0235b0b33b82bc93fe7825a21beea951f83a80e8e4bbdad9c0c80515a145b5fd4b5cb52f2a80db899a93f
   languageName: node
   linkType: hard
 
@@ -2598,7 +2598,7 @@ __metadata:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/rimraf": "workspace:*"
     prettier: "npm:^3.8.3"
-    turbo: "npm:^2.9.7"
+    turbo: "npm:^2.9.8"
   languageName: unknown
   linkType: soft
 
@@ -4402,16 +4402,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:^2.9.7":
-  version: 2.9.7
-  resolution: "turbo@npm:2.9.7"
+"turbo@npm:^2.9.8":
+  version: 2.9.8
+  resolution: "turbo@npm:2.9.8"
   dependencies:
-    "@turbo/darwin-64": "npm:2.9.7"
-    "@turbo/darwin-arm64": "npm:2.9.7"
-    "@turbo/linux-64": "npm:2.9.7"
-    "@turbo/linux-arm64": "npm:2.9.7"
-    "@turbo/windows-64": "npm:2.9.7"
-    "@turbo/windows-arm64": "npm:2.9.7"
+    "@turbo/darwin-64": "npm:2.9.8"
+    "@turbo/darwin-arm64": "npm:2.9.8"
+    "@turbo/linux-64": "npm:2.9.8"
+    "@turbo/linux-arm64": "npm:2.9.8"
+    "@turbo/windows-64": "npm:2.9.8"
+    "@turbo/windows-arm64": "npm:2.9.8"
   dependenciesMeta:
     "@turbo/darwin-64":
       optional: true
@@ -4427,7 +4427,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/5fa010810ce251279dac83db02e60ebd8014cf8e74e69a6c09751ae28aef0fdb95aa09b059ce8c987a1746dd5b04bb3002bd7fdcb6d0016d8690f079fec43921
+  checksum: 10c0/deed2c7916125319cdbebf02f533d292871f805e5cf207bdfb4ae90554ceeb289452951c40f872fa1dbeb61cdd9bb5cf66c4c061ac43b7b48f81105f150d867c
   languageName: node
   linkType: hard
 
