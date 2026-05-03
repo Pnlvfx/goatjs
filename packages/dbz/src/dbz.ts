@@ -37,5 +37,8 @@ export const dbz = {
     if (!registry) throw new Error('Registry not found!');
     await execa('npm', ['unpublish', pkgName, '--force', '--registry', registry], { stdio: 'inherit' });
   },
+  login: async () => {
+    await execa('yarn', ['npm', 'login', '--registry', 'https://registry.npmjs.org', '--always-auth'], { stdio: 'inherit' });
+  },
   clear,
 };

@@ -37,6 +37,9 @@ await yargs(hideBin(process.argv))
       await dbz.unpublish(pkgName);
     },
   )
+  .command('login', 'Login to the npm registry defined in npmPublishRegistry', {}, async () => {
+    await dbz.login();
+  })
   .command('clear', 'Clear the project', {}, async () => {
     await dbz.clear();
     consoleColor('blue', 'Project cleaned.');
