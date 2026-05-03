@@ -41,7 +41,9 @@ const workspace = {
 export const yarn = {
   isMonorepo: async () => {
     const pkg = await getRootPkgJSON();
-    return Array.isArray(pkg.workspaces);
+    if (!Array.isArray(pkg.workspaces)) return false;
+    const workspaces = await workspace.list({ includePrivate: false });
+    return workspaces.length > 0;
   },
   workspace,
   config: {
