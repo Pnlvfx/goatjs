@@ -156,7 +156,7 @@ __metadata:
     eslint: "npm:^10.3.0"
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   peerDependencies:
     zod: "*"
   languageName: unknown
@@ -206,7 +206,7 @@ __metadata:
     eslint: "npm:^10.3.0"
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   languageName: unknown
   linkType: soft
 
@@ -225,7 +225,7 @@ __metadata:
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
     yargs: "npm:^18.0.0"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   bin:
     dbz: src/cli.ts
   languageName: unknown
@@ -315,7 +315,7 @@ __metadata:
     prettier: "npm:^3.8.3"
     sanitize-filename: "npm:1.6.4"
     typescript: "npm:^6.0.3"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   peerDependencies:
     prettier: "*"
     zod: "*"
@@ -387,7 +387,7 @@ __metadata:
     eslint: "npm:^10.3.0"
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   peerDependencies:
     zod: "*"
   languageName: unknown
@@ -441,7 +441,7 @@ __metadata:
     node-ssh: "npm:^13.2.1"
     typescript: "npm:^6.0.3"
     yargs: "npm:^18.0.0"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   bin:
     vps: src/cli.ts
   languageName: unknown
@@ -459,7 +459,7 @@ __metadata:
     eslint: "npm:^10.3.0"
     execa: "npm:^9.6.1"
     typescript: "npm:^6.0.3"
-    zod: "npm:^4.4.2"
+    zod: "npm:^4.4.3"
   peerDependencies:
     zod: "*"
   languageName: unknown
@@ -557,44 +557,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turbo/darwin-64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/darwin-64@npm:2.9.8"
+"@turbo/darwin-64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/darwin-64@npm:2.9.9"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/darwin-arm64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/darwin-arm64@npm:2.9.8"
+"@turbo/darwin-arm64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/darwin-arm64@npm:2.9.9"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/linux-64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/linux-64@npm:2.9.8"
+"@turbo/linux-64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/linux-64@npm:2.9.9"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/linux-arm64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/linux-arm64@npm:2.9.8"
+"@turbo/linux-arm64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/linux-arm64@npm:2.9.9"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@turbo/windows-64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/windows-64@npm:2.9.8"
+"@turbo/windows-64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/windows-64@npm:2.9.9"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@turbo/windows-arm64@npm:2.9.8":
-  version: 2.9.8
-  resolution: "@turbo/windows-arm64@npm:2.9.8"
+"@turbo/windows-arm64@npm:2.9.9":
+  version: 2.9.9
+  resolution: "@turbo/windows-arm64@npm:2.9.9"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -2599,7 +2599,7 @@ __metadata:
     "@goatjs/dbz": "workspace:*"
     "@goatjs/rimraf": "workspace:*"
     prettier: "npm:^3.8.3"
-    turbo: "npm:^2.9.8"
+    turbo: "npm:^2.9.9"
   languageName: unknown
   linkType: soft
 
@@ -4403,16 +4403,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:^2.9.8":
-  version: 2.9.8
-  resolution: "turbo@npm:2.9.8"
+"turbo@npm:^2.9.9":
+  version: 2.9.9
+  resolution: "turbo@npm:2.9.9"
   dependencies:
-    "@turbo/darwin-64": "npm:2.9.8"
-    "@turbo/darwin-arm64": "npm:2.9.8"
-    "@turbo/linux-64": "npm:2.9.8"
-    "@turbo/linux-arm64": "npm:2.9.8"
-    "@turbo/windows-64": "npm:2.9.8"
-    "@turbo/windows-arm64": "npm:2.9.8"
+    "@turbo/darwin-64": "npm:2.9.9"
+    "@turbo/darwin-arm64": "npm:2.9.9"
+    "@turbo/linux-64": "npm:2.9.9"
+    "@turbo/linux-arm64": "npm:2.9.9"
+    "@turbo/windows-64": "npm:2.9.9"
+    "@turbo/windows-arm64": "npm:2.9.9"
   dependenciesMeta:
     "@turbo/darwin-64":
       optional: true
@@ -4428,7 +4428,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/deed2c7916125319cdbebf02f533d292871f805e5cf207bdfb4ae90554ceeb289452951c40f872fa1dbeb61cdd9bb5cf66c4c061ac43b7b48f81105f150d867c
+  checksum: 10c0/8c6717c9b264b2cfdb06b2cc2bf30554c82a9ff421270b277ec4922cb4542f2b88e11180ea93e587c8e1f06bc277b88125abd561c6e6922e79044144f9bf676f
   languageName: node
   linkType: hard
 
@@ -4855,9 +4855,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^4.4.2":
-  version: 4.4.2
-  resolution: "zod@npm:4.4.2"
-  checksum: 10c0/aa5097464c41cf22d715cbc29873ae6feaaf56e687b81d140458d7c01201e7b9de1ee46c8567b5458ee3c0068b8a82b2652535b5d39589fcb5562d861c83ded3
+"zod@npm:^4.4.3":
+  version: 4.4.3
+  resolution: "zod@npm:4.4.3"
+  checksum: 10c0/7ea31b558e88f9faf44f31dd185e2e1cbf51fed3081787fb96cc2534749b50c0acfc6da7f0922a7353ed092dd358c7d50c28ea96c94d04af64191bd33152eca3
   languageName: node
   linkType: hard
