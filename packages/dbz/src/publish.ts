@@ -27,6 +27,7 @@ export const publish = async ({ version = 'minor', monorepo }: InternalPublishOp
       throw err;
     }
     const pkg = await getPkgJSON(path.resolve('package.json'));
+    if (!pkg.name) throw new Error('Missing name in package.json');
     if (!pkg.version) throw new Error('Missing version in package.json');
     return [{ name: pkg.name, version: pkg.version }];
   }
