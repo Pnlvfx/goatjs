@@ -15,8 +15,7 @@
   "type": "module",
   "exports": {
     ".": "./src/storage.ts",
-    "./logger": "./src/logger.ts",
-    "./store": "./src/store.ts"
+    "./logger": "./src/logger.ts"
   },
   "publishConfig": {
     "exports": {
@@ -29,11 +28,6 @@
         "types": "./dist/logger.d.ts",
         "import": "./dist/logger.js",
         "require": "./dist/logger.js"
-      },
-      "./store": {
-        "types": "./dist/store.d.ts",
-        "import": "./dist/store.js",
-        "require": "./dist/store.js"
       }
     }
   },
