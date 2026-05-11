@@ -38,14 +38,14 @@
     "README.md"
   ],
   "devDependencies": {
-    "@goatjs/node-monorepo-eslint": "^2.17.0",
+    "@goatjs/node-monorepo-eslint": "^2.18.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/ts-unused-exports": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
     "@types/node": "^25.6.2",
     "eslint": "^10.3.0",
     "execa": "^9.6.1",
-    "puppeteer-core": "^24.43.0",
+    "puppeteer-core": "^24.43.1",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
