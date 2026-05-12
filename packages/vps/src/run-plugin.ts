@@ -1,7 +1,9 @@
 import type { Plugin, PluginContext } from './types/plugin.ts';
-import { input } from '@goatjs/node/input';
+import { createInterface } from 'node:readline/promises';
 
 export const runPlugin = async (name: string, plugin: Plugin, ctx: PluginContext) => {
-  await input.create({ title: `Install ${name}?` });
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  await rl.question(`Install ${name}? Press Enter to continue.`);
+  rl.close();
   await plugin(ctx);
 };

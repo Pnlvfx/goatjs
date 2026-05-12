@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { createCacheKey } from '@goatjs/cache';
 import { camelizeObject } from '@goatjs/core/object/camel';
-import { input } from '@goatjs/node/input';
+import { createInterface } from 'node:readline/promises';
 import { storage } from '@goatjs/storage';
 import { dbz } from '@goatjs/dbz/dbz';
 import { getProjectTsConfig } from '@goatjs/dbz/typescript/read';
@@ -9,7 +9,9 @@ import { getDomainFromUrl } from '@goatjs/core/cookies';
 
 const run = async () => {
   try {
-    const text = await input.create({ title: '1. Write your code and test it.\n6. getDomainFromUrl' });
+    const rl = createInterface({ input: process.stdin, output: process.stdout });
+    const text = await rl.question('1. Write your code and test it.\n6. getDomainFromUrl\n');
+    rl.close();
 
     switch (text) {
       case '1': {

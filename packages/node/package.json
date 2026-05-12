@@ -43,6 +43,7 @@
   ],
   "dependencies": {
     "@goatjs/core": "workspace:*",
+    "@inquirer/prompts": "8.4.3",
     "sanitize-filename": "1.6.4"
   },
   "devDependencies": {

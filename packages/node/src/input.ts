@@ -10,6 +10,7 @@ let isRunning = false;
 let rl: readline.Interface | undefined;
 let isAborted = false;
 
+/** @deprecated use rl promises */
 export const input = {
   create: ({ title = 'Welcome! Press Enter to run your function.', color = 'blue' }: InputOptions = {}) => {
     if (isRunning) throw new Error('A script is already running. Please run one script at a time.');

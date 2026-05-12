@@ -17,6 +17,7 @@ export const getChangedWorkspaces = async (): Promise<ListItem[]> => {
   const git = createGitClient();
   const all = await yarn.workspace.list({ includePrivate: false });
   const withVersions: WorkspaceWithVersion[] = [];
+
   for (const w of all) {
     const version = await getWorkspaceVersion(w.location);
     withVersions.push({ ...w, version });
@@ -46,12 +47,7 @@ const getWorkspaceDeps = async (location: string): Promise<string[]> => {
   return Object.keys(pkg.dependencies ?? {});
 };
 
-const hasChangedSinceTag = async (
-  git: ReturnType<typeof createGitClient>,
-  name: string,
-  version: string,
-  location: string,
-) => {
+const hasChangedSinceTag = async (git: ReturnType<typeof createGitClient>, name: string, version: string, location: string) => {
   const tag = `${name}@${version}`;
   const exists = await git.tagExists(tag);
   const diff = exists ? await git.diffSince(tag, location) : '';

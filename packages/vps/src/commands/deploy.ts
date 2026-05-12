@@ -5,7 +5,7 @@ import { rimraf } from '@goatjs/rimraf';
 import { execa } from 'execa';
 import { createSshClient } from '../ssh.ts';
 import { updateSystem } from '../internal-plugins/update.ts';
-import { input } from '@goatjs/node/input';
+import { createInterface } from 'node:readline/promises';
 import { node } from '../internal-plugins/node.ts';
 import { nano } from '../internal-plugins/nano.ts';
 import { gcloud } from '../internal-plugins/gcloud.ts';
@@ -46,7 +46,9 @@ export const deployToVps = async ({ init, update }: DeployParams) => {
     }
 
     if (init) {
-      await input.create({ title: 'Are you sure that you want to init? It should be used only the first time.' });
+      const rl = createInterface({ input: process.stdin, output: process.stdout });
+      await rl.question('Are you sure that you want to init? It should be used only the first time. Press Enter to continue.');
+      rl.close();
 
       const requiredPlugins = [node, nano, unzip, gcloud, nginx, pm2, corepack];
 
