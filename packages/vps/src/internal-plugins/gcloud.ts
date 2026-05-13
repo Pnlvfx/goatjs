@@ -1,3 +1,4 @@
+import { rimraf } from '@goatjs/rimraf';
 import type { PluginContext } from '../types/plugin.ts';
 import path from 'node:path';
 
@@ -12,9 +13,12 @@ export const gcloud = async ({ ssh, gcpCredentialsPath }: PluginContext) => {
   );
   await ssh.execCommand('sudo apt-get update && sudo apt-get install -y google-cloud-cli');
 
+  await rimraf('/root/google-credentials.json'); // TODO [2026-06-10] REMOVE THIS WAS TO TRANSITION TO THE NEW PATH.
+  const vpsGcredentials = path.join('/root', 'credentials', 'google-credentials.json');
+
   // gcloud credentials
-  await ssh.putFile(gcpCredentialsPath, path.join('/root', 'google-credentials.json'));
+  await ssh.putFile(gcpCredentialsPath, vpsGcredentials);
 
   // gcloud login
-  await ssh.execCommand('gcloud auth activate-service-account --key-file=/root/google-credentials.json');
+  await ssh.execCommand(`gcloud auth activate-service-account --key-file=${vpsGcredentials}`);
 };

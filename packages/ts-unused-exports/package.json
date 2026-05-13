@@ -44,7 +44,7 @@
     "@goatjs/node-monorepo-eslint": "^2.18.0",
     "@goatjs/rimraf": "workspace:*",
     "@goatjs/typescript-config": "workspace:*",
-    "@types/node": "^25.6.2",
+    "@types/node": "^25.7.0",
     "eslint": "^10.3.0",
     "execa": "^9.6.1",
     "typescript": "^6.0.3"
