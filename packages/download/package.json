@@ -1,7 +1,7 @@
 {
   "name": "@goatjs/download",
   "description": "A utility for downloading files from URLs with automatic filename detection.",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "author": {
     "email": "simonegauli@gmail.com",
     "name": "Simone Gauli"
