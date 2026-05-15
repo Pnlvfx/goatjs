@@ -1,6 +1,5 @@
 export type ConsoleColor = 'red' | 'green' | 'blue' | 'yellow' | 'purple' | 'brown' | 'cyan' | 'white' | 'black' | 'gray' | 'orange' | 'lila';
 
-/** @deprecated */
 export const consoleColor = (color: ConsoleColor, ...optionalParameters: unknown[]) => {
   let fixedColor: string | undefined;
   switch (color) {
