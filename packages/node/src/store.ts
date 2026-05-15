@@ -6,6 +6,7 @@ import { fsExtra } from './fs-extra/fs-extra.ts';
 export interface StoreParams<T extends z.ZodType> {
   directory: string;
   initial?: z.infer<T>;
+  persist?: boolean;
 }
 
 export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>> {
@@ -20,9 +21,9 @@ export interface StoreResult<T extends z.ZodType, TParams extends StoreParams<T>
 export const createStore = async <T extends z.ZodType, TParams extends StoreParams<T>>(
   name: string,
   schema: T,
-  { directory, initial }: TParams,
+  { directory, initial, persist = true }: TParams,
 ): Promise<StoreResult<T, TParams>> => {
-  await fs.mkdir(directory, { recursive: true });
+  if (persist) await fs.mkdir(directory, { recursive: true });
   type StoreType = z.infer<T>;
   const configFile = path.join(directory, `${name}.json`);
   let currentConfig: StoreType | undefined;
@@ -37,20 +38,22 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
   };
 
   // validate prev stored
-  const buf = await getBuffer();
-  if (buf) {
-    const parsed: unknown = JSON.parse(buf.toString());
-    const result = await schema.safeParseAsync(parsed);
-    if (!result.success) {
-      throw new Error(
-        `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
-      );
+  if (persist) {
+    const buf = await getBuffer();
+    if (buf) {
+      const parsed: unknown = JSON.parse(buf.toString());
+      const result = await schema.safeParseAsync(parsed);
+      if (!result.success) {
+        throw new Error(
+          `Found corrupted store "${name}". The stored value doesn't match the current schema — this usually happens when the schema changes or the file is edited manually. Consider resetting or migrating the stored value.`,
+        );
+      }
     }
   }
   //
 
   const get = async () => {
-    if (currentConfig === undefined) {
+    if (persist && currentConfig === undefined) {
       const buf = await getBuffer();
       if (buf) {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
@@ -63,7 +66,7 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
 
   const write = async (value: StoreType) => {
     currentConfig = await schema.parseAsync(value);
-    await fs.writeFile(configFile, JSON.stringify(currentConfig));
+    if (persist) await fs.writeFile(configFile, JSON.stringify(currentConfig));
   };
 
   const isUpdater = (
@@ -89,9 +92,11 @@ export const createStore = async <T extends z.ZodType, TParams extends StorePara
     },
     clear: async () => {
       if (initial === undefined) {
-        try {
-          await fs.rm(configFile);
-        } catch {}
+        if (persist) {
+          try {
+            await fs.rm(configFile);
+          } catch {}
+        }
         currentConfig = undefined;
       } else {
         await write(initial);
